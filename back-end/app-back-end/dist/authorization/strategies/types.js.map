@@ -1,0 +1,1 @@
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../../../src/authorization/strategies/types.ts"],"names":[],"mappings":";;;AAAA,iDAA2D;AAG9C,QAAA,UAAU,GAAG,CAAC,IAAU,EAAe,EAAE;IAClD,OAAO;QACH,CAAC,qBAAU,CAAC,EAAE,IAAI,CAAC,EAAE,GAAG,EAAE;QAC1B,OAAO,EAAE,EAAC,GAAG,IAAI,EAAC;KACrB,CAAC;AACN,CAAC,CAAC"}
