@@ -1,0 +1,39 @@
+version: "2.4"
+services:
+    mongo:
+        image: mongo
+        ports:
+            - "27017:27017"
+        networks:
+            - coex-host
+        volumes:
+            - type: volume
+              source: mongo
+              target: /data/mongo            
+        container_name: "mongo"            
+
+    coex-be: 
+        build: .
+        image: coex-be
+        ports: 
+            - "3000:3000"
+        networks:
+            - coex-host 
+        depends_on:
+            - mongo
+        volumes:
+            - type: volume
+              source: coex-app
+              target: /home/node/coex/storage
+
+        container_name: "coex-be"              
+
+
+networks:
+    coex-host:
+volumes:
+    coex-app: 
+        external: true    
+    
+    mongo: 
+        external: true    

@@ -12,12 +12,14 @@ import path from 'path';
 import {LocalAuthStrategy} from './authorization/strategies';
 import {JWTStrategy} from './authorization/strategies/jwt';
 import {
+    EmailServiceBindings,
     JwtServiceBindings,
     JwtServiceConstants,
     PasswordHasherBindings,
     UserServiceBindings,
 } from './config/key';
 import {MySequence} from './sequence';
+import {EmailService} from './services/email.service';
 import {JwtService} from './services/jwt.service';
 import {PassportService} from './services/passport.service';
 import {PasswordHasherService} from './services/password-hasher.service';
@@ -69,6 +71,8 @@ export class AppApplication extends BootMixin(
         this.bind(UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(
             PassportService,
         );
+
+        this.bind(EmailServiceBindings.EMAIL_SERVICE).toClass(EmailService);
 
         this.bind(PasswordHasherBindings.ROUNDS).to(10);
         this.bind(PasswordHasherBindings.PASSWORD_HASHER).toClass(

@@ -23,10 +23,11 @@ let LocalAuthStrategy = class LocalAuthStrategy {
         this.strategy = new authentication_passport_1.StrategyAdapter(this.passportStrategy, this.name, types_1.mapProfile.bind(this));
     }
     async authenticate(request) {
-        return this.strategy.authenticate(request);
+        return await this.strategy.authenticate(request);
     }
     async verify(username, password, done) {
         const AUTH_FAILED_MESSAGE = 'User Name / Password not matching';
+        const EMAIL_VERIFIED_FAILED_MESSAGE = 'Email not verified.';
         const user = await this.userRepository.findOne({
             where: {
                 username,
@@ -34,6 +35,9 @@ let LocalAuthStrategy = class LocalAuthStrategy {
         });
         if (!user) {
             return done(null, null, { message: AUTH_FAILED_MESSAGE });
+        }
+        if (!(user === null || user === void 0 ? void 0 : user.emailVerified)) {
+            return done(null, null, { message: EMAIL_VERIFIED_FAILED_MESSAGE });
         }
         const isPasswordMatched = await this.passwordHasher.comparePassword(password, user.password);
         if (!isPasswordMatched) {

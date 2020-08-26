@@ -6,6 +6,7 @@ import {
 import {BindingKey} from '@loopback/core';
 import {Profile as PassportProfile} from 'passport';
 import {User} from '../models';
+import {EmailService} from '../services/email.service';
 import {PasswordHasher} from '../services/password-hasher.service';
 
 export namespace JwtServiceConstants {
@@ -40,5 +41,11 @@ export namespace JwtServiceBindings {
     );
     export const TOKEN_SERVICE = BindingKey.create<TokenService>(
         'services.authentication.jwt.tokenservice',
+    );
+}
+
+export namespace EmailServiceBindings {
+    export const EMAIL_SERVICE = BindingKey.create<EmailService>(
+        'services.email',
     );
 }

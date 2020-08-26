@@ -5,5 +5,5 @@ export declare class JwtService implements TokenService {
     private expireValue;
     constructor(secretKey: string, expireValue: string);
     verifyToken(token: string): Promise<UserProfile>;
-    generateToken(user: UserProfile): Promise<string>;
+    generateToken(user: UserProfile, expire?: Number): Promise<string>;
 }

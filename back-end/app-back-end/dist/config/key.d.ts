@@ -2,6 +2,7 @@ import { TokenService, UserIdentityService, UserService } from '@loopback/authen
 import { BindingKey } from '@loopback/core';
 import { Profile as PassportProfile } from 'passport';
 import { User } from '../models';
+import { EmailService } from '../services/email.service';
 import { PasswordHasher } from '../services/password-hasher.service';
 export declare namespace JwtServiceConstants {
     const SECRET_KEY = "secretKey";
@@ -22,4 +23,7 @@ export declare namespace JwtServiceBindings {
     const SECRET_KEY: BindingKey<string>;
     const TOKEN_EXPIRES_IN: BindingKey<string>;
     const TOKEN_SERVICE: BindingKey<TokenService>;
+}
+export declare namespace EmailServiceBindings {
+    const EMAIL_SERVICE: BindingKey<EmailService>;
 }

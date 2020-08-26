@@ -80,6 +80,7 @@ export class User extends Entity {
         type: 'array',
         itemType: 'string',
         required: true,
+        default: ['client'],
     })
     role: string[];
 

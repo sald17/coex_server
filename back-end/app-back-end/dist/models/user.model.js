@@ -100,6 +100,7 @@ tslib_1.__decorate([
         type: 'array',
         itemType: 'string',
         required: true,
+        default: ['client'],
     }),
     tslib_1.__metadata("design:type", Array)
 ], User.prototype, "role", void 0);

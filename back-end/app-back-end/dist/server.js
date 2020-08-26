@@ -4,6 +4,7 @@ exports.ExpressServer = void 0;
 const tslib_1 = require("tslib");
 const events_1 = require("events");
 const express_1 = tslib_1.__importDefault(require("express"));
+const http_1 = tslib_1.__importDefault(require("http"));
 const path = tslib_1.__importStar(require("path"));
 const application_1 = require("./application");
 class ExpressServer {
@@ -24,7 +25,7 @@ class ExpressServer {
         await this.loopbackApp.start();
         const port = (_a = this.loopbackApp.restServer.config.port) !== null && _a !== void 0 ? _a : 3000;
         const host = (_b = this.loopbackApp.restServer.config.host) !== null && _b !== void 0 ? _b : 'localhost';
-        this.server = this.expressApp.listen(port, host);
+        this.server = http_1.default.createServer(this.expressApp).listen(port);
         await events_1.once(this.server, 'listening');
         const add = this.server.address();
         this.url = `http://${add.address}:${add.port}`;

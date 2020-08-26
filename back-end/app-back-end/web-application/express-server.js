@@ -43,5 +43,5 @@ function requireLogin(req, res, next) {
 }
 
 app.get('/', (req, res, next) => {
-    res.render('index');
+    res.send('index');
 });

@@ -36,12 +36,15 @@ export class JwtService implements TokenService {
 
         return userProfile;
     }
-    async generateToken(user: UserProfile): Promise<string> {
+    async generateToken(
+        user: UserProfile,
+        expire: Number = Number(this.expireValue),
+    ): Promise<string> {
         if (!user) {
             throw new HttpErrors.Unauthorized('Invalid user');
         }
         const token: string = signAsync(user.profile, this.secretKey, {
-            expiresIn: Number(this.expireValue),
+            expiresIn: expire,
         });
         return token;
     }

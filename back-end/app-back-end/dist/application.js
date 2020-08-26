@@ -14,6 +14,7 @@ const strategies_1 = require("./authorization/strategies");
 const jwt_1 = require("./authorization/strategies/jwt");
 const key_1 = require("./config/key");
 const sequence_1 = require("./sequence");
+const email_service_1 = require("./services/email.service");
 const jwt_service_1 = require("./services/jwt.service");
 const passport_service_1 = require("./services/passport.service");
 const password_hasher_service_1 = require("./services/password-hasher.service");
@@ -47,6 +48,7 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         this.bind(key_1.JwtServiceBindings.TOKEN_EXPIRES_IN).to(key_1.JwtServiceConstants.EXPIRES_VALUE);
         this.bind(key_1.JwtServiceBindings.TOKEN_SERVICE).toClass(jwt_service_1.JwtService);
         this.bind(key_1.UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(passport_service_1.PassportService);
+        this.bind(key_1.EmailServiceBindings.EMAIL_SERVICE).toClass(email_service_1.EmailService);
         this.bind(key_1.PasswordHasherBindings.ROUNDS).to(10);
         this.bind(key_1.PasswordHasherBindings.PASSWORD_HASHER).toClass(password_hasher_service_1.PasswordHasherService);
         this.add(core_1.createBindingFromClass(strategies_1.LocalAuthStrategy));

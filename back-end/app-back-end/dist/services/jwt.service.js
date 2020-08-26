@@ -34,12 +34,12 @@ let JwtService = class JwtService {
         });
         return userProfile;
     }
-    async generateToken(user) {
+    async generateToken(user, expire = Number(this.expireValue)) {
         if (!user) {
             throw new rest_1.HttpErrors.Unauthorized('Invalid user');
         }
         const token = signAsync(user.profile, this.secretKey, {
-            expiresIn: Number(this.expireValue),
+            expiresIn: expire,
         });
         return token;
     }

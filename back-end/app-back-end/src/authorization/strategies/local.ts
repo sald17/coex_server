@@ -37,7 +37,7 @@ export class LocalAuthStrategy implements AuthenticationStrategy {
     }
 
     async authenticate(request: Request): Promise<UserProfile | RedirectRoute> {
-        return this.strategy.authenticate(request);
+        return await this.strategy.authenticate(request);
     }
 
     async verify(
@@ -46,6 +46,7 @@ export class LocalAuthStrategy implements AuthenticationStrategy {
         done: (error: any, user?: any, options?: IVerifyOptions) => void,
     ) {
         const AUTH_FAILED_MESSAGE = 'User Name / Password not matching';
+        const EMAIL_VERIFIED_FAILED_MESSAGE = 'Email not verified.';
         const user = await this.userRepository.findOne({
             where: {
                 username,
@@ -54,6 +55,9 @@ export class LocalAuthStrategy implements AuthenticationStrategy {
 
         if (!user) {
             return done(null, null, {message: AUTH_FAILED_MESSAGE});
+        }
+        if (!user?.emailVerified) {
+            return done(null, null, {message: EMAIL_VERIFIED_FAILED_MESSAGE});
         }
 
         const isPasswordMatched = await this.passwordHasher.comparePassword(

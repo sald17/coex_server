@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JwtServiceBindings = exports.UserServiceBindings = exports.PassportAuthenticationServiceBindings = exports.PasswordHasherBindings = exports.JwtServiceConstants = void 0;
+exports.EmailServiceBindings = exports.JwtServiceBindings = exports.UserServiceBindings = exports.PassportAuthenticationServiceBindings = exports.PasswordHasherBindings = exports.JwtServiceConstants = void 0;
 const core_1 = require("@loopback/core");
 var JwtServiceConstants;
 (function (JwtServiceConstants) {
@@ -27,4 +27,8 @@ var JwtServiceBindings;
     JwtServiceBindings.TOKEN_EXPIRES_IN = core_1.BindingKey.create('authentication.jwt.expires.in.seconds');
     JwtServiceBindings.TOKEN_SERVICE = core_1.BindingKey.create('services.authentication.jwt.tokenservice');
 })(JwtServiceBindings = exports.JwtServiceBindings || (exports.JwtServiceBindings = {}));
+var EmailServiceBindings;
+(function (EmailServiceBindings) {
+    EmailServiceBindings.EMAIL_SERVICE = core_1.BindingKey.create('services.email');
+})(EmailServiceBindings = exports.EmailServiceBindings || (exports.EmailServiceBindings = {}));
 //# sourceMappingURL=key.js.map

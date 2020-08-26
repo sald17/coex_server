@@ -36,7 +36,7 @@ export class ExpressServer {
         await this.loopbackApp.start();
         const port = this.loopbackApp.restServer.config.port ?? 3000;
         const host = this.loopbackApp.restServer.config.host ?? 'localhost';
-        this.server = this.expressApp.listen(port, host);
+        this.server = http.createServer(this.expressApp).listen(port);
         await once(this.server, 'listening');
 
         const add = <AddressInfo>this.server.address();
