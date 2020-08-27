@@ -30,6 +30,17 @@ let EmailService = class EmailService {
         };
         this.transporter.sendMail(mailContent);
     }
+    async sendEmail(rcver, content) {
+        const mailContent = {
+            from: MY_EMAIL,
+            to: rcver,
+            subject: 'Test email',
+            text: content,
+        };
+        let result = this.transporter.sendMail(mailContent);
+        console.log('===========');
+        console.log(result);
+    }
 };
 EmailService = tslib_1.__decorate([
     core_1.bind({ scope: core_1.BindingScope.TRANSIENT }),

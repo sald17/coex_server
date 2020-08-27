@@ -8,18 +8,22 @@ import {
     RestExplorerComponent,
 } from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
+import multer from 'multer';
 import path from 'path';
 import {LocalAuthStrategy} from './authorization/strategies';
 import {JWTStrategy} from './authorization/strategies/jwt';
 import {
     EmailServiceBindings,
+    FILE_UPLOAD_SERVICE,
     JwtServiceBindings,
     JwtServiceConstants,
     PasswordHasherBindings,
+    STORAGE_DIRECTORY,
     UserServiceBindings,
 } from './config/key';
 import {MySequence} from './sequence';
 import {EmailService} from './services/email.service';
+import {FileUploadProvider} from './services/file-upload';
 import {JwtService} from './services/jwt.service';
 import {PassportService} from './services/passport.service';
 import {PasswordHasherService} from './services/password-hasher.service';
@@ -46,6 +50,8 @@ export class AppApplication extends BootMixin(
             path: '/explorer',
         });
         this.component(RestExplorerComponent);
+
+        this.configureFileUpload();
 
         this.projectRoot = __dirname;
         // Customize @loopback/boot Booter Conventions here
@@ -81,5 +87,25 @@ export class AppApplication extends BootMixin(
 
         this.add(createBindingFromClass(LocalAuthStrategy));
         this.add(createBindingFromClass(JWTStrategy));
+    }
+
+    protected configureFileUpload(destination?: string) {
+        // Upload files to `dist/.sandbox` by default
+        // const homedir = os.homedir();
+        destination = path.join(__dirname, '../storage');
+        console.log(destination);
+        this.bind(STORAGE_DIRECTORY).to(destination);
+        const multerOptions: multer.Options = {
+            storage: multer.diskStorage({
+                destination,
+                // Use the original file name as is
+                filename: (req, file, cb) => {
+                    cb(null, file.originalname);
+                },
+            }),
+        };
+        // Configure the file upload service with multer options
+        this.bind(FILE_UPLOAD_SERVICE).toProvider(FileUploadProvider);
+        this.configure(FILE_UPLOAD_SERVICE).to(multerOptions);
     }
 }

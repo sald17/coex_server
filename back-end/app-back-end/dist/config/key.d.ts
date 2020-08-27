@@ -1,5 +1,7 @@
+/// <reference types="qs" />
 import { TokenService, UserIdentityService, UserService } from '@loopback/authentication';
 import { BindingKey } from '@loopback/core';
+import { RequestHandler } from 'express-serve-static-core';
 import { Profile as PassportProfile } from 'passport';
 import { User } from '../models';
 import { EmailService } from '../services/email.service';
@@ -27,3 +29,11 @@ export declare namespace JwtServiceBindings {
 export declare namespace EmailServiceBindings {
     const EMAIL_SERVICE: BindingKey<EmailService>;
 }
+/**
+ * Binding key for the file upload service
+ */
+export declare const FILE_UPLOAD_SERVICE: BindingKey<RequestHandler<import("express-serve-static-core").ParamsDictionary, any, any, import("qs").ParsedQs>>;
+/**
+ * Binding key for the storage directory
+ */
+export declare const STORAGE_DIRECTORY: BindingKey<string>;
