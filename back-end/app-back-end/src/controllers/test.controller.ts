@@ -2,6 +2,7 @@
 
 import {inject} from '@loopback/core';
 import {get} from '@loopback/rest';
+import {} from 'util';
 import {EmailServiceBindings} from '../config/key';
 import {EmailService} from '../services/email.service';
 // import {inject} from '@loopback/core';
