@@ -32,4 +32,16 @@ export class EmailService {
         };
         this.transporter.sendMail(mailContent);
     }
+
+    async sendEmail(rcver: string, content: string) {
+        const mailContent = {
+            from: MY_EMAIL,
+            to: rcver,
+            subject: 'Test email',
+            text: content,
+        };
+        let result = this.transporter.sendMail(mailContent);
+        console.log('===========');
+        console.log(result);
+    }
 }

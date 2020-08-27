@@ -4,11 +4,11 @@ import {
     UserService,
 } from '@loopback/authentication';
 import {BindingKey} from '@loopback/core';
+import {RequestHandler} from 'express-serve-static-core';
 import {Profile as PassportProfile} from 'passport';
 import {User} from '../models';
 import {EmailService} from '../services/email.service';
 import {PasswordHasher} from '../services/password-hasher.service';
-
 export namespace JwtServiceConstants {
     export const SECRET_KEY = 'secretKey';
     export const EXPIRES_VALUE = '10000';
@@ -49,3 +49,15 @@ export namespace EmailServiceBindings {
         'services.email',
     );
 }
+
+/**
+ * Binding key for the file upload service
+ */
+export const FILE_UPLOAD_SERVICE = BindingKey.create<RequestHandler>(
+    'services.FileUpload',
+);
+
+/**
+ * Binding key for the storage directory
+ */
+export const STORAGE_DIRECTORY = BindingKey.create<string>('storage.directory');
