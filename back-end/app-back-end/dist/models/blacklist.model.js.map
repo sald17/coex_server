@@ -1,0 +1,1 @@
+{"version":3,"file":"blacklist.model.js","sourceRoot":"","sources":["../../src/models/blacklist.model.ts"],"names":[],"mappings":";;;;AAAA,qDAA6D;AAC7D,+CAAoC;AAGpC,IAAa,SAAS,GAAtB,MAAa,SAAU,SAAQ,mBAAM;IAIjC,YAAY,IAAyB;QACjC,KAAK,CAAC,IAAI,CAAC,CAAC;IAChB,CAAC;CACJ,CAAA;AALG;IADC,qBAAQ,CAAC,KAAK,CAAC,mBAAK,CAAC;;uCACP;AAFN,SAAS;IADrB,kBAAK,EAAE;;GACK,SAAS,CAOrB;AAPY,8BAAS"}

@@ -6,6 +6,7 @@ const core_1 = require("@loopback/core");
 const rest_1 = require("@loopback/rest");
 const security_1 = require("@loopback/security");
 const util_1 = require("util");
+const uuid_1 = require("uuid");
 // import JWT from 'jsonwebtoken';
 const key_1 = require("../config/key");
 const JWT = require('jsonwebtoken');
@@ -21,16 +22,14 @@ let JwtService = class JwtService {
         if (!token) {
             throw new rest_1.HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
         }
-        let isValid = await verifyAsync(token, this.secretKey);
-        if (!isValid) {
+        let validProfile = await verifyAsync(token, this.secretKey);
+        if (!validProfile) {
             throw new rest_1.HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
         }
         // console.log(isValid);
         let userProfile = Object.assign({
-            [security_1.securityId]: isValid.id,
-            profile: {
-                ...isValid,
-            },
+            [security_1.securityId]: validProfile.id,
+            ...validProfile,
         });
         return userProfile;
     }
@@ -38,7 +37,9 @@ let JwtService = class JwtService {
         if (!user) {
             throw new rest_1.HttpErrors.Unauthorized('Invalid user');
         }
-        const token = signAsync(user.profile, this.secretKey, {
+        let payload = Object.assign({}, user, { jti: uuid_1.v4() });
+        console.log(payload);
+        const token = signAsync(payload, this.secretKey, {
             expiresIn: expire,
         });
         return token;

@@ -8,7 +8,12 @@ import { EmailService } from '../services/email.service';
 import { PasswordHasher } from '../services/password-hasher.service';
 export declare namespace JwtServiceConstants {
     const SECRET_KEY = "secretKey";
-    const EXPIRES_VALUE = "10000";
+    const EXPIRES_VALUE = 20;
+}
+export declare namespace JwtServiceBindings {
+    const SECRET_KEY: BindingKey<string>;
+    const TOKEN_EXPIRES_IN: BindingKey<number>;
+    const TOKEN_SERVICE: BindingKey<TokenService>;
 }
 export declare namespace PasswordHasherBindings {
     const PASSWORD_HASHER: BindingKey<PasswordHasher<string>>;
@@ -20,11 +25,6 @@ export declare namespace PassportAuthenticationServiceBindings {
 export declare namespace UserServiceBindings {
     const USER_SERVICE: BindingKey<UserService<User, User>>;
     const PASSPORT_USER_IDENTITY_SERVICE: BindingKey<UserIdentityService<PassportProfile, User>>;
-}
-export declare namespace JwtServiceBindings {
-    const SECRET_KEY: BindingKey<string>;
-    const TOKEN_EXPIRES_IN: BindingKey<string>;
-    const TOKEN_SERVICE: BindingKey<TokenService>;
 }
 export declare namespace EmailServiceBindings {
     const EMAIL_SERVICE: BindingKey<EmailService>;

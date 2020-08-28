@@ -22,8 +22,4 @@ export class PasswordHasherService implements PasswordHasher<string> {
         let isMatched = await bcrypt.compare(providedPassword, storedPassword);
         return isMatched;
     }
-
-    /*
-     * Add service methods here
-     */
 }

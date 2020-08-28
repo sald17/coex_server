@@ -1,12 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.STORAGE_DIRECTORY = exports.FILE_UPLOAD_SERVICE = exports.EmailServiceBindings = exports.JwtServiceBindings = exports.UserServiceBindings = exports.PassportAuthenticationServiceBindings = exports.PasswordHasherBindings = exports.JwtServiceConstants = void 0;
+exports.STORAGE_DIRECTORY = exports.FILE_UPLOAD_SERVICE = exports.EmailServiceBindings = exports.UserServiceBindings = exports.PassportAuthenticationServiceBindings = exports.PasswordHasherBindings = exports.JwtServiceBindings = exports.JwtServiceConstants = void 0;
 const core_1 = require("@loopback/core");
 var JwtServiceConstants;
 (function (JwtServiceConstants) {
     JwtServiceConstants.SECRET_KEY = 'secretKey';
-    JwtServiceConstants.EXPIRES_VALUE = '10000';
+    JwtServiceConstants.EXPIRES_VALUE = 20;
 })(JwtServiceConstants = exports.JwtServiceConstants || (exports.JwtServiceConstants = {}));
+var JwtServiceBindings;
+(function (JwtServiceBindings) {
+    JwtServiceBindings.SECRET_KEY = core_1.BindingKey.create('authentication.jwt.secret');
+    JwtServiceBindings.TOKEN_EXPIRES_IN = core_1.BindingKey.create('authentication.jwt.expires.in.seconds');
+    JwtServiceBindings.TOKEN_SERVICE = core_1.BindingKey.create('services.authentication.jwt.tokenservice');
+})(JwtServiceBindings = exports.JwtServiceBindings || (exports.JwtServiceBindings = {}));
 var PasswordHasherBindings;
 (function (PasswordHasherBindings) {
     PasswordHasherBindings.PASSWORD_HASHER = core_1.BindingKey.create('services.hasher');
@@ -21,12 +27,6 @@ var UserServiceBindings;
     UserServiceBindings.USER_SERVICE = core_1.BindingKey.create('services.user.service');
     UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE = core_1.BindingKey.create('services.passport.identity');
 })(UserServiceBindings = exports.UserServiceBindings || (exports.UserServiceBindings = {}));
-var JwtServiceBindings;
-(function (JwtServiceBindings) {
-    JwtServiceBindings.SECRET_KEY = core_1.BindingKey.create('authentication.jwt.secret');
-    JwtServiceBindings.TOKEN_EXPIRES_IN = core_1.BindingKey.create('authentication.jwt.expires.in.seconds');
-    JwtServiceBindings.TOKEN_SERVICE = core_1.BindingKey.create('services.authentication.jwt.tokenservice');
-})(JwtServiceBindings = exports.JwtServiceBindings || (exports.JwtServiceBindings = {}));
 var EmailServiceBindings;
 (function (EmailServiceBindings) {
     EmailServiceBindings.EMAIL_SERVICE = core_1.BindingKey.create('services.email');

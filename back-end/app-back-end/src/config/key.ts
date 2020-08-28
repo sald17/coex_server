@@ -9,10 +9,24 @@ import {Profile as PassportProfile} from 'passport';
 import {User} from '../models';
 import {EmailService} from '../services/email.service';
 import {PasswordHasher} from '../services/password-hasher.service';
+
 export namespace JwtServiceConstants {
     export const SECRET_KEY = 'secretKey';
-    export const EXPIRES_VALUE = '10000';
+    export const EXPIRES_VALUE = 20;
 }
+
+export namespace JwtServiceBindings {
+    export const SECRET_KEY = BindingKey.create<string>(
+        'authentication.jwt.secret',
+    );
+    export const TOKEN_EXPIRES_IN = BindingKey.create<number>(
+        'authentication.jwt.expires.in.seconds',
+    );
+    export const TOKEN_SERVICE = BindingKey.create<TokenService>(
+        'services.authentication.jwt.tokenservice',
+    );
+}
+
 export namespace PasswordHasherBindings {
     export const PASSWORD_HASHER = BindingKey.create<PasswordHasher>(
         'services.hasher',
@@ -30,18 +44,6 @@ export namespace UserServiceBindings {
     export const PASSPORT_USER_IDENTITY_SERVICE = BindingKey.create<
         UserIdentityService<PassportProfile, User>
     >('services.passport.identity');
-}
-
-export namespace JwtServiceBindings {
-    export const SECRET_KEY = BindingKey.create<string>(
-        'authentication.jwt.secret',
-    );
-    export const TOKEN_EXPIRES_IN = BindingKey.create<string>(
-        'authentication.jwt.expires.in.seconds',
-    );
-    export const TOKEN_SERVICE = BindingKey.create<TokenService>(
-        'services.authentication.jwt.tokenservice',
-    );
 }
 
 export namespace EmailServiceBindings {

@@ -45,7 +45,7 @@ export class LocalAuthStrategy implements AuthenticationStrategy {
         password: string,
         done: (error: any, user?: any, options?: IVerifyOptions) => void,
     ) {
-        const AUTH_FAILED_MESSAGE = 'User Name / Password not matching';
+        const AUTH_FAILED_MESSAGE = 'User Name / Password not correct';
         const EMAIL_VERIFIED_FAILED_MESSAGE = 'Email not verified.';
         const user = await this.userRepository.findOne({
             where: {

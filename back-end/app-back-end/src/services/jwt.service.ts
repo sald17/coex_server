@@ -3,6 +3,7 @@ import {bind, BindingScope, inject} from '@loopback/core';
 import {HttpErrors} from '@loopback/rest';
 import {securityId, UserProfile} from '@loopback/security';
 import {promisify} from 'util';
+import {v4 as uuidv4} from 'uuid';
 // import JWT from 'jsonwebtoken';
 import {JwtServiceBindings} from '../config/key';
 const JWT = require('jsonwebtoken');
@@ -22,16 +23,14 @@ export class JwtService implements TokenService {
             throw new HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
         }
 
-        let isValid = await verifyAsync(token, this.secretKey);
-        if (!isValid) {
+        let validProfile = await verifyAsync(token, this.secretKey);
+        if (!validProfile) {
             throw new HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
         }
         // console.log(isValid);
         let userProfile: UserProfile = Object.assign({
-            [securityId]: isValid.id,
-            profile: {
-                ...isValid,
-            },
+            [securityId]: validProfile.id,
+            ...validProfile,
         });
 
         return userProfile;
@@ -43,7 +42,9 @@ export class JwtService implements TokenService {
         if (!user) {
             throw new HttpErrors.Unauthorized('Invalid user');
         }
-        const token: string = signAsync(user.profile, this.secretKey, {
+        let payload = Object.assign({}, user, {jti: uuidv4()});
+        console.log(payload);
+        const token: string = signAsync(payload, this.secretKey, {
             expiresIn: expire,
         });
         return token;

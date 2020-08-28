@@ -26,7 +26,7 @@ let LocalAuthStrategy = class LocalAuthStrategy {
         return await this.strategy.authenticate(request);
     }
     async verify(username, password, done) {
-        const AUTH_FAILED_MESSAGE = 'User Name / Password not matching';
+        const AUTH_FAILED_MESSAGE = 'User Name / Password not correct';
         const EMAIL_VERIFIED_FAILED_MESSAGE = 'Email not verified.';
         const user = await this.userRepository.findOne({
             where: {

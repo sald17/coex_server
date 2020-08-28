@@ -5,15 +5,18 @@ const tslib_1 = require("tslib");
 const authentication_1 = require("@loopback/authentication");
 const boot_1 = require("@loopback/boot");
 const core_1 = require("@loopback/core");
+const cron_1 = require("@loopback/cron");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const rest_explorer_1 = require("@loopback/rest-explorer");
 const service_proxy_1 = require("@loopback/service-proxy");
 const multer_1 = tslib_1.__importDefault(require("multer"));
 const path_1 = tslib_1.__importDefault(require("path"));
+const user_account_interceptor_1 = require("./authorization/interceptor/user-account-interceptor");
 const strategies_1 = require("./authorization/strategies");
 const jwt_1 = require("./authorization/strategies/jwt");
 const key_1 = require("./config/key");
+const cronjob_1 = require("./cronjob");
 const sequence_1 = require("./sequence");
 const email_service_1 = require("./services/email.service");
 const file_upload_1 = require("./services/file-upload");
@@ -27,6 +30,7 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         // Set up the custom sequence
         this.sequence(sequence_1.MySequence);
         this.component(authentication_1.AuthenticationComponent);
+        this.component(cron_1.CronComponent);
         // Set up default home page
         this.static('/', path_1.default.join(__dirname, '../public'));
         // Customize @loopback/rest-explorer configuration here
@@ -54,6 +58,8 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         this.bind(key_1.EmailServiceBindings.EMAIL_SERVICE).toClass(email_service_1.EmailService);
         this.bind(key_1.PasswordHasherBindings.ROUNDS).to(10);
         this.bind(key_1.PasswordHasherBindings.PASSWORD_HASHER).toClass(password_hasher_service_1.PasswordHasherService);
+        this.bind(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY).toProvider(user_account_interceptor_1.UserAccountInterceptor);
+        this.add(core_1.createBindingFromClass(cronjob_1.BlacklistCron));
         this.add(core_1.createBindingFromClass(strategies_1.LocalAuthStrategy));
         this.add(core_1.createBindingFromClass(jwt_1.JWTStrategy));
     }

@@ -8,44 +8,26 @@ const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const security_1 = require("@loopback/security");
+const user_account_interceptor_1 = require("../authorization/interceptor/user-account-interceptor");
 const key_1 = require("../config/key");
 const repositories_1 = require("../repositories");
 const email_service_1 = require("../services/email.service");
-const file_upload_1 = require("../services/file-upload");
 const jwt_service_1 = require("../services/jwt.service");
 const password_hasher_service_1 = require("../services/password-hasher.service");
 // import {inject} from '@loopback/core';
 let UserControllerController = class UserControllerController {
-    constructor(userRepository, thirdPartyRepository, passwordHasher, jwtService, emailService, uploadFileService) {
+    constructor(userRepository, thirdPartyRepository, blacklist, user, passwordHasher, jwtService, emailService, uploadFileService) {
         this.userRepository = userRepository;
         this.thirdPartyRepository = thirdPartyRepository;
+        this.blacklist = blacklist;
+        this.user = user;
         this.passwordHasher = passwordHasher;
         this.jwtService = jwtService;
         this.emailService = emailService;
         this.uploadFileService = uploadFileService;
     }
-    async getUser(userProfile) {
-        return await this.userRepository.find({
-            include: [
-                {
-                    relation: 'identities',
-                },
-            ],
-        });
-    }
-    async fileUpload(request, response) {
-        return new Promise((resolve, reject) => {
-            this.uploadFileService(request, response, (err) => {
-                if (err)
-                    reject(err);
-                else {
-                    resolve(file_upload_1.FileUploadProvider.getFilesAndFields(request));
-                }
-            });
-        });
-    }
+    // User sign up
     async signup(user) {
-        console.log(user);
         const isExisted = await this.userRepository.findOne({
             where: {
                 email: user.email,
@@ -53,13 +35,11 @@ let UserControllerController = class UserControllerController {
         });
         if (isExisted) {
             throw new rest_1.HttpErrors.BadRequest('Email is already registered.');
-            return;
         }
         user.password = await this.passwordHasher.hashPassword(user.password);
         const newUser = await this.userRepository.create(user);
         if (!newUser) {
             throw new rest_1.HttpErrors.BadRequest('Error in registering. Try again');
-            return;
         }
         const userProfile = Object.assign({
             profile: {
@@ -70,57 +50,62 @@ let UserControllerController = class UserControllerController {
             },
         });
         let verifiedToken = await this.jwtService.generateToken(userProfile, 1000 * 60 * 10);
-        await this.emailService.sendVerificationEmail(newUser.email, verifiedToken);
-        return { messgage: 'Created successfully' };
+        let sentEmail = await this.emailService.sendVerificationEmail(newUser.email, verifiedToken);
+        if (sentEmail.error) {
+            await this.userRepository.delete(newUser);
+            throw new rest_1.HttpErrors.BadRequest('You must register with valid email.');
+        }
+        console.log('asdfqwer');
+        return { message: 'Created successfully' };
     }
+    // User log in
     async login(user, userProfile, request, response) {
-        delete userProfile.profile.password;
-        let token = await this.jwtService.generateToken(userProfile);
+        const profile = {
+            [security_1.securityId]: userProfile[security_1.securityId],
+            profile: {
+                id: userProfile.profile.id,
+                fullname: userProfile.profile.fullname,
+                role: userProfile.profile.role,
+            },
+        };
+        let token = await this.jwtService.generateToken(profile);
         return { token };
     }
+    // Verify email
     async verifyEmail(verifyToken) {
         const verified = await this.jwtService.verifyToken(verifyToken);
         if (!verified) {
-            throw new rest_1.HttpErrors.BadRequest();
-            return;
+            throw new rest_1.HttpErrors.BadRequest(`Outdated token.`);
         }
-        this.userRepository.updateById(verified.profile.id, {
+        await this.userRepository.updateById(verified.profile.id, {
             emailVerified: true,
         });
         return 'Email is verified';
     }
+    async logout() {
+        const storeValue = `${this.user.jti}:${this.user.exp}`;
+        await this.blacklist.addToken(storeValue);
+        return { message: 'Logged out' };
+        // console.log(this.user.p);
+        // let a = await this.blacklist.set(
+        //     this.user.profile.id,
+        //     this.user.profile.jti,
+        // );
+    }
 };
 tslib_1.__decorate([
-    authentication_1.authenticate('jwt'),
-    rest_1.get('/users'),
-    tslib_1.__param(0, core_1.inject(security_1.SecurityBindings.USER)),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], UserControllerController.prototype, "getUser", null);
-tslib_1.__decorate([
-    rest_1.post('/files', {
+    rest_1.post('/user/sign-up', {
         responses: {
-            200: {
+            '200': {
+                description: 'Register',
                 content: {
                     'application/json': {
-                        schema: {
-                            type: 'object',
-                        },
+                        message: 'Registered successfully, check your email to verified',
                     },
                 },
-                description: 'Files and fields',
             },
         },
     }),
-    tslib_1.__param(0, rest_1.requestBody.file()),
-    tslib_1.__param(1, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], UserControllerController.prototype, "fileUpload", null);
-tslib_1.__decorate([
-    rest_1.post('/user/sign-up'),
     tslib_1.__param(0, rest_1.requestBody()),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [Object]),
@@ -144,16 +129,37 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "verifyEmail", null);
+tslib_1.__decorate([
+    authentication_1.authenticate('jwt'),
+    rest_1.post('/user/logout', {
+        responses: {
+            '200': {
+                description: 'Logout',
+                content: {
+                    'application/json': {
+                        message: 'Logged out.',
+                    },
+                },
+            },
+        },
+    }),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserControllerController.prototype, "logout", null);
 UserControllerController = tslib_1.__decorate([
+    core_1.intercept(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY),
     tslib_1.__param(0, repository_1.repository(repositories_1.UserRepository)),
     tslib_1.__param(1, repository_1.repository(repositories_1.ThirdPartyIdentityRepository)),
-    tslib_1.__param(2, core_1.inject(key_1.PasswordHasherBindings.PASSWORD_HASHER)),
-    tslib_1.__param(3, core_1.inject(key_1.JwtServiceBindings.TOKEN_SERVICE)),
-    tslib_1.__param(4, core_1.inject(key_1.EmailServiceBindings.EMAIL_SERVICE)),
-    tslib_1.__param(5, core_1.inject(key_1.FILE_UPLOAD_SERVICE)),
+    tslib_1.__param(2, repository_1.repository(repositories_1.BlacklistRepository)),
+    tslib_1.__param(3, core_1.inject(security_1.SecurityBindings.USER, { optional: true })),
+    tslib_1.__param(4, core_1.inject(key_1.PasswordHasherBindings.PASSWORD_HASHER)),
+    tslib_1.__param(5, core_1.inject(key_1.JwtServiceBindings.TOKEN_SERVICE)),
+    tslib_1.__param(6, core_1.inject(key_1.EmailServiceBindings.EMAIL_SERVICE)),
+    tslib_1.__param(7, core_1.inject(key_1.FILE_UPLOAD_SERVICE)),
     tslib_1.__metadata("design:paramtypes", [repositories_1.UserRepository,
         repositories_1.ThirdPartyIdentityRepository,
-        password_hasher_service_1.PasswordHasherService,
+        repositories_1.BlacklistRepository, Object, password_hasher_service_1.PasswordHasherService,
         jwt_service_1.JwtService,
         email_service_1.EmailService, Function])
 ], UserControllerController);
