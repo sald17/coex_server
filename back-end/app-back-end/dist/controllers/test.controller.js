@@ -30,6 +30,9 @@ let TestController = class TestController {
             });
         });
     }
+    async testMessage() {
+        return 'Jebaited';
+    }
 };
 tslib_1.__decorate([
     rest_1.get('/test/email'),
@@ -58,6 +61,12 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], TestController.prototype, "fileUpload", null);
+tslib_1.__decorate([
+    rest_1.get('/test/message'),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], TestController.prototype, "testMessage", null);
 TestController = tslib_1.__decorate([
     tslib_1.__param(0, core_1.inject(key_1.EmailServiceBindings.EMAIL_SERVICE)),
     tslib_1.__param(1, core_1.inject(key_1.FILE_UPLOAD_SERVICE)),

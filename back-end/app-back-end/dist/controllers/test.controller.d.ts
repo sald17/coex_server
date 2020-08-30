@@ -7,4 +7,5 @@ export declare class TestController {
     constructor(emailService: EmailService, uploadFileService: RequestHandler);
     sendEmail(): Promise<void>;
     fileUpload(request: Request, response: Response): Promise<object>;
+    testMessage(): Promise<string>;
 }

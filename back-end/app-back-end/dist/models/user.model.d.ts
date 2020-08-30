@@ -12,7 +12,6 @@ export declare class User extends Entity {
     createdAt?: string;
     modifiedAt?: string;
     avatar?: string;
-    username: string;
     password: string;
     role: string[];
     identities?: ThirdPartyIdentity[];

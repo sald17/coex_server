@@ -62,7 +62,6 @@ export class UserControllerController {
 
         if (isExisted) {
             throw new HttpErrors.BadRequest('Email is already registered.');
-            return;
         }
 
         user.password = await this.passwordHasher.hashPassword(user.password);
@@ -70,14 +69,12 @@ export class UserControllerController {
         const newUser = await this.userRepository.create(user);
         if (!newUser) {
             throw new HttpErrors.BadRequest('Error in registering. Try again');
-            return;
         }
 
         const userProfile: UserProfile = Object.assign({
             profile: {
                 [securityId]: newUser.id,
                 email: newUser.email,
-                username: newUser.username,
                 id: newUser.id,
             },
         });
@@ -113,7 +110,6 @@ export class UserControllerController {
 
         if (!verified) {
             throw new HttpErrors.BadRequest();
-            return;
         }
 
         this.userRepository.updateById(verified.profile.id, {

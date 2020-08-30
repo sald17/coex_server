@@ -23,7 +23,7 @@ export class LocalAuthStrategy implements AuthenticationStrategy {
     ) {
         this.passportStrategy = new Strategy(
             {
-                usernameField: 'username',
+                usernameField: 'email',
                 passwordField: 'password',
             },
             this.verify.bind(this),
@@ -41,15 +41,15 @@ export class LocalAuthStrategy implements AuthenticationStrategy {
     }
 
     async verify(
-        username: string,
+        email: string,
         password: string,
         done: (error: any, user?: any, options?: IVerifyOptions) => void,
     ) {
-        const AUTH_FAILED_MESSAGE = 'User Name / Password not matching';
+        const AUTH_FAILED_MESSAGE = 'Incorrect email or password.';
         const EMAIL_VERIFIED_FAILED_MESSAGE = 'Email not verified.';
         const user = await this.userRepository.findOne({
             where: {
-                username,
+                email,
             },
         });
 

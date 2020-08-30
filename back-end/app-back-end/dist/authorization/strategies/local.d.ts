@@ -15,5 +15,5 @@ export declare class LocalAuthStrategy implements AuthenticationStrategy {
     strategy: StrategyAdapter<User>;
     constructor(userRepository: UserRepository, passwordHasher: PasswordHasherService);
     authenticate(request: Request): Promise<UserProfile | RedirectRoute>;
-    verify(username: string, password: string, done: (error: any, user?: any, options?: IVerifyOptions) => void): Promise<void>;
+    verify(email: string, password: string, done: (error: any, user?: any, options?: IVerifyOptions) => void): Promise<void>;
 }

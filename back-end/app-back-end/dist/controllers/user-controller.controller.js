@@ -40,7 +40,6 @@ let UserControllerController = class UserControllerController {
         });
         if (isExisted) {
             throw new rest_1.HttpErrors.BadRequest('Email is already registered.');
-            return;
         }
         user.password = await this.passwordHasher.hashPassword(user.password);
         const newUser = await this.userRepository.create(user);
@@ -52,7 +51,6 @@ let UserControllerController = class UserControllerController {
             profile: {
                 [security_1.securityId]: newUser.id,
                 email: newUser.email,
-                username: newUser.username,
                 id: newUser.id,
             },
         });

@@ -1812,8 +1812,8 @@
         "affectsGlobalScope": false
       },
       "./src/models/user.model.ts": {
-        "version": "77d754dffd09062798a6b25a3e42dc38d5e68f9bbba4268303dcfd1928644252",
-        "signature": "687af4c80e248a4fc4479cb6c4fe3cb5b0e4fe2ce5417e32b53d6a407d676d49",
+        "version": "b3ab89effe8784e3866757b6204bc012353cf6b2482cbc589f2d60ec1e2e7c6d",
+        "signature": "02178c313f711e641fd4a6ca6043e512e5c47261a778e7ef72f17384b9ba22f6",
         "affectsGlobalScope": false
       },
       "./src/models/third-party-identity.model.ts": {
@@ -1917,7 +1917,7 @@
         "affectsGlobalScope": false
       },
       "./src/datasources/mongo-connector.datasource.ts": {
-        "version": "2f525762a0077d739a32cc3f9b822ffe6d6e5ca17116ef8961b4d5f44f5eceae",
+        "version": "fe87517e8100ce9fd38ec6cc9ce482a3961db63d53ef41e2c1dfb1c508c068c5",
         "signature": "526f611a6a83932638b1291d30a0ab8148f893b89f96a041fdd7ddaf97d7cb32",
         "affectsGlobalScope": false
       },
@@ -1952,8 +1952,8 @@
         "affectsGlobalScope": false
       },
       "./src/authorization/strategies/local.ts": {
-        "version": "346f9d9caa4ac59e2e28ca17eccbd870999de27dbad4d5b744c3e08fd5ea2434",
-        "signature": "5c28b349829536b94ef2c17c09ab8a4858629c1afa30b7f2d2715fb3229cca01",
+        "version": "4c9cd2fcd30f939088e4bb7473f3327b033ab33bf9979cc1d141410220e34891",
+        "signature": "f26ee272bf19782e64a85d0c7a3b58a40939485b00b384059649c86262726c5a",
         "affectsGlobalScope": false
       },
       "./src/authorization/strategies/index.ts": {
@@ -2137,13 +2137,13 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "b9e093018b5dd10137530213d55bcac2f4bc6298fc14ec6ac420734871be1e1b",
+        "version": "2677ac1146cf0c61d02a4b33a829a3024db8b9f95df29cd8d4d95201dda8433e",
         "signature": "b5e4f0a230d653252109aa7c506afecda6c2b296a2d337e1b22ef7f087ac2d24",
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {
-        "version": "aed73a67f838289e8059aa17e15a4884599989e27ca5edd6e34abcab8042b0a2",
-        "signature": "2972470150d33ec5fcd08fc9fcca1f2b4dcc776325e277f2177b893aed454be9",
+        "version": "e44d8e359e57c200d86778401dd93aca5e328c610211249f8d1e185b0633508b",
+        "signature": "87a30347ebcb95a297263e5c810f4d2af201db9dcc2da618b0b7c0a2fc3d87b7",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
@@ -2164,16 +2164,6 @@
       "./node_modules/@types/color-name/index.d.ts": {
         "version": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
         "signature": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/moment/ts3.1-typings/moment.d.ts": {
-        "version": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
-        "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/cron/index.d.ts": {
-        "version": "a88aa41ef28a1c632437f648c7f432da9e075567f4cbe35dbf6611bc76b86093",
-        "signature": "a88aa41ef28a1c632437f648c7f432da9e075567f4cbe35dbf6611bc76b86093",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/eslint-visitor-keys/index.d.ts": {
@@ -2284,11 +2274,6 @@
       "./node_modules/@types/type-is/index.d.ts": {
         "version": "37e4c904fc4eede08a541021c074c160cf27f6a756e4459197c2711fb8b2a648",
         "signature": "37e4c904fc4eede08a541021c074c160cf27f6a756e4459197c2711fb8b2a648",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/uuid/index.d.ts": {
-        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
-        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       }
     },
@@ -4151,13 +4136,6 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/@types/cron/index.d.ts": [
-        "./node_modules/@types/node/child_process.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/ts3.7/index.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/moment/ts3.1-typings/moment.d.ts"
-      ],
       "./node_modules/@types/debug/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -4938,10 +4916,6 @@
         "./node_modules/@types/node/ts3.7/index.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/@types/uuid/index.d.ts": [
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/ajv/lib/ajv.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -5052,10 +5026,6 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/loopback-datasource-juggler/types/common.d.ts"
-      ],
-      "./node_modules/moment/ts3.1-typings/moment.d.ts": [
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
       ],
       "./node_modules/openapi3-ts/dist/dsl/OpenApiBuilder.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -7379,13 +7349,6 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/@types/cron/index.d.ts": [
-        "./node_modules/@types/node/child_process.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/ts3.7/index.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/moment/ts3.1-typings/moment.d.ts"
-      ],
       "./node_modules/@types/debug/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -8166,10 +8129,6 @@
         "./node_modules/@types/node/ts3.7/index.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/@types/uuid/index.d.ts": [
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/ajv/lib/ajv.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -8280,10 +8239,6 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/loopback-datasource-juggler/types/common.d.ts"
-      ],
-      "./node_modules/moment/ts3.1-typings/moment.d.ts": [
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
       ],
       "./node_modules/openapi3-ts/dist/dsl/OpenApiBuilder.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -8884,7 +8839,6 @@
       "./node_modules/@types/connect/index.d.ts",
       "./node_modules/@types/cookiejar/index.d.ts",
       "./node_modules/@types/cors/index.d.ts",
-      "./node_modules/@types/cron/index.d.ts",
       "./node_modules/@types/debug/index.d.ts",
       "./node_modules/@types/eslint-visitor-keys/index.d.ts",
       "./node_modules/@types/express-serve-static-core/index.d.ts",
@@ -8985,7 +8939,6 @@
       "./node_modules/@types/superagent/index.d.ts",
       "./node_modules/@types/supertest/index.d.ts",
       "./node_modules/@types/type-is/index.d.ts",
-      "./node_modules/@types/uuid/index.d.ts",
       "./node_modules/ajv/lib/ajv.d.ts",
       "./node_modules/loopback-datasource-juggler/index.d.ts",
       "./node_modules/loopback-datasource-juggler/types/common.d.ts",
@@ -9002,7 +8955,6 @@
       "./node_modules/loopback-datasource-juggler/types/scope.d.ts",
       "./node_modules/loopback-datasource-juggler/types/transaction-mixin.d.ts",
       "./node_modules/loopback-datasource-juggler/types/validation-mixin.d.ts",
-      "./node_modules/moment/ts3.1-typings/moment.d.ts",
       "./node_modules/openapi3-ts/dist/dsl/OpenApiBuilder.d.ts",
       "./node_modules/openapi3-ts/dist/dsl/index.d.ts",
       "./node_modules/openapi3-ts/dist/index.d.ts",
