@@ -5,7 +5,7 @@ const core_1 = require("@loopback/core");
 var JwtServiceConstants;
 (function (JwtServiceConstants) {
     JwtServiceConstants.SECRET_KEY = 'secretKey';
-    JwtServiceConstants.EXPIRES_VALUE = 20;
+    JwtServiceConstants.EXPIRES_VALUE = 60 * 60;
 })(JwtServiceConstants = exports.JwtServiceConstants || (exports.JwtServiceConstants = {}));
 var JwtServiceBindings;
 (function (JwtServiceBindings) {

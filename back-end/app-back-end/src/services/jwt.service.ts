@@ -43,7 +43,6 @@ export class JwtService implements TokenService {
             throw new HttpErrors.Unauthorized('Invalid user');
         }
         let payload = Object.assign({}, user, {jti: uuidv4()});
-        console.log(payload);
         const token: string = signAsync(payload, this.secretKey, {
             expiresIn: expire,
         });

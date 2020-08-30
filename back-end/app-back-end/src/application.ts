@@ -1,7 +1,6 @@
 import {AuthenticationComponent} from '@loopback/authentication';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig, createBindingFromClass} from '@loopback/core';
-import {CronComponent} from '@loopback/cron';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {
@@ -43,7 +42,9 @@ export class AppApplication extends BootMixin(
         // Set up the custom sequence
         this.sequence(MySequence);
         this.component(AuthenticationComponent);
-        this.component(CronComponent);
+
+        // this.component(CronComponent);
+
         // Set up default home page
         this.static('/', path.join(__dirname, '../public'));
 

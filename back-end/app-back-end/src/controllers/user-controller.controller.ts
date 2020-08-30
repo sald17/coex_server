@@ -106,7 +106,6 @@ export class UserControllerController {
                 'You must register with valid email.',
             );
         }
-        console.log('asdfqwer');
         return {message: 'Created successfully'};
     }
 
@@ -170,5 +169,33 @@ export class UserControllerController {
         //     this.user.profile.id,
         //     this.user.profile.jti,
         // );
+    }
+
+    @authenticate('jwt')
+    @post('/user/reset-password')
+    async resetPassword(@requestBody() userCredential: any) {
+        const user = await this.userRepository.findById(this.user.profile.id);
+        console.log(user);
+        if (!user) {
+            throw new HttpErrors.Unauthorized('Not found user');
+        }
+        if (
+            !this.passwordHasher.comparePassword(
+                userCredential.oldPass,
+                user.password,
+            )
+        ) {
+            throw new HttpErrors.BadRequest('Invalid password');
+        }
+        await this.userRepository.updateById(this.user.profile.id, {
+            password: await this.passwordHasher.hashPassword(
+                userCredential.newPass,
+            ),
+        });
+    }
+
+    @post('/user/forgot-password')
+    async forgotPassword() {
+        console.log('Forgot');
     }
 }

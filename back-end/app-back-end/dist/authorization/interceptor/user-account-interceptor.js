@@ -10,8 +10,9 @@ let UserAccountInterceptor = UserAccountInterceptor_1 = class UserAccountInterce
         return this.intercept.bind(this);
     }
     async intercept(invocationCtx, next) {
+        const detail = invocationCtx['_parent'];
         switch (invocationCtx.methodName) {
-            case 'signup':
+            case 'signup': //Check if password and email are valid
                 const { password, email } = invocationCtx.args[0];
                 if (!UserAccountInterceptor_1.passwordPattern.test(password)) {
                     throw new rest_1.HttpErrors.BadRequest(`Password must have the length of 8-30 and have at least one uppercase, one lowercase and one digit`);
@@ -20,7 +21,19 @@ let UserAccountInterceptor = UserAccountInterceptor_1 = class UserAccountInterce
                     throw new rest_1.HttpErrors.BadRequest(`Please register with a valid email.`);
                 }
                 break;
-            case 'logout':
+            case 'resetPassword': //Check if new password and confirmation are valid
+                const { oldPass, newPass, confPass } = detail['request'].body;
+                if (newPass !== confPass) {
+                    throw new rest_1.HttpErrors.BadRequest('New password is not match.');
+                }
+                if (!UserAccountInterceptor_1.passwordPattern.test(newPass)) {
+                    throw new rest_1.HttpErrors.BadRequest(`Password must have the length of 8-30 and have at least one uppercase, one lowercase and one digit`);
+                }
+            case 'forgotPassword':
+                const { email: emailCredential } = detail['request'].body;
+                if (!UserAccountInterceptor_1.emailPattern.test(emailCredential)) {
+                    throw new rest_1.HttpErrors.BadRequest(`Please register with a valid email.`);
+                }
                 break;
             default:
                 break;

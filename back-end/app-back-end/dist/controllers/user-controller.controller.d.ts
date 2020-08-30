@@ -25,4 +25,6 @@ export declare class UserControllerController {
     logout(): Promise<{
         message: string;
     }>;
+    resetPassword(userCredential: any): Promise<void>;
+    forgotPassword(): Promise<void>;
 }

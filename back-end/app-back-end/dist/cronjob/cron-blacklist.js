@@ -12,8 +12,9 @@ let BlacklistCron = class BlacklistCron extends cron_1.CronJob {
             onTick: () => {
                 blacklist.cleanBlacklist();
             },
-            cronTime: '*/10 * * * * *',
             start: false,
+            cronTime: '*/10 * * * * *',
+            runOnInit: false,
         });
         this.blacklist = blacklist;
     }

@@ -12,8 +12,9 @@ export class BlacklistCron extends CronJob {
             onTick: () => {
                 blacklist.cleanBlacklist();
             },
-            cronTime: '*/10 * * * * *',
             start: false,
+            cronTime: '*/10 * * * * *',
+            runOnInit: false,
         });
     }
 }

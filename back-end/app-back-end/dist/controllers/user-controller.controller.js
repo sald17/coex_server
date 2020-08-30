@@ -55,7 +55,6 @@ let UserControllerController = class UserControllerController {
             await this.userRepository.delete(newUser);
             throw new rest_1.HttpErrors.BadRequest('You must register with valid email.');
         }
-        console.log('asdfqwer');
         return { message: 'Created successfully' };
     }
     // User log in
@@ -91,6 +90,22 @@ let UserControllerController = class UserControllerController {
         //     this.user.profile.id,
         //     this.user.profile.jti,
         // );
+    }
+    async resetPassword(userCredential) {
+        const user = await this.userRepository.findById(this.user.profile.id);
+        console.log(user);
+        if (!user) {
+            throw new rest_1.HttpErrors.Unauthorized('Not found user');
+        }
+        if (!this.passwordHasher.comparePassword(userCredential.oldPass, user.password)) {
+            throw new rest_1.HttpErrors.BadRequest('Invalid password');
+        }
+        await this.userRepository.updateById(this.user.profile.id, {
+            password: await this.passwordHasher.hashPassword(userCredential.newPass),
+        });
+    }
+    async forgotPassword() {
+        console.log('Forgot');
     }
 };
 tslib_1.__decorate([
@@ -147,6 +162,20 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "logout", null);
+tslib_1.__decorate([
+    authentication_1.authenticate('jwt'),
+    rest_1.post('/user/reset-password'),
+    tslib_1.__param(0, rest_1.requestBody()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserControllerController.prototype, "resetPassword", null);
+tslib_1.__decorate([
+    rest_1.post('/user/forgot-password'),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserControllerController.prototype, "forgotPassword", null);
 UserControllerController = tslib_1.__decorate([
     core_1.intercept(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY),
     tslib_1.__param(0, repository_1.repository(repositories_1.UserRepository)),

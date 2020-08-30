@@ -8,7 +8,7 @@ import { EmailService } from '../services/email.service';
 import { PasswordHasher } from '../services/password-hasher.service';
 export declare namespace JwtServiceConstants {
     const SECRET_KEY = "secretKey";
-    const EXPIRES_VALUE = 20;
+    const EXPIRES_VALUE: number;
 }
 export declare namespace JwtServiceBindings {
     const SECRET_KEY: BindingKey<string>;

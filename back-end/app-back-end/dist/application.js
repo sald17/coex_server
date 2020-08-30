@@ -5,7 +5,6 @@ const tslib_1 = require("tslib");
 const authentication_1 = require("@loopback/authentication");
 const boot_1 = require("@loopback/boot");
 const core_1 = require("@loopback/core");
-const cron_1 = require("@loopback/cron");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const rest_explorer_1 = require("@loopback/rest-explorer");
@@ -30,7 +29,7 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         // Set up the custom sequence
         this.sequence(sequence_1.MySequence);
         this.component(authentication_1.AuthenticationComponent);
-        this.component(cron_1.CronComponent);
+        // this.component(CronComponent);
         // Set up default home page
         this.static('/', path_1.default.join(__dirname, '../public'));
         // Customize @loopback/rest-explorer configuration here

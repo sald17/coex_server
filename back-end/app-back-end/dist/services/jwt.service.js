@@ -38,7 +38,6 @@ let JwtService = class JwtService {
             throw new rest_1.HttpErrors.Unauthorized('Invalid user');
         }
         let payload = Object.assign({}, user, { jti: uuid_1.v4() });
-        console.log(payload);
         const token = signAsync(payload, this.secretKey, {
             expiresIn: expire,
         });
