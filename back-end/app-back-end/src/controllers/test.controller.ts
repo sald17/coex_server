@@ -62,4 +62,8 @@ export class TestController {
             });
         });
     }
+    @get('/test/message')
+    async testMessage() {
+        return 'Jebaited';
+    }
 }
