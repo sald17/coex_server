@@ -1917,7 +1917,7 @@
         "affectsGlobalScope": false
       },
       "./src/datasources/mongo-connector.datasource.ts": {
-        "version": "fe87517e8100ce9fd38ec6cc9ce482a3961db63d53ef41e2c1dfb1c508c068c5",
+        "version": "2f525762a0077d739a32cc3f9b822ffe6d6e5ca17116ef8961b4d5f44f5eceae",
         "signature": "526f611a6a83932638b1291d30a0ab8148f893b89f96a041fdd7ddaf97d7cb32",
         "affectsGlobalScope": false
       },
@@ -2137,13 +2137,13 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "9073af306079c36476c1b8571a3e04cab26350e691b906b66074ca70df6ed7df",
-        "signature": "5482fbd9989ed793dbcd429942db95eba43500635d3dce49b3cd4167cd3619ee",
+        "version": "b9e093018b5dd10137530213d55bcac2f4bc6298fc14ec6ac420734871be1e1b",
+        "signature": "b5e4f0a230d653252109aa7c506afecda6c2b296a2d337e1b22ef7f087ac2d24",
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {
-        "version": "96cb473da9921c7d38978b6cabd3ed826b91b554ddabbf8a549096333539b301",
-        "signature": "f9dae03ec7d32f98f8f9cab27784c470638072472a560da82f123e7fd3fc6727",
+        "version": "aed73a67f838289e8059aa17e15a4884599989e27ca5edd6e34abcab8042b0a2",
+        "signature": "2972470150d33ec5fcd08fc9fcca1f2b4dcc776325e277f2177b893aed454be9",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
@@ -2164,6 +2164,16 @@
       "./node_modules/@types/color-name/index.d.ts": {
         "version": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
         "signature": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/moment/ts3.1-typings/moment.d.ts": {
+        "version": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
+        "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/cron/index.d.ts": {
+        "version": "a88aa41ef28a1c632437f648c7f432da9e075567f4cbe35dbf6611bc76b86093",
+        "signature": "a88aa41ef28a1c632437f648c7f432da9e075567f4cbe35dbf6611bc76b86093",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/eslint-visitor-keys/index.d.ts": {
@@ -2274,6 +2284,11 @@
       "./node_modules/@types/type-is/index.d.ts": {
         "version": "37e4c904fc4eede08a541021c074c160cf27f6a756e4459197c2711fb8b2a648",
         "signature": "37e4c904fc4eede08a541021c074c160cf27f6a756e4459197c2711fb8b2a648",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/uuid/index.d.ts": {
+        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
+        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       }
     },
@@ -4136,6 +4151,13 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/@types/cron/index.d.ts": [
+        "./node_modules/@types/node/child_process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/ts3.7/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/moment/ts3.1-typings/moment.d.ts"
+      ],
       "./node_modules/@types/debug/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -4916,6 +4938,10 @@
         "./node_modules/@types/node/ts3.7/index.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/@types/uuid/index.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./node_modules/ajv/lib/ajv.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -5026,6 +5052,10 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/loopback-datasource-juggler/types/common.d.ts"
+      ],
+      "./node_modules/moment/ts3.1-typings/moment.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./node_modules/openapi3-ts/dist/dsl/OpenApiBuilder.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -5340,10 +5370,12 @@
       "./src/controllers/test.controller.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/config/key.ts",
-        "./src/services/email.service.ts"
+        "./src/services/email.service.ts",
+        "./src/services/file-upload.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -5351,13 +5383,11 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/config/key.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
-        "./src/services/file-upload.ts",
         "./src/services/jwt.service.ts",
         "./src/services/password-hasher.service.ts"
       ],
@@ -7349,6 +7379,13 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/@types/cron/index.d.ts": [
+        "./node_modules/@types/node/child_process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/ts3.7/index.d.ts",
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/moment/ts3.1-typings/moment.d.ts"
+      ],
       "./node_modules/@types/debug/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -8129,6 +8166,10 @@
         "./node_modules/@types/node/ts3.7/index.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/@types/uuid/index.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./node_modules/ajv/lib/ajv.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -8239,6 +8280,10 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/loopback-datasource-juggler/types/common.d.ts"
+      ],
+      "./node_modules/moment/ts3.1-typings/moment.d.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./node_modules/openapi3-ts/dist/dsl/OpenApiBuilder.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -8491,12 +8536,13 @@
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/test.controller.ts": [
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
         "./src/services/email.service.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/express/index.d.ts",
         "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
@@ -8838,6 +8884,7 @@
       "./node_modules/@types/connect/index.d.ts",
       "./node_modules/@types/cookiejar/index.d.ts",
       "./node_modules/@types/cors/index.d.ts",
+      "./node_modules/@types/cron/index.d.ts",
       "./node_modules/@types/debug/index.d.ts",
       "./node_modules/@types/eslint-visitor-keys/index.d.ts",
       "./node_modules/@types/express-serve-static-core/index.d.ts",
@@ -8938,6 +8985,7 @@
       "./node_modules/@types/superagent/index.d.ts",
       "./node_modules/@types/supertest/index.d.ts",
       "./node_modules/@types/type-is/index.d.ts",
+      "./node_modules/@types/uuid/index.d.ts",
       "./node_modules/ajv/lib/ajv.d.ts",
       "./node_modules/loopback-datasource-juggler/index.d.ts",
       "./node_modules/loopback-datasource-juggler/types/common.d.ts",
@@ -8954,6 +9002,7 @@
       "./node_modules/loopback-datasource-juggler/types/scope.d.ts",
       "./node_modules/loopback-datasource-juggler/types/transaction-mixin.d.ts",
       "./node_modules/loopback-datasource-juggler/types/validation-mixin.d.ts",
+      "./node_modules/moment/ts3.1-typings/moment.d.ts",
       "./node_modules/openapi3-ts/dist/dsl/OpenApiBuilder.d.ts",
       "./node_modules/openapi3-ts/dist/dsl/index.d.ts",
       "./node_modules/openapi3-ts/dist/index.d.ts",

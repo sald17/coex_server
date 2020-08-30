@@ -11,18 +11,16 @@ const security_1 = require("@loopback/security");
 const key_1 = require("../config/key");
 const repositories_1 = require("../repositories");
 const email_service_1 = require("../services/email.service");
-const file_upload_1 = require("../services/file-upload");
 const jwt_service_1 = require("../services/jwt.service");
 const password_hasher_service_1 = require("../services/password-hasher.service");
 // import {inject} from '@loopback/core';
 let UserControllerController = class UserControllerController {
-    constructor(userRepository, thirdPartyRepository, passwordHasher, jwtService, emailService, uploadFileService) {
+    constructor(userRepository, thirdPartyRepository, passwordHasher, jwtService, emailService) {
         this.userRepository = userRepository;
         this.thirdPartyRepository = thirdPartyRepository;
         this.passwordHasher = passwordHasher;
         this.jwtService = jwtService;
         this.emailService = emailService;
-        this.uploadFileService = uploadFileService;
     }
     async getUser(userProfile) {
         return await this.userRepository.find({
@@ -31,17 +29,6 @@ let UserControllerController = class UserControllerController {
                     relation: 'identities',
                 },
             ],
-        });
-    }
-    async fileUpload(request, response) {
-        return new Promise((resolve, reject) => {
-            this.uploadFileService(request, response, (err) => {
-                if (err)
-                    reject(err);
-                else {
-                    resolve(file_upload_1.FileUploadProvider.getFilesAndFields(request));
-                }
-            });
         });
     }
     async signup(user) {
@@ -99,27 +86,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "getUser", null);
 tslib_1.__decorate([
-    rest_1.post('/files', {
-        responses: {
-            200: {
-                content: {
-                    'application/json': {
-                        schema: {
-                            type: 'object',
-                        },
-                    },
-                },
-                description: 'Files and fields',
-            },
-        },
-    }),
-    tslib_1.__param(0, rest_1.requestBody.file()),
-    tslib_1.__param(1, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], UserControllerController.prototype, "fileUpload", null);
-tslib_1.__decorate([
     rest_1.post('/user/sign-up'),
     tslib_1.__param(0, rest_1.requestBody()),
     tslib_1.__metadata("design:type", Function),
@@ -150,12 +116,11 @@ UserControllerController = tslib_1.__decorate([
     tslib_1.__param(2, core_1.inject(key_1.PasswordHasherBindings.PASSWORD_HASHER)),
     tslib_1.__param(3, core_1.inject(key_1.JwtServiceBindings.TOKEN_SERVICE)),
     tslib_1.__param(4, core_1.inject(key_1.EmailServiceBindings.EMAIL_SERVICE)),
-    tslib_1.__param(5, core_1.inject(key_1.FILE_UPLOAD_SERVICE)),
     tslib_1.__metadata("design:paramtypes", [repositories_1.UserRepository,
         repositories_1.ThirdPartyIdentityRepository,
         password_hasher_service_1.PasswordHasherService,
         jwt_service_1.JwtService,
-        email_service_1.EmailService, Function])
+        email_service_1.EmailService])
 ], UserControllerController);
 exports.UserControllerController = UserControllerController;
 //# sourceMappingURL=user-controller.controller.js.map

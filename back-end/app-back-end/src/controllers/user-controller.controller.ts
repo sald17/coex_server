@@ -8,23 +8,19 @@ import {
     HttpErrors,
     param,
     post,
-    Request,
     requestBody,
     RequestWithSession,
     Response,
     RestBindings,
 } from '@loopback/rest';
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
-import {RequestHandler} from 'express';
 import {
     EmailServiceBindings,
-    FILE_UPLOAD_SERVICE,
     JwtServiceBindings,
     PasswordHasherBindings,
 } from '../config/key';
 import {ThirdPartyIdentityRepository, UserRepository} from '../repositories';
 import {EmailService} from '../services/email.service';
-import {FileUploadProvider} from '../services/file-upload';
 import {JwtService} from '../services/jwt.service';
 import {PasswordHasherService} from '../services/password-hasher.service';
 
@@ -41,8 +37,6 @@ export class UserControllerController {
         public jwtService: JwtService,
         @inject(EmailServiceBindings.EMAIL_SERVICE)
         public emailService: EmailService,
-        @inject(FILE_UPLOAD_SERVICE)
-        public uploadFileService: RequestHandler,
     ) {}
 
     @authenticate('jwt')
@@ -54,35 +48,6 @@ export class UserControllerController {
                     relation: 'identities',
                 },
             ],
-        });
-    }
-
-    @post('/files', {
-        responses: {
-            200: {
-                content: {
-                    'application/json': {
-                        schema: {
-                            type: 'object',
-                        },
-                    },
-                },
-                description: 'Files and fields',
-            },
-        },
-    })
-    async fileUpload(
-        @requestBody.file()
-        request: Request,
-        @inject(RestBindings.Http.RESPONSE) response: Response,
-    ): Promise<object> {
-        return new Promise<object>((resolve, reject) => {
-            this.uploadFileService(request, response, (err: unknown) => {
-                if (err) reject(err);
-                else {
-                    resolve(FileUploadProvider.getFilesAndFields(request));
-                }
-            });
         });
     }
 

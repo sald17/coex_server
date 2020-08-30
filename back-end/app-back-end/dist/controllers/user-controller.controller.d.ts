@@ -1,6 +1,6 @@
-import { Request, RequestWithSession, Response } from '@loopback/rest';
+/// <reference types="express" />
+import { RequestWithSession, Response } from '@loopback/rest';
 import { UserProfile } from '@loopback/security';
-import { RequestHandler } from 'express';
 import { ThirdPartyIdentityRepository, UserRepository } from '../repositories';
 import { EmailService } from '../services/email.service';
 import { JwtService } from '../services/jwt.service';
@@ -11,10 +11,8 @@ export declare class UserControllerController {
     passwordHasher: PasswordHasherService;
     jwtService: JwtService;
     emailService: EmailService;
-    uploadFileService: RequestHandler;
-    constructor(userRepository: UserRepository, thirdPartyRepository: ThirdPartyIdentityRepository, passwordHasher: PasswordHasherService, jwtService: JwtService, emailService: EmailService, uploadFileService: RequestHandler);
+    constructor(userRepository: UserRepository, thirdPartyRepository: ThirdPartyIdentityRepository, passwordHasher: PasswordHasherService, jwtService: JwtService, emailService: EmailService);
     getUser(userProfile: UserProfile): Promise<(import("../models").User & import("../models").UserRelations)[]>;
-    fileUpload(request: Request, response: Response): Promise<object>;
     signup(user: any): Promise<{
         messgage: string;
     } | undefined>;
