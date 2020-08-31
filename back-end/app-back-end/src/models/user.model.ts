@@ -71,13 +71,13 @@ export class User extends Entity {
         type: 'string',
         required: true,
     })
-    username: string;
+    password: string;
 
     @property({
         type: 'string',
-        required: true,
+        default: '',
     })
-    password: string;
+    refreshToken: string;
 
     @property({
         type: 'array',

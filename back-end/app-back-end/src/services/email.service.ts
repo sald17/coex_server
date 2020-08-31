@@ -22,19 +22,33 @@ export class EmailService {
                 to: rcver,
                 subject: 'Verification Email.',
                 html: `
-                    <h1>This is a verification email.</h1>
-                    <p>Click <a href="http://localhost:3000/api/user/verification/${token}">here</a> to verify your email.</p>
+                    <h1>Xác thực email.</h1>
+                    <p>Click vào <a href="http://localhost:3000/api/user/verification/${token}">đây</a> để  xác thực email của bạn.</p>
                 `,
             };
             const result = await this.transporter.sendMail(mailContent);
             if (!result) {
                 throw new Error('Email not valid. Try again.');
             }
-            console.log('====');
-            console.log(result);
             return result;
         } catch (err) {
             return {error: true, message: err.message};
+        }
+    }
+
+    async sendOTPEmail(rcver: string, otp: string) {
+        try {
+            const mailContent = {
+                from: MY_EMAIL,
+                to: rcver,
+                subject: 'Reset mật khẩu',
+                text: `Mã OTP để reset mật khẩu của bạn là ${otp}. Mã OTP này có hiệu lực trong 10 phút.`,
+            };
+            const info = await this.transporter.sendMail(mailContent);
+            return info;
+        } catch (err) {
+            console.log(err);
+            return err.message;
         }
     }
 

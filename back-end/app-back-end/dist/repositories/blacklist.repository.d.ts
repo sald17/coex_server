@@ -13,4 +13,8 @@ export declare class BlacklistRepository extends DefaultKeyValueRepository<Black
         token: any;
         expTime: any;
     }>;
+    addOtp(email: string, otp: string): Promise<void>;
+    checkOtp(email: string, otp: string): Promise<boolean>;
+    deleteOtp(email: string): Promise<number>;
+    convertByteToString(bufArr: []): any;
 }

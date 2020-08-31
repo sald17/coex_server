@@ -8,7 +8,6 @@ export declare class JWTStrategy implements AuthenticationStrategy {
     private blacklist;
     private jwtService;
     name: string;
-    INVALID_TOKEN_MESSAGE: string;
     constructor(blacklist: BlacklistRepository, jwtService: JwtService);
     authenticate(request: Request): Promise<UserProfile | undefined>;
     extractToken(request: Request): string;

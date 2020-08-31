@@ -14,14 +14,13 @@ let JWTStrategy = class JWTStrategy {
         this.blacklist = blacklist;
         this.jwtService = jwtService;
         this.name = 'jwt';
-        this.INVALID_TOKEN_MESSAGE = 'Invalid Token';
     }
     async authenticate(request) {
         let token = this.extractToken(request);
         let userProfile = await this.jwtService.verifyToken(token);
         const isValid = await this.blacklist.checkToken(`${userProfile.jti}:${userProfile.exp}`);
         if (isValid) {
-            throw new rest_1.HttpErrors.NotAcceptable(this.INVALID_TOKEN_MESSAGE);
+            throw new rest_1.HttpErrors.NotAcceptable(jwt_service_1.JwtService.INVALID_TOKEN_MESSAGE);
         }
         if (request.url.includes('logout')) {
             userProfile.profile.token = token;
@@ -31,11 +30,11 @@ let JWTStrategy = class JWTStrategy {
     extractToken(request) {
         let authHeader = request.headers.authorization;
         if (!(authHeader === null || authHeader === void 0 ? void 0 : authHeader.startsWith('Bearer ')) || !authHeader) {
-            throw new rest_1.HttpErrors.NotAcceptable(this.INVALID_TOKEN_MESSAGE);
+            throw new rest_1.HttpErrors.NotAcceptable(jwt_service_1.JwtService.INVALID_TOKEN_MESSAGE);
         }
         let parts = authHeader.split(' ');
         if (parts.length != 2) {
-            throw new rest_1.HttpErrors.NotAcceptable(this.INVALID_TOKEN_MESSAGE);
+            throw new rest_1.HttpErrors.NotAcceptable(jwt_service_1.JwtService.INVALID_TOKEN_MESSAGE);
         }
         return parts[1];
     }

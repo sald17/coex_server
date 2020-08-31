@@ -8,4 +8,5 @@ export declare class PasswordHasherService implements PasswordHasher<string> {
     constructor(round: number);
     hashPassword(password: string): Promise<string>;
     comparePassword(providedPassword: string, storedPassword: string): Promise<boolean>;
+    generateOTP(): Promise<string>;
 }

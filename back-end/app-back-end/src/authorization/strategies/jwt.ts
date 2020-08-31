@@ -10,7 +10,6 @@ import {JwtService} from '../../services/jwt.service';
 @bind(asAuthStrategy)
 export class JWTStrategy implements AuthenticationStrategy {
     name = 'jwt';
-    INVALID_TOKEN_MESSAGE: string = 'Invalid Token';
 
     constructor(
         @repository(BlacklistRepository) private blacklist: BlacklistRepository,
@@ -25,7 +24,9 @@ export class JWTStrategy implements AuthenticationStrategy {
             `${userProfile.jti}:${userProfile.exp}`,
         );
         if (isValid) {
-            throw new HttpErrors.NotAcceptable(this.INVALID_TOKEN_MESSAGE);
+            throw new HttpErrors.NotAcceptable(
+                JwtService.INVALID_TOKEN_MESSAGE,
+            );
         }
         if (request.url.includes('logout')) {
             userProfile.profile.token = token;
@@ -36,11 +37,15 @@ export class JWTStrategy implements AuthenticationStrategy {
     extractToken(request: Request): string {
         let authHeader = request.headers.authorization;
         if (!authHeader?.startsWith('Bearer ') || !authHeader) {
-            throw new HttpErrors.NotAcceptable(this.INVALID_TOKEN_MESSAGE);
+            throw new HttpErrors.NotAcceptable(
+                JwtService.INVALID_TOKEN_MESSAGE,
+            );
         }
         let parts = authHeader.split(' ');
         if (parts.length != 2) {
-            throw new HttpErrors.NotAcceptable(this.INVALID_TOKEN_MESSAGE);
+            throw new HttpErrors.NotAcceptable(
+                JwtService.INVALID_TOKEN_MESSAGE,
+            );
         }
         return parts[1];
     }

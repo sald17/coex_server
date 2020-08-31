@@ -5,7 +5,7 @@ const config = {
     name: 'RedisConnector',
     connector: 'kv-redis',
     url: '',
-    host: 'localhost',
+    host: 'redis',
     port: 6379,
     password: '',
     db: 0,

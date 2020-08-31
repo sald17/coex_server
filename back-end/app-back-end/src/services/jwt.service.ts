@@ -4,13 +4,15 @@ import {HttpErrors} from '@loopback/rest';
 import {securityId, UserProfile} from '@loopback/security';
 import {promisify} from 'util';
 import {v4 as uuidv4} from 'uuid';
-// import JWT from 'jsonwebtoken';
 import {JwtServiceBindings} from '../config/key';
 const JWT = require('jsonwebtoken');
 const signAsync = promisify(JWT.sign);
 const verifyAsync = promisify(JWT.verify);
+
 @bind({scope: BindingScope.TRANSIENT})
 export class JwtService implements TokenService {
+    public static INVALID_TOKEN_MESSAGE: string = 'Invalid Token';
+    public static EXPIRED_TOKEN_MESSAGE: string = 'Expired Token';
     constructor(
         @inject(JwtServiceBindings.SECRET_KEY) private secretKey: string,
         @inject(JwtServiceBindings.TOKEN_EXPIRES_IN)
@@ -18,14 +20,23 @@ export class JwtService implements TokenService {
     ) {}
 
     async verifyToken(token: string): Promise<UserProfile> {
-        const INVALID_TOKEN_MESSAGE = 'Invalid Token';
         if (!token) {
-            throw new HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
+            throw new HttpErrors.Unauthorized(JwtService.INVALID_TOKEN_MESSAGE);
         }
 
-        let validProfile = await verifyAsync(token, this.secretKey);
+        let validProfile;
+        try {
+            validProfile = await verifyAsync(token, this.secretKey);
+        } catch (error) {
+            if (error.name == 'TokenExpiredError') {
+                throw new HttpErrors.BadRequest(
+                    JwtService.EXPIRED_TOKEN_MESSAGE,
+                );
+            }
+        }
+
         if (!validProfile) {
-            throw new HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
+            throw new HttpErrors.Unauthorized(JwtService.INVALID_TOKEN_MESSAGE);
         }
         // console.log(isValid);
         let userProfile: UserProfile = Object.assign({
@@ -46,6 +57,15 @@ export class JwtService implements TokenService {
         const token: string = signAsync(payload, this.secretKey, {
             expiresIn: expire,
         });
+        return token;
+    }
+
+    async generateRefreshToken(user: UserProfile): Promise<string> {
+        if (!user) {
+            throw new HttpErrors.Unauthorized('Invalid user');
+        }
+        let payload = Object.assign({}, user, {jti: uuidv4()});
+        const token: string = signAsync(payload, this.secretKey);
         return token;
     }
 }

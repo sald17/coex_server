@@ -1787,7 +1787,7 @@
         "affectsGlobalScope": true
       },
       "./src/authorization/interceptor/user-account-interceptor.ts": {
-        "version": "7416d50f4632c4165954429d4735789481a74f3193759e5143c7aff3be8f71cb",
+        "version": "ad4e9df71a0a24df6d98c5336107d8d5d08581257078ac1b3ea1a1a95a74f9cd",
         "signature": "92d59dcc170f6de16112436daaae0843e7010fe26a972dde338cd9e7240207f4",
         "affectsGlobalScope": false
       },
@@ -1827,8 +1827,8 @@
         "affectsGlobalScope": false
       },
       "./src/models/user.model.ts": {
-        "version": "d1a33a36ed583def84c20807a8c618daede1fa221335d4a1eac9c420c5e322ff",
-        "signature": "687af4c80e248a4fc4479cb6c4fe3cb5b0e4fe2ce5417e32b53d6a407d676d49",
+        "version": "3f79bd5dbc5732080f54bb276b0d92c3de75a0eb2fe21a53fc4295e68a485a05",
+        "signature": "23c1da7f3436f830c63b92d23c52ec719df9e236f1e5a68a6efa20b36e9f13b0",
         "affectsGlobalScope": false
       },
       "./src/models/third-party-identity.model.ts": {
@@ -1912,8 +1912,8 @@
         "affectsGlobalScope": false
       },
       "./src/services/email.service.ts": {
-        "version": "8752f0ee1f2babb3415261b67f100687291b8bfe9a07292b3b48daccc6f4d96d",
-        "signature": "782e1a1f51c9f460640899df659409219aaf6d0e367cba777cb33ac85e144dea",
+        "version": "b0b7ad3fc476f6b5a1fa465eb68cb094685be6906fe4ab573414f8420030f1a4",
+        "signature": "9dadb9dbe568bb539be95ea6c34009d9243f93dbe95306e61231c436c8bf967e",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/bcryptjs/index.d.ts": {
@@ -1922,12 +1922,12 @@
         "affectsGlobalScope": false
       },
       "./src/services/password-hasher.service.ts": {
-        "version": "d62886213720d3e145f98053b0305b118a9e2991c99f6fc3915a3b39bbc26652",
-        "signature": "3c9fa3b4a989ea720e7a2d2bfe0b04258115dfc2c7934a87e94c50df2d01efce",
+        "version": "1a62246209060210dc88d9ec91d2c64c18225880ebd6b35e79db37cf76e6222d",
+        "signature": "19e1563e4e4afceda900b77a0ebf0f63ac9713e7abbd9c7d53df0b0f2c1adbc5",
         "affectsGlobalScope": false
       },
       "./src/config/key.ts": {
-        "version": "598918045c52e7229efe27a1ec56ba59798862073b2973e5b8be057136962d4d",
+        "version": "0f83d66692b796ddb17b4e3399fa8ada40beb5cbc15c6805acf5434618b809cf",
         "signature": "a5326e23c4b003b76013ff509f92aa669911e7f07e9fd5d3fef8f67928cc030b",
         "affectsGlobalScope": false
       },
@@ -1957,8 +1957,8 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/blacklist.repository.ts": {
-        "version": "d8a4517d39345d8287591d43a3c6a987f8c020da2b6c3937d2bb661154a0ec04",
-        "signature": "28b401d95e067672aeaf356d492b5e4cca0bde2f10c730f3a724aaa580f9c387",
+        "version": "cf91df6bf0946da7b1e0fb992f0f2bf317a83e0d77aeeb465d775ea1c2179a56",
+        "signature": "5579ef3039a0ff55ce073778739a4e66f6e8d03e73377bb1eaf9458852bbc356",
         "affectsGlobalScope": false
       },
       "./src/repositories/index.ts": {
@@ -1972,8 +1972,8 @@
         "affectsGlobalScope": false
       },
       "./src/authorization/strategies/local.ts": {
-        "version": "b6cc6879117574e6558c8b23e13ee7ef8d0312c301d0b082b29c8cbedd4fd74c",
-        "signature": "5c28b349829536b94ef2c17c09ab8a4858629c1afa30b7f2d2715fb3229cca01",
+        "version": "4c9cd2fcd30f939088e4bb7473f3327b033ab33bf9979cc1d141410220e34891",
+        "signature": "f26ee272bf19782e64a85d0c7a3b58a40939485b00b384059649c86262726c5a",
         "affectsGlobalScope": false
       },
       "./src/authorization/strategies/index.ts": {
@@ -1987,13 +1987,13 @@
         "affectsGlobalScope": false
       },
       "./src/services/jwt.service.ts": {
-        "version": "6fc3d41f6f394a9bb4d6da5c56ca9ce7bccac7c93ac878d2a42e99ce90f548c4",
-        "signature": "e8a235d96777fa735cfe7122341da51b4bb1cbca270a1b59f1dd525c4fd20c4e",
+        "version": "5f806dd8ff30f9e3d00aed0eff0ed3f6a9fe8bf92281a96a6b8c530f73e33b39",
+        "signature": "09c4d77f8e1bc812b3686d00656ca79f3b85e3c7e4995f1bbe4d9151d62dc25e",
         "affectsGlobalScope": false
       },
       "./src/authorization/strategies/jwt.ts": {
-        "version": "b4cbfb0916be9aaf9c5c41b498402fc947df0acc4d83fde07e48e4b004b3ec95",
-        "signature": "95f978d6f0d8f4fe802ab81204c517d9966720bfbdf01207d87f7d50ca8c5a4a",
+        "version": "86defc82a6535c91b040ae92ded9c111f53cafe2291852815babe9b746369876",
+        "signature": "3fb08ff027a1aa1fe49c6bec91c4f096ba3cb1a7207d4b1ce3b884f1c7fa6b88",
         "affectsGlobalScope": false
       },
       "./node_modules/@loopback/cron/node_modules/@loopback/metadata/dist/types.d.ts": {
@@ -2422,8 +2422,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "a76de1a84d14fa30058a1d735442a057d5f06951954e35c93de477a6fa907083",
-        "signature": "f76acc1d59fdcfcbef4cb700bef28b0b366b3bd75542cd038e104d35b8cad10d",
+        "version": "c649e8c4618736b4841eda6669e29d9cefa8bed342c05940a879821be006053a",
+        "signature": "76c997395a20e5374f4c2c2923306517947891725dd26d768cb4bc8ebcc17bfc",
         "affectsGlobalScope": false
       },
       "./src/services/user.service.ts": {
@@ -2437,8 +2437,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {
-        "version": "806fe3bb3d146d8dbde8462f3cb7564ac6abb9696a6b2757d9be1b4c73576dcb",
-        "signature": "1c7b56c1aa54cbba9f94d2afc36e9be8a0f22809ad9574aabfe6acf07d059e20",
+        "version": "f83c317c482c3b89e4f936375999e67006aa3134621c95eb1ad4d5bca08b3240",
+        "signature": "371366a495e95b6314a816cb2ab80c60c0cc77f68efece208d5db8ec87921b18",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
@@ -6025,15 +6025,18 @@
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/test.controller.ts": [
+        "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/config/key.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
+        "./src/services/file-upload.ts",
         "./src/services/index.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [
@@ -6042,7 +6045,6 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./src/authorization/interceptor/user-account-interceptor.ts",
@@ -9610,14 +9612,14 @@
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/test.controller.ts": [
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@types/express/index.d.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
         "./src/services/index.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [
-        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/express/index.d.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
         "./src/services/jwt.service.ts",

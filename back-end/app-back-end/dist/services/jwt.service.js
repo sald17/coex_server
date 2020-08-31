@@ -1,4 +1,5 @@
 "use strict";
+var JwtService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JwtService = void 0;
 const tslib_1 = require("tslib");
@@ -7,24 +8,30 @@ const rest_1 = require("@loopback/rest");
 const security_1 = require("@loopback/security");
 const util_1 = require("util");
 const uuid_1 = require("uuid");
-// import JWT from 'jsonwebtoken';
 const key_1 = require("../config/key");
 const JWT = require('jsonwebtoken');
 const signAsync = util_1.promisify(JWT.sign);
 const verifyAsync = util_1.promisify(JWT.verify);
-let JwtService = class JwtService {
+let JwtService = JwtService_1 = class JwtService {
     constructor(secretKey, expireValue) {
         this.secretKey = secretKey;
         this.expireValue = expireValue;
     }
     async verifyToken(token) {
-        const INVALID_TOKEN_MESSAGE = 'Invalid Token';
         if (!token) {
-            throw new rest_1.HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
+            throw new rest_1.HttpErrors.Unauthorized(JwtService_1.INVALID_TOKEN_MESSAGE);
         }
-        let validProfile = await verifyAsync(token, this.secretKey);
+        let validProfile;
+        try {
+            validProfile = await verifyAsync(token, this.secretKey);
+        }
+        catch (error) {
+            if (error.name == 'TokenExpiredError') {
+                throw new rest_1.HttpErrors.BadRequest(JwtService_1.EXPIRED_TOKEN_MESSAGE);
+            }
+        }
         if (!validProfile) {
-            throw new rest_1.HttpErrors.Unauthorized(INVALID_TOKEN_MESSAGE);
+            throw new rest_1.HttpErrors.Unauthorized(JwtService_1.INVALID_TOKEN_MESSAGE);
         }
         // console.log(isValid);
         let userProfile = Object.assign({
@@ -43,8 +50,18 @@ let JwtService = class JwtService {
         });
         return token;
     }
+    async generateRefreshToken(user) {
+        if (!user) {
+            throw new rest_1.HttpErrors.Unauthorized('Invalid user');
+        }
+        let payload = Object.assign({}, user, { jti: uuid_1.v4() });
+        const token = signAsync(payload, this.secretKey);
+        return token;
+    }
 };
-JwtService = tslib_1.__decorate([
+JwtService.INVALID_TOKEN_MESSAGE = 'Invalid Token';
+JwtService.EXPIRED_TOKEN_MESSAGE = 'Expired Token';
+JwtService = JwtService_1 = tslib_1.__decorate([
     core_1.bind({ scope: core_1.BindingScope.TRANSIENT }),
     tslib_1.__param(0, core_1.inject(key_1.JwtServiceBindings.SECRET_KEY)),
     tslib_1.__param(1, core_1.inject(key_1.JwtServiceBindings.TOKEN_EXPIRES_IN)),

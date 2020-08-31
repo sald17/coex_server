@@ -17,7 +17,7 @@ let LocalAuthStrategy = class LocalAuthStrategy {
         this.passwordHasher = passwordHasher;
         this.name = 'local';
         this.passportStrategy = new passport_local_1.Strategy({
-            usernameField: 'username',
+            usernameField: 'email',
             passwordField: 'password',
         }, this.verify.bind(this));
         this.strategy = new authentication_passport_1.StrategyAdapter(this.passportStrategy, this.name, types_1.mapProfile.bind(this));
@@ -25,12 +25,12 @@ let LocalAuthStrategy = class LocalAuthStrategy {
     async authenticate(request) {
         return await this.strategy.authenticate(request);
     }
-    async verify(username, password, done) {
-        const AUTH_FAILED_MESSAGE = 'User Name / Password not correct';
+    async verify(email, password, done) {
+        const AUTH_FAILED_MESSAGE = 'Incorrect email or password.';
         const EMAIL_VERIFIED_FAILED_MESSAGE = 'Email not verified.';
         const user = await this.userRepository.findOne({
             where: {
-                username,
+                email,
             },
         });
         if (!user) {

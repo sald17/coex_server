@@ -22,4 +22,11 @@ export class PasswordHasherService implements PasswordHasher<string> {
         let isMatched = await bcrypt.compare(providedPassword, storedPassword);
         return isMatched;
     }
+
+    async generateOTP(): Promise<string> {
+        const max = 999999,
+            min = 100000;
+
+        return Math.floor(Math.random() * (max - min) + min) + '';
+    }
 }

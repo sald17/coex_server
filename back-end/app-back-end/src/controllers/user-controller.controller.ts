@@ -3,22 +3,11 @@
 import {authenticate} from '@loopback/authentication';
 import {inject, intercept} from '@loopback/core';
 import {repository} from '@loopback/repository';
-import {
-    get,
-    HttpErrors,
-    param,
-    post,
-    requestBody,
-    RequestWithSession,
-    Response,
-    RestBindings,
-} from '@loopback/rest';
+import {get, HttpErrors, param, post, put, requestBody} from '@loopback/rest';
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
-import {RequestHandler} from 'express';
 import {UserAccountInterceptor} from '../authorization/interceptor/user-account-interceptor';
 import {
     EmailServiceBindings,
-    FILE_UPLOAD_SERVICE,
     JwtServiceBindings,
     PasswordHasherBindings,
 } from '../config/key';
@@ -47,8 +36,6 @@ export class UserControllerController {
         public jwtService: JwtService,
         @inject(EmailServiceBindings.EMAIL_SERVICE)
         public emailService: EmailService,
-        @inject(FILE_UPLOAD_SERVICE)
-        public uploadFileService: RequestHandler,
     ) {}
 
     // User sign up
@@ -66,6 +53,7 @@ export class UserControllerController {
         },
     })
     async signup(@requestBody() user: any) {
+        //Check email existed
         const isExisted = await this.userRepository.findOne({
             where: {
                 email: user.email,
@@ -83,18 +71,18 @@ export class UserControllerController {
             throw new HttpErrors.BadRequest('Error in registering. Try again');
         }
 
+        //Generate verified token
         const userProfile: UserProfile = Object.assign({
             profile: {
                 [securityId]: newUser.id,
                 email: newUser.email,
-                username: newUser.username,
                 id: newUser.id,
             },
         });
 
         let verifiedToken: string = await this.jwtService.generateToken(
             userProfile,
-            1000 * 60 * 10,
+            10 * 60, //10 minutes
         );
         let sentEmail = await this.emailService.sendVerificationEmail(
             newUser.email,
@@ -112,12 +100,7 @@ export class UserControllerController {
     // User log in
     @authenticate('local')
     @post('/user/log-in')
-    async login(
-        @requestBody() user: any,
-        @inject(SecurityBindings.USER) userProfile: UserProfile,
-        @inject(RestBindings.Http.REQUEST) request: RequestWithSession,
-        @inject(RestBindings.Http.RESPONSE) response: Response,
-    ) {
+    async login(@inject(SecurityBindings.USER) userProfile: UserProfile) {
         const profile = {
             [securityId]: userProfile[securityId],
             profile: {
@@ -127,8 +110,18 @@ export class UserControllerController {
             },
         };
         let token = await this.jwtService.generateToken(profile);
+        delete profile.profile.role;
+        delete profile.profile.fullname;
+        let refreshToken = userProfile.profile.refreshToken;
 
-        return {token};
+        if (!refreshToken) {
+            refreshToken = await this.jwtService.generateRefreshToken(profile);
+            await this.userRepository.updateById(userProfile.profile.id, {
+                refreshToken: refreshToken,
+            });
+        }
+
+        return {token, refreshToken};
     }
 
     // Verify email
@@ -164,27 +157,46 @@ export class UserControllerController {
         const storeValue = `${this.user.jti}:${this.user.exp}`;
         await this.blacklist.addToken(storeValue);
         return {message: 'Logged out'};
-        // console.log(this.user.p);
-        // let a = await this.blacklist.set(
-        //     this.user.profile.id,
-        //     this.user.profile.jti,
-        // );
+    }
+
+    @post('/user/refresh')
+    async refreshToken(@requestBody() body: any) {
+        const {token} = body;
+        const decoded = await this.jwtService.verifyToken(token);
+        const user = await this.userRepository.findById(decoded.profile.id);
+        if (token.localeCompare(user.refreshToken)) {
+            throw new HttpErrors.Forbidden(JwtService.INVALID_TOKEN_MESSAGE);
+        }
+        const profile: UserProfile = {
+            [securityId]: user.id + '',
+            profile: {
+                id: user.id,
+                fullname: user.fullname,
+                role: user.role,
+            },
+        };
+        const accessToken = await this.jwtService.generateToken(profile);
+        delete profile.profile.fullname;
+        delete profile.profile.role;
+        const newRfrToken = await this.jwtService.generateRefreshToken(profile);
+        await this.userRepository.updateById(user.id, {
+            refreshToken: newRfrToken,
+        });
+        return {token: accessToken, refreshToken: newRfrToken};
     }
 
     @authenticate('jwt')
-    @post('/user/reset-password')
-    async resetPassword(@requestBody() userCredential: any) {
+    @put('/user/change-password')
+    async changePassword(@requestBody() userCredential: any) {
         const user = await this.userRepository.findById(this.user.profile.id);
-        console.log(user);
         if (!user) {
             throw new HttpErrors.Unauthorized('Not found user');
         }
-        if (
-            !this.passwordHasher.comparePassword(
-                userCredential.oldPass,
-                user.password,
-            )
-        ) {
+        const isCorrectPass = await this.passwordHasher.comparePassword(
+            userCredential.oldPass,
+            user.password,
+        );
+        if (!isCorrectPass) {
             throw new HttpErrors.BadRequest('Invalid password');
         }
         await this.userRepository.updateById(this.user.profile.id, {
@@ -192,10 +204,53 @@ export class UserControllerController {
                 userCredential.newPass,
             ),
         });
+        return {
+            message: 'Change successfully.',
+        };
     }
 
     @post('/user/forgot-password')
-    async forgotPassword() {
-        console.log('Forgot');
+    async forgotPassword(@requestBody() body: any) {
+        const {email} = body;
+        const user = await this.userRepository.findOne({
+            where: {
+                email,
+            },
+        });
+        if (!user) {
+            throw new HttpErrors.NotFound('Not found user');
+        }
+
+        const otp = await this.passwordHasher.generateOTP();
+        await this.blacklist.addOtp(email, otp);
+        const info = await this.emailService.sendOTPEmail(email, otp);
+        if (!info) {
+            throw new HttpErrors.GatewayTimeout();
+        }
+
+        return {message: 'Check your email for OTP'};
+    }
+
+    @put('/user/reset-password')
+    async resetPassword(@requestBody() body: any) {
+        const {email, otp, newPass} = body;
+        const isValid = this.blacklist.checkOtp(email, otp);
+        if (!isValid) {
+            throw new HttpErrors.BadRequest('Invalid OTP');
+        }
+        const password = await this.passwordHasher.hashPassword(newPass);
+        await this.userRepository.updateAll(
+            {
+                password: password,
+            },
+            {
+                email,
+            },
+        );
+        const res = await this.blacklist.deleteOtp(email);
+        if (!res) {
+            throw new HttpErrors.BadRequest('Invalid OTP code');
+        }
+        return {message: 'Reset password successfully.'};
     }
 }

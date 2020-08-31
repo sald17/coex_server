@@ -35,10 +35,9 @@ export class UserAccountInterceptor implements Provider<Interceptor> {
                     );
                 }
                 break;
-
-            case 'resetPassword': //Check if new password and confirmation are valid
+            case 'resetPassword':
+            case 'changePassword': //Check if new password and confirmation are valid
                 const {oldPass, newPass, confPass} = detail['request'].body;
-
                 if (newPass !== confPass) {
                     throw new HttpErrors.BadRequest(
                         'New password is not match.',
@@ -49,16 +48,17 @@ export class UserAccountInterceptor implements Provider<Interceptor> {
                         `Password must have the length of 8-30 and have at least one uppercase, one lowercase and one digit`,
                     );
                 }
+                break;
             case 'forgotPassword':
                 const {email: emailCredential} = detail['request'].body;
                 if (
                     !UserAccountInterceptor.emailPattern.test(emailCredential)
                 ) {
-                    throw new HttpErrors.BadRequest(
-                        `Please register with a valid email.`,
-                    );
+                    throw new HttpErrors.BadRequest(`Invalid email.`);
                 }
                 break;
+            //     console.log('asdfasdfasdfasdf');
+            //     break;
             default:
                 break;
         }

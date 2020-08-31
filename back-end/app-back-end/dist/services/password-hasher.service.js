@@ -17,6 +17,10 @@ let PasswordHasherService = class PasswordHasherService {
         let isMatched = await bcrypt.compare(providedPassword, storedPassword);
         return isMatched;
     }
+    async generateOTP() {
+        const max = 999999, min = 100000;
+        return Math.floor(Math.random() * (max - min) + min) + '';
+    }
 };
 PasswordHasherService = tslib_1.__decorate([
     core_1.bind({ scope: core_1.BindingScope.TRANSIENT }),

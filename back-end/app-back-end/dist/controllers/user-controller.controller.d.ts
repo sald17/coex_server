@@ -1,6 +1,4 @@
-import { RequestWithSession, Response } from '@loopback/rest';
 import { UserProfile } from '@loopback/security';
-import { RequestHandler } from 'express';
 import { BlacklistRepository, ThirdPartyIdentityRepository, UserRepository } from '../repositories';
 import { EmailService } from '../services/email.service';
 import { JwtService } from '../services/jwt.service';
@@ -13,18 +11,30 @@ export declare class UserControllerController {
     passwordHasher: PasswordHasherService;
     jwtService: JwtService;
     emailService: EmailService;
-    uploadFileService: RequestHandler;
-    constructor(userRepository: UserRepository, thirdPartyRepository: ThirdPartyIdentityRepository, blacklist: BlacklistRepository, user: UserProfile, passwordHasher: PasswordHasherService, jwtService: JwtService, emailService: EmailService, uploadFileService: RequestHandler);
+    constructor(userRepository: UserRepository, thirdPartyRepository: ThirdPartyIdentityRepository, blacklist: BlacklistRepository, user: UserProfile, passwordHasher: PasswordHasherService, jwtService: JwtService, emailService: EmailService);
     signup(user: any): Promise<{
         message: string;
     }>;
-    login(user: any, userProfile: UserProfile, request: RequestWithSession, response: Response): Promise<{
+    login(userProfile: UserProfile): Promise<{
         token: string;
+        refreshToken: any;
     }>;
     verifyEmail(verifyToken: string): Promise<string>;
     logout(): Promise<{
         message: string;
     }>;
-    resetPassword(userCredential: any): Promise<void>;
-    forgotPassword(): Promise<void>;
+    refreshToken(body: any): Promise<{
+        token: string;
+        refreshToken: string;
+    }>;
+    changePassword(userCredential: any): Promise<{
+        message: string;
+    }>;
+    forgotPassword(body: any): Promise<{
+        message: string;
+        otp: string;
+    }>;
+    resetPassword(body: any): Promise<{
+        message: string;
+    }>;
 }

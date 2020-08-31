@@ -20,6 +20,7 @@ export class BlacklistRepository extends DefaultKeyValueRepository<Blacklist> {
         super(Blacklist, dataSource);
     }
 
+    // Add token to blacklist
     async addToken(token: string) {
         try {
             await this.execute('SADD', ['blacklist', token]);
@@ -28,6 +29,7 @@ export class BlacklistRepository extends DefaultKeyValueRepository<Blacklist> {
         }
     }
 
+    // Return blacklist
     async getBlacklist() {
         let blacklist: any = await this.execute('SMEMBERS', ['blacklist']);
         blacklist = blacklist.map((item: any) => {
@@ -38,11 +40,13 @@ export class BlacklistRepository extends DefaultKeyValueRepository<Blacklist> {
         return blacklist;
     }
 
+    // Check if token in blacklist
     async checkToken(token: string) {
         let result = await this.execute('SISMEMBER', ['blacklist', token]);
         return result;
     }
 
+    // Remove expired token from blacklist
     async cleanBlacklist() {
         let blacklist = await this.getBlacklist();
         let index = blacklist.length - 1;
@@ -66,6 +70,7 @@ export class BlacklistRepository extends DefaultKeyValueRepository<Blacklist> {
         console.log(blacklist);
     }
 
+    // Check value of token in blacklist
     async check(str: string) {
         let [token, expTime]: any = str.split(':');
         expTime = new Date(Number(expTime) * 1000);
@@ -75,5 +80,45 @@ export class BlacklistRepository extends DefaultKeyValueRepository<Blacklist> {
         console.log(token);
         console.log(expTime);
         return {token, expTime};
+    }
+
+    // Add OTP in cache
+
+    async addOtp(email: string, otp: string) {
+        try {
+            await this.execute('SET', [email, otp]);
+            const res = await this.execute('EXPIRE', [email, 60 * 10]);
+            if (!res) throw new HttpErrors.GatewayTimeout();
+        } catch (err) {
+            throw new HttpErrors.GatewayTimeout();
+        }
+    }
+
+    async checkOtp(email: string, otp: string) {
+        try {
+            let otpVal: any = await this.execute('GET', [email]);
+            console.log(otpVal);
+            if (!otpVal) {
+                throw new HttpErrors.GatewayTimeout();
+            }
+            return !otp.localeCompare(otpVal.toString());
+        } catch (error) {
+            throw new HttpErrors.GatewayTimeout();
+        }
+    }
+
+    async deleteOtp(email: string) {
+        try {
+            const res: any = await this.execute('DEL', [email]);
+            return Number(res.toString());
+        } catch (err) {
+            throw new HttpErrors.GatewayTimeout();
+        }
+    }
+
+    convertByteToString(bufArr: []) {
+        return bufArr.reduce((str: any, cur: any) => {
+            return str.concat(String.fromCharCode(cur));
+        }, '');
     }
 }

@@ -12,7 +12,7 @@ import {PasswordHasher} from '../services/password-hasher.service';
 
 export namespace JwtServiceConstants {
     export const SECRET_KEY = 'secretKey';
-    export const EXPIRES_VALUE = 60 * 60;
+    export const EXPIRES_VALUE = 60 * 10; //secs
 }
 
 export namespace JwtServiceBindings {
