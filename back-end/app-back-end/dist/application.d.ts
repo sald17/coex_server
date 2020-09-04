@@ -4,6 +4,8 @@ export { ApplicationConfig };
 declare const AppApplication_base: (new (...args: any[]) => {
     projectRoot: string;
     bootOptions?: import("@loopback/boot").BootOptions | undefined;
+    booted: boolean;
+    start(): Promise<void>;
     boot(): Promise<void>;
     booters(...booterCls: import("@loopback/core").Constructor<import("@loopback/boot").Booter>[]): import("@loopback/boot").Binding<any>[];
     applicationBooter(subApp: import("@loopback/core").Application & import("@loopback/boot").Bootable, filter?: import("@loopback/core").BindingFilter | undefined): import("@loopback/boot").Binding<import("@loopback/boot").Booter>;
@@ -15,7 +17,6 @@ declare const AppApplication_base: (new (...args: any[]) => {
     server: <T_2 extends import("@loopback/core").Server>(ctor: import("@loopback/core").Constructor<T_2>, nameOrOptions?: string | import("@loopback/core").BindingFromClassOptions | undefined) => import("@loopback/boot").Binding<T_2>;
     servers: <T_3 extends import("@loopback/core").Server>(ctors: import("@loopback/core").Constructor<T_3>[]) => import("@loopback/boot").Binding<any>[];
     getServer: <T_4 extends import("@loopback/core").Server>(target: string | import("@loopback/core").Constructor<T_4>) => Promise<T_4>;
-    start: () => Promise<void>;
     stop: () => Promise<void>;
     setMetadata: (metadata: import("@loopback/core").ApplicationMetadata) => void;
     lifeCycleObserver: <T_5 extends import("@loopback/core").LifeCycleObserver>(ctor: import("@loopback/core").Constructor<T_5>, nameOrOptions?: string | import("@loopback/core").BindingFromClassOptions | undefined) => import("@loopback/boot").Binding<T_5>;
@@ -246,4 +247,5 @@ export declare class AppApplication extends AppApplication_base {
     constructor(options?: ApplicationConfig);
     setUpBindings(): void;
     protected configureFileUpload(destination?: string): void;
+    setUpAuthorization(): void;
 }

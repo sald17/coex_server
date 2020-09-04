@@ -8,7 +8,7 @@ const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const security_1 = require("@loopback/security");
-const user_account_interceptor_1 = require("../authorization/interceptor/user-account-interceptor");
+const user_account_interceptor_1 = require("../access-control/interceptor/user-account-interceptor");
 const key_1 = require("../config/key");
 const repositories_1 = require("../repositories");
 const email_service_1 = require("../services/email.service");
@@ -16,9 +16,8 @@ const jwt_service_1 = require("../services/jwt.service");
 const password_hasher_service_1 = require("../services/password-hasher.service");
 // import {inject} from '@loopback/core';
 let UserControllerController = class UserControllerController {
-    constructor(userRepository, thirdPartyRepository, blacklist, user, passwordHasher, jwtService, emailService) {
+    constructor(userRepository, blacklist, user, passwordHasher, jwtService, emailService) {
         this.userRepository = userRepository;
-        this.thirdPartyRepository = thirdPartyRepository;
         this.blacklist = blacklist;
         this.user = user;
         this.passwordHasher = passwordHasher;
@@ -58,7 +57,17 @@ let UserControllerController = class UserControllerController {
         return { message: 'Created successfully' };
     }
     // User log in
-    async login(userProfile) {
+    async login(userProfile, role) {
+        if (role === 'client' || role === 'host') {
+            if (!userProfile.profile.role.includes(role)) {
+                await this.userRepository.updateById(userProfile.profile.id, {
+                    role: [...userProfile.profile.role, role],
+                });
+            }
+        }
+        else {
+            throw new rest_1.HttpErrors.NotFound();
+        }
         const profile = {
             [security_1.securityId]: userProfile[security_1.securityId],
             profile: {
@@ -147,11 +156,11 @@ let UserControllerController = class UserControllerController {
         }
         const otp = await this.passwordHasher.generateOTP();
         await this.blacklist.addOtp(email, otp);
-        // const info = await this.emailService.sendOTPEmail(email, otp);
-        // if (!info) {
-        //     throw new HttpErrors.GatewayTimeout();
-        // }
-        return { message: 'Check your email for OTP', otp: otp };
+        const info = await this.emailService.sendOTPEmail(email, otp);
+        if (!info) {
+            throw new rest_1.HttpErrors.GatewayTimeout();
+        }
+        return { message: 'Check your email for OTP' };
     }
     async resetPassword(body) {
         const { email, otp, newPass } = body;
@@ -192,10 +201,11 @@ tslib_1.__decorate([
 ], UserControllerController.prototype, "signup", null);
 tslib_1.__decorate([
     authentication_1.authenticate('local'),
-    rest_1.post('/user/log-in'),
+    rest_1.post('/user/log-in/{role}'),
     tslib_1.__param(0, core_1.inject(security_1.SecurityBindings.USER)),
+    tslib_1.__param(1, rest_1.param.path.string('role')),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object]),
+    tslib_1.__metadata("design:paramtypes", [Object, String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "login", null);
 tslib_1.__decorate([
@@ -255,14 +265,12 @@ tslib_1.__decorate([
 UserControllerController = tslib_1.__decorate([
     core_1.intercept(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY),
     tslib_1.__param(0, repository_1.repository(repositories_1.UserRepository)),
-    tslib_1.__param(1, repository_1.repository(repositories_1.ThirdPartyIdentityRepository)),
-    tslib_1.__param(2, repository_1.repository(repositories_1.BlacklistRepository)),
-    tslib_1.__param(3, core_1.inject(security_1.SecurityBindings.USER, { optional: true })),
-    tslib_1.__param(4, core_1.inject(key_1.PasswordHasherBindings.PASSWORD_HASHER)),
-    tslib_1.__param(5, core_1.inject(key_1.JwtServiceBindings.TOKEN_SERVICE)),
-    tslib_1.__param(6, core_1.inject(key_1.EmailServiceBindings.EMAIL_SERVICE)),
+    tslib_1.__param(1, repository_1.repository(repositories_1.BlacklistRepository)),
+    tslib_1.__param(2, core_1.inject(security_1.SecurityBindings.USER, { optional: true })),
+    tslib_1.__param(3, core_1.inject(key_1.PasswordHasherBindings.PASSWORD_HASHER)),
+    tslib_1.__param(4, core_1.inject(key_1.JwtServiceBindings.TOKEN_SERVICE)),
+    tslib_1.__param(5, core_1.inject(key_1.EmailServiceBindings.EMAIL_SERVICE)),
     tslib_1.__metadata("design:paramtypes", [repositories_1.UserRepository,
-        repositories_1.ThirdPartyIdentityRepository,
         repositories_1.BlacklistRepository, Object, password_hasher_service_1.PasswordHasherService,
         jwt_service_1.JwtService,
         email_service_1.EmailService])

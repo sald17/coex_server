@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppApplication = void 0;
 const tslib_1 = require("tslib");
 const authentication_1 = require("@loopback/authentication");
+const authorization_1 = require("@loopback/authorization");
 const boot_1 = require("@loopback/boot");
 const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
@@ -11,9 +12,10 @@ const rest_explorer_1 = require("@loopback/rest-explorer");
 const service_proxy_1 = require("@loopback/service-proxy");
 const multer_1 = tslib_1.__importDefault(require("multer"));
 const path_1 = tslib_1.__importDefault(require("path"));
-const user_account_interceptor_1 = require("./authorization/interceptor/user-account-interceptor");
-const strategies_1 = require("./authorization/strategies");
-const jwt_1 = require("./authorization/strategies/jwt");
+const authorization_2 = require("./access-control/interceptor/authorization");
+const user_account_interceptor_1 = require("./access-control/interceptor/user-account-interceptor");
+const strategies_1 = require("./access-control/strategies");
+const jwt_1 = require("./access-control/strategies/jwt");
 const key_1 = require("./config/key");
 const cronjob_1 = require("./cronjob");
 const sequence_1 = require("./sequence");
@@ -29,9 +31,11 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         // Set up the custom sequence
         this.sequence(sequence_1.MySequence);
         this.component(authentication_1.AuthenticationComponent);
+        this.component(authorization_1.AuthorizationComponent);
         // this.component(CronComponent);
         // Set up default home page
         this.static('/', path_1.default.join(__dirname, '../public'));
+        this.static('/', path_1.default.join(__dirname, '../storage'));
         // Customize @loopback/rest-explorer configuration here
         this.configure(rest_explorer_1.RestExplorerBindings.COMPONENT).to({
             path: '/explorer',
@@ -58,6 +62,7 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         this.bind(key_1.PasswordHasherBindings.ROUNDS).to(10);
         this.bind(key_1.PasswordHasherBindings.PASSWORD_HASHER).toClass(password_hasher_service_1.PasswordHasherService);
         this.bind(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY).toProvider(user_account_interceptor_1.UserAccountInterceptor);
+        this.bind(authorization_2.AuthorizationProvider.BINDING_KEY).toProvider(authorization_2.AuthorizationProvider);
         this.add(core_1.createBindingFromClass(cronjob_1.BlacklistCron));
         this.add(core_1.createBindingFromClass(strategies_1.LocalAuthStrategy));
         this.add(core_1.createBindingFromClass(jwt_1.JWTStrategy));
@@ -80,6 +85,11 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         // Configure the file upload service with multer options
         this.bind(key_1.FILE_UPLOAD_SERVICE).toProvider(file_upload_1.FileUploadProvider);
         this.configure(key_1.FILE_UPLOAD_SERVICE).to(multerOptions);
+    }
+    setUpAuthorization() {
+        const option = {
+        // precedence
+        };
     }
 }
 exports.AppApplication = AppApplication;

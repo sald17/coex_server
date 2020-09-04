@@ -5,17 +5,13 @@ import {inject, intercept} from '@loopback/core';
 import {repository} from '@loopback/repository';
 import {get, HttpErrors, param, post, put, requestBody} from '@loopback/rest';
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
-import {UserAccountInterceptor} from '../authorization/interceptor/user-account-interceptor';
+import {UserAccountInterceptor} from '../access-control/interceptor/user-account-interceptor';
 import {
     EmailServiceBindings,
     JwtServiceBindings,
     PasswordHasherBindings,
 } from '../config/key';
-import {
-    BlacklistRepository,
-    ThirdPartyIdentityRepository,
-    UserRepository,
-} from '../repositories';
+import {BlacklistRepository, UserRepository} from '../repositories';
 import {EmailService} from '../services/email.service';
 import {JwtService} from '../services/jwt.service';
 import {PasswordHasherService} from '../services/password-hasher.service';
@@ -25,8 +21,6 @@ import {PasswordHasherService} from '../services/password-hasher.service';
 export class UserControllerController {
     constructor(
         @repository(UserRepository) public userRepository: UserRepository,
-        @repository(ThirdPartyIdentityRepository)
-        public thirdPartyRepository: ThirdPartyIdentityRepository,
         @repository(BlacklistRepository) public blacklist: BlacklistRepository,
         @inject(SecurityBindings.USER, {optional: true})
         private user: UserProfile,
@@ -99,8 +93,21 @@ export class UserControllerController {
 
     // User log in
     @authenticate('local')
-    @post('/user/log-in')
-    async login(@inject(SecurityBindings.USER) userProfile: UserProfile) {
+    @post('/user/log-in/{role}')
+    async login(
+        @inject(SecurityBindings.USER) userProfile: UserProfile,
+        @param.path.string('role') role: string,
+    ) {
+        if (role === 'client' || role === 'host') {
+            if (!userProfile.profile.role.includes(role)) {
+                await this.userRepository.updateById(userProfile.profile.id, {
+                    role: [...userProfile.profile.role, role],
+                });
+            }
+        } else {
+            throw new HttpErrors.NotFound();
+        }
+
         const profile = {
             [securityId]: userProfile[securityId],
             profile: {
@@ -109,6 +116,7 @@ export class UserControllerController {
                 role: userProfile.profile.role,
             },
         };
+
         let token = await this.jwtService.generateToken(profile);
         delete profile.profile.role;
         delete profile.profile.fullname;

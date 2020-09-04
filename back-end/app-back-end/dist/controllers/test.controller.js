@@ -4,10 +4,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TestController = void 0;
 const tslib_1 = require("tslib");
 const authentication_1 = require("@loopback/authentication");
+const authorization_1 = require("@loopback/authorization");
 const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const security_1 = require("@loopback/security");
+const basic_authentication_1 = require("../access-control/authenticator/basic-authentication");
 const key_1 = require("../config/key");
 const repositories_1 = require("../repositories");
 const services_1 = require("../services");
@@ -83,6 +85,10 @@ tslib_1.__decorate([
 ], TestController.prototype, "fileUpload", null);
 tslib_1.__decorate([
     authentication_1.authenticate('jwt'),
+    authorization_1.authorize({
+        allowedRoles: ['client'],
+        voters: [basic_authentication_1.basicAuthorization],
+    }),
     rest_1.get('/test/message'),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),

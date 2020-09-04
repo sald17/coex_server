@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const tslib_1 = require("tslib");
 const repository_1 = require("@loopback/repository");
-const third_party_identity_model_1 = require("./third-party-identity.model");
 let User = class User extends repository_1.Entity {
     constructor(data) {
         super(data);
@@ -25,12 +24,6 @@ tslib_1.__decorate([
 ], User.prototype, "fullname", void 0);
 tslib_1.__decorate([
     repository_1.property({
-        type: 'string',
-    }),
-    tslib_1.__metadata("design:type", String)
-], User.prototype, "gender", void 0);
-tslib_1.__decorate([
-    repository_1.property({
         type: 'date',
     }),
     tslib_1.__metadata("design:type", String)
@@ -46,7 +39,7 @@ tslib_1.__decorate([
         type: 'string',
         required: true,
         jsonSchema: {
-            pattern: `^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$`,
+            pattern: `^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$`,
         },
     }),
     tslib_1.__metadata("design:type", String)
@@ -81,6 +74,7 @@ tslib_1.__decorate([
 tslib_1.__decorate([
     repository_1.property({
         type: 'string',
+        default: '/default/user-account.png',
     }),
     tslib_1.__metadata("design:type", String)
 ], User.prototype, "avatar", void 0);
@@ -107,10 +101,6 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", Array)
 ], User.prototype, "role", void 0);
-tslib_1.__decorate([
-    repository_1.hasMany(() => third_party_identity_model_1.ThirdPartyIdentity, { keyTo: 'userId' }),
-    tslib_1.__metadata("design:type", Array)
-], User.prototype, "identities", void 0);
 User = tslib_1.__decorate([
     repository_1.model(),
     tslib_1.__metadata("design:paramtypes", [Object])

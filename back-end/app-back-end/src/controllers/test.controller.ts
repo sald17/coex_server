@@ -1,6 +1,7 @@
 // Uncomment these imports to begin using these cool features!
 
 import {authenticate} from '@loopback/authentication';
+import {authorize} from '@loopback/authorization';
 import {inject} from '@loopback/core';
 import {repository} from '@loopback/repository';
 import {
@@ -15,6 +16,7 @@ import {
 import {securityId, UserProfile} from '@loopback/security';
 import {RequestHandler} from 'express';
 import {} from 'util';
+import {basicAuthorization} from '../access-control/authenticator/basic-authentication';
 import {
     EmailServiceBindings,
     FILE_UPLOAD_SERVICE,
@@ -77,7 +79,12 @@ export class TestController {
             });
         });
     }
+
     @authenticate('jwt')
+    @authorize({
+        allowedRoles: ['client'],
+        voters: [basicAuthorization],
+    })
     @get('/test/message')
     async testMessage() {
         return 'Jebaited';

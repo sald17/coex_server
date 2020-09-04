@@ -1,5 +1,4 @@
-import {Entity, hasMany, model, property} from '@loopback/repository';
-import {ThirdPartyIdentity} from './third-party-identity.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class User extends Entity {
@@ -16,11 +15,6 @@ export class User extends Entity {
     fullname?: string;
 
     @property({
-        type: 'string',
-    })
-    gender?: string;
-
-    @property({
         type: 'date',
     })
     birth?: string;
@@ -34,7 +28,7 @@ export class User extends Entity {
         type: 'string',
         required: true,
         jsonSchema: {
-            pattern: `^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$`,
+            pattern: `^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$`,
         },
     })
     email: string;
@@ -64,6 +58,7 @@ export class User extends Entity {
 
     @property({
         type: 'string',
+        default: '/default/user-account.png',
     })
     avatar?: string;
 
@@ -86,9 +81,6 @@ export class User extends Entity {
         default: ['client'],
     })
     role: string[];
-
-    @hasMany(() => ThirdPartyIdentity, {keyTo: 'userId'})
-    identities?: ThirdPartyIdentity[];
 
     constructor(data?: Partial<User>) {
         super(data);

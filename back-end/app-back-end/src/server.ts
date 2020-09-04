@@ -23,9 +23,9 @@ export class ExpressServer {
             .to(options.facebookOptions);
 
         this.expressApp.use(
-            express.static(path.resolve(__dirname, '../web-application/views')),
+            express.static(path.resolve(__dirname, '../public')),
         );
-        this.expressApp.use('/api', this.loopbackApp.requestHandler);
+        this.expressApp.use('/', this.loopbackApp.requestHandler);
     }
 
     public async boot() {

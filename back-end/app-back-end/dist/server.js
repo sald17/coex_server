@@ -14,8 +14,8 @@ class ExpressServer {
         this.loopbackApp
             .bind('facebookOAuth2Options')
             .to(options.facebookOptions);
-        this.expressApp.use(express_1.default.static(path.resolve(__dirname, '../web-application/views')));
-        this.expressApp.use('/api', this.loopbackApp.requestHandler);
+        this.expressApp.use(express_1.default.static(path.resolve(__dirname, '../public')));
+        this.expressApp.use('/', this.loopbackApp.requestHandler);
     }
     async boot() {
         await this.loopbackApp.boot();

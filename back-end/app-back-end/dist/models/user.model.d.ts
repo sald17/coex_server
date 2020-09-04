@@ -1,9 +1,7 @@
 import { Entity } from '@loopback/repository';
-import { ThirdPartyIdentity } from './third-party-identity.model';
 export declare class User extends Entity {
     id?: string;
     fullname?: string;
-    gender?: string;
     birth?: string;
     phoneNumber?: string;
     email: string;
@@ -15,7 +13,6 @@ export declare class User extends Entity {
     password: string;
     refreshToken: string;
     role: string[];
-    identities?: ThirdPartyIdentity[];
     constructor(data?: Partial<User>);
 }
 export interface UserRelations {

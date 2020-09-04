@@ -3,6 +3,7 @@ import { TokenService, UserIdentityService, UserService } from '@loopback/authen
 import { BindingKey } from '@loopback/core';
 import { RequestHandler } from 'express-serve-static-core';
 import { Profile as PassportProfile } from 'passport';
+import { AuthorizationProvider } from '../access-control/interceptor/authorization';
 import { User } from '../models';
 import { EmailService } from '../services/email.service';
 import { PasswordHasher } from '../services/password-hasher.service';
@@ -37,3 +38,5 @@ export declare const FILE_UPLOAD_SERVICE: BindingKey<RequestHandler<import("expr
  * Binding key for the storage directory
  */
 export declare const STORAGE_DIRECTORY: BindingKey<string>;
+export declare const RESOURCE_ID: BindingKey<string>;
+export declare const AUTHORIZATION_SERVICE: BindingKey<AuthorizationProvider>;

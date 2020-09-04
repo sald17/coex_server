@@ -1,4 +1,8 @@
 import {AuthenticationComponent} from '@loopback/authentication';
+import {
+    AuthorizationComponent,
+    AuthorizationOptions,
+} from '@loopback/authorization';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig, createBindingFromClass} from '@loopback/core';
 import {RepositoryMixin} from '@loopback/repository';
@@ -10,9 +14,10 @@ import {
 import {ServiceMixin} from '@loopback/service-proxy';
 import multer from 'multer';
 import path from 'path';
-import {UserAccountInterceptor} from './authorization/interceptor/user-account-interceptor';
-import {LocalAuthStrategy} from './authorization/strategies';
-import {JWTStrategy} from './authorization/strategies/jwt';
+import {AuthorizationProvider} from './access-control/interceptor/authorization';
+import {UserAccountInterceptor} from './access-control/interceptor/user-account-interceptor';
+import {LocalAuthStrategy} from './access-control/strategies';
+import {JWTStrategy} from './access-control/strategies/jwt';
 import {
     EmailServiceBindings,
     FILE_UPLOAD_SERVICE,
@@ -29,6 +34,7 @@ import {FileUploadProvider} from './services/file-upload';
 import {JwtService} from './services/jwt.service';
 import {PassportService} from './services/passport.service';
 import {PasswordHasherService} from './services/password-hasher.service';
+
 export {ApplicationConfig};
 
 export class AppApplication extends BootMixin(
@@ -42,11 +48,12 @@ export class AppApplication extends BootMixin(
         // Set up the custom sequence
         this.sequence(MySequence);
         this.component(AuthenticationComponent);
-
+        this.component(AuthorizationComponent);
         // this.component(CronComponent);
 
         // Set up default home page
         this.static('/', path.join(__dirname, '../public'));
+        this.static('/', path.join(__dirname, '../storage'));
 
         // Customize @loopback/rest-explorer configuration here
         this.configure(RestExplorerBindings.COMPONENT).to({
@@ -90,6 +97,9 @@ export class AppApplication extends BootMixin(
         this.bind(UserAccountInterceptor.BINDING_KEY).toProvider(
             UserAccountInterceptor,
         );
+        this.bind(AuthorizationProvider.BINDING_KEY).toProvider(
+            AuthorizationProvider,
+        );
 
         this.add(createBindingFromClass(BlacklistCron));
 
@@ -115,5 +125,11 @@ export class AppApplication extends BootMixin(
         // Configure the file upload service with multer options
         this.bind(FILE_UPLOAD_SERVICE).toProvider(FileUploadProvider);
         this.configure(FILE_UPLOAD_SERVICE).to(multerOptions);
+    }
+
+    setUpAuthorization() {
+        const option: AuthorizationOptions = {
+            // precedence
+        };
     }
 }
