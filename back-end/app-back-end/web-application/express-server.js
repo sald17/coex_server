@@ -40,7 +40,3 @@ function requireLogin(req, res, next) {
         res.sendStatus(401);
     }
 }
-
-app.get('/', (req, res, next) => {
-    res.send('index');
-});

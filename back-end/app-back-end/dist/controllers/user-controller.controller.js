@@ -100,7 +100,7 @@ let UserControllerController = class UserControllerController {
                 role: userProfile.profile.role,
             },
         };
-        let token = await this.jwtService.generateToken(profile);
+        let token = await this.jwtService.generateToken(profile, Date.now() + 3600 * 24 * 365);
         user.token.push(token);
         user.firebaseToken.push(credential.firebaseToken);
         await this.userRepository.update(user);

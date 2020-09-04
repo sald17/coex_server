@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, hasOne, model, property} from '@loopback/repository';
+import {CoWorking} from './co-working.model';
 
 @model()
 export class User extends Entity {
@@ -87,6 +88,9 @@ export class User extends Entity {
         default: [],
     })
     role: string[];
+
+    @hasOne(() => CoWorking)
+    coWorking: CoWorking;
 
     constructor(data?: Partial<User>) {
         super(data);

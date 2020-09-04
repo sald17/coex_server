@@ -14,7 +14,6 @@ export async function basicAuthorization(
 ): Promise<AuthorizationDecision> {
     // No access if authorization details are missing
     let currentUser: UserProfile;
-    console.log(authorizationCtx.principals[0].profile);
     if (authorizationCtx.principals.length > 0) {
         const user = _.pick(authorizationCtx.principals[0].profile, [
             'id',
@@ -43,11 +42,9 @@ export async function basicAuthorization(
         item => currentUser.roles.indexOf(item) !== -1,
     );
 
-    console.log(allowed);
-
-    if (allowed) {
-        return AuthorizationDecision.ALLOW;
+    if (!allowed || allowed.length === 0) {
+        return AuthorizationDecision.DENY;
     }
 
-    return AuthorizationDecision.DENY;
+    return AuthorizationDecision.ALLOW;
 }

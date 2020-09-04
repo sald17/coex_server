@@ -10,7 +10,6 @@ const lodash_1 = tslib_1.__importDefault(require("lodash"));
 async function basicAuthorization(authorizationCtx, metadata) {
     // No access if authorization details are missing
     let currentUser;
-    console.log(authorizationCtx.principals[0].profile);
     if (authorizationCtx.principals.length > 0) {
         const user = lodash_1.default.pick(authorizationCtx.principals[0].profile, [
             'id',
@@ -34,11 +33,10 @@ async function basicAuthorization(authorizationCtx, metadata) {
         return authorization_1.AuthorizationDecision.ALLOW;
     }
     const allowed = metadata.allowedRoles.filter(item => currentUser.roles.indexOf(item) !== -1);
-    console.log(allowed);
-    if (allowed) {
-        return authorization_1.AuthorizationDecision.ALLOW;
+    if (!allowed || allowed.length === 0) {
+        return authorization_1.AuthorizationDecision.DENY;
     }
-    return authorization_1.AuthorizationDecision.DENY;
+    return authorization_1.AuthorizationDecision.ALLOW;
 }
 exports.basicAuthorization = basicAuthorization;
 //# sourceMappingURL=basic-authentication.js.map
