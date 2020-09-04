@@ -5,8 +5,8 @@ const config = {
     name: 'RedisConnector',
     connector: 'kv-redis',
     url: '',
-    // host: 'redis',
-    host: 'localhost',
+    host: 'redis',
+    // host: 'localhost',
     port: 6379,
     password: '',
     db: 0,
@@ -17,7 +17,8 @@ const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class RedisConnectorDataSource extends juggler.DataSource
+export class RedisConnectorDataSource
+    extends juggler.DataSource
     implements LifeCycleObserver {
     static dataSourceName = 'RedisConnector';
     static readonly defaultConfig = config;

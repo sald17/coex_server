@@ -5,8 +5,8 @@ const config = {
     name: 'MongoConnector',
     connector: 'mongodb',
     url: '',
-    // host: 'mongo',
-    host: 'localhost',
+    host: 'mongo',
+    // host: 'localhost',
     port: 27017,
     user: '',
     password: '',
@@ -19,7 +19,8 @@ const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class MongoConnectorDataSource extends juggler.DataSource
+export class MongoConnectorDataSource
+    extends juggler.DataSource
     implements LifeCycleObserver {
     static dataSourceName = 'MongoConnector';
     static readonly defaultConfig = config;
