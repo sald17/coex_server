@@ -70,15 +70,21 @@ export class User extends Entity {
 
     @property({
         type: 'string',
-        default: '',
+        default: [],
     })
-    refreshToken: string;
+    token: string[];
+
+    @property({
+        type: 'string',
+        default: [],
+    })
+    firebaseToken: string[];
 
     @property({
         type: 'array',
         itemType: 'string',
         required: true,
-        default: ['client'],
+        default: [],
     })
     role: string[];
 

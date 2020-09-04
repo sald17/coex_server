@@ -15,6 +15,7 @@ import {BlacklistRepository, UserRepository} from '../repositories';
 import {EmailService} from '../services/email.service';
 import {JwtService} from '../services/jwt.service';
 import {PasswordHasherService} from '../services/password-hasher.service';
+import {mapProfile} from '../services/user.service';
 // import {inject} from '@loopback/core';
 
 @intercept(UserAccountInterceptor.BINDING_KEY)
@@ -33,7 +34,7 @@ export class UserControllerController {
     ) {}
 
     // User sign up
-    @post('/user/sign-up', {
+    @post('/user/sign-up/{role}', {
         responses: {
             '200': {
                 description: 'Register',
@@ -46,7 +47,10 @@ export class UserControllerController {
             },
         },
     })
-    async signup(@requestBody() user: any) {
+    async signup(
+        @requestBody() user: any,
+        @param.path.string('role') role: string,
+    ) {
         //Check email existed
         const isExisted = await this.userRepository.findOne({
             where: {
@@ -59,7 +63,7 @@ export class UserControllerController {
         }
 
         user.password = await this.passwordHasher.hashPassword(user.password);
-
+        user.role = [role];
         const newUser = await this.userRepository.create(user);
         if (!newUser) {
             throw new HttpErrors.BadRequest('Error in registering. Try again');
@@ -91,23 +95,51 @@ export class UserControllerController {
         return {message: 'Created successfully'};
     }
 
-    // User log in
-    @authenticate('local')
+    /**
+     *  User log in
+     *
+     *  return an access token
+     *
+     */
+
     @post('/user/log-in/{role}')
     async login(
-        @inject(SecurityBindings.USER) userProfile: UserProfile,
         @param.path.string('role') role: string,
+        @requestBody()
+        credential: any,
     ) {
+        //Check firebase token
+        if (!credential.firebaseToken) {
+            throw new HttpErrors.Unauthorized('Missing credentials');
+        }
+        // Check user & password
+        const user = await this.userRepository.findOne({
+            where: {
+                email: credential.email,
+            },
+        });
+        if (!user) {
+            throw new HttpErrors.Unauthorized('Incorrect email or password');
+        }
+        if (
+            !(await this.passwordHasher.comparePassword(
+                credential.password,
+                user.password,
+            ))
+        ) {
+            throw new HttpErrors.Unauthorized('Incorrect email or password');
+        }
+        //check role
+        const userProfile: UserProfile = mapProfile(user);
         if (role === 'client' || role === 'host') {
             if (!userProfile.profile.role.includes(role)) {
-                await this.userRepository.updateById(userProfile.profile.id, {
-                    role: [...userProfile.profile.role, role],
-                });
+                user.role.push(role);
             }
         } else {
             throw new HttpErrors.NotFound();
         }
 
+        // Generate token
         const profile = {
             [securityId]: userProfile[securityId],
             profile: {
@@ -116,27 +148,18 @@ export class UserControllerController {
                 role: userProfile.profile.role,
             },
         };
-
         let token = await this.jwtService.generateToken(profile);
-        delete profile.profile.role;
-        delete profile.profile.fullname;
-        let refreshToken = userProfile.profile.refreshToken;
-
-        if (!refreshToken) {
-            refreshToken = await this.jwtService.generateRefreshToken(profile);
-            await this.userRepository.updateById(userProfile.profile.id, {
-                refreshToken: refreshToken,
-            });
-        }
-
-        return {token, refreshToken};
+        user.token.push(token);
+        user.firebaseToken.push(credential.firebaseToken);
+        await this.userRepository.update(user);
+        return {token};
     }
 
     // Verify email
     @get('/user/verification/{verifyToken}')
     async verifyEmail(@param.path.string('verifyToken') verifyToken: string) {
         const verified = await this.jwtService.verifyToken(verifyToken);
-
+        console.log(verified);
         if (!verified) {
             throw new HttpErrors.BadRequest(`Outdated token.`);
         }
@@ -144,9 +167,14 @@ export class UserControllerController {
         await this.userRepository.updateById(verified.profile.id, {
             emailVerified: true,
         });
-
+        const storeValue = `${verified.jti}:${verified.exp}`;
+        await this.blacklist.addToken(storeValue);
         return 'Email is verified';
     }
+
+    /**
+     * Log out
+     */
 
     @authenticate('jwt')
     @post('/user/logout', {
@@ -162,36 +190,14 @@ export class UserControllerController {
         },
     })
     async logout() {
-        const storeValue = `${this.user.jti}:${this.user.exp}`;
+        const storeValue = this.passwordHasher.getStoreValue(this.user);
         await this.blacklist.addToken(storeValue);
         return {message: 'Logged out'};
     }
-
-    @post('/user/refresh')
-    async refreshToken(@requestBody() body: any) {
-        const {token} = body;
-        const decoded = await this.jwtService.verifyToken(token);
-        const user = await this.userRepository.findById(decoded.profile.id);
-        if (token.localeCompare(user.refreshToken)) {
-            throw new HttpErrors.Forbidden(JwtService.INVALID_TOKEN_MESSAGE);
-        }
-        const profile: UserProfile = {
-            [securityId]: user.id + '',
-            profile: {
-                id: user.id,
-                fullname: user.fullname,
-                role: user.role,
-            },
-        };
-        const accessToken = await this.jwtService.generateToken(profile);
-        delete profile.profile.fullname;
-        delete profile.profile.role;
-        const newRfrToken = await this.jwtService.generateRefreshToken(profile);
-        await this.userRepository.updateById(user.id, {
-            refreshToken: newRfrToken,
-        });
-        return {token: accessToken, refreshToken: newRfrToken};
-    }
+    /**
+     * Thay doi mat khau
+     *
+     */
 
     @authenticate('jwt')
     @put('/user/change-password')
@@ -217,6 +223,10 @@ export class UserControllerController {
         };
     }
 
+    /**
+     * Quen mat khau
+     */
+
     @post('/user/forgot-password')
     async forgotPassword(@requestBody() body: any) {
         const {email} = body;
@@ -238,6 +248,11 @@ export class UserControllerController {
 
         return {message: 'Check your email for OTP'};
     }
+
+    /**
+     *  Reset mat khau sau khi bam nut quen mat khau
+     *
+     */
 
     @put('/user/reset-password')
     async resetPassword(@requestBody() body: any) {

@@ -24,8 +24,9 @@ export class ExpressServer {
 
         this.expressApp.use(
             express.static(path.resolve(__dirname, '../public')),
+            express.static(path.resolve(__dirname, '../storage')),
         );
-        this.expressApp.use('/', this.loopbackApp.requestHandler);
+        this.expressApp.use('/api', this.loopbackApp.requestHandler);
     }
 
     public async boot() {

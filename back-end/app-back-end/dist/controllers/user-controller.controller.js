@@ -14,6 +14,7 @@ const repositories_1 = require("../repositories");
 const email_service_1 = require("../services/email.service");
 const jwt_service_1 = require("../services/jwt.service");
 const password_hasher_service_1 = require("../services/password-hasher.service");
+const user_service_1 = require("../services/user.service");
 // import {inject} from '@loopback/core';
 let UserControllerController = class UserControllerController {
     constructor(userRepository, blacklist, user, passwordHasher, jwtService, emailService) {
@@ -25,7 +26,7 @@ let UserControllerController = class UserControllerController {
         this.emailService = emailService;
     }
     // User sign up
-    async signup(user) {
+    async signup(user, role) {
         //Check email existed
         const isExisted = await this.userRepository.findOne({
             where: {
@@ -36,6 +37,7 @@ let UserControllerController = class UserControllerController {
             throw new rest_1.HttpErrors.BadRequest('Email is already registered.');
         }
         user.password = await this.passwordHasher.hashPassword(user.password);
+        user.role = [role];
         const newUser = await this.userRepository.create(user);
         if (!newUser) {
             throw new rest_1.HttpErrors.BadRequest('Error in registering. Try again');
@@ -56,18 +58,40 @@ let UserControllerController = class UserControllerController {
         }
         return { message: 'Created successfully' };
     }
-    // User log in
-    async login(userProfile, role) {
+    /**
+     *  User log in
+     *
+     *  return an access token
+     *
+     */
+    async login(role, credential) {
+        //Check firebase token
+        if (!credential.firebaseToken) {
+            throw new rest_1.HttpErrors.Unauthorized('Missing credentials');
+        }
+        // Check user & password
+        const user = await this.userRepository.findOne({
+            where: {
+                email: credential.email,
+            },
+        });
+        if (!user) {
+            throw new rest_1.HttpErrors.Unauthorized('Incorrect email or password');
+        }
+        if (!(await this.passwordHasher.comparePassword(credential.password, user.password))) {
+            throw new rest_1.HttpErrors.Unauthorized('Incorrect email or password');
+        }
+        //check role
+        const userProfile = user_service_1.mapProfile(user);
         if (role === 'client' || role === 'host') {
             if (!userProfile.profile.role.includes(role)) {
-                await this.userRepository.updateById(userProfile.profile.id, {
-                    role: [...userProfile.profile.role, role],
-                });
+                user.role.push(role);
             }
         }
         else {
             throw new rest_1.HttpErrors.NotFound();
         }
+        // Generate token
         const profile = {
             [security_1.securityId]: userProfile[security_1.securityId],
             profile: {
@@ -77,57 +101,37 @@ let UserControllerController = class UserControllerController {
             },
         };
         let token = await this.jwtService.generateToken(profile);
-        delete profile.profile.role;
-        delete profile.profile.fullname;
-        let refreshToken = userProfile.profile.refreshToken;
-        if (!refreshToken) {
-            refreshToken = await this.jwtService.generateRefreshToken(profile);
-            await this.userRepository.updateById(userProfile.profile.id, {
-                refreshToken: refreshToken,
-            });
-        }
-        return { token, refreshToken };
+        user.token.push(token);
+        user.firebaseToken.push(credential.firebaseToken);
+        await this.userRepository.update(user);
+        return { token };
     }
     // Verify email
     async verifyEmail(verifyToken) {
         const verified = await this.jwtService.verifyToken(verifyToken);
+        console.log(verified);
         if (!verified) {
             throw new rest_1.HttpErrors.BadRequest(`Outdated token.`);
         }
         await this.userRepository.updateById(verified.profile.id, {
             emailVerified: true,
         });
+        const storeValue = `${verified.jti}:${verified.exp}`;
+        await this.blacklist.addToken(storeValue);
         return 'Email is verified';
     }
+    /**
+     * Log out
+     */
     async logout() {
-        const storeValue = `${this.user.jti}:${this.user.exp}`;
+        const storeValue = this.passwordHasher.getStoreValue(this.user);
         await this.blacklist.addToken(storeValue);
         return { message: 'Logged out' };
     }
-    async refreshToken(body) {
-        const { token } = body;
-        const decoded = await this.jwtService.verifyToken(token);
-        const user = await this.userRepository.findById(decoded.profile.id);
-        if (token.localeCompare(user.refreshToken)) {
-            throw new rest_1.HttpErrors.Forbidden(jwt_service_1.JwtService.INVALID_TOKEN_MESSAGE);
-        }
-        const profile = {
-            [security_1.securityId]: user.id + '',
-            profile: {
-                id: user.id,
-                fullname: user.fullname,
-                role: user.role,
-            },
-        };
-        const accessToken = await this.jwtService.generateToken(profile);
-        delete profile.profile.fullname;
-        delete profile.profile.role;
-        const newRfrToken = await this.jwtService.generateRefreshToken(profile);
-        await this.userRepository.updateById(user.id, {
-            refreshToken: newRfrToken,
-        });
-        return { token: accessToken, refreshToken: newRfrToken };
-    }
+    /**
+     * Thay doi mat khau
+     *
+     */
     async changePassword(userCredential) {
         const user = await this.userRepository.findById(this.user.profile.id);
         if (!user) {
@@ -144,6 +148,9 @@ let UserControllerController = class UserControllerController {
             message: 'Change successfully.',
         };
     }
+    /**
+     * Quen mat khau
+     */
     async forgotPassword(body) {
         const { email } = body;
         const user = await this.userRepository.findOne({
@@ -162,6 +169,10 @@ let UserControllerController = class UserControllerController {
         }
         return { message: 'Check your email for OTP' };
     }
+    /**
+     *  Reset mat khau sau khi bam nut quen mat khau
+     *
+     */
     async resetPassword(body) {
         const { email, otp, newPass } = body;
         const isValid = this.blacklist.checkOtp(email, otp);
@@ -182,7 +193,7 @@ let UserControllerController = class UserControllerController {
     }
 };
 tslib_1.__decorate([
-    rest_1.post('/user/sign-up', {
+    rest_1.post('/user/sign-up/{role}', {
         responses: {
             '200': {
                 description: 'Register',
@@ -195,17 +206,17 @@ tslib_1.__decorate([
         },
     }),
     tslib_1.__param(0, rest_1.requestBody()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], UserControllerController.prototype, "signup", null);
-tslib_1.__decorate([
-    authentication_1.authenticate('local'),
-    rest_1.post('/user/log-in/{role}'),
-    tslib_1.__param(0, core_1.inject(security_1.SecurityBindings.USER)),
     tslib_1.__param(1, rest_1.param.path.string('role')),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", [Object, String]),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserControllerController.prototype, "signup", null);
+tslib_1.__decorate([
+    rest_1.post('/user/log-in/{role}'),
+    tslib_1.__param(0, rest_1.param.path.string('role')),
+    tslib_1.__param(1, rest_1.requestBody()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "login", null);
 tslib_1.__decorate([
@@ -233,13 +244,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "logout", null);
-tslib_1.__decorate([
-    rest_1.post('/user/refresh'),
-    tslib_1.__param(0, rest_1.requestBody()),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object]),
-    tslib_1.__metadata("design:returntype", Promise)
-], UserControllerController.prototype, "refreshToken", null);
 tslib_1.__decorate([
     authentication_1.authenticate('jwt'),
     rest_1.put('/user/change-password'),

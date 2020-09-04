@@ -1,10 +1,13 @@
 import {TokenService} from '@loopback/authentication';
 import {bind, BindingScope, inject} from '@loopback/core';
+import {repository} from '@loopback/repository';
 import {HttpErrors} from '@loopback/rest';
 import {securityId, UserProfile} from '@loopback/security';
 import {promisify} from 'util';
 import {v4 as uuidv4} from 'uuid';
-import {JwtServiceBindings} from '../config/key';
+import {PasswordHasherService} from '.';
+import {JwtServiceBindings, PasswordHasherBindings} from '../config/key';
+import {BlacklistRepository} from '../repositories';
 const JWT = require('jsonwebtoken');
 const signAsync = promisify(JWT.sign);
 const verifyAsync = promisify(JWT.verify);
@@ -14,9 +17,12 @@ export class JwtService implements TokenService {
     public static INVALID_TOKEN_MESSAGE: string = 'Invalid Token';
     public static EXPIRED_TOKEN_MESSAGE: string = 'Expired Token';
     constructor(
+        @inject(PasswordHasherBindings.PASSWORD_HASHER)
+        private passwordService: PasswordHasherService,
         @inject(JwtServiceBindings.SECRET_KEY) private secretKey: string,
         @inject(JwtServiceBindings.TOKEN_EXPIRES_IN)
         private expireValue: string,
+        @repository(BlacklistRepository) private blacklist: BlacklistRepository,
     ) {}
 
     async verifyToken(token: string): Promise<UserProfile> {
@@ -36,6 +42,12 @@ export class JwtService implements TokenService {
         }
 
         if (!validProfile) {
+            throw new HttpErrors.Unauthorized(JwtService.INVALID_TOKEN_MESSAGE);
+        }
+        const storeVal = this.passwordService.getStoreValue(validProfile);
+        console.log(storeVal);
+
+        if (await this.blacklist.checkToken(storeVal)) {
             throw new HttpErrors.Unauthorized(JwtService.INVALID_TOKEN_MESSAGE);
         }
         // console.log(isValid);

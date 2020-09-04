@@ -16,7 +16,6 @@ import multer from 'multer';
 import path from 'path';
 import {AuthorizationProvider} from './access-control/interceptor/authorization';
 import {UserAccountInterceptor} from './access-control/interceptor/user-account-interceptor';
-import {LocalAuthStrategy} from './access-control/strategies';
 import {JWTStrategy} from './access-control/strategies/jwt';
 import {
     EmailServiceBindings,
@@ -29,10 +28,10 @@ import {
 } from './config/key';
 import {BlacklistCron} from './cronjob';
 import {MySequence} from './sequence';
+import {PassportService} from './services';
 import {EmailService} from './services/email.service';
 import {FileUploadProvider} from './services/file-upload';
 import {JwtService} from './services/jwt.service';
-import {PassportService} from './services/passport.service';
 import {PasswordHasherService} from './services/password-hasher.service';
 
 export {ApplicationConfig};
@@ -53,7 +52,6 @@ export class AppApplication extends BootMixin(
 
         // Set up default home page
         this.static('/', path.join(__dirname, '../public'));
-        this.static('/', path.join(__dirname, '../storage'));
 
         // Customize @loopback/rest-explorer configuration here
         this.configure(RestExplorerBindings.COMPONENT).to({
@@ -76,6 +74,7 @@ export class AppApplication extends BootMixin(
     }
 
     setUpBindings(): void {
+        //Bind JWT service
         this.bind(JwtServiceBindings.SECRET_KEY).to(
             JwtServiceConstants.SECRET_KEY,
         );
@@ -84,27 +83,34 @@ export class AppApplication extends BootMixin(
         );
         this.bind(JwtServiceBindings.TOKEN_SERVICE).toClass(JwtService);
 
-        this.bind(UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(
-            PassportService,
-        );
-
+        // Bind email service
         this.bind(EmailServiceBindings.EMAIL_SERVICE).toClass(EmailService);
 
+        // Bind password service
         this.bind(PasswordHasherBindings.ROUNDS).to(10);
         this.bind(PasswordHasherBindings.PASSWORD_HASHER).toClass(
             PasswordHasherService,
         );
+
+        // User acc interceptor
         this.bind(UserAccountInterceptor.BINDING_KEY).toProvider(
             UserAccountInterceptor,
         );
+
+        //Bind authorization
         this.bind(AuthorizationProvider.BINDING_KEY).toProvider(
             AuthorizationProvider,
         );
 
+        //Bind cron job
         this.add(createBindingFromClass(BlacklistCron));
-
-        this.add(createBindingFromClass(LocalAuthStrategy));
+        // Bind strategy
         this.add(createBindingFromClass(JWTStrategy));
+
+        //Bind passport service
+        this.bind(UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(
+            PassportService,
+        );
     }
 
     protected configureFileUpload(destination?: string) {

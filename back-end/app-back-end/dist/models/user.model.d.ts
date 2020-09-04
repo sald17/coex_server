@@ -11,7 +11,8 @@ export declare class User extends Entity {
     modifiedAt?: string;
     avatar?: string;
     password: string;
-    refreshToken: string;
+    token: string[];
+    firebaseToken: string[];
     role: string[];
     constructor(data?: Partial<User>);
 }

@@ -40,7 +40,11 @@ export class BlacklistRepository extends DefaultKeyValueRepository<Blacklist> {
         return blacklist;
     }
 
-    // Check if token in blacklist
+    /* Check if token in blacklist
+     *
+     * 1 = inside blacklist, 0 otherwise
+     *
+     * */
     async checkToken(token: string) {
         let result = await this.execute('SISMEMBER', ['blacklist', token]);
         return result;

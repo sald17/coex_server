@@ -21,6 +21,9 @@ let PasswordHasherService = class PasswordHasherService {
         const max = 999999, min = 100000;
         return Math.floor(Math.random() * (max - min) + min) + '';
     }
+    getStoreValue(token) {
+        return `${token.jti}:${token.exp}`;
+    }
 };
 PasswordHasherService = tslib_1.__decorate([
     core_1.bind({ scope: core_1.BindingScope.TRANSIENT }),

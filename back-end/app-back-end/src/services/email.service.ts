@@ -23,7 +23,7 @@ export class EmailService {
                 subject: 'Verification Email.',
                 html: `
                     <h1>Xác thực email.</h1>
-                    <p>Click vào <a href="http://localhost:3000/api/user/verification/${token}">đây</a> để  xác thực email của bạn.</p>
+                    <p>Click vào <a href="http://localhost:3000/user/verification/${token}">đây</a> để  xác thực email của bạn.</p>
                 `,
             };
             const result = await this.transporter.sendMail(mailContent);

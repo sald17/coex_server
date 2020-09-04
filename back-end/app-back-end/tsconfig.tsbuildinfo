@@ -1836,100 +1836,10 @@
         "signature": "92d59dcc170f6de16112436daaae0843e7010fe26a972dde338cd9e7240207f4",
         "affectsGlobalScope": false
       },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts": {
-        "version": "b2fbacf5df46275f342df53317d1ac1b8245d04ee7f617973efb8198dac196d4",
-        "signature": "b2fbacf5df46275f342df53317d1ac1b8245d04ee7f617973efb8198dac196d4",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts": {
-        "version": "8a272142cf745358dc29b8fed9121309000fb9d2379df41f99ab5cba3ba8fb0e",
-        "signature": "8a272142cf745358dc29b8fed9121309000fb9d2379df41f99ab5cba3ba8fb0e",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts": {
-        "version": "e8e3e8d58cb561b2443c050dced8944c8d75586dd2f848c770103fdd63f89cb2",
-        "signature": "e8e3e8d58cb561b2443c050dced8944c8d75586dd2f848c770103fdd63f89cb2",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-strategy.provider.d.ts": {
-        "version": "381ea3241a572a1ccdf61872cb72c4cb914afbb4a61e1e923262c2e16a764482",
-        "signature": "381ea3241a572a1ccdf61872cb72c4cb914afbb4a61e1e923262c2e16a764482",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts": {
-        "version": "9e950c8d19ce1c4a0f9f4767106cc959833573aa8481cd6f98293c0601500770",
-        "signature": "9e950c8d19ce1c4a0f9f4767106cc959833573aa8481cd6f98293c0601500770",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts": {
-        "version": "1628b7801e78690f0ea79bf047d27ce7fc38050f9f76dad6d08682a1e26fbac7",
-        "signature": "1628b7801e78690f0ea79bf047d27ce7fc38050f9f76dad6d08682a1e26fbac7",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts": {
-        "version": "eddde2b49d5ea8df3871c6333d3d50c13e0dc63c130a8883a356ebbe5fc91e35",
-        "signature": "eddde2b49d5ea8df3871c6333d3d50c13e0dc63c130a8883a356ebbe5fc91e35",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/index.d.ts": {
-        "version": "58b55855b9c93765717d3238a61d94f3653c8c1ba777c389b78ca81723f438bd",
-        "signature": "58b55855b9c93765717d3238a61d94f3653c8c1ba777c389b78ca81723f438bd",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/keys.d.ts": {
-        "version": "746c9f1c52a968867a3744ad8e9ed56b47f66f5876009228539803d7c20d3162",
-        "signature": "746c9f1c52a968867a3744ad8e9ed56b47f66f5876009228539803d7c20d3162",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/token.service.d.ts": {
-        "version": "111cbf4bffd2e58f63b39f344a5b94e2f8beb6e6106c5d48ada87feb0a181bf0",
-        "signature": "111cbf4bffd2e58f63b39f344a5b94e2f8beb6e6106c5d48ada87feb0a181bf0",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user.service.d.ts": {
-        "version": "de1df65e112ed48181e8edea7e419efcb1ab9d2038f04c0ca8d5f40efe7ad7d2",
-        "signature": "de1df65e112ed48181e8edea7e419efcb1ab9d2038f04c0ca8d5f40efe7ad7d2",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user-identity.service.d.ts": {
-        "version": "dd4b5b8d4f6b96d572b87800b6252b0b08e5f2bd797a2d7c830679d2574e327e",
-        "signature": "dd4b5b8d4f6b96d572b87800b6252b0b08e5f2bd797a2d7c830679d2574e327e",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/index.d.ts": {
-        "version": "31de26d7e2951d374fdfbb5be76383ff767cdde245ee5bc12649e9da06be2212",
-        "signature": "31de26d7e2951d374fdfbb5be76383ff767cdde245ee5bc12649e9da06be2212",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/index.d.ts": {
-        "version": "202c6be737a013f5f393cb338ac6e53f6b228fc7745f209f24889d9c3ec7a9a2",
-        "signature": "202c6be737a013f5f393cb338ac6e53f6b228fc7745f209f24889d9c3ec7a9a2",
-        "affectsGlobalScope": false
-      },
       "./node_modules/@types/passport/index.d.ts": {
         "version": "f640cdd17b26d4ecaf98f17d90e012b25a29676e30149ef26f02572159cb325a",
         "signature": "f640cdd17b26d4ecaf98f17d90e012b25a29676e30149ef26f02572159cb325a",
         "affectsGlobalScope": true
-      },
-      "./node_modules/@loopback/authentication-passport/dist/strategy-adapter.d.ts": {
-        "version": "966e97ba16c6655b5c580641a97b8be40ed7037b8884b431703d10b1b72bd98b",
-        "signature": "966e97ba16c6655b5c580641a97b8be40ed7037b8884b431703d10b1b72bd98b",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@loopback/authentication-passport/dist/index.d.ts": {
-        "version": "2688c46d18b5a22280ffefc827a86dca06a6702fe44c43f9e78df7a89d3257db",
-        "signature": "2688c46d18b5a22280ffefc827a86dca06a6702fe44c43f9e78df7a89d3257db",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/passport-strategy/index.d.ts": {
-        "version": "29d59e921bc723594bbfc98230d24f38f0d5a669f28fcf989b7468f4f95b7c52",
-        "signature": "29d59e921bc723594bbfc98230d24f38f0d5a669f28fcf989b7468f4f95b7c52",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/passport-local/index.d.ts": {
-        "version": "e50f9ae34bb92232533e3a32848970dd04f874a8f64d3ae48980e062b6489f26",
-        "signature": "e50f9ae34bb92232533e3a32848970dd04f874a8f64d3ae48980e062b6489f26",
-        "affectsGlobalScope": false
       },
       "./src/models/token.model.ts": {
         "version": "e54deb8eaadc333978ec4042ea2604b533cbef49664846e35511b5424382df23",
@@ -1942,8 +1852,8 @@
         "affectsGlobalScope": false
       },
       "./src/models/user.model.ts": {
-        "version": "c71f5bd7289cfa92aec9941fdd40400182e09673459602d57b6edfb67ef7c903",
-        "signature": "d201a24fc14db2e813ee3b79908085354d130ffa73c966cd22eb574c3d55688c",
+        "version": "ee6ba3dbb1f2cc645178975ba4b24bb5ea130d26b3bf9296bf58842bf8fbc661",
+        "signature": "04042649e4e6a9e4f9a0669804c7f61e4621c5802ed4a627e6ef58b81eba159f",
         "affectsGlobalScope": false
       },
       "./src/models/index.ts": {
@@ -2022,7 +1932,7 @@
         "affectsGlobalScope": false
       },
       "./src/services/email.service.ts": {
-        "version": "b0b7ad3fc476f6b5a1fa465eb68cb094685be6906fe4ab573414f8420030f1a4",
+        "version": "0a1ca09b79f0b321af0ccfec2ab0994c15d52a54cdbcc854f003481b917b7030",
         "signature": "9dadb9dbe568bb539be95ea6c34009d9243f93dbe95306e61231c436c8bf967e",
         "affectsGlobalScope": false
       },
@@ -2032,8 +1942,8 @@
         "affectsGlobalScope": false
       },
       "./src/services/password-hasher.service.ts": {
-        "version": "1a62246209060210dc88d9ec91d2c64c18225880ebd6b35e79db37cf76e6222d",
-        "signature": "19e1563e4e4afceda900b77a0ebf0f63ac9713e7abbd9c7d53df0b0f2c1adbc5",
+        "version": "10c97fbb9d8db1d775f8af4d06338d37d034e9aa84f96467d2c3290d5d710bc4",
+        "signature": "201736bc3daa08c9b56b3d8854c55948e820518a1d3a75d6fb41594ce244bc82",
         "affectsGlobalScope": false
       },
       "./src/config/key.ts": {
@@ -2057,7 +1967,7 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/blacklist.repository.ts": {
-        "version": "cf91df6bf0946da7b1e0fb992f0f2bf317a83e0d77aeeb465d775ea1c2179a56",
+        "version": "618b0342ef95d20ddd98f5b44482b42c176c81bf2a051a5a275833193186a4d6",
         "signature": "5579ef3039a0ff55ce073778739a4e66f6e8d03e73377bb1eaf9458852bbc356",
         "affectsGlobalScope": false
       },
@@ -2071,29 +1981,29 @@
         "signature": "bb2decb42bdd82c3fd86d6d28421207b1b9943bf9869dfeea6776a3be296baf3",
         "affectsGlobalScope": false
       },
-      "./src/access-control/strategies/types.ts": {
-        "version": "1b57f308f6d46b76378a61a1d0f44eb406fe94b2b7df532a0e3ac4489f00534b",
-        "signature": "d38f4d494a6c6d82477431bffeaf94e337c51e17161424b6e3b92b7914380d2c",
-        "affectsGlobalScope": false
-      },
-      "./src/access-control/strategies/local.ts": {
-        "version": "4c9cd2fcd30f939088e4bb7473f3327b033ab33bf9979cc1d141410220e34891",
-        "signature": "f26ee272bf19782e64a85d0c7a3b58a40939485b00b384059649c86262726c5a",
-        "affectsGlobalScope": false
-      },
-      "./src/access-control/strategies/index.ts": {
-        "version": "74b8c58beb2ae0ffb5d0da642622bf83e9ad4a20477f45971501b99959af3be0",
-        "signature": "15a0ed397b2eed59811ea00a0ebd0ad39ae818f5f026105094be6a951fe1e8d0",
-        "affectsGlobalScope": false
-      },
       "./node_modules/@types/uuid/index.d.ts": {
         "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       },
+      "./src/services/user.service.ts": {
+        "version": "71ca843cefc17ba81b3ae3e28a393a57e341355641a12575b11f41862d9d704d",
+        "signature": "6eb0817e7b27e8d2f31245d6fe310d622c44a1b4dbaa59571026b9d9653b60ce",
+        "affectsGlobalScope": false
+      },
+      "./src/services/passport.service.ts": {
+        "version": "5442ff51cef294f28d3ff498388a4bba75b0ad3e4750c026a8d998525b8eb91e",
+        "signature": "78377c437ed017ed6254e5490d5e55d75ba1c71dd449f435f5eac885ebda63a8",
+        "affectsGlobalScope": false
+      },
+      "./src/services/index.ts": {
+        "version": "3c1665e43d5c2e57bc112813b8066fb9e6caba99d08062cca7f2c48abefad2d9",
+        "signature": "3c1665e43d5c2e57bc112813b8066fb9e6caba99d08062cca7f2c48abefad2d9",
+        "affectsGlobalScope": false
+      },
       "./src/services/jwt.service.ts": {
-        "version": "5f806dd8ff30f9e3d00aed0eff0ed3f6a9fe8bf92281a96a6b8c530f73e33b39",
-        "signature": "09c4d77f8e1bc812b3686d00656ca79f3b85e3c7e4995f1bbe4d9151d62dc25e",
+        "version": "05e0a4430d81d9163f74a61f8ea201978141a661a63ef5df62c3534136517cc1",
+        "signature": "9bcfd00985fe7a610037aadf62c0f8fd9648d9abc67df1f833df9c0ab0f5ea7f",
         "affectsGlobalScope": false
       },
       "./src/access-control/strategies/jwt.ts": {
@@ -2166,18 +2076,13 @@
         "signature": "c1c7aaf45e5c11db5090b601b24ac5aabd388597bbe0346c0c73d6bf997b6ea4",
         "affectsGlobalScope": false
       },
-      "./src/services/passport.service.ts": {
-        "version": "5442ff51cef294f28d3ff498388a4bba75b0ad3e4750c026a8d998525b8eb91e",
-        "signature": "78377c437ed017ed6254e5490d5e55d75ba1c71dd449f435f5eac885ebda63a8",
-        "affectsGlobalScope": false
-      },
       "./src/application.ts": {
-        "version": "38833cd94a2c2642141a74a5d064d7b0e6f3072589b4a2be170212906ff3c096",
+        "version": "d601d7d595f525038ffd1a0a5e9802de4fce8b57b2156156689447b745a85cda",
         "signature": "dcaa89eea8e13b7e91ee8d6e624bc17ab6ecfc79fb7b6bb77c0df777c0ea0d3d",
         "affectsGlobalScope": false
       },
       "./src/server.ts": {
-        "version": "96c9c46692d45c18e5ebbe7ba192f9fca5d2b310457e7fb841d6d3ac516de0b0",
+        "version": "f2dfa7fed872330020c73d3de584e8b75f28f720dac99775fa748d6ad8055657",
         "signature": "c1122b58455de5c0ad68947bae521abcb3ebcc27c9b6f07a9d5c03eda18e98c1",
         "affectsGlobalScope": false
       },
@@ -2381,19 +2286,19 @@
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
+      "./src/access-control/strategies/index.ts": {
+        "version": "c204a10e2c1f9532515067462e299f3cfe9840e405598fa403471f59fb03fc73",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": false
+      },
+      "./src/access-control/strategies/types.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": false
+      },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "dae9f81026b0a163e3bd0b7823fc4e2576b9e0db47d4894c67cb6d4c2c15de84",
-        "signature": "149b3444673102183abe7e54ef7ba19dee2a75cd49be803047626858924da250",
-        "affectsGlobalScope": false
-      },
-      "./src/services/user.service.ts": {
-        "version": "7abc58d9e4b005d27a701ff59d48eb5534d633a4373c2a37c1934d5b36a055c3",
-        "signature": "bc3d29b25d6b9fc2480241613300a18130a9a68952e37b5362d2f861b249aa4b",
-        "affectsGlobalScope": false
-      },
-      "./src/services/index.ts": {
-        "version": "3c1665e43d5c2e57bc112813b8066fb9e6caba99d08062cca7f2c48abefad2d9",
-        "signature": "3c1665e43d5c2e57bc112813b8066fb9e6caba99d08062cca7f2c48abefad2d9",
+        "version": "884e994b8acf98454255970dc3fe355596737dce8742487b38f09e6e7e4e1cf2",
+        "signature": "fd7111e86b00dc49ec0ce36c500903f43d267d29017c0eeb8d6de963348e6e93",
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {
@@ -2456,6 +2361,16 @@
         "signature": "d90fd1d9dec7f69b8ade54329d7a7c453cdb15978123b40f5dbcaadb5c2f4990",
         "affectsGlobalScope": false
       },
+      "./node_modules/@types/passport-strategy/index.d.ts": {
+        "version": "29d59e921bc723594bbfc98230d24f38f0d5a669f28fcf989b7468f4f95b7c52",
+        "signature": "29d59e921bc723594bbfc98230d24f38f0d5a669f28fcf989b7468f4f95b7c52",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/passport-local/index.d.ts": {
+        "version": "e50f9ae34bb92232533e3a32848970dd04f874a8f64d3ae48980e062b6489f26",
+        "signature": "e50f9ae34bb92232533e3a32848970dd04f874a8f64d3ae48980e062b6489f26",
+        "affectsGlobalScope": false
+      },
       "./node_modules/@types/type-is/index.d.ts": {
         "version": "37e4c904fc4eede08a541021c074c160cf27f6a756e4459197c2711fb8b2a648",
         "signature": "37e4c904fc4eede08a541021c074c160cf27f6a756e4459197c2711fb8b2a648",
@@ -2486,110 +2401,6 @@
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
-      "./node_modules/@loopback/authentication-passport/dist/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/dist/strategy-adapter.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/dist/strategy-adapter.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/passport/index.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/index.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/keys.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/index.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/keys.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-strategy.provider.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-strategy.provider.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/token.service.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user-identity.service.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user.service.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/token.service.d.ts": [
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user-identity.service.d.ts": [
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user.service.d.ts": [
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/@loopback/authentication/dist/authentication.component.d.ts": [
         "./node_modules/@loopback/authentication/dist/providers/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -5677,8 +5488,7 @@
       ],
       "./src/access-control/strategies/index.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./src/access-control/strategies/local.ts"
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./src/access-control/strategies/jwt.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -5692,27 +5502,9 @@
         "./src/repositories/index.ts",
         "./src/services/jwt.service.ts"
       ],
-      "./src/access-control/strategies/local.ts": [
-        "./node_modules/@loopback/authentication-passport/dist/index.d.ts",
-        "./node_modules/@loopback/authentication/dist/index.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/passport-local/index.d.ts",
-        "./src/access-control/strategies/types.ts",
-        "./src/config/key.ts",
-        "./src/models/index.ts",
-        "./src/repositories/index.ts",
-        "./src/services/password-hasher.service.ts"
-      ],
       "./src/access-control/strategies/types.ts": [
-        "./node_modules/@loopback/security/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./src/models/index.ts"
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./src/application.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -5729,15 +5521,14 @@
         "./node_modules/@types/node/util.d.ts",
         "./src/access-control/interceptor/authorization.ts",
         "./src/access-control/interceptor/user-account-interceptor.ts",
-        "./src/access-control/strategies/index.ts",
         "./src/access-control/strategies/jwt.ts",
         "./src/config/key.ts",
         "./src/cronjob/index.ts",
         "./src/sequence.ts",
         "./src/services/email.service.ts",
         "./src/services/file-upload.ts",
+        "./src/services/index.ts",
         "./src/services/jwt.service.ts",
-        "./src/services/passport.service.ts",
         "./src/services/password-hasher.service.ts"
       ],
       "./src/config/key.ts": [
@@ -5788,7 +5579,8 @@
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
         "./src/services/jwt.service.ts",
-        "./src/services/password-hasher.service.ts"
+        "./src/services/password-hasher.service.ts",
+        "./src/services/user.service.ts"
       ],
       "./src/cronjob/cron-blacklist.ts": [
         "./node_modules/@loopback/cron/dist/index.d.ts",
@@ -5936,12 +5728,15 @@
       "./src/services/jwt.service.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/uuid/index.d.ts",
-        "./src/config/key.ts"
+        "./src/config/key.ts",
+        "./src/repositories/index.ts",
+        "./src/services/index.ts"
       ],
       "./src/services/passport.service.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -5962,115 +5757,12 @@
       ],
       "./src/services/user.service.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ]
     },
     "exportedModulesMap": {
-      "./node_modules/@loopback/authentication-passport/dist/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/dist/strategy-adapter.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/dist/strategy-adapter.d.ts": [
-        "./node_modules/@loopback/authentication/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/@types/passport/index.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/index.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/keys.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/index.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/keys.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-strategy.provider.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-strategy.provider.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/index.d.ts": [
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/token.service.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user-identity.service.d.ts",
-        "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user.service.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/token.service.d.ts": [
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user-identity.service.d.ts": [
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user.service.d.ts": [
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts": [
-        "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/@loopback/authentication/dist/authentication.component.d.ts": [
         "./node_modules/@loopback/authentication/dist/providers/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -9127,29 +8819,12 @@
       "./src/access-control/interceptor/user-account-interceptor.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts"
       ],
-      "./src/access-control/strategies/index.ts": [
-        "./src/access-control/strategies/local.ts"
-      ],
       "./src/access-control/strategies/jwt.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
         "./src/repositories/index.ts",
         "./src/services/jwt.service.ts"
-      ],
-      "./src/access-control/strategies/local.ts": [
-        "./node_modules/@loopback/authentication-passport/dist/index.d.ts",
-        "./node_modules/@loopback/authentication/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/passport-local/index.d.ts",
-        "./src/models/index.ts",
-        "./src/repositories/index.ts",
-        "./src/services/password-hasher.service.ts"
-      ],
-      "./src/access-control/strategies/types.ts": [
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./src/models/index.ts"
       ],
       "./src/application.ts": [
         "./node_modules/@loopback/boot/dist/index.d.ts",
@@ -9268,32 +8943,21 @@
       ],
       "./src/services/jwt.service.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts"
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/repositories/index.ts",
+        "./src/services/index.ts"
       ],
       "./src/services/passport.service.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@types/passport/index.d.ts",
         "./src/models/index.ts",
         "./src/repositories/index.ts"
+      ],
+      "./src/services/user.service.ts": [
+        "./node_modules/@loopback/security/dist/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "./node_modules/@loopback/authentication-passport/dist/index.d.ts",
-      "./node_modules/@loopback/authentication-passport/dist/strategy-adapter.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/authentication.component.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/decorators/index.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/index.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/keys.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-action.provider.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-metadata.provider.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/auth-strategy.provider.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/providers/index.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/index.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/token.service.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user-identity.service.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/services/user.service.d.ts",
-      "./node_modules/@loopback/authentication-passport/node_modules/@loopback/authentication/dist/types.d.ts",
       "./node_modules/@loopback/authentication/dist/authentication.component.d.ts",
       "./node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts",
       "./node_modules/@loopback/authentication/dist/decorators/index.d.ts",
@@ -9738,7 +9402,6 @@
       "./src/access-control/interceptor/user-account-interceptor.ts",
       "./src/access-control/strategies/index.ts",
       "./src/access-control/strategies/jwt.ts",
-      "./src/access-control/strategies/local.ts",
       "./src/access-control/strategies/types.ts",
       "./src/application.ts",
       "./src/config/key.ts",

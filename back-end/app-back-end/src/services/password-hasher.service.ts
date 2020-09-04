@@ -29,4 +29,8 @@ export class PasswordHasherService implements PasswordHasher<string> {
 
         return Math.floor(Math.random() * (max - min) + min) + '';
     }
+
+    getStoreValue(token: any): string {
+        return `${token.jti}:${token.exp}`;
+    }
 }

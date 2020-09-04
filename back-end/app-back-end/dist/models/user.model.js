@@ -88,16 +88,23 @@ tslib_1.__decorate([
 tslib_1.__decorate([
     repository_1.property({
         type: 'string',
-        default: '',
+        default: [],
     }),
-    tslib_1.__metadata("design:type", String)
-], User.prototype, "refreshToken", void 0);
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "token", void 0);
+tslib_1.__decorate([
+    repository_1.property({
+        type: 'string',
+        default: [],
+    }),
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "firebaseToken", void 0);
 tslib_1.__decorate([
     repository_1.property({
         type: 'array',
         itemType: 'string',
         required: true,
-        default: ['client'],
+        default: [],
     }),
     tslib_1.__metadata("design:type", Array)
 ], User.prototype, "role", void 0);

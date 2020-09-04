@@ -36,7 +36,11 @@ let BlacklistRepository = class BlacklistRepository extends repository_1.Default
         });
         return blacklist;
     }
-    // Check if token in blacklist
+    /* Check if token in blacklist
+     *
+     * 1 = inside blacklist, 0 otherwise
+     *
+     * */
     async checkToken(token) {
         let result = await this.execute('SISMEMBER', ['blacklist', token]);
         return result;

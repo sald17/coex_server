@@ -11,27 +11,42 @@ export declare class UserControllerController {
     jwtService: JwtService;
     emailService: EmailService;
     constructor(userRepository: UserRepository, blacklist: BlacklistRepository, user: UserProfile, passwordHasher: PasswordHasherService, jwtService: JwtService, emailService: EmailService);
-    signup(user: any): Promise<{
+    signup(user: any, role: string): Promise<{
         message: string;
     }>;
-    login(userProfile: UserProfile, role: string): Promise<{
+    /**
+     *  User log in
+     *
+     *  return an access token
+     *
+     */
+    login(role: string, credential: any): Promise<{
         token: string;
-        refreshToken: any;
     }>;
     verifyEmail(verifyToken: string): Promise<string>;
+    /**
+     * Log out
+     */
     logout(): Promise<{
         message: string;
     }>;
-    refreshToken(body: any): Promise<{
-        token: string;
-        refreshToken: string;
-    }>;
+    /**
+     * Thay doi mat khau
+     *
+     */
     changePassword(userCredential: any): Promise<{
         message: string;
     }>;
+    /**
+     * Quen mat khau
+     */
     forgotPassword(body: any): Promise<{
         message: string;
     }>;
+    /**
+     *  Reset mat khau sau khi bam nut quen mat khau
+     *
+     */
     resetPassword(body: any): Promise<{
         message: string;
     }>;

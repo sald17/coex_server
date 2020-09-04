@@ -14,15 +14,14 @@ const multer_1 = tslib_1.__importDefault(require("multer"));
 const path_1 = tslib_1.__importDefault(require("path"));
 const authorization_2 = require("./access-control/interceptor/authorization");
 const user_account_interceptor_1 = require("./access-control/interceptor/user-account-interceptor");
-const strategies_1 = require("./access-control/strategies");
 const jwt_1 = require("./access-control/strategies/jwt");
 const key_1 = require("./config/key");
 const cronjob_1 = require("./cronjob");
 const sequence_1 = require("./sequence");
+const services_1 = require("./services");
 const email_service_1 = require("./services/email.service");
 const file_upload_1 = require("./services/file-upload");
 const jwt_service_1 = require("./services/jwt.service");
-const passport_service_1 = require("./services/passport.service");
 const password_hasher_service_1 = require("./services/password-hasher.service");
 class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repository_1.RepositoryMixin(rest_1.RestApplication))) {
     constructor(options = {}) {
@@ -35,7 +34,6 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         // this.component(CronComponent);
         // Set up default home page
         this.static('/', path_1.default.join(__dirname, '../public'));
-        this.static('/', path_1.default.join(__dirname, '../storage'));
         // Customize @loopback/rest-explorer configuration here
         this.configure(rest_explorer_1.RestExplorerBindings.COMPONENT).to({
             path: '/explorer',
@@ -54,18 +52,25 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         };
     }
     setUpBindings() {
+        //Bind JWT service
         this.bind(key_1.JwtServiceBindings.SECRET_KEY).to(key_1.JwtServiceConstants.SECRET_KEY);
         this.bind(key_1.JwtServiceBindings.TOKEN_EXPIRES_IN).to(key_1.JwtServiceConstants.EXPIRES_VALUE);
         this.bind(key_1.JwtServiceBindings.TOKEN_SERVICE).toClass(jwt_service_1.JwtService);
-        this.bind(key_1.UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(passport_service_1.PassportService);
+        // Bind email service
         this.bind(key_1.EmailServiceBindings.EMAIL_SERVICE).toClass(email_service_1.EmailService);
+        // Bind password service
         this.bind(key_1.PasswordHasherBindings.ROUNDS).to(10);
         this.bind(key_1.PasswordHasherBindings.PASSWORD_HASHER).toClass(password_hasher_service_1.PasswordHasherService);
+        // User acc interceptor
         this.bind(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY).toProvider(user_account_interceptor_1.UserAccountInterceptor);
+        //Bind authorization
         this.bind(authorization_2.AuthorizationProvider.BINDING_KEY).toProvider(authorization_2.AuthorizationProvider);
+        //Bind cron job
         this.add(core_1.createBindingFromClass(cronjob_1.BlacklistCron));
-        this.add(core_1.createBindingFromClass(strategies_1.LocalAuthStrategy));
+        // Bind strategy
         this.add(core_1.createBindingFromClass(jwt_1.JWTStrategy));
+        //Bind passport service
+        this.bind(key_1.UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(services_1.PassportService);
     }
     configureFileUpload(destination) {
         // Upload files to `dist/.sandbox` by default
