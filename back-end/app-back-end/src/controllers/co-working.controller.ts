@@ -1,5 +1,6 @@
 import {authenticate} from '@loopback/authentication';
 import {authorize} from '@loopback/authorization';
+import {inject} from '@loopback/core';
 import {
     Count,
     CountSchema,
@@ -15,11 +16,17 @@ import {
     param,
     patch,
     post,
+    Request,
     requestBody,
+    Response,
+    RestBindings,
 } from '@loopback/rest';
 import {basicAuthorization} from '../access-control/authenticator/basic-authentication';
 import {CoWorking, Room, User} from '../models';
 import {CoWorkingRepository, UserRepository} from '../repositories';
+import {parseRequest, saveFiles} from '../services/file-upload';
+
+const loopback = require('loopback');
 
 export class CoWorkingController {
     constructor(
@@ -52,18 +59,26 @@ export class CoWorkingController {
     async create(
         @param.path.string('id') id: typeof User.prototype.id,
         @requestBody({
+            description: 'Create coworking',
+            required: true,
             content: {
-                'application/json': {
-                    schema: getModelSchemaRef(CoWorking, {
-                        title: 'NewCoWorkingInUser',
-                        exclude: ['id'],
-                        optional: ['userId'],
-                    }),
+                'multipart/form-data': {
+                    'x-parser': 'stream',
+                    schema: {
+                        type: 'object',
+                        properties: {
+                            coworking: {
+                                type: 'string',
+                            },
+                        },
+                    },
                 },
             },
         })
-        coWorking: Omit<CoWorking, 'id'>,
-    ): Promise<CoWorking> {
+        request: Request,
+        @inject(RestBindings.Http.RESPONSE)
+        response: Response,
+    ) {
         const coCreated = await this.coWorkingRepository.findOne({
             where: {
                 userId: id,
@@ -74,6 +89,13 @@ export class CoWorkingController {
                 'User already register to a CoWorking',
             );
         }
+        const req: any = await parseRequest(request, response);
+        const uploadFile: any = await saveFiles(req.files);
+        if (uploadFile.error) {
+            throw new HttpErrors.BadRequest(uploadFile.message);
+        }
+        req.fields.photo = uploadFile;
+        const coWorking = new CoWorking(req.fields);
         // return new CoWorking();
         return this.userRepository.coWorking(id).create(coWorking);
     }
@@ -230,5 +252,53 @@ export class CoWorkingController {
         return this.coWorkingRepository
             .rooms(id)
             .find({include: [{relation: 'service'}]});
+    }
+
+    /**
+     * Find coWorking near me
+     *
+     */
+    @authenticate('jwt')
+    @authorize({
+        allowedRoles: [],
+        voters: [basicAuthorization],
+    })
+    @get('/co-workings/near')
+    async findNearCoWorking(
+        @param.query.number('maxDistance') maxDistance: number,
+        @param.query.number('latitude') latitude: number,
+        @param.query.number('longitude') longitude: number,
+    ) {
+        if (
+            maxDistance == undefined ||
+            maxDistance < 0 ||
+            latitude == undefined ||
+            longitude == undefined ||
+            latitude < -90 ||
+            latitude > 90 ||
+            longitude < -180 ||
+            longitude > 180
+        ) {
+            throw new HttpErrors.BadRequest('MissingField');
+        }
+        const curLocation = new loopback.GeoPoint([latitude, longitude]);
+
+        const filter: any = {
+            where: {
+                location: {
+                    near: curLocation,
+                    maxDistance: maxDistance,
+                    unit: 'kilometers',
+                },
+            },
+            include: [
+                {
+                    relation: 'rooms',
+                },
+            ],
+        };
+
+        const listCoWorking = await this.coWorkingRepository.find(filter);
+        return {listCoWorking};
     }
 }

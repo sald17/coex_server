@@ -1,5 +1,6 @@
 import {authenticate} from '@loopback/authentication';
 import {authorize} from '@loopback/authorization';
+import {inject} from '@loopback/core';
 import {
     Count,
     CountSchema,
@@ -11,15 +12,20 @@ import {
     del,
     get,
     getModelSchemaRef,
+    HttpErrors,
     param,
     patch,
     post,
+    Request,
     requestBody,
+    Response,
+    RestBindings,
 } from '@loopback/rest';
 import {basicAuthorization} from '../access-control/authenticator/basic-authentication';
 import {CoWorking, Room, Service} from '../models';
 import {CoWorkingRepository, RoomRepository} from '../repositories';
 import {ServiceRepository} from '../repositories/service.repository';
+import {parseRequest, saveFiles} from '../services/file-upload';
 
 export class RoomController {
     constructor(
@@ -49,17 +55,46 @@ export class RoomController {
     })
     async create(
         @param.path.string('id') id: typeof CoWorking.prototype.id,
-        @requestBody()
-        room: any,
-    ): Promise<Room> {
+        @requestBody({
+            description: 'Create room',
+            required: true,
+            content: {
+                'multipart/form-data': {
+                    'x-parser': 'stream',
+                    schema: {
+                        type: 'object',
+                        properties: {
+                            room: {
+                                type: 'string',
+                            },
+                        },
+                    },
+                },
+            },
+        })
+        request: Request,
+        @inject(RestBindings.Http.RESPONSE)
+        response: Response,
+    ) {
         console.log('object');
-        const service = new Service(room.service);
+        const req: any = await parseRequest(request, response);
+        const preService = JSON.parse(req.fields.service);
+        const uploadFile: any = await saveFiles(req.files);
+        if (uploadFile.error) {
+            throw new HttpErrors.BadRequest(uploadFile.message);
+        }
 
-        delete room.service;
+        req.fields.photo = uploadFile;
+        console.log(req.fields);
+        const service = new Service(preService);
+
+        delete req.fields.service;
+        const room = new Room(req.fields);
         const newRoom = await this.coWorkingRepository.rooms(id).create(room);
         const newService = await this.roomRepository
             .service(newRoom.id)
             .create(service);
+        console.log(newService);
         newRoom.service = newService;
         return newRoom;
     }

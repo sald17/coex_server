@@ -45,7 +45,6 @@ export class JwtService implements TokenService {
             throw new HttpErrors.Unauthorized(JwtService.INVALID_TOKEN_MESSAGE);
         }
         const storeVal = this.passwordService.getStoreValue(validProfile);
-        console.log(storeVal);
 
         if (await this.blacklist.checkToken(storeVal)) {
             throw new HttpErrors.Unauthorized(JwtService.INVALID_TOKEN_MESSAGE);

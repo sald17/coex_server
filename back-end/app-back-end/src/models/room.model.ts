@@ -13,7 +13,7 @@ export class Room extends Entity {
     @property({
         type: 'string',
     })
-    address?: string;
+    name?: string;
 
     @property({
         type: 'string',
@@ -29,6 +29,12 @@ export class Room extends Entity {
         type: 'number',
     })
     maxPerson?: number;
+
+    @property({
+        type: 'array',
+        itemType: 'string',
+    })
+    photo: string[];
 
     @property({
         type: 'string',

@@ -4,12 +4,14 @@ exports.RoomController = void 0;
 const tslib_1 = require("tslib");
 const authentication_1 = require("@loopback/authentication");
 const authorization_1 = require("@loopback/authorization");
+const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const basic_authentication_1 = require("../access-control/authenticator/basic-authentication");
 const models_1 = require("../models");
 const repositories_1 = require("../repositories");
 const service_repository_1 = require("../repositories/service.repository");
+const file_upload_1 = require("../services/file-upload");
 let RoomController = class RoomController {
     constructor(roomRepository, serviceRepository, coWorkingRepository) {
         this.roomRepository = roomRepository;
@@ -20,14 +22,24 @@ let RoomController = class RoomController {
      * Create room on CoWorking
      * id in URL is coWorkingID
      */
-    async create(id, room) {
+    async create(id, request, response) {
         console.log('object');
-        const service = new models_1.Service(room.service);
-        delete room.service;
+        const req = await file_upload_1.parseRequest(request, response);
+        const preService = JSON.parse(req.fields.service);
+        const uploadFile = await file_upload_1.saveFiles(req.files);
+        if (uploadFile.error) {
+            throw new rest_1.HttpErrors.BadRequest(uploadFile.message);
+        }
+        req.fields.photo = uploadFile;
+        console.log(req.fields);
+        const service = new models_1.Service(preService);
+        delete req.fields.service;
+        const room = new models_1.Room(req.fields);
         const newRoom = await this.coWorkingRepository.rooms(id).create(room);
         const newService = await this.roomRepository
             .service(newRoom.id)
             .create(service);
+        console.log(newService);
         newRoom.service = newService;
         return newRoom;
     }
@@ -77,9 +89,26 @@ tslib_1.__decorate([
         },
     }),
     tslib_1.__param(0, rest_1.param.path.string('id')),
-    tslib_1.__param(1, rest_1.requestBody()),
+    tslib_1.__param(1, rest_1.requestBody({
+        description: 'Create room',
+        required: true,
+        content: {
+            'multipart/form-data': {
+                'x-parser': 'stream',
+                schema: {
+                    type: 'object',
+                    properties: {
+                        room: {
+                            type: 'string',
+                        },
+                    },
+                },
+            },
+        },
+    })),
+    tslib_1.__param(2, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], RoomController.prototype, "create", null);
 tslib_1.__decorate([

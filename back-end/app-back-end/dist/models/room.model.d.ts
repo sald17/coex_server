@@ -2,10 +2,11 @@ import { Entity } from '@loopback/repository';
 import { Service } from './service.model';
 export declare class Room extends Entity {
     id?: string;
-    address?: string;
+    name?: string;
     about?: string;
     price?: number;
     maxPerson?: number;
+    photo: string[];
     coWorkingId?: string;
     service: Service;
     constructor(data?: Partial<Room>);

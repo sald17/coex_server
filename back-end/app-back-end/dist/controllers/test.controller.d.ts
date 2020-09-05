@@ -17,4 +17,5 @@ export declare class TestController {
     }>;
     fileUpload(request: Request, response: Response): Promise<object>;
     testMessage(): Promise<string>;
+    testFile(request: Request, response: Response): Promise<void>;
 }

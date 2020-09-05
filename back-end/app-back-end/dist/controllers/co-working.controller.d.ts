@@ -1,4 +1,6 @@
+/// <reference types="express" />
 import { Count, FilterExcludingWhere, Where } from '@loopback/repository';
+import { Request, Response } from '@loopback/rest';
 import { CoWorking, Room, User } from '../models';
 import { CoWorkingRepository, UserRepository } from '../repositories';
 export declare class CoWorkingController {
@@ -10,7 +12,7 @@ export declare class CoWorkingController {
      * Body type appl/json
      * id in URL is userID
      */
-    create(id: typeof User.prototype.id, coWorking: Omit<CoWorking, 'id'>): Promise<CoWorking>;
+    create(id: typeof User.prototype.id, request: Request, response: Response): Promise<CoWorking>;
     /**
      * Count num of CoWorking
      */
@@ -32,4 +34,11 @@ export declare class CoWorkingController {
      * Find room of coWorking by ID
      */
     findRoomOfCoWorking(id: string): Promise<Room[]>;
+    /**
+     * Find coWorking near me
+     *
+     */
+    findNearCoWorking(maxDistance: number, latitude: number, longitude: number): Promise<{
+        listCoWorking: (CoWorking & import("../models").CoWorkingRelations)[];
+    }>;
 }

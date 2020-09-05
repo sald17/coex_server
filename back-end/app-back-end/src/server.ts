@@ -18,14 +18,11 @@ export class ExpressServer {
         this.expressApp = require('../web-application/express-server.js');
         this.loopbackApp = new AppApplication(options);
 
-        this.loopbackApp
-            .bind('facebookOAuth2Options')
-            .to(options.facebookOptions);
-
         this.expressApp.use(
             express.static(path.resolve(__dirname, '../public')),
             express.static(path.resolve(__dirname, '../storage')),
         );
+
         this.expressApp.use('/api', this.loopbackApp.requestHandler);
     }
 

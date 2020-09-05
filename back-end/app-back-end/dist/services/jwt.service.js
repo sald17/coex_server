@@ -39,7 +39,6 @@ let JwtService = JwtService_1 = class JwtService {
             throw new rest_1.HttpErrors.Unauthorized(JwtService_1.INVALID_TOKEN_MESSAGE);
         }
         const storeVal = this.passwordService.getStoreValue(validProfile);
-        console.log(storeVal);
         if (await this.blacklist.checkToken(storeVal)) {
             throw new rest_1.HttpErrors.Unauthorized(JwtService_1.INVALID_TOKEN_MESSAGE);
         }

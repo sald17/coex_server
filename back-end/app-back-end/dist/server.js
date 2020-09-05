@@ -11,9 +11,6 @@ class ExpressServer {
     constructor(options = {}) {
         this.expressApp = require('../web-application/express-server.js');
         this.loopbackApp = new application_1.AppApplication(options);
-        this.loopbackApp
-            .bind('facebookOAuth2Options')
-            .to(options.facebookOptions);
         this.expressApp.use(express_1.default.static(path.resolve(__dirname, '../public')), express_1.default.static(path.resolve(__dirname, '../storage')));
         this.expressApp.use('/api', this.loopbackApp.requestHandler);
     }

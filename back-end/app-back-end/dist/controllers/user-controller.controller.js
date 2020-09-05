@@ -124,6 +124,12 @@ let UserControllerController = class UserControllerController {
      * Log out
      */
     async logout() {
+        const user = await this.userRepository.findById(this.user.profile.id);
+        const index = user.token.indexOf(this.user.profile.token);
+        if (index !== -1) {
+            user.token.splice(index, 1);
+        }
+        this.userRepository.update(user);
         const storeValue = this.passwordHasher.getStoreValue(this.user);
         await this.blacklist.addToken(storeValue);
         return { message: 'Logged out' };

@@ -246,6 +246,5 @@ declare const AppApplication_base: (new (...args: any[]) => {
 export declare class AppApplication extends AppApplication_base {
     constructor(options?: ApplicationConfig);
     setUpBindings(): void;
-    protected configureFileUpload(destination?: string): void;
     setUpAuthorization(): void;
 }

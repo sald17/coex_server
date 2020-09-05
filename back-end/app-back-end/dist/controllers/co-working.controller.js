@@ -4,11 +4,14 @@ exports.CoWorkingController = void 0;
 const tslib_1 = require("tslib");
 const authentication_1 = require("@loopback/authentication");
 const authorization_1 = require("@loopback/authorization");
+const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const basic_authentication_1 = require("../access-control/authenticator/basic-authentication");
 const models_1 = require("../models");
 const repositories_1 = require("../repositories");
+const file_upload_1 = require("../services/file-upload");
+const loopback = require('loopback');
 let CoWorkingController = class CoWorkingController {
     constructor(coWorkingRepository, userRepository) {
         this.coWorkingRepository = coWorkingRepository;
@@ -19,7 +22,7 @@ let CoWorkingController = class CoWorkingController {
      * Body type appl/json
      * id in URL is userID
      */
-    async create(id, coWorking) {
+    async create(id, request, response) {
         const coCreated = await this.coWorkingRepository.findOne({
             where: {
                 userId: id,
@@ -28,6 +31,13 @@ let CoWorkingController = class CoWorkingController {
         if (coCreated) {
             throw new rest_1.HttpErrors.BadRequest('User already register to a CoWorking');
         }
+        const req = await file_upload_1.parseRequest(request, response);
+        const uploadFile = await file_upload_1.saveFiles(req.files);
+        if (uploadFile.error) {
+            throw new rest_1.HttpErrors.BadRequest(uploadFile.message);
+        }
+        req.fields.photo = uploadFile;
+        const coWorking = new models_1.CoWorking(req.fields);
         // return new CoWorking();
         return this.userRepository.coWorking(id).create(coWorking);
     }
@@ -66,6 +76,39 @@ let CoWorkingController = class CoWorkingController {
             .rooms(id)
             .find({ include: [{ relation: 'service' }] });
     }
+    /**
+     * Find coWorking near me
+     *
+     */
+    async findNearCoWorking(maxDistance, latitude, longitude) {
+        if (maxDistance == undefined ||
+            maxDistance < 0 ||
+            latitude == undefined ||
+            longitude == undefined ||
+            latitude < -90 ||
+            latitude > 90 ||
+            longitude < -180 ||
+            longitude > 180) {
+            throw new rest_1.HttpErrors.BadRequest('MissingField');
+        }
+        const curLocation = new loopback.GeoPoint([latitude, longitude]);
+        const filter = {
+            where: {
+                location: {
+                    near: curLocation,
+                    maxDistance: maxDistance,
+                    unit: 'kilometers',
+                },
+            },
+            include: [
+                {
+                    relation: 'rooms',
+                },
+            ],
+        };
+        const listCoWorking = await this.coWorkingRepository.find(filter);
+        return { listCoWorking };
+    }
 };
 tslib_1.__decorate([
     authentication_1.authenticate('jwt'),
@@ -85,18 +128,25 @@ tslib_1.__decorate([
     }),
     tslib_1.__param(0, rest_1.param.path.string('id')),
     tslib_1.__param(1, rest_1.requestBody({
+        description: 'Create coworking',
+        required: true,
         content: {
-            'application/json': {
-                schema: rest_1.getModelSchemaRef(models_1.CoWorking, {
-                    title: 'NewCoWorkingInUser',
-                    exclude: ['id'],
-                    optional: ['userId'],
-                }),
+            'multipart/form-data': {
+                'x-parser': 'stream',
+                schema: {
+                    type: 'object',
+                    properties: {
+                        coworking: {
+                            type: 'string',
+                        },
+                    },
+                },
             },
         },
     })),
+    tslib_1.__param(2, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CoWorkingController.prototype, "create", null);
 tslib_1.__decorate([
@@ -237,6 +287,20 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CoWorkingController.prototype, "findRoomOfCoWorking", null);
+tslib_1.__decorate([
+    authentication_1.authenticate('jwt'),
+    authorization_1.authorize({
+        allowedRoles: [],
+        voters: [basic_authentication_1.basicAuthorization],
+    }),
+    rest_1.get('/co-workings/near'),
+    tslib_1.__param(0, rest_1.param.query.number('maxDistance')),
+    tslib_1.__param(1, rest_1.param.query.number('latitude')),
+    tslib_1.__param(2, rest_1.param.query.number('longitude')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Number, Number, Number]),
+    tslib_1.__metadata("design:returntype", Promise)
+], CoWorkingController.prototype, "findNearCoWorking", null);
 CoWorkingController = tslib_1.__decorate([
     tslib_1.__param(0, repository_1.repository(repositories_1.CoWorkingRepository)),
     tslib_1.__param(1, repository_1.repository(repositories_1.UserRepository)),

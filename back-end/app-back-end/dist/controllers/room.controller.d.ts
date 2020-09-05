@@ -1,4 +1,6 @@
+/// <reference types="express" />
 import { Count, FilterExcludingWhere, Where } from '@loopback/repository';
+import { Request, Response } from '@loopback/rest';
 import { CoWorking, Room } from '../models';
 import { CoWorkingRepository, RoomRepository } from '../repositories';
 import { ServiceRepository } from '../repositories/service.repository';
@@ -11,7 +13,7 @@ export declare class RoomController {
      * Create room on CoWorking
      * id in URL is coWorkingID
      */
-    create(id: typeof CoWorking.prototype.id, room: any): Promise<Room>;
+    create(id: typeof CoWorking.prototype.id, request: Request, response: Response): Promise<Room>;
     /**
      * Get room count
      */

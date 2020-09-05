@@ -22,7 +22,7 @@ tslib_1.__decorate([
         type: 'string',
     }),
     tslib_1.__metadata("design:type", String)
-], Room.prototype, "address", void 0);
+], Room.prototype, "name", void 0);
 tslib_1.__decorate([
     repository_1.property({
         type: 'string',
@@ -41,6 +41,13 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", Number)
 ], Room.prototype, "maxPerson", void 0);
+tslib_1.__decorate([
+    repository_1.property({
+        type: 'array',
+        itemType: 'string',
+    }),
+    tslib_1.__metadata("design:type", Array)
+], Room.prototype, "photo", void 0);
 tslib_1.__decorate([
     repository_1.property({
         type: 'string',

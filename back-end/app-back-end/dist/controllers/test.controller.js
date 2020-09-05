@@ -41,7 +41,7 @@ let TestController = class TestController {
         return blacklist;
     }
     async fileUpload(request, response) {
-        return new Promise((resolve, reject) => {
+        let result = await new Promise((resolve, reject) => {
             this.uploadFileService(request, response, (err) => {
                 if (err)
                     reject(err);
@@ -50,10 +50,12 @@ let TestController = class TestController {
                 }
             });
         });
+        return result;
     }
     async testMessage() {
         return 'Jebaited';
     }
+    async testFile(request, response) { }
 };
 tslib_1.__decorate([
     rest_1.get('/test/email'),
@@ -76,7 +78,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], TestController.prototype, "testRedis", null);
 tslib_1.__decorate([
-    rest_1.post('/files'),
+    rest_1.post('/files/{value}'),
     tslib_1.__param(0, rest_1.requestBody.file()),
     tslib_1.__param(1, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
     tslib_1.__metadata("design:type", Function),
@@ -94,6 +96,29 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", Promise)
 ], TestController.prototype, "testMessage", null);
+tslib_1.__decorate([
+    rest_1.post('/test/file'),
+    tslib_1.__param(0, rest_1.requestBody({
+        required: true,
+        content: {
+            'multipart/form-data': {
+                'x-parser': 'stream',
+                schema: {
+                    type: 'object',
+                    properties: {
+                        coworking: {
+                            type: 'string',
+                        },
+                    },
+                },
+            },
+        },
+    })),
+    tslib_1.__param(1, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TestController.prototype, "testFile", null);
 TestController = tslib_1.__decorate([
     tslib_1.__param(0, repository_1.repository(repositories_1.BlacklistRepository)),
     tslib_1.__param(1, core_1.inject(key_1.EmailServiceBindings.EMAIL_SERVICE)),
