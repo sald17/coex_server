@@ -23,7 +23,6 @@ let RoomController = class RoomController {
      * id in URL is coWorkingID
      */
     async create(id, request, response) {
-        console.log('object');
         const req = await file_upload_1.parseRequest(request, response);
         const preService = JSON.parse(req.fields.service);
         const uploadFile = await file_upload_1.saveFiles(req.files);
@@ -31,7 +30,6 @@ let RoomController = class RoomController {
             throw new rest_1.HttpErrors.BadRequest(uploadFile.message);
         }
         req.fields.photo = uploadFile;
-        console.log(req.fields);
         const service = new models_1.Service(preService);
         delete req.fields.service;
         const room = new models_1.Room(req.fields);
@@ -39,7 +37,6 @@ let RoomController = class RoomController {
         const newService = await this.roomRepository
             .service(newRoom.id)
             .create(service);
-        console.log(newService);
         newRoom.service = newService;
         return newRoom;
     }

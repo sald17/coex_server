@@ -5,7 +5,7 @@ export declare class CoWorking extends Entity {
     name?: string;
     about?: string;
     phone?: string;
-    photo?: string[];
+    photo: string[];
     address?: string;
     location?: number[];
     userId: string;

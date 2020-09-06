@@ -13,9 +13,10 @@ const repositories_1 = require("../repositories");
 const file_upload_1 = require("../services/file-upload");
 const loopback = require('loopback');
 let CoWorkingController = class CoWorkingController {
-    constructor(coWorkingRepository, userRepository) {
+    constructor(coWorkingRepository, userRepository, roomRepository) {
         this.coWorkingRepository = coWorkingRepository;
         this.userRepository = userRepository;
+        this.roomRepository = roomRepository;
     }
     /**
      * Create CoWorking on user
@@ -59,17 +60,42 @@ let CoWorkingController = class CoWorkingController {
     /**
      * Update CoWorking by ID
      */
-    async updateById(id, coWorking) {
-        await this.coWorkingRepository.updateById(id, coWorking);
+    async updateById(id, request, response) {
+        const coWorking = await this.coWorkingRepository.findById(id);
+        if (!coWorking) {
+            throw new rest_1.HttpErrors.NotFound('Not found CoWorking');
+        }
+        const req = await file_upload_1.parseRequest(request, response);
+        coWorking.photo = await coWorking.photo.filter(img => {
+            if (!req.fields.oldPhoto.includes(img)) {
+                file_upload_1.deleteFiles([img]);
+                return false;
+            }
+            return true;
+        });
+        const newPhoto = await file_upload_1.saveFiles(req.files);
+        if (newPhoto.error) {
+            throw new rest_1.HttpErrors.BadRequest(newPhoto.message);
+        }
+        coWorking.photo = [...coWorking.photo, ...newPhoto];
+        await this.coWorkingRepository.update(coWorking);
     }
     /**
      * Delete CoWorking by ID
      */
     async deleteById(id) {
-        await this.coWorkingRepository.deleteById(id);
+        const coWorking = await this.coWorkingRepository.findById(id, {
+            include: [{ relation: 'rooms' }],
+        });
+        for (let r of coWorking.rooms) {
+            const room = await this.roomRepository.deleteRoom(r.id);
+        }
+        delete coWorking.rooms;
+        file_upload_1.deleteFiles(coWorking.photo);
+        await this.coWorkingRepository.delete(coWorking);
     }
     /**
-     * Find room of coWorking by ID
+     * Find ROOMS of coWorking by ID
      */
     async findRoomOfCoWorking(id) {
         return this.coWorkingRepository
@@ -237,13 +263,22 @@ tslib_1.__decorate([
     tslib_1.__param(0, rest_1.param.path.string('id')),
     tslib_1.__param(1, rest_1.requestBody({
         content: {
-            'application/json': {
-                schema: rest_1.getModelSchemaRef(models_1.CoWorking, { partial: true }),
+            'multipart/form-data': {
+                'x-parser': 'stream',
+                schema: {
+                    type: 'object',
+                    properties: {
+                        coworking: {
+                            type: 'string',
+                        },
+                    },
+                },
             },
         },
     })),
+    tslib_1.__param(2, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, models_1.CoWorking]),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CoWorkingController.prototype, "updateById", null);
 tslib_1.__decorate([
@@ -304,8 +339,10 @@ tslib_1.__decorate([
 CoWorkingController = tslib_1.__decorate([
     tslib_1.__param(0, repository_1.repository(repositories_1.CoWorkingRepository)),
     tslib_1.__param(1, repository_1.repository(repositories_1.UserRepository)),
+    tslib_1.__param(2, repository_1.repository(repositories_1.RoomRepository)),
     tslib_1.__metadata("design:paramtypes", [repositories_1.CoWorkingRepository,
-        repositories_1.UserRepository])
+        repositories_1.UserRepository,
+        repositories_1.RoomRepository])
 ], CoWorkingController);
 exports.CoWorkingController = CoWorkingController;
 //# sourceMappingURL=co-working.controller.js.map

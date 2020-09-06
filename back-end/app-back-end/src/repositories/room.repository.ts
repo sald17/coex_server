@@ -6,6 +6,7 @@ import {
 } from '@loopback/repository';
 import {MongoConnectorDataSource} from '../datasources';
 import {Room, RoomRelations, Service} from '../models';
+import {deleteFiles} from '../services/file-upload';
 import {ServiceRepository} from './service.repository';
 
 export class RoomRepository extends DefaultCrudRepository<
@@ -23,6 +24,8 @@ export class RoomRepository extends DefaultCrudRepository<
         dataSource: MongoConnectorDataSource,
         @repository.getter('ServiceRepository')
         protected serviceRepositoryGetter: Getter<ServiceRepository>,
+        @repository(ServiceRepository)
+        public serviceRepository: ServiceRepository,
     ) {
         super(Room, dataSource);
         this.service = this.createHasOneRepositoryFactoryFor(
@@ -33,5 +36,15 @@ export class RoomRepository extends DefaultCrudRepository<
             'service',
             this.service.inclusionResolver,
         );
+    }
+
+    async deleteRoom(id?: string) {
+        const room = await this.findById(id, {
+            include: [{relation: 'service'}],
+        });
+        deleteFiles(room.photo);
+        await this.serviceRepository.deleteById(room.service.id);
+        delete room.service;
+        await this.delete(room);
     }
 }

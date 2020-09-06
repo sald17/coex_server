@@ -4,7 +4,7 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.saveFiles = exports.parseRequest = void 0;
+exports.deleteFiles = exports.saveFiles = exports.parseRequest = void 0;
 const tslib_1 = require("tslib");
 const fs = tslib_1.__importStar(require("fs"));
 const multer_1 = tslib_1.__importDefault(require("multer"));
@@ -49,4 +49,13 @@ async function saveFiles(files) {
     return listFileName;
 }
 exports.saveFiles = saveFiles;
+async function deleteFiles(files) {
+    for (let f of files) {
+        const filePath = path.join(storagePath, f);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+    }
+}
+exports.deleteFiles = deleteFiles;
 //# sourceMappingURL=file-upload.js.map

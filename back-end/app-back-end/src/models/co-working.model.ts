@@ -35,8 +35,9 @@ export class CoWorking extends Entity {
     @property({
         type: 'array',
         itemType: 'string',
+        default: [],
     })
-    photo?: string[];
+    photo: string[];
 
     @property({
         type: 'string',

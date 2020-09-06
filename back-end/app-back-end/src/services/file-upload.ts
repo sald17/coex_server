@@ -48,3 +48,12 @@ export async function saveFiles(files: any[]) {
     }
     return listFileName;
 }
+
+export async function deleteFiles(files: Array<any>) {
+    for (let f of files) {
+        const filePath = path.join(storagePath, f);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+    }
+}

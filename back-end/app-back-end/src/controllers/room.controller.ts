@@ -76,7 +76,6 @@ export class RoomController {
         @inject(RestBindings.Http.RESPONSE)
         response: Response,
     ) {
-        console.log('object');
         const req: any = await parseRequest(request, response);
         const preService = JSON.parse(req.fields.service);
         const uploadFile: any = await saveFiles(req.files);
@@ -85,7 +84,6 @@ export class RoomController {
         }
 
         req.fields.photo = uploadFile;
-        console.log(req.fields);
         const service = new Service(preService);
 
         delete req.fields.service;
@@ -94,7 +92,6 @@ export class RoomController {
         const newService = await this.roomRepository
             .service(newRoom.id)
             .create(service);
-        console.log(newService);
         newRoom.service = newService;
         return newRoom;
     }

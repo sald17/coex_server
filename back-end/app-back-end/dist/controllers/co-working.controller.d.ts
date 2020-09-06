@@ -2,11 +2,12 @@
 import { Count, FilterExcludingWhere, Where } from '@loopback/repository';
 import { Request, Response } from '@loopback/rest';
 import { CoWorking, Room, User } from '../models';
-import { CoWorkingRepository, UserRepository } from '../repositories';
+import { CoWorkingRepository, RoomRepository, UserRepository } from '../repositories';
 export declare class CoWorkingController {
     coWorkingRepository: CoWorkingRepository;
     userRepository: UserRepository;
-    constructor(coWorkingRepository: CoWorkingRepository, userRepository: UserRepository);
+    roomRepository: RoomRepository;
+    constructor(coWorkingRepository: CoWorkingRepository, userRepository: UserRepository, roomRepository: RoomRepository);
     /**
      * Create CoWorking on user
      * Body type appl/json
@@ -25,13 +26,13 @@ export declare class CoWorkingController {
     /**
      * Update CoWorking by ID
      */
-    updateById(id: string, coWorking: CoWorking): Promise<void>;
+    updateById(id: string, request: Request, response: Response): Promise<void>;
     /**
      * Delete CoWorking by ID
      */
     deleteById(id: string): Promise<void>;
     /**
-     * Find room of coWorking by ID
+     * Find ROOMS of coWorking by ID
      */
     findRoomOfCoWorking(id: string): Promise<Room[]>;
     /**

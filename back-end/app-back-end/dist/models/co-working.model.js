@@ -40,6 +40,7 @@ tslib_1.__decorate([
     repository_1.property({
         type: 'array',
         itemType: 'string',
+        default: [],
     }),
     tslib_1.__metadata("design:type", Array)
 ], CoWorking.prototype, "photo", void 0);

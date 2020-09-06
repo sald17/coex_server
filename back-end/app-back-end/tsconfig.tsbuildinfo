@@ -1847,8 +1847,8 @@
         "affectsGlobalScope": false
       },
       "./src/models/co-working.model.ts": {
-        "version": "981d0e2edeb3b7c0b5aa681c4e15d03aa4254264bc0cee603ac059a4c65cc50c",
-        "signature": "be0700e096c7192967b87e210df756612089355143b8f36d6824f3a073f2e45f",
+        "version": "4aad24c641a8b4f6e26ea7f9107b37f21016beb4d31d3a9944da9075758e78a6",
+        "signature": "55d8dae0dd43693d824f3dc35309b56c5e877a8691f66d11c6146448a24b4702",
         "affectsGlobalScope": false
       },
       "./src/models/index.ts": {
@@ -1966,14 +1966,29 @@
         "signature": "5579ef3039a0ff55ce073778739a4e66f6e8d03e73377bb1eaf9458852bbc356",
         "affectsGlobalScope": false
       },
+      "./node_modules/@types/multer/index.d.ts": {
+        "version": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
+        "signature": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/uuid/index.d.ts": {
+        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
+        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
+        "affectsGlobalScope": false
+      },
+      "./src/services/file-upload.ts": {
+        "version": "a8f23e8b8aeb01c6558335b5a4519cf424e72db1dd2dde843d5c81cde9770eea",
+        "signature": "cc9fd7806c879d4b928f7bcf589190cdf1bff863e611419ecab7a6436833f019",
+        "affectsGlobalScope": false
+      },
       "./src/repositories/service.repository.ts": {
         "version": "0013967ab849c495debd2acca4b6e06c376b0cbc7f1eae84227c8b1db27ca916",
         "signature": "c1debed936f6b67caa0cd06639c3382d00757479930bc0e87e2fc95358800237",
         "affectsGlobalScope": false
       },
       "./src/repositories/room.repository.ts": {
-        "version": "0dfd577309224381582d47f0283ee365a0122114e0702d54dde906a7afe4a0a3",
-        "signature": "dd020bc473b9303d76adc5ee86384421dd60856540f2586ed5e393cc2efef84c",
+        "version": "b53508fbd3cb77446bfd6ef7241b1e6c7d3a1e2429b74e6773e7a7839f2f8944",
+        "signature": "87faf23dfabcdd63bfd34a5bd35070e90d989cfede5322768e25a4128cb50b21",
         "affectsGlobalScope": false
       },
       "./src/repositories/co-working.repository.ts": {
@@ -1989,11 +2004,6 @@
       "./src/repositories/index.ts": {
         "version": "798745ba572c46a482fa9a717c1e5b3904decf33eea2f5e626ac0dedf71cfb1f",
         "signature": "798745ba572c46a482fa9a717c1e5b3904decf33eea2f5e626ac0dedf71cfb1f",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/uuid/index.d.ts": {
-        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
-        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       },
       "./src/services/user.service.ts": {
@@ -2301,23 +2311,13 @@
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
-      "./node_modules/@types/multer/index.d.ts": {
-        "version": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
-        "signature": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
-        "affectsGlobalScope": true
-      },
-      "./src/services/file-upload.ts": {
-        "version": "1a44560a5ef3155cdc2b03d2348ff1d96dc0ec4cc119c665d6fb3a9c22eac511",
-        "signature": "323ddb7d7a82f9c34dc3673a372b03a4f87423becb5d8eebdad00952f5c23199",
-        "affectsGlobalScope": false
-      },
       "./src/controllers/co-working.controller.ts": {
-        "version": "3e8da2b91573a07fd04c6656c4f082610e711ca7ad359c5d384bf0e29647fdfd",
-        "signature": "bcc613bb41f6a34209d67a493f032d706c3a284987be86ecc4598506f37781ef",
+        "version": "8af9bb091585b3f8922e3eeaa3180baa52dbed1d801fb5137aad28348fffffa2",
+        "signature": "27ed9ee32269cc2da12f61c5871eeb3446aad91d8561ee927cb9d48e3de83b06",
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
-        "version": "17da9fd199d95e276a09810b262cc0817ccf23642ee2d2a43601d872a95467d9",
+        "version": "af7034488b5e370e8dcb220b6410798c09bdf2c51cacd09d5adc18f6be249b26",
         "signature": "d17f8fe4776a83991169544e9361b01ba13e5a70bdd104bf767c90608eedcc48",
         "affectsGlobalScope": false
       },
@@ -4602,7 +4602,8 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts",
-        "./src/repositories/service.repository.ts"
+        "./src/repositories/service.repository.ts",
+        "./src/services/file-upload.ts"
       ],
       "./src/repositories/service.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",

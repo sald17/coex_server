@@ -5,3 +5,4 @@ export declare function saveFiles(files: any[]): Promise<string[] | {
     error: boolean;
     message: string;
 }>;
+export declare function deleteFiles(files: Array<any>): Promise<void>;

@@ -23,8 +23,12 @@ import {
 } from '@loopback/rest';
 import {basicAuthorization} from '../access-control/authenticator/basic-authentication';
 import {CoWorking, Room, User} from '../models';
-import {CoWorkingRepository, UserRepository} from '../repositories';
-import {parseRequest, saveFiles} from '../services/file-upload';
+import {
+    CoWorkingRepository,
+    RoomRepository,
+    UserRepository,
+} from '../repositories';
+import {deleteFiles, parseRequest, saveFiles} from '../services/file-upload';
 
 const loopback = require('loopback');
 
@@ -33,6 +37,7 @@ export class CoWorkingController {
         @repository(CoWorkingRepository)
         public coWorkingRepository: CoWorkingRepository,
         @repository(UserRepository) public userRepository: UserRepository,
+        @repository(RoomRepository) public roomRepository: RoomRepository,
     ) {}
 
     /**
@@ -197,14 +202,41 @@ export class CoWorkingController {
         @param.path.string('id') id: string,
         @requestBody({
             content: {
-                'application/json': {
-                    schema: getModelSchemaRef(CoWorking, {partial: true}),
+                'multipart/form-data': {
+                    'x-parser': 'stream',
+                    schema: {
+                        type: 'object',
+                        properties: {
+                            coworking: {
+                                type: 'string',
+                            },
+                        },
+                    },
                 },
             },
         })
-        coWorking: CoWorking,
-    ): Promise<void> {
-        await this.coWorkingRepository.updateById(id, coWorking);
+        request: Request,
+        @inject(RestBindings.Http.RESPONSE) response: Response,
+    ) {
+        const coWorking = await this.coWorkingRepository.findById(id);
+        if (!coWorking) {
+            throw new HttpErrors.NotFound('Not found CoWorking');
+        }
+        const req: any = await parseRequest(request, response);
+
+        coWorking.photo = await coWorking.photo.filter(img => {
+            if (!req.fields.oldPhoto.includes(img)) {
+                deleteFiles([img]);
+                return false;
+            }
+            return true;
+        });
+        const newPhoto: any = await saveFiles(req.files);
+        if (newPhoto.error) {
+            throw new HttpErrors.BadRequest(newPhoto.message);
+        }
+        coWorking.photo = [...coWorking.photo, ...newPhoto];
+        await this.coWorkingRepository.update(coWorking);
     }
 
     /**
@@ -223,11 +255,19 @@ export class CoWorkingController {
         },
     })
     async deleteById(@param.path.string('id') id: string): Promise<void> {
-        await this.coWorkingRepository.deleteById(id);
+        const coWorking = await this.coWorkingRepository.findById(id, {
+            include: [{relation: 'rooms'}],
+        });
+        for (let r of coWorking.rooms) {
+            const room = await this.roomRepository.deleteRoom(r.id);
+        }
+        delete coWorking.rooms;
+        deleteFiles(coWorking.photo);
+        await this.coWorkingRepository.delete(coWorking);
     }
 
     /**
-     * Find room of coWorking by ID
+     * Find ROOMS of coWorking by ID
      */
     @authenticate('jwt')
     @authorize({

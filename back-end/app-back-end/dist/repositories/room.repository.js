@@ -6,18 +6,31 @@ const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const datasources_1 = require("../datasources");
 const models_1 = require("../models");
+const file_upload_1 = require("../services/file-upload");
+const service_repository_1 = require("./service.repository");
 let RoomRepository = class RoomRepository extends repository_1.DefaultCrudRepository {
-    constructor(dataSource, serviceRepositoryGetter) {
+    constructor(dataSource, serviceRepositoryGetter, serviceRepository) {
         super(models_1.Room, dataSource);
         this.serviceRepositoryGetter = serviceRepositoryGetter;
+        this.serviceRepository = serviceRepository;
         this.service = this.createHasOneRepositoryFactoryFor('service', serviceRepositoryGetter);
         this.registerInclusionResolver('service', this.service.inclusionResolver);
+    }
+    async deleteRoom(id) {
+        const room = await this.findById(id, {
+            include: [{ relation: 'service' }],
+        });
+        file_upload_1.deleteFiles(room.photo);
+        await this.serviceRepository.deleteById(room.service.id);
+        delete room.service;
+        await this.delete(room);
     }
 };
 RoomRepository = tslib_1.__decorate([
     tslib_1.__param(0, core_1.inject('datasources.MongoConnector')),
     tslib_1.__param(1, repository_1.repository.getter('ServiceRepository')),
-    tslib_1.__metadata("design:paramtypes", [datasources_1.MongoConnectorDataSource, Function])
+    tslib_1.__param(2, repository_1.repository(service_repository_1.ServiceRepository)),
+    tslib_1.__metadata("design:paramtypes", [datasources_1.MongoConnectorDataSource, Function, service_repository_1.ServiceRepository])
 ], RoomRepository);
 exports.RoomRepository = RoomRepository;
 //# sourceMappingURL=room.repository.js.map

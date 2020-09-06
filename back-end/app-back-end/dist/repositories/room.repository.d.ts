@@ -5,6 +5,8 @@ import { Room, RoomRelations, Service } from '../models';
 import { ServiceRepository } from './service.repository';
 export declare class RoomRepository extends DefaultCrudRepository<Room, typeof Room.prototype.id, RoomRelations> {
     protected serviceRepositoryGetter: Getter<ServiceRepository>;
+    serviceRepository: ServiceRepository;
     readonly service: HasOneRepositoryFactory<Service, typeof Room.prototype.id>;
-    constructor(dataSource: MongoConnectorDataSource, serviceRepositoryGetter: Getter<ServiceRepository>);
+    constructor(dataSource: MongoConnectorDataSource, serviceRepositoryGetter: Getter<ServiceRepository>, serviceRepository: ServiceRepository);
+    deleteRoom(id?: string): Promise<void>;
 }
