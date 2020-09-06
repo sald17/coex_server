@@ -1842,7 +1842,7 @@
         "affectsGlobalScope": false
       },
       "./src/models/user.model.ts": {
-        "version": "fd191373b30def0e6b64fea2d38e840fa13e9128d8df94aff232ff357ada3d5f",
+        "version": "394bf9930daa7d7006836a0bedffff45217b14ef5c5671e02f381e1254266cb2",
         "signature": "ad220c7b18e4a2af2368322cefdb81963dde6225bcc81926b71bb8c0a4b448f8",
         "affectsGlobalScope": false
       },
@@ -2312,18 +2312,18 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/co-working.controller.ts": {
-        "version": "3a2b14fa6cdf1e7742f5ea36940bb5d28422b26ddfe391361ddf9ca297e0c917",
+        "version": "bc657d0f5c3202a3d086f0d62f1c18a7f6f8730e3e1155e6fb9a7f6ad89b6ce5",
         "signature": "27ed9ee32269cc2da12f61c5871eeb3446aad91d8561ee927cb9d48e3de83b06",
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
-        "version": "c80f4cecf8c0cc6a33e72356ed4a90132da29d6ab9cc76c0985714cb46fec423",
-        "signature": "060ef7597f25abe40ccbdb5ceefe9d2de0bcbb2eecf585319cda24f4af29680e",
+        "version": "3ecaebb14351ab59b6309d60423c5104ad133844f6f1d4f39255cab9dc51253e",
+        "signature": "f81145429076a800840094f11e101ad6b5b7b9b92cf72910f72e9d8c8e2a6377",
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "1cd9fdb836e40100fba5836e84228f7729dd98872a94fd87447de29b96c36a3b",
-        "signature": "fd7111e86b00dc49ec0ce36c500903f43d267d29017c0eeb8d6de963348e6e93",
+        "version": "1be4287d63c49cca2c16d75cefdce796e553b25860bb9ea43151c4c8bb726d69",
+        "signature": "6b63e637795601a5bb874cc8ab605aa5163e4134f046e2377f3b693cf99c76d4",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
@@ -7656,6 +7656,7 @@
       ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
         "./src/services/jwt.service.ts",

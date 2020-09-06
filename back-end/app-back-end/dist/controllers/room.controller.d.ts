@@ -30,7 +30,7 @@ export declare class RoomController {
     /**
      * Update room by id
      */
-    updateById(id: string, room: Room): Promise<void>;
+    updateById(id: string, request: Request, response: Response): Promise<void>;
     /**
      * Delete room
      */

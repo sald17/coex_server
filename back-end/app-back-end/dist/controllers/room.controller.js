@@ -23,6 +23,10 @@ let RoomController = class RoomController {
      * id in URL is coWorkingID
      */
     async create(id, request, response) {
+        const cw = this.coWorkingRepository.findById(id);
+        if (!cw) {
+            throw new rest_1.HttpErrors.NotFound('Not found CoWorking');
+        }
         const req = await file_upload_1.parseRequest(request, response);
         const preService = JSON.parse(req.fields.service);
         const uploadFile = await file_upload_1.saveFiles(req.files);
@@ -62,14 +66,46 @@ let RoomController = class RoomController {
     /**
      * Update room by id
      */
-    async updateById(id, room) {
-        await this.roomRepository.updateById(id, room);
+    async updateById(id, request, response) {
+        const room = await this.roomRepository.findById(id);
+        if (!room) {
+            throw new rest_1.HttpErrors.NotFound('Not found room ');
+        }
+        const req = await file_upload_1.parseRequest(request, response);
+        console.log(req);
+        room.photo = room.photo.filter(img => {
+            if (!req.fields.oldPhoto.includes(img)) {
+                file_upload_1.deleteFiles([img]);
+                return false;
+            }
+            return true;
+        });
+        const newPhoto = await file_upload_1.saveFiles(req.files);
+        if (newPhoto.error) {
+            throw new rest_1.HttpErrors.BadRequest(newPhoto.message);
+        }
+        const service = JSON.parse(req.fields.service);
+        const s = await this.serviceRepository.findOne({ where: { roomId: id } });
+        console.log(s);
+        const res = await this.serviceRepository.updateAll(service, {
+            roomId: id,
+        });
+        console.log(res);
+        delete req.fields.service;
+        delete req.fields.oldPhoto;
+        const updateRoom = new models_1.Room(Object.assign({}, room, req.fields, {
+            photo: [...newPhoto, ...room.photo],
+        }));
+        await this.roomRepository.update(updateRoom);
     }
     /**
      * Delete room
      */
     async deleteById(id) {
-        const room = await this.roomRepository.findById(id);
+        console.log(id);
+        const room = await this.roomRepository.findById(id, {
+            include: [{ relation: 'service' }],
+        });
         this.serviceRepository.deleteById(room.service.id);
         delete room.service;
         file_upload_1.deleteFiles(room.photo);
@@ -200,13 +236,22 @@ tslib_1.__decorate([
     tslib_1.__param(0, rest_1.param.path.string('id')),
     tslib_1.__param(1, rest_1.requestBody({
         content: {
-            'application/json': {
-                schema: rest_1.getModelSchemaRef(models_1.Room, { partial: true }),
+            'multipart/form-data': {
+                'x-parser': 'stream',
+                schema: {
+                    type: 'object',
+                    properties: {
+                        room: {
+                            type: 'string',
+                        },
+                    },
+                },
             },
         },
     })),
+    tslib_1.__param(2, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, models_1.Room]),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], RoomController.prototype, "updateById", null);
 tslib_1.__decorate([

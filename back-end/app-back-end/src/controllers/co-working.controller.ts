@@ -223,7 +223,6 @@ export class CoWorkingController {
             throw new HttpErrors.NotFound('Not found CoWorking');
         }
         const req: any = await parseRequest(request, response);
-        console.log(req.fields);
         coWorking.photo = await coWorking.photo.filter(img => {
             if (!req.fields.oldPhoto.includes(img)) {
                 deleteFiles([img]);
@@ -264,12 +263,14 @@ export class CoWorkingController {
         const coWorking = await this.coWorkingRepository.findById(id, {
             include: [{relation: 'rooms'}],
         });
-        for (let r of coWorking.rooms) {
-            const room = await this.roomRepository.deleteRoom(r.id);
+        console.log(coWorking);
+        if (coWorking.rooms) {
+            for (let r of coWorking.rooms) {
+                const room = await this.roomRepository.deleteRoom(r.id);
+            }
         }
         delete coWorking.rooms;
         deleteFiles(coWorking.photo);
-        console.log(coWorking);
         await this.coWorkingRepository.delete(coWorking);
         // console.log(coWorking);
     }

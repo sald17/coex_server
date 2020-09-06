@@ -75,6 +75,7 @@ let UserControllerController = class UserControllerController {
                 email: credential.email,
             },
         });
+        console.log(user);
         if (!user) {
             throw new rest_1.HttpErrors.Unauthorized('Incorrect email or password');
         }
@@ -197,6 +198,17 @@ let UserControllerController = class UserControllerController {
         }
         return { message: 'Reset password successfully.' };
     }
+    async getMe() {
+        const user = await this.userRepository.findById(this.user.profile.id);
+        delete user.password;
+        delete user.token;
+        delete user.firebaseToken;
+        delete user.createdAt;
+        delete user.modifiedAt;
+        delete user.emailVerified;
+        delete user.role;
+        return user;
+    }
 };
 tslib_1.__decorate([
     rest_1.post('/user/sign-up/{role}', {
@@ -272,6 +284,13 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "resetPassword", null);
+tslib_1.__decorate([
+    authentication_1.authenticate('jwt'),
+    rest_1.get('/user/me'),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserControllerController.prototype, "getMe", null);
 UserControllerController = tslib_1.__decorate([
     core_1.intercept(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY),
     tslib_1.__param(0, repository_1.repository(repositories_1.UserRepository)),

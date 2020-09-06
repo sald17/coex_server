@@ -118,6 +118,7 @@ export class UserControllerController {
                 email: credential.email,
             },
         });
+        console.log(user);
         if (!user) {
             throw new HttpErrors.Unauthorized('Incorrect email or password');
         }
@@ -284,5 +285,19 @@ export class UserControllerController {
             throw new HttpErrors.BadRequest('Invalid OTP code');
         }
         return {message: 'Reset password successfully.'};
+    }
+
+    @authenticate('jwt')
+    @get('/user/me')
+    async getMe() {
+        const user = await this.userRepository.findById(this.user.profile.id);
+        delete user.password;
+        delete user.token;
+        delete user.firebaseToken;
+        delete user.createdAt;
+        delete user.modifiedAt;
+        delete user.emailVerified;
+        delete user.role;
+        return user;
     }
 }

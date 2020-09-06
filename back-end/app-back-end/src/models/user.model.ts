@@ -59,7 +59,7 @@ export class User extends Entity {
 
     @property({
         type: 'string',
-        default: '/default/user-account.png',
+        default: 'default/user-account.png',
     })
     avatar?: string;
 
