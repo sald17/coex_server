@@ -47,7 +47,7 @@ let RoomController = class RoomController {
         return this.roomRepository.count(where);
     }
     /**
-     * Get list room
+     * Get list of all room
      */
     async find() {
         return this.roomRepository.find({ include: [{ relation: 'service' }] });
@@ -69,7 +69,11 @@ let RoomController = class RoomController {
      * Delete room
      */
     async deleteById(id) {
-        await this.roomRepository.deleteById(id);
+        const room = await this.roomRepository.findById(id);
+        this.serviceRepository.deleteById(room.service.id);
+        delete room.service;
+        file_upload_1.deleteFiles(room.photo);
+        await this.roomRepository.delete(room);
     }
 };
 tslib_1.__decorate([

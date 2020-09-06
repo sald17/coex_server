@@ -25,7 +25,7 @@ import {basicAuthorization} from '../access-control/authenticator/basic-authenti
 import {CoWorking, Room, Service} from '../models';
 import {CoWorkingRepository, RoomRepository} from '../repositories';
 import {ServiceRepository} from '../repositories/service.repository';
-import {parseRequest, saveFiles} from '../services/file-upload';
+import {deleteFiles, parseRequest, saveFiles} from '../services/file-upload';
 
 export class RoomController {
     constructor(
@@ -117,7 +117,7 @@ export class RoomController {
     }
 
     /**
-     * Get list room
+     * Get list of all room
      */
     @authenticate('jwt')
     @authorize({
@@ -221,6 +221,10 @@ export class RoomController {
         },
     })
     async deleteById(@param.path.string('id') id: string): Promise<void> {
-        await this.roomRepository.deleteById(id);
+        const room = await this.roomRepository.findById(id);
+        this.serviceRepository.deleteById(room.service.id);
+        delete room.service;
+        deleteFiles(room.photo);
+        await this.roomRepository.delete(room);
     }
 }

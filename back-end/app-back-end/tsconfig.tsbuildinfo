@@ -1977,7 +1977,7 @@
         "affectsGlobalScope": false
       },
       "./src/services/file-upload.ts": {
-        "version": "a8f23e8b8aeb01c6558335b5a4519cf424e72db1dd2dde843d5c81cde9770eea",
+        "version": "a7c071318db2828c3a0401974b7f01a8e84b233adeb0ad5b85493eb235d1584d",
         "signature": "cc9fd7806c879d4b928f7bcf589190cdf1bff863e611419ecab7a6436833f019",
         "affectsGlobalScope": false
       },
@@ -2317,8 +2317,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
-        "version": "af7034488b5e370e8dcb220b6410798c09bdf2c51cacd09d5adc18f6be249b26",
-        "signature": "d17f8fe4776a83991169544e9361b01ba13e5a70bdd104bf767c90608eedcc48",
+        "version": "c80f4cecf8c0cc6a33e72356ed4a90132da29d6ab9cc76c0985714cb46fec423",
+        "signature": "060ef7597f25abe40ccbdb5ceefe9d2de0bcbb2eecf585319cda24f4af29680e",
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {

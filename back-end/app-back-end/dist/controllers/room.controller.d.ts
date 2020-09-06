@@ -19,7 +19,7 @@ export declare class RoomController {
      */
     count(where?: Where<Room>): Promise<Count>;
     /**
-     * Get list room
+     * Get list of all room
      */
     find(): Promise<Room[]>;
     /**
