@@ -2312,7 +2312,7 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/co-working.controller.ts": {
-        "version": "8af9bb091585b3f8922e3eeaa3180baa52dbed1d801fb5137aad28348fffffa2",
+        "version": "3a2b14fa6cdf1e7742f5ea36940bb5d28422b26ddfe391361ddf9ca297e0c917",
         "signature": "27ed9ee32269cc2da12f61c5871eeb3446aad91d8561ee927cb9d48e3de83b06",
         "affectsGlobalScope": false
       },

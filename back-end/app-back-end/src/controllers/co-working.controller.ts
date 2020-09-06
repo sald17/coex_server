@@ -223,7 +223,7 @@ export class CoWorkingController {
             throw new HttpErrors.NotFound('Not found CoWorking');
         }
         const req: any = await parseRequest(request, response);
-
+        console.log(req.fields);
         coWorking.photo = await coWorking.photo.filter(img => {
             if (!req.fields.oldPhoto.includes(img)) {
                 deleteFiles([img]);
@@ -235,8 +235,14 @@ export class CoWorkingController {
         if (newPhoto.error) {
             throw new HttpErrors.BadRequest(newPhoto.message);
         }
-        coWorking.photo = [...coWorking.photo, ...newPhoto];
-        await this.coWorkingRepository.update(coWorking);
+        // coWorking.photo = [...coWorking.photo, ...newPhoto];
+        const updateCW = new CoWorking(
+            Object.assign({}, coWorking, req.fields, {
+                photo: [...coWorking.photo, ...newPhoto],
+            }),
+        );
+
+        await this.coWorkingRepository.update(updateCW);
     }
 
     /**
@@ -263,7 +269,9 @@ export class CoWorkingController {
         }
         delete coWorking.rooms;
         deleteFiles(coWorking.photo);
+        console.log(coWorking);
         await this.coWorkingRepository.delete(coWorking);
+        // console.log(coWorking);
     }
 
     /**

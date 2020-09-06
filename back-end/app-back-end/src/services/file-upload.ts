@@ -43,7 +43,6 @@ export async function saveFiles(files: any[]) {
         let newName = `${uuidv4()}.${ext}`;
         listFileName.push(newName);
         let filePath = path.join(storagePath, newName);
-        console.log(filePath);
         fs.writeFileSync(filePath, f.buffer);
     }
     return listFileName;

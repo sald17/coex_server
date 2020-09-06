@@ -66,6 +66,7 @@ let CoWorkingController = class CoWorkingController {
             throw new rest_1.HttpErrors.NotFound('Not found CoWorking');
         }
         const req = await file_upload_1.parseRequest(request, response);
+        console.log(req.fields);
         coWorking.photo = await coWorking.photo.filter(img => {
             if (!req.fields.oldPhoto.includes(img)) {
                 file_upload_1.deleteFiles([img]);
@@ -77,8 +78,11 @@ let CoWorkingController = class CoWorkingController {
         if (newPhoto.error) {
             throw new rest_1.HttpErrors.BadRequest(newPhoto.message);
         }
-        coWorking.photo = [...coWorking.photo, ...newPhoto];
-        await this.coWorkingRepository.update(coWorking);
+        // coWorking.photo = [...coWorking.photo, ...newPhoto];
+        const updateCW = new models_1.CoWorking(Object.assign({}, coWorking, req.fields, {
+            photo: [...coWorking.photo, ...newPhoto],
+        }));
+        await this.coWorkingRepository.update(updateCW);
     }
     /**
      * Delete CoWorking by ID
@@ -92,7 +96,9 @@ let CoWorkingController = class CoWorkingController {
         }
         delete coWorking.rooms;
         file_upload_1.deleteFiles(coWorking.photo);
+        console.log(coWorking);
         await this.coWorkingRepository.delete(coWorking);
+        // console.log(coWorking);
     }
     /**
      * Find ROOMS of coWorking by ID
