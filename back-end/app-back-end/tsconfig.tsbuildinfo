@@ -2317,13 +2317,13 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
-        "version": "af7034488b5e370e8dcb220b6410798c09bdf2c51cacd09d5adc18f6be249b26",
+        "version": "b6b603f1dd8cd9e49c00129c0bf91ac16818df81006b412663f33d166e3bac06",
         "signature": "d17f8fe4776a83991169544e9361b01ba13e5a70bdd104bf767c90608eedcc48",
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "1cd9fdb836e40100fba5836e84228f7729dd98872a94fd87447de29b96c36a3b",
-        "signature": "fd7111e86b00dc49ec0ce36c500903f43d267d29017c0eeb8d6de963348e6e93",
+        "version": "1be4287d63c49cca2c16d75cefdce796e553b25860bb9ea43151c4c8bb726d69",
+        "signature": "6b63e637795601a5bb874cc8ab605aa5163e4134f046e2377f3b693cf99c76d4",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
@@ -7656,6 +7656,7 @@
       ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
         "./src/services/jwt.service.ts",

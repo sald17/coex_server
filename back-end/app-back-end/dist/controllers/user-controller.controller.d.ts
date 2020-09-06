@@ -50,4 +50,5 @@ export declare class UserControllerController {
     resetPassword(body: any): Promise<{
         message: string;
     }>;
+    getMe(): Promise<import("../models").User & import("../models").UserRelations>;
 }

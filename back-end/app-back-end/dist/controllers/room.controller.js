@@ -23,6 +23,10 @@ let RoomController = class RoomController {
      * id in URL is coWorkingID
      */
     async create(id, request, response) {
+        const cw = this.coWorkingRepository.findById(id);
+        if (!cw) {
+            throw new rest_1.HttpErrors.NotFound('Not found CoWorking');
+        }
         const req = await file_upload_1.parseRequest(request, response);
         const preService = JSON.parse(req.fields.service);
         const uploadFile = await file_upload_1.saveFiles(req.files);
