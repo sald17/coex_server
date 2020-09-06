@@ -1977,7 +1977,7 @@
         "affectsGlobalScope": false
       },
       "./src/services/file-upload.ts": {
-        "version": "a8f23e8b8aeb01c6558335b5a4519cf424e72db1dd2dde843d5c81cde9770eea",
+        "version": "a7c071318db2828c3a0401974b7f01a8e84b233adeb0ad5b85493eb235d1584d",
         "signature": "cc9fd7806c879d4b928f7bcf589190cdf1bff863e611419ecab7a6436833f019",
         "affectsGlobalScope": false
       },
@@ -2312,7 +2312,7 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/co-working.controller.ts": {
-        "version": "3a2b14fa6cdf1e7742f5ea36940bb5d28422b26ddfe391361ddf9ca297e0c917",
+        "version": "656d032f244f664a5ac235498211bfe6bc26c439cd46d6ca1dfcdc37dc39fd13",
         "signature": "27ed9ee32269cc2da12f61c5871eeb3446aad91d8561ee927cb9d48e3de83b06",
         "affectsGlobalScope": false
       },

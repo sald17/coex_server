@@ -76,6 +76,10 @@ export class RoomController {
         @inject(RestBindings.Http.RESPONSE)
         response: Response,
     ) {
+        const cw = this.coWorkingRepository.findById(id);
+        if (!cw) {
+            throw new HttpErrors.NotFound('Not found CoWorking');
+        }
         const req: any = await parseRequest(request, response);
         const preService = JSON.parse(req.fields.service);
         const uploadFile: any = await saveFiles(req.files);
