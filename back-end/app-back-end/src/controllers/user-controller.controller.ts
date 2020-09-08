@@ -108,6 +108,7 @@ export class UserControllerController {
         @requestBody()
         credential: any,
     ) {
+        console.log('ádfasdfasdf');
         //Check firebase token
         if (!credential.firebaseToken) {
             throw new HttpErrors.Unauthorized('Missing credentials');
@@ -118,7 +119,6 @@ export class UserControllerController {
                 email: credential.email,
             },
         });
-        console.log(user);
         if (!user) {
             throw new HttpErrors.Unauthorized('Incorrect email or password');
         }
@@ -163,7 +163,6 @@ export class UserControllerController {
     @get('/user/verification/{verifyToken}')
     async verifyEmail(@param.path.string('verifyToken') verifyToken: string) {
         const verified = await this.jwtService.verifyToken(verifyToken);
-        console.log(verified);
         if (!verified) {
             throw new HttpErrors.BadRequest(`Outdated token.`);
         }
@@ -227,6 +226,7 @@ export class UserControllerController {
             password: await this.passwordHasher.hashPassword(
                 userCredential.newPass,
             ),
+            modifiedAt: Date(),
         });
         return {
             message: 'Change successfully.',
@@ -234,7 +234,7 @@ export class UserControllerController {
     }
 
     /**
-     * Quen mat khau
+     * Quen mat khau va gui email cho user
      */
 
     @post('/user/forgot-password')
@@ -275,6 +275,7 @@ export class UserControllerController {
         await this.userRepository.updateAll(
             {
                 password: password,
+                modifiedAt: Date(),
             },
             {
                 email,
@@ -287,17 +288,8 @@ export class UserControllerController {
         return {message: 'Reset password successfully.'};
     }
 
-    @authenticate('jwt')
-    @get('/user/me')
+    @get('/test')
     async getMe() {
-        const user = await this.userRepository.findById(this.user.profile.id);
-        delete user.password;
-        delete user.token;
-        delete user.firebaseToken;
-        delete user.createdAt;
-        delete user.modifiedAt;
-        delete user.emailVerified;
-        delete user.role;
-        return user;
+        return 'JeBaited';
     }
 }

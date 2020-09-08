@@ -65,6 +65,7 @@ let UserControllerController = class UserControllerController {
      *
      */
     async login(role, credential) {
+        console.log('ádfasdfasdf');
         //Check firebase token
         if (!credential.firebaseToken) {
             throw new rest_1.HttpErrors.Unauthorized('Missing credentials');
@@ -75,7 +76,6 @@ let UserControllerController = class UserControllerController {
                 email: credential.email,
             },
         });
-        console.log(user);
         if (!user) {
             throw new rest_1.HttpErrors.Unauthorized('Incorrect email or password');
         }
@@ -110,7 +110,6 @@ let UserControllerController = class UserControllerController {
     // Verify email
     async verifyEmail(verifyToken) {
         const verified = await this.jwtService.verifyToken(verifyToken);
-        console.log(verified);
         if (!verified) {
             throw new rest_1.HttpErrors.BadRequest(`Outdated token.`);
         }
@@ -150,13 +149,14 @@ let UserControllerController = class UserControllerController {
         }
         await this.userRepository.updateById(this.user.profile.id, {
             password: await this.passwordHasher.hashPassword(userCredential.newPass),
+            modifiedAt: Date(),
         });
         return {
             message: 'Change successfully.',
         };
     }
     /**
-     * Quen mat khau
+     * Quen mat khau va gui email cho user
      */
     async forgotPassword(body) {
         const { email } = body;
@@ -189,6 +189,7 @@ let UserControllerController = class UserControllerController {
         const password = await this.passwordHasher.hashPassword(newPass);
         await this.userRepository.updateAll({
             password: password,
+            modifiedAt: Date(),
         }, {
             email,
         });
@@ -199,15 +200,7 @@ let UserControllerController = class UserControllerController {
         return { message: 'Reset password successfully.' };
     }
     async getMe() {
-        const user = await this.userRepository.findById(this.user.profile.id);
-        delete user.password;
-        delete user.token;
-        delete user.firebaseToken;
-        delete user.createdAt;
-        delete user.modifiedAt;
-        delete user.emailVerified;
-        delete user.role;
-        return user;
+        return 'JeBaited';
     }
 };
 tslib_1.__decorate([
@@ -285,8 +278,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "resetPassword", null);
 tslib_1.__decorate([
-    authentication_1.authenticate('jwt'),
-    rest_1.get('/user/me'),
+    rest_1.get('/test'),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", Promise)

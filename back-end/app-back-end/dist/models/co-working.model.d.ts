@@ -8,6 +8,8 @@ export declare class CoWorking extends Entity {
     photo: string[];
     address?: string;
     location?: number[];
+    createdAt: Date;
+    modifiedAt: Date;
     userId: string;
     rooms: Room[];
     constructor(data?: Partial<CoWorking>);

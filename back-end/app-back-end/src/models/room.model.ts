@@ -1,4 +1,13 @@
-import {Entity, hasOne, model, property} from '@loopback/repository';
+import {
+    belongsTo,
+    Entity,
+    hasMany,
+    hasOne,
+    model,
+    property,
+} from '@loopback/repository';
+import {Booking} from './booking.model';
+import {CoWorking} from './co-working.model';
 import {Service} from './service.model';
 
 @model()
@@ -22,27 +31,43 @@ export class Room extends Entity {
 
     @property({
         type: 'number',
+        require: true,
     })
-    price?: number;
+    price: number;
 
     @property({
         type: 'number',
+        require: true,
     })
-    maxPerson?: number;
+    maxPerson: number;
 
     @property({
         type: 'array',
         itemType: 'string',
+        default: [],
     })
     photo: string[];
 
     @property({
-        type: 'string',
+        type: 'date',
+        default: Date(),
     })
-    coWorkingId?: string;
+    createdAt: Date;
+
+    @property({
+        type: 'date',
+        default: Date(),
+    })
+    modifiedAt: Date;
 
     @hasOne(() => Service)
     service: Service;
+
+    @hasMany(() => Booking)
+    bookings: Booking[];
+
+    @belongsTo(() => CoWorking)
+    coWorkingId: string;
 
     constructor(data?: Partial<Room>) {
         super(data);

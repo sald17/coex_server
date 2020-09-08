@@ -42,9 +42,8 @@ let JwtService = JwtService_1 = class JwtService {
         if (await this.blacklist.checkToken(storeVal)) {
             throw new rest_1.HttpErrors.Unauthorized(JwtService_1.INVALID_TOKEN_MESSAGE);
         }
-        // console.log(isValid);
         let userProfile = Object.assign({
-            [security_1.securityId]: validProfile.id,
+            [security_1.securityId]: validProfile.profile.id,
             ...validProfile,
         });
         return userProfile;

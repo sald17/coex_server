@@ -7,23 +7,28 @@ const authorization_1 = require("@loopback/authorization");
 const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
+const security_1 = require("@loopback/security");
 const basic_authentication_1 = require("../access-control/authenticator/basic-authentication");
 const models_1 = require("../models");
 const repositories_1 = require("../repositories");
 const service_repository_1 = require("../repositories/service.repository");
 const file_upload_1 = require("../services/file-upload");
 let RoomController = class RoomController {
-    constructor(roomRepository, serviceRepository, coWorkingRepository) {
+    constructor(roomRepository, serviceRepository, coWorkingRepository, user) {
         this.roomRepository = roomRepository;
         this.serviceRepository = serviceRepository;
         this.coWorkingRepository = coWorkingRepository;
+        this.user = user;
     }
     /**
      * Create room on CoWorking
      * id in URL is coWorkingID
      */
     async create(id, request, response) {
-        const cw = this.coWorkingRepository.findById(id);
+        const cw = await this.coWorkingRepository.findById(id);
+        if (this.user[security_1.securityId].localeCompare(cw.userId)) {
+            throw new rest_1.HttpErrors.Unauthorized();
+        }
         if (!cw) {
             throw new rest_1.HttpErrors.NotFound('Not found CoWorking');
         }
@@ -67,13 +72,17 @@ let RoomController = class RoomController {
      * Update room by id
      */
     async updateById(id, request, response) {
-        const room = await this.roomRepository.findById(id);
+        const room = await this.roomRepository.findById(id, {
+            include: [{ relation: 'coWorking' }],
+        });
+        if (this.user[security_1.securityId].localeCompare(room.coWorking.userId)) {
+            throw new rest_1.HttpErrors.Unauthorized();
+        }
         if (!room) {
             throw new rest_1.HttpErrors.NotFound('Not found room ');
         }
         const req = await file_upload_1.parseRequest(request, response);
-        console.log(req);
-        room.photo = room.photo.filter(img => {
+        room.photo = room.photo.filter((img) => {
             if (!req.fields.oldPhoto.includes(img)) {
                 file_upload_1.deleteFiles([img]);
                 return false;
@@ -85,16 +94,15 @@ let RoomController = class RoomController {
             throw new rest_1.HttpErrors.BadRequest(newPhoto.message);
         }
         const service = JSON.parse(req.fields.service);
-        const s = await this.serviceRepository.findOne({ where: { roomId: id } });
-        console.log(s);
-        const res = await this.serviceRepository.updateAll(service, {
+        await this.serviceRepository.updateAll(service, {
             roomId: id,
         });
-        console.log(res);
         delete req.fields.service;
         delete req.fields.oldPhoto;
+        delete room.coWorking;
         const updateRoom = new models_1.Room(Object.assign({}, room, req.fields, {
             photo: [...newPhoto, ...room.photo],
+            modifiedAt: Date(),
         }));
         await this.roomRepository.update(updateRoom);
     }
@@ -102,12 +110,15 @@ let RoomController = class RoomController {
      * Delete room
      */
     async deleteById(id) {
-        console.log(id);
         const room = await this.roomRepository.findById(id, {
-            include: [{ relation: 'service' }],
+            include: [{ relation: 'service' }, { relation: 'coWorking' }],
         });
+        if (this.user[security_1.securityId].localeCompare(room.coWorking.userId)) {
+            throw new rest_1.HttpErrors.Unauthorized();
+        }
         this.serviceRepository.deleteById(room.service.id);
         delete room.service;
+        delete room.coWorking;
         file_upload_1.deleteFiles(room.photo);
         await this.roomRepository.delete(room);
     }
@@ -276,9 +287,10 @@ RoomController = tslib_1.__decorate([
     tslib_1.__param(0, repository_1.repository(repositories_1.RoomRepository)),
     tslib_1.__param(1, repository_1.repository(service_repository_1.ServiceRepository)),
     tslib_1.__param(2, repository_1.repository(repositories_1.CoWorkingRepository)),
+    tslib_1.__param(3, core_1.inject(security_1.SecurityBindings.USER)),
     tslib_1.__metadata("design:paramtypes", [repositories_1.RoomRepository,
         service_repository_1.ServiceRepository,
-        repositories_1.CoWorkingRepository])
+        repositories_1.CoWorkingRepository, Object])
 ], RoomController);
 exports.RoomController = RoomController;
 //# sourceMappingURL=room.controller.js.map

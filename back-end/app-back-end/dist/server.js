@@ -4,9 +4,14 @@ exports.ExpressServer = void 0;
 const tslib_1 = require("tslib");
 const events_1 = require("events");
 const express_1 = tslib_1.__importDefault(require("express"));
-const http_1 = tslib_1.__importDefault(require("http"));
+const fs = tslib_1.__importStar(require("fs"));
+const https_1 = tslib_1.__importDefault(require("https"));
 const path = tslib_1.__importStar(require("path"));
 const application_1 = require("./application");
+const credential = {
+    key: fs.readFileSync(path.join(__dirname, '../src/config/https-cert/localhost.key')),
+    cert: fs.readFileSync(path.join(__dirname, '../src/config/https-cert/localhost.crt')),
+};
 class ExpressServer {
     constructor(options = {}) {
         this.expressApp = require('../web-application/express-server.js');
@@ -22,7 +27,9 @@ class ExpressServer {
         await this.loopbackApp.start();
         const port = (_a = this.loopbackApp.restServer.config.port) !== null && _a !== void 0 ? _a : 3000;
         const host = (_b = this.loopbackApp.restServer.config.host) !== null && _b !== void 0 ? _b : 'localhost';
-        this.server = http_1.default.createServer(this.expressApp).listen(port);
+        this.server = https_1.default
+            .createServer(credential, this.expressApp)
+            .listen(port);
         await events_1.once(this.server, 'listening');
         const add = this.server.address();
         this.url = `http://${add.address}:${add.port}`;

@@ -49,9 +49,8 @@ export class JwtService implements TokenService {
         if (await this.blacklist.checkToken(storeVal)) {
             throw new HttpErrors.Unauthorized(JwtService.INVALID_TOKEN_MESSAGE);
         }
-        // console.log(isValid);
         let userProfile: UserProfile = Object.assign({
-            [securityId]: validProfile.id,
+            [securityId]: validProfile.profile.id,
             ...validProfile,
         });
 

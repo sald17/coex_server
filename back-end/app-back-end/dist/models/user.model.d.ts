@@ -1,4 +1,5 @@
 import { Entity } from '@loopback/repository';
+import { Booking } from './booking.model';
 import { CoWorking } from './co-working.model';
 export declare class User extends Entity {
     id?: string;
@@ -11,11 +12,14 @@ export declare class User extends Entity {
     createdAt?: string;
     modifiedAt?: string;
     avatar?: string;
+    point?: number;
+    coin?: number;
     password: string;
     token: string[];
     firebaseToken: string[];
     role: string[];
     coWorking: CoWorking;
+    bookings: Booking[];
     constructor(data?: Partial<User>);
 }
 export interface UserRelations {

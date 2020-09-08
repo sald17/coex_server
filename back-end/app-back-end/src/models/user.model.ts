@@ -1,4 +1,5 @@
-import {Entity, hasOne, model, property} from '@loopback/repository';
+import {Entity, hasMany, hasOne, model, property} from '@loopback/repository';
+import {Booking} from './booking.model';
 import {CoWorking} from './co-working.model';
 
 @model()
@@ -65,6 +66,18 @@ export class User extends Entity {
 
     @property({
         type: 'string',
+        default: 0,
+    })
+    point?: number;
+
+    @property({
+        type: 'string',
+        default: 0,
+    })
+    coin?: number;
+
+    @property({
+        type: 'string',
         required: true,
     })
     password: string;
@@ -91,6 +104,9 @@ export class User extends Entity {
 
     @hasOne(() => CoWorking)
     coWorking: CoWorking;
+
+    @hasMany(() => Booking)
+    bookings: Booking[];
 
     constructor(data?: Partial<User>) {
         super(data);

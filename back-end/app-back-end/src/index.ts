@@ -1,7 +1,6 @@
 import {RestApplication} from '@loopback/rest';
 import * as path from 'path';
 import {ApplicationConfig, ExpressServer} from './server';
-
 export * from './application';
 export * from './server';
 
@@ -12,7 +11,7 @@ export async function setUpServerConfig(
         rest: {
             port: +(process.env.PORT ?? 3000),
             host: process.env.HOST,
-            protocol: 'http',
+
             gracePeriodForClose: 5000, // 5 seconds
             openApiSpec: {
                 setServersFromRequest: true,
@@ -20,7 +19,6 @@ export async function setUpServerConfig(
             // Use the LB4 application as a route. It should not be listening.
             listenOnStart: false,
         },
-        facebookOptions: oauth2Providers['facebook-login'],
     };
     return config;
 }

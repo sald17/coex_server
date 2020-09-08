@@ -1,6 +1,7 @@
 /// <reference types="express" />
 import { Count, FilterExcludingWhere, Where } from '@loopback/repository';
 import { Request, Response } from '@loopback/rest';
+import { UserProfile } from '@loopback/security';
 import { CoWorking, Room } from '../models';
 import { CoWorkingRepository, RoomRepository } from '../repositories';
 import { ServiceRepository } from '../repositories/service.repository';
@@ -8,7 +9,8 @@ export declare class RoomController {
     roomRepository: RoomRepository;
     serviceRepository: ServiceRepository;
     coWorkingRepository: CoWorkingRepository;
-    constructor(roomRepository: RoomRepository, serviceRepository: ServiceRepository, coWorkingRepository: CoWorkingRepository);
+    user: UserProfile;
+    constructor(roomRepository: RoomRepository, serviceRepository: ServiceRepository, coWorkingRepository: CoWorkingRepository, user: UserProfile);
     /**
      * Create room on CoWorking
      * id in URL is coWorkingID

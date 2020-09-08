@@ -50,6 +50,18 @@ export class CoWorking extends Entity {
     })
     location?: number[];
 
+    @property({
+        type: 'date',
+        default: Date(),
+    })
+    createdAt: Date;
+
+    @property({
+        type: 'date',
+        default: Date(),
+    })
+    modifiedAt: Date;
+
     @belongsTo(() => User)
     userId: string;
 

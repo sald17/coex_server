@@ -21,6 +21,7 @@ import {
     Response,
     RestBindings,
 } from '@loopback/rest';
+import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {basicAuthorization} from '../access-control/authenticator/basic-authentication';
 import {CoWorking, Room, Service} from '../models';
 import {CoWorkingRepository, RoomRepository} from '../repositories';
@@ -35,6 +36,7 @@ export class RoomController {
         public serviceRepository: ServiceRepository,
         @repository(CoWorkingRepository)
         public coWorkingRepository: CoWorkingRepository,
+        @inject(SecurityBindings.USER) public user: UserProfile,
     ) {}
 
     /**
@@ -76,7 +78,10 @@ export class RoomController {
         @inject(RestBindings.Http.RESPONSE)
         response: Response,
     ) {
-        const cw = this.coWorkingRepository.findById(id);
+        const cw = await this.coWorkingRepository.findById(id);
+        if (this.user[securityId].localeCompare(cw.userId)) {
+            throw new HttpErrors.Unauthorized();
+        }
         if (!cw) {
             throw new HttpErrors.NotFound('Not found CoWorking');
         }
@@ -215,13 +220,18 @@ export class RoomController {
         request: Request,
         @inject(RestBindings.Http.RESPONSE) response: Response,
     ): Promise<void> {
-        const room = await this.roomRepository.findById(id);
+        const room: any = await this.roomRepository.findById(id, {
+            include: [{relation: 'coWorking'}],
+        });
+        if (this.user[securityId].localeCompare(room.coWorking.userId)) {
+            throw new HttpErrors.Unauthorized();
+        }
         if (!room) {
             throw new HttpErrors.NotFound('Not found room ');
         }
         const req: any = await parseRequest(request, response);
-        console.log(req);
-        room.photo = room.photo.filter(img => {
+
+        room.photo = room.photo.filter((img: unknown) => {
             if (!req.fields.oldPhoto.includes(img)) {
                 deleteFiles([img]);
                 return false;
@@ -234,17 +244,17 @@ export class RoomController {
         }
 
         const service = JSON.parse(req.fields.service);
-        const s = await this.serviceRepository.findOne({where: {roomId: id}});
-        console.log(s);
-        const res = await this.serviceRepository.updateAll(service, {
+
+        await this.serviceRepository.updateAll(service, {
             roomId: id,
         });
-        console.log(res);
         delete req.fields.service;
         delete req.fields.oldPhoto;
+        delete room.coWorking;
         const updateRoom = new Room(
             Object.assign({}, room, req.fields, {
                 photo: [...newPhoto, ...room.photo],
+                modifiedAt: Date(),
             }),
         );
         await this.roomRepository.update(updateRoom);
@@ -266,12 +276,15 @@ export class RoomController {
         },
     })
     async deleteById(@param.path.string('id') id: string): Promise<void> {
-        console.log(id);
-        const room = await this.roomRepository.findById(id, {
-            include: [{relation: 'service'}],
+        const room: any = await this.roomRepository.findById(id, {
+            include: [{relation: 'service'}, {relation: 'coWorking'}],
         });
+        if (this.user[securityId].localeCompare(room.coWorking.userId)) {
+            throw new HttpErrors.Unauthorized();
+        }
         this.serviceRepository.deleteById(room.service.id);
         delete room.service;
+        delete room.coWorking;
         deleteFiles(room.photo);
         await this.roomRepository.delete(room);
     }

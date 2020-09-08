@@ -12,7 +12,6 @@ async function setUpServerConfig(oauth2Providers) {
         rest: {
             port: +((_a = process.env.PORT) !== null && _a !== void 0 ? _a : 3000),
             host: process.env.HOST,
-            protocol: 'http',
             gracePeriodForClose: 5000,
             openApiSpec: {
                 setServersFromRequest: true,
@@ -20,7 +19,6 @@ async function setUpServerConfig(oauth2Providers) {
             // Use the LB4 application as a route. It should not be listening.
             listenOnStart: false,
         },
-        facebookOptions: oauth2Providers['facebook-login'],
     };
     return config;
 }

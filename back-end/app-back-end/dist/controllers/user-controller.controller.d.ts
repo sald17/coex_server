@@ -38,7 +38,7 @@ export declare class UserControllerController {
         message: string;
     }>;
     /**
-     * Quen mat khau
+     * Quen mat khau va gui email cho user
      */
     forgotPassword(body: any): Promise<{
         message: string;
@@ -50,5 +50,5 @@ export declare class UserControllerController {
     resetPassword(body: any): Promise<{
         message: string;
     }>;
-    getMe(): Promise<import("../models").User & import("../models").UserRelations>;
+    getMe(): Promise<string>;
 }

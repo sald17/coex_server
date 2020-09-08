@@ -21,6 +21,7 @@ import {
     Response,
     RestBindings,
 } from '@loopback/rest';
+import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {basicAuthorization} from '../access-control/authenticator/basic-authentication';
 import {CoWorking, Room, User} from '../models';
 import {
@@ -217,8 +218,12 @@ export class CoWorkingController {
         })
         request: Request,
         @inject(RestBindings.Http.RESPONSE) response: Response,
+        @inject(SecurityBindings.USER) user: UserProfile,
     ) {
         const coWorking = await this.coWorkingRepository.findById(id);
+        if (user[securityId].localeCompare(coWorking.userId)) {
+            throw new HttpErrors.Unauthorized();
+        }
         if (!coWorking) {
             throw new HttpErrors.NotFound('Not found CoWorking');
         }
@@ -238,6 +243,7 @@ export class CoWorkingController {
         const updateCW = new CoWorking(
             Object.assign({}, coWorking, req.fields, {
                 photo: [...coWorking.photo, ...newPhoto],
+                modifiedAt: Date(),
             }),
         );
 
@@ -259,10 +265,16 @@ export class CoWorkingController {
             },
         },
     })
-    async deleteById(@param.path.string('id') id: string): Promise<void> {
+    async deleteById(
+        @param.path.string('id') id: string,
+        @inject(SecurityBindings.USER) user: UserProfile,
+    ): Promise<void> {
         const coWorking = await this.coWorkingRepository.findById(id, {
             include: [{relation: 'rooms'}],
         });
+        if (user[securityId].localeCompare(coWorking.userId)) {
+            throw new HttpErrors.Unauthorized();
+        }
         console.log(coWorking);
         if (coWorking.rooms) {
             for (let r of coWorking.rooms) {

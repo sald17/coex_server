@@ -1,17 +1,27 @@
 import {ApplicationConfig} from '@loopback/core';
 import {once} from 'events';
 import express from 'express';
-import http from 'http';
+import * as fs from 'fs';
+import https from 'https';
 import {AddressInfo} from 'net';
 import * as path from 'path';
 import {AppApplication} from './application';
 
 export {ApplicationConfig};
 
+const credential = {
+    key: fs.readFileSync(
+        path.join(__dirname, '../src/config/https-cert/localhost.key'),
+    ),
+    cert: fs.readFileSync(
+        path.join(__dirname, '../src/config/https-cert/localhost.crt'),
+    ),
+};
+
 export class ExpressServer {
     public expressApp: express.Application;
     public readonly loopbackApp: AppApplication;
-    public server?: http.Server;
+    public server?: https.Server;
     public url: String;
 
     constructor(options: ApplicationConfig = {}) {
@@ -34,7 +44,9 @@ export class ExpressServer {
         await this.loopbackApp.start();
         const port = this.loopbackApp.restServer.config.port ?? 3000;
         const host = this.loopbackApp.restServer.config.host ?? 'localhost';
-        this.server = http.createServer(this.expressApp).listen(port);
+        this.server = https
+            .createServer(credential, this.expressApp)
+            .listen(port);
         await once(this.server, 'listening');
 
         const add = <AddressInfo>this.server.address();

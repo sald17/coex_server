@@ -1831,29 +1831,49 @@
         "signature": "f82edfd21563cfdf7d1dc107833b78f60865a8c5fee34a9235ef112b32267e72",
         "affectsGlobalScope": false
       },
+      "./src/config/constants.ts": {
+        "version": "07ff6604e7b5d4b7ccdd804c26a7b08b4cef5e220ccc17ef2ddac4a6c1f16463",
+        "signature": "906c3a7bf6a5f91e1c225c2c8a5d0605d21df6d90937308238b22ab4effc233f",
+        "affectsGlobalScope": false
+      },
+      "./src/models/user.model.ts": {
+        "version": "bef5b92d2b1a70d9a8fae1eeed9a9044b8b77b44292e9c64c128755224f70f67",
+        "signature": "3fe5638c500b961d4073fb010e2b4c91a527f390c423317b002d4961516cadb6",
+        "affectsGlobalScope": false
+      },
+      "./src/models/co-working.model.ts": {
+        "version": "9c6bc3de117cfc741e16d893284f420bc026af880e847f34fba15390850be275",
+        "signature": "c2e8c717478698b8064d1d5983d0bb6439239f25257281ed1f0c329a0c4f8189",
+        "affectsGlobalScope": false
+      },
       "./src/models/service.model.ts": {
         "version": "9b6d5465bf9870231488c1e9bd3e9bc0a3e926ed02fe5b1d0b673ea8d9f68c7a",
         "signature": "2c1d6b536ba8a18610805a2ac7e185909769f82f6a5c9528cc620d9326d1a189",
         "affectsGlobalScope": false
       },
       "./src/models/room.model.ts": {
-        "version": "034dbc35f19b4d640e9d24bc5dbdf8e7df16b19b07e42b14dbe2d715435272dd",
-        "signature": "b931fbd9d6dd9cae93ea25bb5cd29c62969ae20a56b5c470f70ec47ee6d133fb",
+        "version": "a75ddccd757158b010ea85cf93c96fe4735fce5fd55bf62ffde3a1129e2a3290",
+        "signature": "591168b1318ed1f0162012896ba347660981604b4def16e49551f9b8caa65ae6",
         "affectsGlobalScope": false
       },
-      "./src/models/user.model.ts": {
-        "version": "394bf9930daa7d7006836a0bedffff45217b14ef5c5671e02f381e1254266cb2",
-        "signature": "ad220c7b18e4a2af2368322cefdb81963dde6225bcc81926b71bb8c0a4b448f8",
+      "./src/models/transaction.model.ts": {
+        "version": "a3fa371f39c4d8f030af9e5deb291d7e40cdc890afbdc29e18084de439d75b92",
+        "signature": "3768929bffb8ad405be18f9a0fec50051131ce119568542db6554fcb7ef827a4",
         "affectsGlobalScope": false
       },
-      "./src/models/co-working.model.ts": {
-        "version": "4aad24c641a8b4f6e26ea7f9107b37f21016beb4d31d3a9944da9075758e78a6",
-        "signature": "55d8dae0dd43693d824f3dc35309b56c5e877a8691f66d11c6146448a24b4702",
+      "./src/models/booking.model.ts": {
+        "version": "bde8d8c8308dc8f34eeb782db1baa0a57d023aaaa0a6b6a3c1f5a37435f68aa9",
+        "signature": "04d92d1a811ebad4358eb8e3144fe4b06bce7cd6d65e7a8e7887a52718ed8dc2",
+        "affectsGlobalScope": false
+      },
+      "./src/models/exchange-point.model.ts": {
+        "version": "ffa9a40b63580ef50547845e9d73dde281a0ae59d67502be117d2d3eec5ca5b8",
+        "signature": "cc5791bf371f3e228b8f7c6a4a3a4e9194b34691521c786c60b2496276af3055",
         "affectsGlobalScope": false
       },
       "./src/models/index.ts": {
-        "version": "2ee7486a81dea3ffbed0ce31a4f600d027656dcbfc1a2b2e80be52f5a9d6b2e1",
-        "signature": "2ee7486a81dea3ffbed0ce31a4f600d027656dcbfc1a2b2e80be52f5a9d6b2e1",
+        "version": "faf52d7fed1b74b3248fd7dbf318a6bab6133a34b0fbfbaf76217d48ec9ec3b6",
+        "signature": "faf52d7fed1b74b3248fd7dbf318a6bab6133a34b0fbfbaf76217d48ec9ec3b6",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/nodemailer/lib/dkim/index.d.ts": {
@@ -1966,6 +1986,11 @@
         "signature": "5579ef3039a0ff55ce073778739a4e66f6e8d03e73377bb1eaf9458852bbc356",
         "affectsGlobalScope": false
       },
+      "./src/services/date-utils.ts": {
+        "version": "203b40370f4a4953f1d8f73479a5208742da583bc739283ee07f4b99df76a0eb",
+        "signature": "e09893039a41b173f40e44e4755fdedf7a69e6a2f0f3f997948e6c6a4c81a7a6",
+        "affectsGlobalScope": false
+      },
       "./node_modules/@types/multer/index.d.ts": {
         "version": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
         "signature": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
@@ -1986,9 +2011,9 @@
         "signature": "c1debed936f6b67caa0cd06639c3382d00757479930bc0e87e2fc95358800237",
         "affectsGlobalScope": false
       },
-      "./src/repositories/room.repository.ts": {
-        "version": "b53508fbd3cb77446bfd6ef7241b1e6c7d3a1e2429b74e6773e7a7839f2f8944",
-        "signature": "87faf23dfabcdd63bfd34a5bd35070e90d989cfede5322768e25a4128cb50b21",
+      "./src/repositories/user.repository.ts": {
+        "version": "4dd4928b271cde433d170ff043d05429b7d8a0440e0897c70fbbcfa5ec60b696",
+        "signature": "926e8dd0d2131eb61af56337c2aab304a9027dcabe2094ec12c657794b4cac25",
         "affectsGlobalScope": false
       },
       "./src/repositories/co-working.repository.ts": {
@@ -1996,14 +2021,29 @@
         "signature": "f27969e92557898ae44bdaebf734618210a9c177d0d468ecefc5cfe857583f63",
         "affectsGlobalScope": false
       },
-      "./src/repositories/user.repository.ts": {
-        "version": "971b7f70a369cd90c387eca5f50a85a53fb382a25761fe89d7cd0d7aae37b778",
-        "signature": "1fea8f6ef79eae099dbe556f043a6f09c8c3112fe9de7a587da356a419f0dcbb",
+      "./src/repositories/room.repository.ts": {
+        "version": "1bcaa236d34c5736dff82451fd3df53f9974138fa606b84b35568802bf0ee803",
+        "signature": "809084d3e9ea8ef47e8d772fe1a41a3d534f5e9c93efe8c80e1c41d043711ace",
+        "affectsGlobalScope": false
+      },
+      "./src/repositories/transaction.repository.ts": {
+        "version": "1bc779d810a58f5473b8b3cf2eed864310ef239a5e255b19c8bca82a2c4b9c80",
+        "signature": "9463237536d7832cd7d988de70bdb385cc16f29a1a3a16ba069d6a271fc94773",
+        "affectsGlobalScope": false
+      },
+      "./src/repositories/booking.repository.ts": {
+        "version": "573dc157b5df5865123e4df0fbad31018710c46a99f0048f3fa5620083c65d03",
+        "signature": "bfd2fc747e8890fe8e6187d7af669638f1166b85f642feffef2a8417137c4991",
+        "affectsGlobalScope": false
+      },
+      "./src/repositories/exchange-point.repository.ts": {
+        "version": "81c73de85ff2a8898a9bd4db846cf5f74e74a00dd93f079968d469c0399c14fd",
+        "signature": "e1871043e0c96b68302e0337c3b9d6ff78541095eb5befda205d11b205668f6c",
         "affectsGlobalScope": false
       },
       "./src/repositories/index.ts": {
-        "version": "798745ba572c46a482fa9a717c1e5b3904decf33eea2f5e626ac0dedf71cfb1f",
-        "signature": "798745ba572c46a482fa9a717c1e5b3904decf33eea2f5e626ac0dedf71cfb1f",
+        "version": "037c2554ab4d38609c31dfa6a6a189655da1188bede9e02b9d7778c4adc9fd90",
+        "signature": "037c2554ab4d38609c31dfa6a6a189655da1188bede9e02b9d7778c4adc9fd90",
         "affectsGlobalScope": false
       },
       "./src/services/user.service.ts": {
@@ -2022,12 +2062,12 @@
         "affectsGlobalScope": false
       },
       "./src/services/jwt.service.ts": {
-        "version": "5fa72b224b1c4d483195ae99f0bf9ffb675d4cac7233d50b4662b1c040f97de8",
+        "version": "d1ee534f5d55bafe4da635ba3f5e0de651d05d16e157303489a73fd9fe88e295",
         "signature": "9bcfd00985fe7a610037aadf62c0f8fd9648d9abc67df1f833df9c0ab0f5ea7f",
         "affectsGlobalScope": false
       },
       "./src/access-control/strategies/jwt.ts": {
-        "version": "86defc82a6535c91b040ae92ded9c111f53cafe2291852815babe9b746369876",
+        "version": "fed4c8f0e6ec2b464c3f29de5d3a50686189543e62791ddb45efed461187e320",
         "signature": "3fb08ff027a1aa1fe49c6bec91c4f096ba3cb1a7207d4b1ce3b884f1c7fa6b88",
         "affectsGlobalScope": false
       },
@@ -2097,12 +2137,12 @@
         "affectsGlobalScope": false
       },
       "./src/server.ts": {
-        "version": "900106fced5514416774bebbae69a642076d9cea985ae054e740dabf30664a4b",
-        "signature": "c1122b58455de5c0ad68947bae521abcb3ebcc27c9b6f07a9d5c03eda18e98c1",
+        "version": "4ee39cefaa5355e32ed9a099f4b1224456f969f94eaac66eb785bdd8c272adf5",
+        "signature": "7dfd5c08da3584832c98131aa722a84f07c3ee54f99e30bc9e6e0afd88c809cb",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "e3a6f541535a292298e93fc7acc844e604523081c0f217febf72ef42d024e392",
+        "version": "0028da792de913839613602ce503a61f282e046ba47c68e05b8dc3af0a1e9670",
         "signature": "b2c816c6f7f61a8352093c774342b11720df0ece5c8456c5c33b0abf62e1367e",
         "affectsGlobalScope": false
       },
@@ -2311,29 +2351,49 @@
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
+      "./src/controllers/booking-transaction.controller.ts": {
+        "version": "0b7df867f9277114212fdd4b8bb38d38245b41a80c19299e5969fd9da7bda94f",
+        "signature": "c55264a23f13d3b2d8979267e3af990cc62dabfcab22b9d019ca116db157e7c2",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/booking.controller.ts": {
+        "version": "9e6cbec801b9537cb66cf6e845b4ccdec926f68a021755b188cbfd848b839147",
+        "signature": "361c0945d008dc776e4243d178e7b25042bb678dd181569922fa3b46b44e18cb",
+        "affectsGlobalScope": false
+      },
       "./src/controllers/co-working.controller.ts": {
-        "version": "bc657d0f5c3202a3d086f0d62f1c18a7f6f8730e3e1155e6fb9a7f6ad89b6ce5",
-        "signature": "27ed9ee32269cc2da12f61c5871eeb3446aad91d8561ee927cb9d48e3de83b06",
+        "version": "5fd97e5e4bc7e7485c0097bca487ae69d93e09aeb1718ac960d7d27181e7ec76",
+        "signature": "ca17b91b5a6ff27884618e9766e11198626b7b6b5ef59524eb4499f1758990a7",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/exchange-point-transaction.controller.ts": {
+        "version": "74616eec9b7cea1a8a0474d51089fedbabc2f26dd0da371b12d1181d6b2d61c5",
+        "signature": "a9b3f4e266e4847c2229ff153a30251dcf73b86fbbe41ecb81b019249bba0b11",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/exchange-point-user.controller.ts": {
+        "version": "cf18536fa93162c60df0d3e9e6635163435a29f93acab8c8ea6f24c5bc84868a",
+        "signature": "452e120e20abe531d65f9d6de5fd2da00f74e9fc798f22da31cfa479a88f3282",
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
-        "version": "3ecaebb14351ab59b6309d60423c5104ad133844f6f1d4f39255cab9dc51253e",
-        "signature": "f81145429076a800840094f11e101ad6b5b7b9b92cf72910f72e9d8c8e2a6377",
+        "version": "92c7355f286d5aff9ff079f532eb0f0fe7c1e77cf136d1bc0281c9e12a78654f",
+        "signature": "bc92adc3102ce311f4d7d02a065993c67aeafd2a716474d19fb685cb188f2e23",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/transaction-booking.controller.ts": {
+        "version": "776cfc8c1c33e36073d247b02160ea03396fccfc91031e61bdbed2f0a881200f",
+        "signature": "5a79fcbe5c26d82f848fb80f924ca29f788aedb841fc44d7f56ae549c59785fb",
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "1be4287d63c49cca2c16d75cefdce796e553b25860bb9ea43151c4c8bb726d69",
-        "signature": "6b63e637795601a5bb874cc8ab605aa5163e4134f046e2377f3b693cf99c76d4",
+        "version": "5b7ee8f8a30288a3a7309dacb21de96b30dc0fb6a4a2a2bd3ea748e03e48aee0",
+        "signature": "8ea77d4c2f7d1ce2ca68c185b7edb811620a2996d73ab146346382ebddef4d7b",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
-        "version": "cd5c608817d2ed1eb8efd235438082b26ac746b12299b97a98fc502c31e9d87d",
-        "signature": "cd5c608817d2ed1eb8efd235438082b26ac746b12299b97a98fc502c31e9d87d",
-        "affectsGlobalScope": false
-      },
-      "./src/services/authorizor.ts": {
-        "version": "64e8e838a4e2825650736c4e41a67cbff07660ac0065468ad7e4d779c0ec9eda",
-        "signature": "413f41d1d17cc797787dbd7c5dda564f64bc0dbdc260d3a17d6af3536670bafc",
+        "version": "268454b1bfe3b7efd7c9e014e0d4865e56c5e68125d268dcc85b2c55c17a26d6",
+        "signature": "268454b1bfe3b7efd7c9e014e0d4865e56c5e68125d268dcc85b2c55c17a26d6",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/color-name/index.d.ts": {
@@ -4467,20 +4527,56 @@
         "./src/services/email.service.ts",
         "./src/services/password-hasher.service.ts"
       ],
+      "./src/controllers/booking-transaction.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/booking.controller.ts": [
+        "./node_modules/@loopback/authentication/dist/index.d.ts",
+        "./node_modules/@loopback/authorization/dist/index.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/access-control/authenticator/basic-authentication.ts",
+        "./src/config/constants.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/controllers/co-working.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@loopback/authorization/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
         "./src/access-control/authenticator/basic-authentication.ts",
         "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/services/file-upload.ts"
       ],
+      "./src/controllers/exchange-point-transaction.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/exchange-point-user.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/controllers/index.ts": [
+        "./src/controllers/booking-transaction.controller.ts",
+        "./src/controllers/booking.controller.ts",
         "./src/controllers/co-working.controller.ts",
+        "./src/controllers/exchange-point-transaction.controller.ts",
+        "./src/controllers/exchange-point-user.controller.ts",
         "./src/controllers/room.controller.ts",
+        "./src/controllers/transaction-booking.controller.ts",
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/room.controller.ts": [
@@ -4489,11 +4585,18 @@
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
         "./src/access-control/authenticator/basic-authentication.ts",
         "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/repositories/service.repository.ts",
         "./src/services/file-upload.ts"
+      ],
+      "./src/controllers/transaction-booking.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -4542,21 +4645,38 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/token.model.ts"
       ],
+      "./src/models/booking.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/config/constants.ts",
+        "./src/models/room.model.ts",
+        "./src/models/transaction.model.ts",
+        "./src/models/user.model.ts"
+      ],
       "./src/models/co-working.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/room.model.ts",
         "./src/models/user.model.ts"
       ],
+      "./src/models/exchange-point.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/transaction.model.ts",
+        "./src/models/user.model.ts"
+      ],
       "./src/models/index.ts": [
         "./src/models/blacklist.model.ts",
+        "./src/models/booking.model.ts",
         "./src/models/co-working.model.ts",
+        "./src/models/exchange-point.model.ts",
         "./src/models/room.model.ts",
         "./src/models/service.model.ts",
         "./src/models/token.model.ts",
+        "./src/models/transaction.model.ts",
         "./src/models/user.model.ts"
       ],
       "./src/models/room.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/booking.model.ts",
+        "./src/models/co-working.model.ts",
         "./src/models/service.model.ts"
       ],
       "./src/models/service.model.ts": [
@@ -4566,8 +4686,13 @@
       "./src/models/token.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
+      "./src/models/transaction.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/booking.model.ts"
+      ],
       "./src/models/user.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/booking.model.ts",
         "./src/models/co-working.model.ts"
       ],
       "./src/openapi-spec.ts": [
@@ -4582,6 +4707,18 @@
         "./src/datasources/index.ts",
         "./src/models/index.ts"
       ],
+      "./src/repositories/booking.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/config/constants.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/room.repository.ts",
+        "./src/repositories/transaction.repository.ts",
+        "./src/repositories/user.repository.ts",
+        "./src/services/date-utils.ts"
+      ],
       "./src/repositories/co-working.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
@@ -4590,11 +4727,22 @@
         "./src/repositories/room.repository.ts",
         "./src/repositories/user.repository.ts"
       ],
+      "./src/repositories/exchange-point.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/transaction.repository.ts",
+        "./src/repositories/user.repository.ts"
+      ],
       "./src/repositories/index.ts": [
         "./src/repositories/blacklist.repository.ts",
+        "./src/repositories/booking.repository.ts",
         "./src/repositories/co-working.repository.ts",
+        "./src/repositories/exchange-point.repository.ts",
         "./src/repositories/room.repository.ts",
         "./src/repositories/service.repository.ts",
+        "./src/repositories/transaction.repository.ts",
         "./src/repositories/user.repository.ts"
       ],
       "./src/repositories/room.repository.ts": [
@@ -4602,6 +4750,8 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts",
+        "./src/repositories/co-working.repository.ts",
         "./src/repositories/service.repository.ts",
         "./src/services/file-upload.ts"
       ],
@@ -4612,11 +4762,19 @@
         "./src/models/index.ts",
         "./src/repositories/room.repository.ts"
       ],
+      "./src/repositories/transaction.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts"
+      ],
       "./src/repositories/user.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts",
         "./src/repositories/co-working.repository.ts"
       ],
       "./src/sequence.ts": [
@@ -4628,15 +4786,14 @@
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.1/events.d.ts",
-        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/fs.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
         "./node_modules/@types/node/ts3.1/net.d.ts",
         "./node_modules/@types/node/ts3.1/path.d.ts",
         "./src/application.ts"
       ],
-      "./src/services/authorizor.ts": [
-        "./node_modules/@loopback/authorization/dist/index.d.ts",
-        "./node_modules/@loopback/security/dist/index.d.ts",
-        "./node_modules/@types/lodash/ts3.1/index.d.ts"
+      "./src/services/date-utils.ts": [
+        "./node_modules/@loopback/rest/dist/index.d.ts"
       ],
       "./src/services/email.service.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -7636,27 +7793,56 @@
         "./src/services/email.service.ts",
         "./src/services/password-hasher.service.ts"
       ],
+      "./src/controllers/booking-transaction.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/booking.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/controllers/co-working.controller.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/exchange-point-transaction.controller.ts": [
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/exchange-point-user.controller.ts": [
         "./src/models/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/controllers/index.ts": [
+        "./src/controllers/booking-transaction.controller.ts",
+        "./src/controllers/booking.controller.ts",
         "./src/controllers/co-working.controller.ts",
+        "./src/controllers/exchange-point-transaction.controller.ts",
+        "./src/controllers/exchange-point-user.controller.ts",
         "./src/controllers/room.controller.ts",
+        "./src/controllers/transaction-booking.controller.ts",
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/room.controller.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
         "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/repositories/service.repository.ts"
       ],
+      "./src/controllers/transaction-booking.controller.ts": [
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/security/dist/index.d.ts",
-        "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
         "./src/services/jwt.service.ts",
@@ -7690,20 +7876,31 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/token.model.ts"
       ],
+      "./src/models/booking.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/transaction.model.ts"
+      ],
       "./src/models/co-working.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/room.model.ts"
       ],
+      "./src/models/exchange-point.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts"
+      ],
       "./src/models/index.ts": [
         "./src/models/blacklist.model.ts",
+        "./src/models/booking.model.ts",
         "./src/models/co-working.model.ts",
+        "./src/models/exchange-point.model.ts",
         "./src/models/room.model.ts",
         "./src/models/service.model.ts",
         "./src/models/token.model.ts",
+        "./src/models/transaction.model.ts",
         "./src/models/user.model.ts"
       ],
       "./src/models/room.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/booking.model.ts",
         "./src/models/service.model.ts"
       ],
       "./src/models/service.model.ts": [
@@ -7712,8 +7909,12 @@
       "./src/models/token.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
+      "./src/models/transaction.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts"
+      ],
       "./src/models/user.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/booking.model.ts",
         "./src/models/co-working.model.ts"
       ],
       "./src/repositories/blacklist.repository.ts": [
@@ -7721,6 +7922,15 @@
         "./node_modules/loopback-datasource-juggler/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts"
+      ],
+      "./src/repositories/booking.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/room.repository.ts",
+        "./src/repositories/transaction.repository.ts",
+        "./src/repositories/user.repository.ts"
       ],
       "./src/repositories/co-working.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -7730,11 +7940,22 @@
         "./src/repositories/room.repository.ts",
         "./src/repositories/user.repository.ts"
       ],
+      "./src/repositories/exchange-point.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/transaction.repository.ts",
+        "./src/repositories/user.repository.ts"
+      ],
       "./src/repositories/index.ts": [
         "./src/repositories/blacklist.repository.ts",
+        "./src/repositories/booking.repository.ts",
         "./src/repositories/co-working.repository.ts",
+        "./src/repositories/exchange-point.repository.ts",
         "./src/repositories/room.repository.ts",
         "./src/repositories/service.repository.ts",
+        "./src/repositories/transaction.repository.ts",
         "./src/repositories/user.repository.ts"
       ],
       "./src/repositories/room.repository.ts": [
@@ -7742,6 +7963,8 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts",
+        "./src/repositories/co-working.repository.ts",
         "./src/repositories/service.repository.ts"
       ],
       "./src/repositories/service.repository.ts": [
@@ -7751,11 +7974,19 @@
         "./src/models/index.ts",
         "./src/repositories/room.repository.ts"
       ],
+      "./src/repositories/transaction.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts"
+      ],
       "./src/repositories/user.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts",
         "./src/repositories/co-working.repository.ts"
       ],
       "./src/sequence.ts": [
@@ -7765,11 +7996,8 @@
       "./src/server.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@types/express/index.d.ts",
-        "./node_modules/@types/node/http.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
         "./src/application.ts"
-      ],
-      "./src/services/authorizor.ts": [
-        "./node_modules/@loopback/authorization/dist/index.d.ts"
       ],
       "./src/services/file-upload.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts"
@@ -8241,10 +8469,16 @@
       "./src/access-control/strategies/jwt.ts",
       "./src/access-control/strategies/types.ts",
       "./src/application.ts",
+      "./src/config/constants.ts",
       "./src/config/key.ts",
+      "./src/controllers/booking-transaction.controller.ts",
+      "./src/controllers/booking.controller.ts",
       "./src/controllers/co-working.controller.ts",
+      "./src/controllers/exchange-point-transaction.controller.ts",
+      "./src/controllers/exchange-point-user.controller.ts",
       "./src/controllers/index.ts",
       "./src/controllers/room.controller.ts",
+      "./src/controllers/transaction-booking.controller.ts",
       "./src/controllers/user-controller.controller.ts",
       "./src/cronjob/cron-blacklist.ts",
       "./src/cronjob/index.ts",
@@ -8254,22 +8488,28 @@
       "./src/index.ts",
       "./src/migrate.ts",
       "./src/models/blacklist.model.ts",
+      "./src/models/booking.model.ts",
       "./src/models/co-working.model.ts",
+      "./src/models/exchange-point.model.ts",
       "./src/models/index.ts",
       "./src/models/room.model.ts",
       "./src/models/service.model.ts",
       "./src/models/token.model.ts",
+      "./src/models/transaction.model.ts",
       "./src/models/user.model.ts",
       "./src/openapi-spec.ts",
       "./src/repositories/blacklist.repository.ts",
+      "./src/repositories/booking.repository.ts",
       "./src/repositories/co-working.repository.ts",
+      "./src/repositories/exchange-point.repository.ts",
       "./src/repositories/index.ts",
       "./src/repositories/room.repository.ts",
       "./src/repositories/service.repository.ts",
+      "./src/repositories/transaction.repository.ts",
       "./src/repositories/user.repository.ts",
       "./src/sequence.ts",
       "./src/server.ts",
-      "./src/services/authorizor.ts",
+      "./src/services/date-utils.ts",
       "./src/services/email.service.ts",
       "./src/services/file-upload.ts",
       "./src/services/index.ts",

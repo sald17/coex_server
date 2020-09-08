@@ -20,6 +20,7 @@ export class JWTStrategy implements AuthenticationStrategy {
     async authenticate(request: Request): Promise<UserProfile | undefined> {
         let token = this.extractToken(request);
         let userProfile = await this.jwtService.verifyToken(token);
+        // check token in blacklist
         const isValid = await this.blacklist.checkToken(
             `${userProfile.jti}:${userProfile.exp}`,
         );

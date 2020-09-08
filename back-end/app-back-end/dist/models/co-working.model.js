@@ -58,6 +58,20 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Array)
 ], CoWorking.prototype, "location", void 0);
 tslib_1.__decorate([
+    repository_1.property({
+        type: 'date',
+        default: Date(),
+    }),
+    tslib_1.__metadata("design:type", Date)
+], CoWorking.prototype, "createdAt", void 0);
+tslib_1.__decorate([
+    repository_1.property({
+        type: 'date',
+        default: Date(),
+    }),
+    tslib_1.__metadata("design:type", Date)
+], CoWorking.prototype, "modifiedAt", void 0);
+tslib_1.__decorate([
     repository_1.belongsTo(() => user_model_1.User),
     tslib_1.__metadata("design:type", String)
 ], CoWorking.prototype, "userId", void 0);

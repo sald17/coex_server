@@ -1,6 +1,7 @@
 /// <reference types="express" />
 import { Count, FilterExcludingWhere, Where } from '@loopback/repository';
 import { Request, Response } from '@loopback/rest';
+import { UserProfile } from '@loopback/security';
 import { CoWorking, Room, User } from '../models';
 import { CoWorkingRepository, RoomRepository, UserRepository } from '../repositories';
 export declare class CoWorkingController {
@@ -26,11 +27,11 @@ export declare class CoWorkingController {
     /**
      * Update CoWorking by ID
      */
-    updateById(id: string, request: Request, response: Response): Promise<void>;
+    updateById(id: string, request: Request, response: Response, user: UserProfile): Promise<void>;
     /**
      * Delete CoWorking by ID
      */
-    deleteById(id: string): Promise<void>;
+    deleteById(id: string, user: UserProfile): Promise<void>;
     /**
      * Find ROOMS of coWorking by ID
      */

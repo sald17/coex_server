@@ -7,6 +7,7 @@ const authorization_1 = require("@loopback/authorization");
 const core_1 = require("@loopback/core");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
+const security_1 = require("@loopback/security");
 const basic_authentication_1 = require("../access-control/authenticator/basic-authentication");
 const models_1 = require("../models");
 const repositories_1 = require("../repositories");
@@ -60,8 +61,11 @@ let CoWorkingController = class CoWorkingController {
     /**
      * Update CoWorking by ID
      */
-    async updateById(id, request, response) {
+    async updateById(id, request, response, user) {
         const coWorking = await this.coWorkingRepository.findById(id);
+        if (user[security_1.securityId].localeCompare(coWorking.userId)) {
+            throw new rest_1.HttpErrors.Unauthorized();
+        }
         if (!coWorking) {
             throw new rest_1.HttpErrors.NotFound('Not found CoWorking');
         }
@@ -80,16 +84,20 @@ let CoWorkingController = class CoWorkingController {
         // coWorking.photo = [...coWorking.photo, ...newPhoto];
         const updateCW = new models_1.CoWorking(Object.assign({}, coWorking, req.fields, {
             photo: [...coWorking.photo, ...newPhoto],
+            modifiedAt: Date(),
         }));
         await this.coWorkingRepository.update(updateCW);
     }
     /**
      * Delete CoWorking by ID
      */
-    async deleteById(id) {
+    async deleteById(id, user) {
         const coWorking = await this.coWorkingRepository.findById(id, {
             include: [{ relation: 'rooms' }],
         });
+        if (user[security_1.securityId].localeCompare(coWorking.userId)) {
+            throw new rest_1.HttpErrors.Unauthorized();
+        }
         console.log(coWorking);
         if (coWorking.rooms) {
             for (let r of coWorking.rooms) {
@@ -284,8 +292,9 @@ tslib_1.__decorate([
         },
     })),
     tslib_1.__param(2, core_1.inject(rest_1.RestBindings.Http.RESPONSE)),
+    tslib_1.__param(3, core_1.inject(security_1.SecurityBindings.USER)),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, Object, Object]),
+    tslib_1.__metadata("design:paramtypes", [String, Object, Object, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CoWorkingController.prototype, "updateById", null);
 tslib_1.__decorate([
@@ -302,8 +311,9 @@ tslib_1.__decorate([
         },
     }),
     tslib_1.__param(0, rest_1.param.path.string('id')),
+    tslib_1.__param(1, core_1.inject(security_1.SecurityBindings.USER)),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String]),
+    tslib_1.__metadata("design:paramtypes", [String, Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CoWorkingController.prototype, "deleteById", null);
 tslib_1.__decorate([

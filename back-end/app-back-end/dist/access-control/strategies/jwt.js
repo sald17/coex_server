@@ -18,6 +18,7 @@ let JWTStrategy = class JWTStrategy {
     async authenticate(request) {
         let token = this.extractToken(request);
         let userProfile = await this.jwtService.verifyToken(token);
+        // check token in blacklist
         const isValid = await this.blacklist.checkToken(`${userProfile.jti}:${userProfile.exp}`);
         if (isValid) {
             throw new rest_1.HttpErrors.NotAcceptable(jwt_service_1.JwtService.INVALID_TOKEN_MESSAGE);
