@@ -1806,6 +1806,241 @@
         "signature": "f4da102653f8ce4ffda0b1c25f1240ae216e19df10fd32e747fc46b3fcd4642c",
         "affectsGlobalScope": false
       },
+      "./node_modules/event-target-shim/index.d.ts": {
+        "version": "2859adaa4f2db3d4f0fc37ad86f056045341496b58fba0dbc16a222f9d5d55b1",
+        "signature": "2859adaa4f2db3d4f0fc37ad86f056045341496b58fba0dbc16a222f9d5d55b1",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/abort-controller/dist/abort-controller.d.ts": {
+        "version": "655ed305e8f4cb95d3f578040301a4e4d6ace112b1bd8824cd32bda66c3677d1",
+        "signature": "655ed305e8f4cb95d3f578040301a4e4d6ace112b1bd8824cd32bda66c3677d1",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/gaxios/build/src/common.d.ts": {
+        "version": "a04215a6950433a57b87922d5850a92190db5f73082ab638eb31dd4a70cac395",
+        "signature": "a04215a6950433a57b87922d5850a92190db5f73082ab638eb31dd4a70cac395",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/gaxios/build/src/gaxios.d.ts": {
+        "version": "fb72f0c714cc4337bba5c802dc4845e9bd042389c6f2f09858cd6370567d2b4d",
+        "signature": "fb72f0c714cc4337bba5c802dc4845e9bd042389c6f2f09858cd6370567d2b4d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/gaxios/build/src/index.d.ts": {
+        "version": "cb789da1f75dc9d53848949aed3bb1d521de13c6340e5792a6b3f2c5e0c53e29",
+        "signature": "cb789da1f75dc9d53848949aed3bb1d521de13c6340e5792a6b3f2c5e0c53e29",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/transporters.d.ts": {
+        "version": "82b70e72d3e16b95c6f933b0d146240214ef01dfe8e270f6e50f349223b0615d",
+        "signature": "82b70e72d3e16b95c6f933b0d146240214ef01dfe8e270f6e50f349223b0615d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/crypto/crypto.d.ts": {
+        "version": "48426cea1f526c040f5e25b5b46c72dc58e28dbca236ecb2d2f3c23ee2f3147e",
+        "signature": "48426cea1f526c040f5e25b5b46c72dc58e28dbca236ecb2d2f3c23ee2f3147e",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/credentials.d.ts": {
+        "version": "60b042f1a2a32d4d5e065e7fb229399562b9949984e63e09fd6a42dbc8e22c35",
+        "signature": "60b042f1a2a32d4d5e065e7fb229399562b9949984e63e09fd6a42dbc8e22c35",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/authclient.d.ts": {
+        "version": "ee00a6280d0c2a54ca31bc935a678ec560ec47fdab207382b64290b06995e626",
+        "signature": "ee00a6280d0c2a54ca31bc935a678ec560ec47fdab207382b64290b06995e626",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/loginticket.d.ts": {
+        "version": "f025aff69699033567ebb4925578dedb18f63b4aa185f85005451cfd5fc53343",
+        "signature": "f025aff69699033567ebb4925578dedb18f63b4aa185f85005451cfd5fc53343",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts": {
+        "version": "ec91f7c0db84c130f6c6cc7436107d804c5a4504b0d5030a27a2e37f9a5f6ec4",
+        "signature": "ec91f7c0db84c130f6c6cc7436107d804c5a4504b0d5030a27a2e37f9a5f6ec4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts": {
+        "version": "64cc158e07ce953307a95ee711b67fc8cd980380d12aee33670d483ba6f642f3",
+        "signature": "64cc158e07ce953307a95ee711b67fc8cd980380d12aee33670d483ba6f642f3",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts": {
+        "version": "01b8fe09ea0b18ceba458308fd349bd2545227995c1b370a6897ea7c8f4ae577",
+        "signature": "01b8fe09ea0b18ceba458308fd349bd2545227995c1b370a6897ea7c8f4ae577",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/envDetect.d.ts": {
+        "version": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
+        "signature": "ea9efc84288c02adb551e56f59235b5b3d613993acb0cbb74f1e1169a6ddaf23",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/gtoken/build/src/index.d.ts": {
+        "version": "9af8feeda60af930e2a0317e83f0968dd44c235892a967f5f1ae0ff15f7c3b05",
+        "signature": "9af8feeda60af930e2a0317e83f0968dd44c235892a967f5f1ae0ff15f7c3b05",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts": {
+        "version": "da76af564fb6c4fd8c4d8d0432fa3a9d14d7c3c7e951bbe55802ced97cf75ade",
+        "signature": "da76af564fb6c4fd8c4d8d0432fa3a9d14d7c3c7e951bbe55802ced97cf75ade",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts": {
+        "version": "e9203259c5f820618a0c10df0e0e28df87f2469770461540919b23d864b0e2f8",
+        "signature": "e9203259c5f820618a0c10df0e0e28df87f2469770461540919b23d864b0e2f8",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/googleauth.d.ts": {
+        "version": "11814797ebd5ff34bd9f3bc9899cbe016fea4ededb3334528e2afc5ac961f9eb",
+        "signature": "11814797ebd5ff34bd9f3bc9899cbe016fea4ededb3334528e2afc5ac961f9eb",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/iam.d.ts": {
+        "version": "71725ba9235f9d2aa02839162b1df2df59fd9dd91c110a54ea02112243d7a4d9",
+        "signature": "71725ba9235f9d2aa02839162b1df2df59fd9dd91c110a54ea02112243d7a4d9",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts": {
+        "version": "2a612843f8fb6a589380779c0b18fdf09eabbc145eaea75122ca941e85e5c963",
+        "signature": "2a612843f8fb6a589380779c0b18fdf09eabbc145eaea75122ca941e85e5c963",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/google-auth-library/build/src/index.d.ts": {
+        "version": "b5f5fb8682b627fabd6173249639436577a19d93a36d09599879dd9dc104ac63",
+        "signature": "b5f5fb8682b627fabd6173249639436577a19d93a36d09599879dd9dc104ac63",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/teeny-request/build/src/TeenyStatistics.d.ts": {
+        "version": "eb8f406406a1c933f6793410a632a125d1698cfcfb7a947c54ba498616a65f94",
+        "signature": "eb8f406406a1c933f6793410a632a125d1698cfcfb7a947c54ba498616a65f94",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/teeny-request/build/src/index.d.ts": {
+        "version": "b02ffee841b1cf41c5389684602be8acbe3788d3f5982b088d0bc56e2273c0a2",
+        "signature": "b02ffee841b1cf41c5389684602be8acbe3788d3f5982b088d0bc56e2273c0a2",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/common/build/src/util.d.ts": {
+        "version": "6e2c8ed913b49e9c93cf0aa682e48c97347d3da54d60d81d2b0e11e09da2f953",
+        "signature": "6e2c8ed913b49e9c93cf0aa682e48c97347d3da54d60d81d2b0e11e09da2f953",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/common/build/src/service-object.d.ts": {
+        "version": "d1e136f1c41004c0c115e04e3aba1d676d07a0263a29ca13f5dea4ed1cc6b9fd",
+        "signature": "d1e136f1c41004c0c115e04e3aba1d676d07a0263a29ca13f5dea4ed1cc6b9fd",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/common/build/src/operation.d.ts": {
+        "version": "4d1f83476d82fdbfb4a27fa4f97b58a95f75ef1d4a76624788654efec99bdf7d",
+        "signature": "4d1f83476d82fdbfb4a27fa4f97b58a95f75ef1d4a76624788654efec99bdf7d",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/common/build/src/service.d.ts": {
+        "version": "bd9fa116c0c508f1037685fd348e3d6b7e201f6338ac225a5c70cd4413808e64",
+        "signature": "bd9fa116c0c508f1037685fd348e3d6b7e201f6338ac225a5c70cd4413808e64",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/common/build/src/index.d.ts": {
+        "version": "aeffdf94389753bb406ea43bd3e667666dfe74874d82c723fa473593e5c01e7f",
+        "signature": "aeffdf94389753bb406ea43bd3e667666dfe74874d82c723fa473593e5c01e7f",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/acl.d.ts": {
+        "version": "4a16f63eab2003bf18f93d7c39c2cc582c75ebed56e64d382c427e22bcec509a",
+        "signature": "4a16f63eab2003bf18f93d7c39c2cc582c75ebed56e64d382c427e22bcec509a",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/signer.d.ts": {
+        "version": "22977aa28fc8f6c082d2065d6d8b7fa4dcd416f8ae4dff6ed99ec5e1555fe298",
+        "signature": "22977aa28fc8f6c082d2065d6d8b7fa4dcd416f8ae4dff6ed99ec5e1555fe298",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/file.d.ts": {
+        "version": "7735ddafecc1cd79bd7583a41ce2d944f85a1f8af434eda594bebe11aa1ec072",
+        "signature": "7735ddafecc1cd79bd7583a41ce2d944f85a1f8af434eda594bebe11aa1ec072",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": {
+        "version": "bd7f97a3fb993367447f8fbd7dedf0d9b4269a778404fef0ac5f398313b221a2",
+        "signature": "bd7f97a3fb993367447f8fbd7dedf0d9b4269a778404fef0ac5f398313b221a2",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/storage.d.ts": {
+        "version": "5c70c00fddadf7c9e2d533aef2fd685f331e695d3c64ccbe2fc57499f65e8628",
+        "signature": "5c70c00fddadf7c9e2d533aef2fd685f331e695d3c64ccbe2fc57499f65e8628",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/channel.d.ts": {
+        "version": "88e327017e5db7730f40e993f75fe947a8f4fdbf344d6176dba1a85490c824e4",
+        "signature": "88e327017e5db7730f40e993f75fe947a8f4fdbf344d6176dba1a85490c824e4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/iam.d.ts": {
+        "version": "15981245ba7b6481bfab67ef18725554e5031da8d90f5153bfadce62aeedbb9e",
+        "signature": "15981245ba7b6481bfab67ef18725554e5031da8d90f5153bfadce62aeedbb9e",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/notification.d.ts": {
+        "version": "d3ff34f8218bcadd383b56f85f6ddf27f54f49abaf17ac05e58a04ff49bdcab7",
+        "signature": "d3ff34f8218bcadd383b56f85f6ddf27f54f49abaf17ac05e58a04ff49bdcab7",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/bucket.d.ts": {
+        "version": "a70ea642328e643ce41daa68701130548e4c649ceb443edbc3601a308762f8e2",
+        "signature": "a70ea642328e643ce41daa68701130548e4c649ceb443edbc3601a308762f8e2",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/storage/build/src/index.d.ts": {
+        "version": "053ea839b135a17a15ad95c3635ab23fc1e12681082a86b91684df20c6e379df",
+        "signature": "053ea839b135a17a15ad95c3635ab23fc1e12681082a86b91684df20c6e379df",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@google-cloud/firestore/types/firestore.d.ts": {
+        "version": "3c7b53f5f86db7b574e2c2e4040cf4ce98545223fabec7f7763e95ff790ecfdf",
+        "signature": "3c7b53f5f86db7b574e2c2e4040cf4ce98545223fabec7f7763e95ff790ecfdf",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/firebase-admin/lib/auth.d.ts": {
+        "version": "a8156702b7b32c0022c5831e58ac00c57e15ec4222e917b5a503b3af625ab71a",
+        "signature": "a8156702b7b32c0022c5831e58ac00c57e15ec4222e917b5a503b3af625ab71a",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/firebase-admin/lib/database.d.ts": {
+        "version": "a433db88e296f84123d73d5c933b057febada0b6b0ff3934157894ae4c47374a",
+        "signature": "a433db88e296f84123d73d5c933b057febada0b6b0ff3934157894ae4c47374a",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/firebase-admin/lib/messaging.d.ts": {
+        "version": "c0b2cbea40679e4327af953007f0cb24b09431c72f2aca488b38d80b0b23c375",
+        "signature": "c0b2cbea40679e4327af953007f0cb24b09431c72f2aca488b38d80b0b23c375",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/firebase-admin/lib/instance-id.d.ts": {
+        "version": "bfd5f76df18e26840b64ba5c22d2200182d0c7ba2748d4252646b738a694c290",
+        "signature": "bfd5f76df18e26840b64ba5c22d2200182d0c7ba2748d4252646b738a694c290",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/firebase-admin/lib/project-management.d.ts": {
+        "version": "7db14a25db79f9460d47460eb0e4b970e0ebb6670633a56ced46a795d794b9d4",
+        "signature": "7db14a25db79f9460d47460eb0e4b970e0ebb6670633a56ced46a795d794b9d4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/firebase-admin/lib/remote-config.d.ts": {
+        "version": "9dd2bc6acc3fa7046367a57123b6c3c48f63ab8dec66208d559cf70bfe352023",
+        "signature": "9dd2bc6acc3fa7046367a57123b6c3c48f63ab8dec66208d559cf70bfe352023",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/firebase-admin/lib/security-rules.d.ts": {
+        "version": "5e9d486a7328f1b199adfba71e43a04d4de01bb6c2dbb59e915b5b76f867d87a",
+        "signature": "5e9d486a7328f1b199adfba71e43a04d4de01bb6c2dbb59e915b5b76f867d87a",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/firebase-admin/lib/index.d.ts": {
+        "version": "5ec25dc12cae46195cd9dd39e4fd2c37a44aa82921b4e35f342a59db70b4c5ba",
+        "signature": "5ec25dc12cae46195cd9dd39e4fd2c37a44aa82921b4e35f342a59db70b4c5ba",
+        "affectsGlobalScope": false
+      },
       "./src/access-control/interceptor/authorization.ts": {
         "version": "65f47eadbb7dd5f88cb517b747801d140a17b284bebe12a07f67fa798414f9ee",
         "signature": "ef6e70e00f5bda2d59ace6741a9c0dae53bda08af34086c0fd8dbca3d5ce7ba4",
@@ -1967,12 +2202,12 @@
         "affectsGlobalScope": false
       },
       "./src/datasources/mongo-connector.datasource.ts": {
-        "version": "2345f5123f6d6075bd47f7badb3f1cee705f025bbb52946377abb435a2fb011a",
+        "version": "5cb55f65399ee80246a097526efafad8326a8193f07ab567f0e3ab43d75f8bd1",
         "signature": "526f611a6a83932638b1291d30a0ab8148f893b89f96a041fdd7ddaf97d7cb32",
         "affectsGlobalScope": false
       },
       "./src/datasources/redis-connector.datasource.ts": {
-        "version": "fdc91560c73d553ad044b3a64d1d704b550ef0aa0163352c83bceb07b543e7ef",
+        "version": "83d54837424ba202d348f74b48b901287904debccbdf715e16120a938d70f040",
         "signature": "6e24e432e271f098ec7dc13d89d31d1957b1631e9434e4376515c626582c7b1d",
         "affectsGlobalScope": false
       },
@@ -2046,9 +2281,9 @@
         "signature": "037c2554ab4d38609c31dfa6a6a189655da1188bede9e02b9d7778c4adc9fd90",
         "affectsGlobalScope": false
       },
-      "./src/services/user.service.ts": {
-        "version": "71ca843cefc17ba81b3ae3e28a393a57e341355641a12575b11f41862d9d704d",
-        "signature": "6eb0817e7b27e8d2f31245d6fe310d622c44a1b4dbaa59571026b9d9653b60ce",
+      "./src/services/firebase.service.ts": {
+        "version": "63cf348087836c7a13c769907b1587eff4fa6cfeeb6d016c6d7e27d10af5678d",
+        "signature": "76db8439e0d008e0be20fd4368d3f693d66b27bfa4f295c077b40e2907bdfb49",
         "affectsGlobalScope": false
       },
       "./src/services/passport.service.ts": {
@@ -2056,9 +2291,14 @@
         "signature": "78377c437ed017ed6254e5490d5e55d75ba1c71dd449f435f5eac885ebda63a8",
         "affectsGlobalScope": false
       },
+      "./src/services/user.service.ts": {
+        "version": "71ca843cefc17ba81b3ae3e28a393a57e341355641a12575b11f41862d9d704d",
+        "signature": "6eb0817e7b27e8d2f31245d6fe310d622c44a1b4dbaa59571026b9d9653b60ce",
+        "affectsGlobalScope": false
+      },
       "./src/services/index.ts": {
-        "version": "3c1665e43d5c2e57bc112813b8066fb9e6caba99d08062cca7f2c48abefad2d9",
-        "signature": "3c1665e43d5c2e57bc112813b8066fb9e6caba99d08062cca7f2c48abefad2d9",
+        "version": "2519443c8f6c7a9735b905bf57cc759d9cf9a22fcf5fff8d8fb019a01970dd04",
+        "signature": "2519443c8f6c7a9735b905bf57cc759d9cf9a22fcf5fff8d8fb019a01970dd04",
         "affectsGlobalScope": false
       },
       "./src/services/jwt.service.ts": {
@@ -2132,8 +2372,23 @@
         "affectsGlobalScope": false
       },
       "./src/application.ts": {
-        "version": "cb08ee290b9faf4738288ff4c0bb7ef22be2b0a3baedc67cf0b563fdb786fb69",
+        "version": "ee242170832eae29612e534f3f7da3f78bbacba7d1db8f502542380027cd614e",
         "signature": "4fe970c3ae62e9316da6cc0d43584721ca119adac881e68c937d2a8b80a700fa",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/bson/index.d.ts": {
+        "version": "3994ebfd11faa4018d8e1b879190046588f41f5cd60438e642ca39a705c726be",
+        "signature": "3994ebfd11faa4018d8e1b879190046588f41f5cd60438e642ca39a705c726be",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/mongodb/index.d.ts": {
+        "version": "7b8f2bb9eb595be5b4e1f0e9320611e7b906eac85ab5fca95cedb84831865239",
+        "signature": "7b8f2bb9eb595be5b4e1f0e9320611e7b906eac85ab5fca95cedb84831865239",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/agenda/index.d.ts": {
+        "version": "7d930903df061c054f9cdb7d067468fd776e625677a4bbb74bce57d011d3ec11",
+        "signature": "7d930903df061c054f9cdb7d067468fd776e625677a4bbb74bce57d011d3ec11",
         "affectsGlobalScope": false
       },
       "./src/server.ts": {
@@ -2142,7 +2397,7 @@
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "ed4487b028a3b11b226ece396b76390664b8752d548a7fd2da90a05c873ca96f",
+        "version": "f591d0a30d47e0c49b45caa5cf43bbc724db4a8fa2d1a1635fd01defd92e62b9",
         "signature": "b2c816c6f7f61a8352093c774342b11720df0ece5c8456c5c33b0abf62e1367e",
         "affectsGlobalScope": false
       },
@@ -2351,11 +2606,6 @@
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
-      "./src/controllers/booking-transaction.controller.ts": {
-        "version": "0b7df867f9277114212fdd4b8bb38d38245b41a80c19299e5969fd9da7bda94f",
-        "signature": "c55264a23f13d3b2d8979267e3af990cc62dabfcab22b9d019ca116db157e7c2",
-        "affectsGlobalScope": false
-      },
       "./src/controllers/booking.controller.ts": {
         "version": "9e6cbec801b9537cb66cf6e845b4ccdec926f68a021755b188cbfd848b839147",
         "signature": "361c0945d008dc776e4243d178e7b25042bb678dd181569922fa3b46b44e18cb",
@@ -2366,34 +2616,19 @@
         "signature": "ca17b91b5a6ff27884618e9766e11198626b7b6b5ef59524eb4499f1758990a7",
         "affectsGlobalScope": false
       },
-      "./src/controllers/exchange-point-transaction.controller.ts": {
-        "version": "74616eec9b7cea1a8a0474d51089fedbabc2f26dd0da371b12d1181d6b2d61c5",
-        "signature": "a9b3f4e266e4847c2229ff153a30251dcf73b86fbbe41ecb81b019249bba0b11",
-        "affectsGlobalScope": false
-      },
-      "./src/controllers/exchange-point-user.controller.ts": {
-        "version": "cf18536fa93162c60df0d3e9e6635163435a29f93acab8c8ea6f24c5bc84868a",
-        "signature": "452e120e20abe531d65f9d6de5fd2da00f74e9fc798f22da31cfa479a88f3282",
-        "affectsGlobalScope": false
-      },
       "./src/controllers/room.controller.ts": {
         "version": "92c7355f286d5aff9ff079f532eb0f0fe7c1e77cf136d1bc0281c9e12a78654f",
         "signature": "bc92adc3102ce311f4d7d02a065993c67aeafd2a716474d19fb685cb188f2e23",
         "affectsGlobalScope": false
       },
-      "./src/controllers/transaction-booking.controller.ts": {
-        "version": "776cfc8c1c33e36073d247b02160ea03396fccfc91031e61bdbed2f0a881200f",
-        "signature": "5a79fcbe5c26d82f848fb80f924ca29f788aedb841fc44d7f56ae549c59785fb",
-        "affectsGlobalScope": false
-      },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "a97cfca798a0433c42c5e7bb97abf911184cf6c714b8623a16b21cde0c98776b",
-        "signature": "8ea77d4c2f7d1ce2ca68c185b7edb811620a2996d73ab146346382ebddef4d7b",
+        "version": "67c47baac4919c4e4860c72a8ed0c206324dfc5f1cd39acb235e659da3fce5ac",
+        "signature": "0c76b07ea4da3341a959a7cfe07d4fea24731f2d046fb2bf50cf6f044a58a652",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
-        "version": "268454b1bfe3b7efd7c9e014e0d4865e56c5e68125d268dcc85b2c55c17a26d6",
-        "signature": "268454b1bfe3b7efd7c9e014e0d4865e56c5e68125d268dcc85b2c55c17a26d6",
+        "version": "40f95884ecf4022e992502eb10536719f3f5b22201fa8e62f4cd59334ce7b5f1",
+        "signature": "40f95884ecf4022e992502eb10536719f3f5b22201fa8e62f4cd59334ce7b5f1",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/caseless/index.d.ts": {
@@ -2429,6 +2664,11 @@
       "./node_modules/@types/jsonwebtoken/index.d.ts": {
         "version": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
         "signature": "f67c920eba6ab8e4558cb9ab661d900188f101c5657e19b1e15829a1d491d46e",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/long/index.d.ts": {
+        "version": "e8465811693dfe4e96ef2b3dffda539d6edfe896961b7af37b44db2c0e48532b",
+        "signature": "e8465811693dfe4e96ef2b3dffda539d6edfe896961b7af37b44db2c0e48532b",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/loopback/index.d.ts": {
@@ -2506,6 +2746,102 @@
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
+      "./node_modules/@google-cloud/common/build/src/index.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/operation.d.ts",
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./node_modules/@google-cloud/common/build/src/service.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/google-auth-library/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/operation.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/service-object.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts",
+        "./node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/service.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/google-auth-library/build/src/index.d.ts",
+        "./node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/util.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/index.d.ts",
+        "./node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/acl.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/bucket.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/channel.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/file.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/iam.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/index.d.ts": [
+        "./node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/notification.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/signer.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/storage.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts"
+      ],
       "./node_modules/@loopback/authentication/dist/authentication.component.d.ts": [
         "./node_modules/@loopback/authentication/dist/providers/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts"
@@ -3846,10 +4182,18 @@
       "./node_modules/@loopback/testlab/dist/sinon.d.ts": [
         "./node_modules/@types/sinon/index.d.ts"
       ],
+      "./node_modules/@types/agenda/index.d.ts": [
+        "./node_modules/@types/mongodb/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts"
+      ],
       "./node_modules/@types/body-parser/index.d.ts": [
         "./node_modules/@types/connect/index.d.ts",
         "./node_modules/@types/node/index.d.ts",
         "./node_modules/@types/node/ts3.1/http.d.ts"
+      ],
+      "./node_modules/@types/bson/index.d.ts": [
+        "./node_modules/@types/node/index.d.ts"
       ],
       "./node_modules/@types/connect/index.d.ts": [
         "./node_modules/@types/node/index.d.ts",
@@ -4073,6 +4417,13 @@
       "./node_modules/@types/loopback/index.d.ts": [
         "./node_modules/@types/express-serve-static-core/index.d.ts",
         "./node_modules/@types/express/index.d.ts"
+      ],
+      "./node_modules/@types/mongodb/index.d.ts": [
+        "./node_modules/@types/bson/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/@types/node/ts3.1/tls.d.ts"
       ],
       "./node_modules/@types/multer/index.d.ts": [
         "./node_modules/@types/express/index.d.ts",
@@ -4400,6 +4751,131 @@
         "./node_modules/@types/node/index.d.ts",
         "./node_modules/@types/node/ts3.1/http.d.ts"
       ],
+      "./node_modules/abort-controller/dist/abort-controller.d.ts": [
+        "./node_modules/event-target-shim/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/auth.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/database.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/index.d.ts": [
+        "./node_modules/@google-cloud/firestore/types/firestore.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/firebase-admin/lib/auth.d.ts",
+        "./node_modules/firebase-admin/lib/database.d.ts",
+        "./node_modules/firebase-admin/lib/instance-id.d.ts",
+        "./node_modules/firebase-admin/lib/messaging.d.ts",
+        "./node_modules/firebase-admin/lib/project-management.d.ts",
+        "./node_modules/firebase-admin/lib/remote-config.d.ts",
+        "./node_modules/firebase-admin/lib/security-rules.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/instance-id.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/messaging.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/project-management.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/remote-config.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/security-rules.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/gaxios/build/src/common.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/url.d.ts",
+        "./node_modules/abort-controller/dist/abort-controller.d.ts"
+      ],
+      "./node_modules/gaxios/build/src/gaxios.d.ts": [
+        "./node_modules/gaxios/build/src/common.d.ts"
+      ],
+      "./node_modules/gaxios/build/src/index.d.ts": [
+        "./node_modules/gaxios/build/src/common.d.ts",
+        "./node_modules/gaxios/build/src/gaxios.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/authclient.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts",
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts": [
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/googleauth.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts": [
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/gtoken/build/src/index.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts": [
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/authclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./node_modules/google-auth-library/build/src/crypto/crypto.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/crypto/crypto.d.ts": [
+        "./node_modules/@types/node/index.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/index.d.ts": [
+        "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/iam.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/transporters.d.ts": [
+        "./node_modules/gaxios/build/src/index.d.ts"
+      ],
       "./node_modules/loopback-datasource-juggler/index.d.ts": [
         "./node_modules/loopback-datasource-juggler/types/common.d.ts",
         "./node_modules/loopback-datasource-juggler/types/connector.d.ts",
@@ -4497,6 +4973,13 @@
       "./node_modules/strong-error-handler/index.d.ts": [
         "./node_modules/@types/express/index.d.ts"
       ],
+      "./node_modules/teeny-request/build/src/index.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/teeny-request/build/src/TeenyStatistics.d.ts"
+      ],
       "./src/__tests__/acceptance/home-page.acceptance.ts": [
         "./node_modules/@loopback/testlab/dist/index.d.ts",
         "./src/__tests__/acceptance/test-helper.ts",
@@ -4544,6 +5027,7 @@
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./node_modules/@loopback/service-proxy/dist/index.d.ts",
         "./node_modules/@types/node/ts3.1/path.d.ts",
+        "./node_modules/firebase-admin/lib/index.d.ts",
         "./src/access-control/interceptor/authorization.ts",
         "./src/access-control/interceptor/user-account-interceptor.ts",
         "./src/access-control/strategies/jwt.ts",
@@ -4564,12 +5048,6 @@
         "./src/models/index.ts",
         "./src/services/email.service.ts",
         "./src/services/password-hasher.service.ts"
-      ],
-      "./src/controllers/booking-transaction.controller.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
       ],
       "./src/controllers/booking.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -4595,26 +5073,10 @@
         "./src/repositories/index.ts",
         "./src/services/file-upload.ts"
       ],
-      "./src/controllers/exchange-point-transaction.controller.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
-      ],
-      "./src/controllers/exchange-point-user.controller.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
-      ],
       "./src/controllers/index.ts": [
-        "./src/controllers/booking-transaction.controller.ts",
         "./src/controllers/booking.controller.ts",
         "./src/controllers/co-working.controller.ts",
-        "./src/controllers/exchange-point-transaction.controller.ts",
-        "./src/controllers/exchange-point-user.controller.ts",
         "./src/controllers/room.controller.ts",
-        "./src/controllers/transaction-booking.controller.ts",
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/room.controller.ts": [
@@ -4630,12 +5092,6 @@
         "./src/repositories/service.repository.ts",
         "./src/services/file-upload.ts"
       ],
-      "./src/controllers/transaction-booking.controller.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
-      ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -4646,6 +5102,7 @@
         "./src/config/key.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
+        "./src/services/firebase.service.ts",
         "./src/services/jwt.service.ts",
         "./src/services/password-hasher.service.ts",
         "./src/services/user.service.ts"
@@ -4672,6 +5129,7 @@
       ],
       "./src/index.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@types/agenda/index.d.ts",
         "./node_modules/@types/node/ts3.1/path.d.ts",
         "./src/application.ts",
         "./src/server.ts"
@@ -4843,7 +5301,14 @@
         "./node_modules/@types/node/ts3.1/path.d.ts",
         "./node_modules/@types/uuid/index.d.ts"
       ],
+      "./src/services/firebase.service.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
       "./src/services/index.ts": [
+        "./src/services/date-utils.ts",
+        "./src/services/email.service.ts",
+        "./src/services/file-upload.ts",
+        "./src/services/firebase.service.ts",
         "./src/services/jwt.service.ts",
         "./src/services/passport.service.ts",
         "./src/services/password-hasher.service.ts",
@@ -4880,6 +5345,102 @@
       ]
     },
     "exportedModulesMap": {
+      "./node_modules/@google-cloud/common/build/src/index.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/operation.d.ts",
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./node_modules/@google-cloud/common/build/src/service.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/google-auth-library/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/operation.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/service-object.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts",
+        "./node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/service.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/google-auth-library/build/src/index.d.ts",
+        "./node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/common/build/src/util.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/service-object.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/index.d.ts",
+        "./node_modules/teeny-request/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/acl.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/bucket.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/channel.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/file.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/iam.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/index.d.ts": [
+        "./node_modules/@google-cloud/storage/build/src/acl.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/iam.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/notification.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/signer.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/storage.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/notification.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/common/build/src/util.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/signer.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts"
+      ],
+      "./node_modules/@google-cloud/storage/build/src/storage.d.ts": [
+        "./node_modules/@google-cloud/common/build/src/index.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/channel.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/file.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts"
+      ],
       "./node_modules/@loopback/authentication/dist/authentication.component.d.ts": [
         "./node_modules/@loopback/authentication/dist/providers/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -6784,6 +7345,11 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/@types/agenda/index.d.ts": [
+        "./node_modules/@types/mongodb/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts"
+      ],
       "./node_modules/@types/bcryptjs/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
@@ -6794,6 +7360,9 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/ts3.7/index.d.ts",
         "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/bson/index.d.ts": [
+        "./node_modules/@types/node/index.d.ts"
       ],
       "./node_modules/@types/color-name/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -7097,6 +7666,13 @@
       "./node_modules/@types/mocha/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/@types/mongodb/index.d.ts": [
+        "./node_modules/@types/bson/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/@types/node/ts3.1/tls.d.ts"
       ],
       "./node_modules/@types/multer/index.d.ts": [
         "./node_modules/@types/express/index.d.ts",
@@ -7492,9 +8068,134 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/abort-controller/dist/abort-controller.d.ts": [
+        "./node_modules/event-target-shim/index.d.ts"
+      ],
       "./node_modules/ajv/lib/ajv.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/auth.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/database.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/index.d.ts": [
+        "./node_modules/@google-cloud/firestore/types/firestore.d.ts",
+        "./node_modules/@google-cloud/storage/build/src/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/firebase-admin/lib/auth.d.ts",
+        "./node_modules/firebase-admin/lib/database.d.ts",
+        "./node_modules/firebase-admin/lib/instance-id.d.ts",
+        "./node_modules/firebase-admin/lib/messaging.d.ts",
+        "./node_modules/firebase-admin/lib/project-management.d.ts",
+        "./node_modules/firebase-admin/lib/remote-config.d.ts",
+        "./node_modules/firebase-admin/lib/security-rules.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/instance-id.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/messaging.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/project-management.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/remote-config.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/firebase-admin/lib/security-rules.d.ts": [
+        "./node_modules/firebase-admin/lib/index.d.ts"
+      ],
+      "./node_modules/gaxios/build/src/common.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/url.d.ts",
+        "./node_modules/abort-controller/dist/abort-controller.d.ts"
+      ],
+      "./node_modules/gaxios/build/src/gaxios.d.ts": [
+        "./node_modules/gaxios/build/src/common.d.ts"
+      ],
+      "./node_modules/gaxios/build/src/index.d.ts": [
+        "./node_modules/gaxios/build/src/common.d.ts",
+        "./node_modules/gaxios/build/src/gaxios.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/authclient.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/events.d.ts",
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts": [
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/googleauth.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts": [
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/gtoken/build/src/index.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts": [
+        "./node_modules/gaxios/build/src/index.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/authclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./node_modules/google-auth-library/build/src/crypto/crypto.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/crypto/crypto.d.ts": [
+        "./node_modules/@types/node/index.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/index.d.ts": [
+        "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/iam.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+        "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+        "./node_modules/google-auth-library/build/src/transporters.d.ts"
+      ],
+      "./node_modules/google-auth-library/build/src/transporters.d.ts": [
+        "./node_modules/gaxios/build/src/index.d.ts"
       ],
       "./node_modules/loopback-datasource-juggler/index.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -7656,6 +8357,13 @@
         "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
+      ],
+      "./node_modules/teeny-request/build/src/index.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/teeny-request/build/src/TeenyStatistics.d.ts"
       ],
       "./node_modules/tslib/tslib.d.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -7848,11 +8556,6 @@
         "./src/services/email.service.ts",
         "./src/services/password-hasher.service.ts"
       ],
-      "./src/controllers/booking-transaction.controller.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
-      ],
       "./src/controllers/booking.controller.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
@@ -7866,22 +8569,10 @@
         "./src/models/index.ts",
         "./src/repositories/index.ts"
       ],
-      "./src/controllers/exchange-point-transaction.controller.ts": [
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
-      ],
-      "./src/controllers/exchange-point-user.controller.ts": [
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
-      ],
       "./src/controllers/index.ts": [
-        "./src/controllers/booking-transaction.controller.ts",
         "./src/controllers/booking.controller.ts",
         "./src/controllers/co-working.controller.ts",
-        "./src/controllers/exchange-point-transaction.controller.ts",
-        "./src/controllers/exchange-point-user.controller.ts",
         "./src/controllers/room.controller.ts",
-        "./src/controllers/transaction-booking.controller.ts",
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/room.controller.ts": [
@@ -7892,12 +8583,9 @@
         "./src/repositories/index.ts",
         "./src/repositories/service.repository.ts"
       ],
-      "./src/controllers/transaction-booking.controller.ts": [
-        "./src/models/index.ts",
-        "./src/repositories/index.ts"
-      ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
         "./src/services/jwt.service.ts",
@@ -8058,6 +8746,10 @@
         "./node_modules/@loopback/rest/dist/index.d.ts"
       ],
       "./src/services/index.ts": [
+        "./src/services/date-utils.ts",
+        "./src/services/email.service.ts",
+        "./src/services/file-upload.ts",
+        "./src/services/firebase.service.ts",
         "./src/services/jwt.service.ts",
         "./src/services/passport.service.ts",
         "./src/services/password-hasher.service.ts",
@@ -8080,6 +8772,22 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
+      "./node_modules/@google-cloud/common/build/src/index.d.ts",
+      "./node_modules/@google-cloud/common/build/src/operation.d.ts",
+      "./node_modules/@google-cloud/common/build/src/service-object.d.ts",
+      "./node_modules/@google-cloud/common/build/src/service.d.ts",
+      "./node_modules/@google-cloud/common/build/src/util.d.ts",
+      "./node_modules/@google-cloud/firestore/types/firestore.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/acl.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/bucket.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/channel.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/file.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/hmacKey.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/iam.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/index.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/notification.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/signer.d.ts",
+      "./node_modules/@google-cloud/storage/build/src/storage.d.ts",
       "./node_modules/@loopback/authentication/dist/authentication.component.d.ts",
       "./node_modules/@loopback/authentication/dist/decorators/authenticate.decorator.d.ts",
       "./node_modules/@loopback/authentication/dist/decorators/index.d.ts",
@@ -8342,8 +9050,10 @@
       "./node_modules/@loopback/testlab/dist/to-json.d.ts",
       "./node_modules/@loopback/testlab/dist/validate-api-spec.d.ts",
       "./node_modules/@loopback/testlab/should-as-function.d.ts",
+      "./node_modules/@types/agenda/index.d.ts",
       "./node_modules/@types/bcryptjs/index.d.ts",
       "./node_modules/@types/body-parser/index.d.ts",
+      "./node_modules/@types/bson/index.d.ts",
       "./node_modules/@types/caseless/index.d.ts",
       "./node_modules/@types/color-name/index.d.ts",
       "./node_modules/@types/connect/index.d.ts",
@@ -8372,10 +9082,12 @@
       "./node_modules/@types/lodash/ts3.1/common/string.d.ts",
       "./node_modules/@types/lodash/ts3.1/common/util.d.ts",
       "./node_modules/@types/lodash/ts3.1/index.d.ts",
+      "./node_modules/@types/long/index.d.ts",
       "./node_modules/@types/loopback/index.d.ts",
       "./node_modules/@types/mime/index.d.ts",
       "./node_modules/@types/minimatch/index.d.ts",
       "./node_modules/@types/mocha/index.d.ts",
+      "./node_modules/@types/mongodb/index.d.ts",
       "./node_modules/@types/multer/index.d.ts",
       "./node_modules/@types/node/assert.d.ts",
       "./node_modules/@types/node/base.d.ts",
@@ -8452,7 +9164,36 @@
       "./node_modules/@types/tough-cookie/index.d.ts",
       "./node_modules/@types/type-is/index.d.ts",
       "./node_modules/@types/uuid/index.d.ts",
+      "./node_modules/abort-controller/dist/abort-controller.d.ts",
       "./node_modules/ajv/lib/ajv.d.ts",
+      "./node_modules/event-target-shim/index.d.ts",
+      "./node_modules/firebase-admin/lib/auth.d.ts",
+      "./node_modules/firebase-admin/lib/database.d.ts",
+      "./node_modules/firebase-admin/lib/index.d.ts",
+      "./node_modules/firebase-admin/lib/instance-id.d.ts",
+      "./node_modules/firebase-admin/lib/messaging.d.ts",
+      "./node_modules/firebase-admin/lib/project-management.d.ts",
+      "./node_modules/firebase-admin/lib/remote-config.d.ts",
+      "./node_modules/firebase-admin/lib/security-rules.d.ts",
+      "./node_modules/gaxios/build/src/common.d.ts",
+      "./node_modules/gaxios/build/src/gaxios.d.ts",
+      "./node_modules/gaxios/build/src/index.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/authclient.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/computeclient.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/credentials.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/envDetect.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/googleauth.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/iam.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/idtokenclient.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/jwtaccess.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/jwtclient.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/loginticket.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/oauth2client.d.ts",
+      "./node_modules/google-auth-library/build/src/auth/refreshclient.d.ts",
+      "./node_modules/google-auth-library/build/src/crypto/crypto.d.ts",
+      "./node_modules/google-auth-library/build/src/index.d.ts",
+      "./node_modules/google-auth-library/build/src/transporters.d.ts",
+      "./node_modules/gtoken/build/src/index.d.ts",
       "./node_modules/loopback-datasource-juggler/index.d.ts",
       "./node_modules/loopback-datasource-juggler/types/common.d.ts",
       "./node_modules/loopback-datasource-juggler/types/connector.d.ts",
@@ -8479,6 +9220,8 @@
       "./node_modules/path-to-regexp/dist/index.d.ts",
       "./node_modules/reflect-metadata/index.d.ts",
       "./node_modules/strong-error-handler/index.d.ts",
+      "./node_modules/teeny-request/build/src/TeenyStatistics.d.ts",
+      "./node_modules/teeny-request/build/src/index.d.ts",
       "./node_modules/tslib/tslib.d.ts",
       "./node_modules/typescript/lib/lib.dom.d.ts",
       "./node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -8530,14 +9273,10 @@
       "./src/application.ts",
       "./src/config/constants.ts",
       "./src/config/key.ts",
-      "./src/controllers/booking-transaction.controller.ts",
       "./src/controllers/booking.controller.ts",
       "./src/controllers/co-working.controller.ts",
-      "./src/controllers/exchange-point-transaction.controller.ts",
-      "./src/controllers/exchange-point-user.controller.ts",
       "./src/controllers/index.ts",
       "./src/controllers/room.controller.ts",
-      "./src/controllers/transaction-booking.controller.ts",
       "./src/controllers/user-controller.controller.ts",
       "./src/cronjob/cron-blacklist.ts",
       "./src/cronjob/index.ts",
@@ -8571,6 +9310,7 @@
       "./src/services/date-utils.ts",
       "./src/services/email.service.ts",
       "./src/services/file-upload.ts",
+      "./src/services/firebase.service.ts",
       "./src/services/index.ts",
       "./src/services/jwt.service.ts",
       "./src/services/passport.service.ts",

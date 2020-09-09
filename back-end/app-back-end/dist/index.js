@@ -2,11 +2,15 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.main = exports.startApplication = exports.setupApplication = exports.setUpServerConfig = void 0;
 const tslib_1 = require("tslib");
+const agenda_1 = tslib_1.__importDefault(require("agenda"));
 const path = tslib_1.__importStar(require("path"));
 const server_1 = require("./server");
 tslib_1.__exportStar(require("./application"), exports);
 tslib_1.__exportStar(require("./server"), exports);
+const db = require('../src/datasources/mongodb-config.json');
 const ngrok = require('ngrok');
+const mongoDbURL = `mongodb://${db.user + (db.user != '' ? ':' : '')}${db.password + (db.user != '' ? '@' : '')}${db.host}:${db.port}/${db.database}`;
+console.log(__dirname);
 async function setUpServerConfig(oauth2Providers) {
     var _a;
     const config = {
@@ -39,9 +43,28 @@ async function startApplication(oauth2Providers, dbBackupFile) {
     await setupApplication(server.loopbackApp, dbBackupFile);
     await server.boot();
     await server.start();
-    const url = await ngrok.connect(3000);
-    await ngrok.authtoken('1W9VTjQHduDqZV8y7gRI0tk3UBS_3ScbmHjugJNE3pF9S6eCN');
-    console.log(`Server is running at ${url}`);
+    //Set up agenda
+    console.log(mongoDbURL);
+    const agenda = new agenda_1.default({
+        db: {
+            address: mongoDbURL,
+            options: { useNewUrlParser: true, useUnifiedTopology: true },
+        },
+    });
+    await agenda.define('send email report', { priority: 'high', concurrency: 2 }, async (job) => {
+        console.log('Agenda here');
+        console.log(job.attrs);
+    });
+    await agenda.on('ready', async () => {
+        await agenda.schedule(new Date(new Date().getTime() + 1000 * 5), 'send email report', {
+            objJob: 123,
+        });
+    });
+    await agenda.start();
+    console.log('Server started');
+    // const url = await ngrok.connect(3000);
+    // await ngrok.authtoken('1W9VTjQHduDqZV8y7gRI0tk3UBS_3ScbmHjugJNE3pF9S6eCN');
+    // console.log(`Server is running at ${url}`);
     return server;
 }
 exports.startApplication = startApplication;

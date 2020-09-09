@@ -12,6 +12,7 @@ import {
     RestExplorerComponent,
 } from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
+import * as admin from 'firebase-admin';
 import path from 'path';
 import {AuthorizationProvider} from './access-control/interceptor/authorization';
 import {UserAccountInterceptor} from './access-control/interceptor/user-account-interceptor';
@@ -31,6 +32,7 @@ import {JwtService} from './services/jwt.service';
 import {PasswordHasherService} from './services/password-hasher.service';
 
 export {ApplicationConfig};
+const firebaseCredential = require('../src/config/firebase.json');
 
 export class AppApplication extends BootMixin(
     ServiceMixin(RepositoryMixin(RestApplication)),
@@ -39,6 +41,11 @@ export class AppApplication extends BootMixin(
         super(options);
 
         this.setUpBindings();
+
+        admin.initializeApp({
+            credential: admin.credential.cert(firebaseCredential),
+            databaseURL: 'https://fir-token-e3a3b.firebaseio.com',
+        });
 
         // Set up the custom sequence
         this.sequence(MySequence);

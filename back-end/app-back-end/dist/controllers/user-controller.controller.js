@@ -12,6 +12,7 @@ const user_account_interceptor_1 = require("../access-control/interceptor/user-a
 const key_1 = require("../config/key");
 const repositories_1 = require("../repositories");
 const email_service_1 = require("../services/email.service");
+const firebase_service_1 = require("../services/firebase.service");
 const jwt_service_1 = require("../services/jwt.service");
 const password_hasher_service_1 = require("../services/password-hasher.service");
 const user_service_1 = require("../services/user.service");
@@ -65,6 +66,7 @@ let UserControllerController = class UserControllerController {
      *
      */
     async login(role, credential) {
+        console.log(credential);
         //Check firebase token
         if (!credential.firebaseToken) {
             throw new rest_1.HttpErrors.Unauthorized('Missing credentials');
@@ -199,7 +201,19 @@ let UserControllerController = class UserControllerController {
         return { message: 'Reset password successfully.' };
     }
     async getMe() {
-        return 'JeBaited';
+        const user = await this.userRepository.findById(this.user.profile.id);
+        delete user.password;
+        delete user.token;
+        delete user.firebaseToken;
+        delete user.createdAt;
+        delete user.modifiedAt;
+        delete user.emailVerified;
+        delete user.role;
+        return user;
+    }
+    async test() {
+        const res = firebase_service_1.Firebase.sendNotification('eAAxLn8aTTamArvO9phO-C:91bGnbY9zLMqHFhmfuVLJ_eJRDyB6B_HV2HVoW7_4TJig28jl8m66Yi1Ybk3HOdzIr0Y3-YkOVw32POlzyccYIz96wt_wcydZUTvbemf38xrdDU2DAYZ82YUBICaZzs5wJzYzEvGG', { title: 'Test', body: 'Hello' });
+        return res;
     }
 };
 tslib_1.__decorate([
@@ -277,11 +291,18 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "resetPassword", null);
 tslib_1.__decorate([
-    rest_1.get('/test'),
+    authentication_1.authenticate('jwt'),
+    rest_1.get('/user/me'),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", Promise)
 ], UserControllerController.prototype, "getMe", null);
+tslib_1.__decorate([
+    rest_1.get('/test'),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", []),
+    tslib_1.__metadata("design:returntype", Promise)
+], UserControllerController.prototype, "test", null);
 UserControllerController = tslib_1.__decorate([
     core_1.intercept(user_account_interceptor_1.UserAccountInterceptor.BINDING_KEY),
     tslib_1.__param(0, repository_1.repository(repositories_1.UserRepository)),

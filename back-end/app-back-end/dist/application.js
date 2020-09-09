@@ -10,6 +10,7 @@ const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const rest_explorer_1 = require("@loopback/rest-explorer");
 const service_proxy_1 = require("@loopback/service-proxy");
+const admin = tslib_1.__importStar(require("firebase-admin"));
 const path_1 = tslib_1.__importDefault(require("path"));
 const authorization_2 = require("./access-control/interceptor/authorization");
 const user_account_interceptor_1 = require("./access-control/interceptor/user-account-interceptor");
@@ -21,10 +22,15 @@ const services_1 = require("./services");
 const email_service_1 = require("./services/email.service");
 const jwt_service_1 = require("./services/jwt.service");
 const password_hasher_service_1 = require("./services/password-hasher.service");
+const firebaseCredential = require('../src/config/firebase.json');
 class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repository_1.RepositoryMixin(rest_1.RestApplication))) {
     constructor(options = {}) {
         super(options);
         this.setUpBindings();
+        admin.initializeApp({
+            credential: admin.credential.cert(firebaseCredential),
+            databaseURL: 'https://fir-token-e3a3b.firebaseio.com',
+        });
         // Set up the custom sequence
         this.sequence(sequence_1.MySequence);
         this.component(authentication_1.AuthenticationComponent);
