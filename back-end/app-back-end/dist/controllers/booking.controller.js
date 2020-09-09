@@ -12,6 +12,10 @@ const basic_authentication_1 = require("../access-control/authenticator/basic-au
 const constants_1 = require("../config/constants");
 const models_1 = require("../models");
 const repositories_1 = require("../repositories");
+const services_1 = require("../services");
+const schedule_service_1 = require("../services/schedule.service");
+// Check in cho phep tre 10 phut
+// Check out cho phep tre 5 phut
 let BookingController = class BookingController {
     constructor(bookingRepository, userRepository, roomRepository, transactionRepository, pointRepository, user) {
         this.bookingRepository = bookingRepository;
@@ -40,7 +44,12 @@ let BookingController = class BookingController {
         //Check user and room
         const user = await this.userRepository.findById(this.user[security_1.securityId]);
         const room = await this.roomRepository.findById(bookingInfo.roomId, {
-            include: [{ relation: 'coWorking' }],
+            include: [
+                {
+                    relation: 'coWorking',
+                    scope: { include: [{ relation: 'user' }] },
+                },
+            ],
         });
         if (!this.user[security_1.securityId].localeCompare(room.coWorking.userId)) {
             throw new rest_1.HttpErrors.Unauthorized('Cannot book your own room.');
@@ -63,6 +72,14 @@ let BookingController = class BookingController {
         /**
          * Send Noti here
          */
+        const host = room.coWorking.user;
+        // Thong bao truoc gio check in 15 phut cho client va host
+        schedule_service_1.ScheduleService.notifyCheckIn(newTransaction.bookingRefernce, newBooking.startTime, user, host);
+        schedule_service_1.ScheduleService.notifyCheckOut(newTransaction.bookingRefernce, newBooking.startTime, user, host);
+        // Notify host
+        services_1.Firebase.notifyHostNewBooking(room.coWorking.user.firebaseToken, room.name, newTransaction.bookingRefernce);
+        // Cancel booking if user not check in late 10 mins
+        schedule_service_1.ScheduleService.verifyCheckIn(newBooking.id, newBooking.startTime);
         return newBooking;
     }
     // Get booking history

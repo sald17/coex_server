@@ -2067,8 +2067,8 @@
         "affectsGlobalScope": false
       },
       "./src/config/constants.ts": {
-        "version": "07ff6604e7b5d4b7ccdd804c26a7b08b4cef5e220ccc17ef2ddac4a6c1f16463",
-        "signature": "906c3a7bf6a5f91e1c225c2c8a5d0605d21df6d90937308238b22ab4effc233f",
+        "version": "8ac853e3aac45401ce336435ffe9d1bb356b5ed3f4702d373277edcb241f87c9",
+        "signature": "7fca753dbf76ee8e130056a8789d0378de5e7474807f0b3c3dafdbd4d42a349a",
         "affectsGlobalScope": false
       },
       "./src/models/user.model.ts": {
@@ -2097,8 +2097,8 @@
         "affectsGlobalScope": false
       },
       "./src/models/booking.model.ts": {
-        "version": "bde8d8c8308dc8f34eeb782db1baa0a57d023aaaa0a6b6a3c1f5a37435f68aa9",
-        "signature": "04d92d1a811ebad4358eb8e3144fe4b06bce7cd6d65e7a8e7887a52718ed8dc2",
+        "version": "dd2054dbc1c82d1f4240bbd7336b99a2959894d129a9dff8843dae0ee86a6542",
+        "signature": "5a349c96859d56175136e9e22e988ad5a3eda00cf3da82c515b59c3fa2cdc365",
         "affectsGlobalScope": false
       },
       "./src/models/exchange-point.model.ts": {
@@ -2107,8 +2107,8 @@
         "affectsGlobalScope": false
       },
       "./src/models/index.ts": {
-        "version": "faf52d7fed1b74b3248fd7dbf318a6bab6133a34b0fbfbaf76217d48ec9ec3b6",
-        "signature": "faf52d7fed1b74b3248fd7dbf318a6bab6133a34b0fbfbaf76217d48ec9ec3b6",
+        "version": "571a43b5332bf18a8afc6a181ca6bc9f99e878f54ab7f2d0f92e88d7951f5fb6",
+        "signature": "571a43b5332bf18a8afc6a181ca6bc9f99e878f54ab7f2d0f92e88d7951f5fb6",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/nodemailer/lib/dkim/index.d.ts": {
@@ -2277,13 +2277,13 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/index.ts": {
-        "version": "037c2554ab4d38609c31dfa6a6a189655da1188bede9e02b9d7778c4adc9fd90",
-        "signature": "037c2554ab4d38609c31dfa6a6a189655da1188bede9e02b9d7778c4adc9fd90",
+        "version": "1a5fe36f05608f8eb07debdd311fa909dc5c60927d72623ba005342aa8f0ea13",
+        "signature": "1a5fe36f05608f8eb07debdd311fa909dc5c60927d72623ba005342aa8f0ea13",
         "affectsGlobalScope": false
       },
       "./src/services/firebase.service.ts": {
-        "version": "63cf348087836c7a13c769907b1587eff4fa6cfeeb6d016c6d7e27d10af5678d",
-        "signature": "76db8439e0d008e0be20fd4368d3f693d66b27bfa4f295c077b40e2907bdfb49",
+        "version": "6cc08f60dd9dd23c2b2e6301c4baa8640e11320b807c655bf4735ab7ce857fcb",
+        "signature": "4243a6fcc0ca28e5f563f197420336c56b16caa0c5373e158112d39ddc5c453a",
         "affectsGlobalScope": false
       },
       "./src/services/passport.service.ts": {
@@ -2296,9 +2296,14 @@
         "signature": "6eb0817e7b27e8d2f31245d6fe310d622c44a1b4dbaa59571026b9d9653b60ce",
         "affectsGlobalScope": false
       },
+      "./src/services/schedule.service.ts": {
+        "version": "3764a73c7268332a7d3cdcc7a162c3fbd576af0b5d134b7433b8e014421b8d16",
+        "signature": "fcf3d1aaea7010e681420643b2c8f0f4af24d33ca5924cec977336098b8a1a81",
+        "affectsGlobalScope": false
+      },
       "./src/services/index.ts": {
-        "version": "2519443c8f6c7a9735b905bf57cc759d9cf9a22fcf5fff8d8fb019a01970dd04",
-        "signature": "2519443c8f6c7a9735b905bf57cc759d9cf9a22fcf5fff8d8fb019a01970dd04",
+        "version": "ad88f192b40c2a715e6be63f89ef8cd8fa05df19626cc130bfe71da72e57b804",
+        "signature": "ad88f192b40c2a715e6be63f89ef8cd8fa05df19626cc130bfe71da72e57b804",
         "affectsGlobalScope": false
       },
       "./src/services/jwt.service.ts": {
@@ -2397,7 +2402,7 @@
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "f591d0a30d47e0c49b45caa5cf43bbc724db4a8fa2d1a1635fd01defd92e62b9",
+        "version": "5cd452d2077f2a936d4dbf49b0fe44e6a16d5ef4ad2b8ba19d164c78ea2f4e34",
         "signature": "b2c816c6f7f61a8352093c774342b11720df0ece5c8456c5c33b0abf62e1367e",
         "affectsGlobalScope": false
       },
@@ -2607,7 +2612,7 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/booking.controller.ts": {
-        "version": "9e6cbec801b9537cb66cf6e845b4ccdec926f68a021755b188cbfd848b839147",
+        "version": "b0e4c481a507d3985b6b0e175b491756c81243023766e5899acd02ff4b0360c3",
         "signature": "361c0945d008dc776e4243d178e7b25042bb678dd181569922fa3b46b44e18cb",
         "affectsGlobalScope": false
       },
@@ -2622,13 +2627,18 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "67c47baac4919c4e4860c72a8ed0c206324dfc5f1cd39acb235e659da3fce5ac",
-        "signature": "0c76b07ea4da3341a959a7cfe07d4fea24731f2d046fb2bf50cf6f044a58a652",
+        "version": "3eeb132d68609596f273d36d3a3a1ad348445e1a91bd28f18a91db3e7e4d8ae6",
+        "signature": "ebd33838755070e71745ff998950a156dddb9bb4c09a689aca39c7dbaaacfb78",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/test.controller.ts": {
+        "version": "17db00fad259415748288997afa865fa87ef755b8091ad08b44d1e1f7c349971",
+        "signature": "8742ed7e50c6e5a89cd44c43383a72eed0380770f7fabc323a7131f193fd44af",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
-        "version": "40f95884ecf4022e992502eb10536719f3f5b22201fa8e62f4cd59334ce7b5f1",
-        "signature": "40f95884ecf4022e992502eb10536719f3f5b22201fa8e62f4cd59334ce7b5f1",
+        "version": "bd64c1beb55f96c4b9bdaaf32bd9c6a1b46d244678c936bb94e693fba78aa6a2",
+        "signature": "bd64c1beb55f96c4b9bdaaf32bd9c6a1b46d244678c936bb94e693fba78aa6a2",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/caseless/index.d.ts": {
@@ -5059,7 +5069,9 @@
         "./src/access-control/authenticator/basic-authentication.ts",
         "./src/config/constants.ts",
         "./src/models/index.ts",
-        "./src/repositories/index.ts"
+        "./src/repositories/index.ts",
+        "./src/services/index.ts",
+        "./src/services/schedule.service.ts"
       ],
       "./src/controllers/co-working.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -5077,6 +5089,7 @@
         "./src/controllers/booking.controller.ts",
         "./src/controllers/co-working.controller.ts",
         "./src/controllers/room.controller.ts",
+        "./src/controllers/test.controller.ts",
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/room.controller.ts": [
@@ -5092,6 +5105,12 @@
         "./src/repositories/service.repository.ts",
         "./src/services/file-upload.ts"
       ],
+      "./src/controllers/test.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/repositories/index.ts",
+        "./src/services/schedule.service.ts"
+      ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -5102,7 +5121,6 @@
         "./src/config/key.ts",
         "./src/repositories/index.ts",
         "./src/services/email.service.ts",
-        "./src/services/firebase.service.ts",
         "./src/services/jwt.service.ts",
         "./src/services/password-hasher.service.ts",
         "./src/services/user.service.ts"
@@ -5132,7 +5150,11 @@
         "./node_modules/@types/agenda/index.d.ts",
         "./node_modules/@types/node/ts3.1/path.d.ts",
         "./src/application.ts",
-        "./src/server.ts"
+        "./src/repositories/booking.repository.ts",
+        "./src/repositories/index.ts",
+        "./src/repositories/transaction.repository.ts",
+        "./src/server.ts",
+        "./src/services/schedule.service.ts"
       ],
       "./src/migrate.ts": [
         "./src/application.ts"
@@ -5312,6 +5334,7 @@
         "./src/services/jwt.service.ts",
         "./src/services/passport.service.ts",
         "./src/services/password-hasher.service.ts",
+        "./src/services/schedule.service.ts",
         "./src/services/user.service.ts"
       ],
       "./src/services/jwt.service.ts": [
@@ -5338,6 +5361,14 @@
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@types/bcryptjs/index.d.ts",
         "./src/config/key.ts"
+      ],
+      "./src/services/schedule.service.ts": [
+        "./src/config/constants.ts",
+        "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts",
+        "./src/repositories/index.ts",
+        "./src/repositories/transaction.repository.ts",
+        "./src/services/index.ts"
       ],
       "./src/services/user.service.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
@@ -8573,6 +8604,7 @@
         "./src/controllers/booking.controller.ts",
         "./src/controllers/co-working.controller.ts",
         "./src/controllers/room.controller.ts",
+        "./src/controllers/test.controller.ts",
         "./src/controllers/user-controller.controller.ts"
       ],
       "./src/controllers/room.controller.ts": [
@@ -8582,6 +8614,9 @@
         "./src/models/index.ts",
         "./src/repositories/index.ts",
         "./src/repositories/service.repository.ts"
+      ],
+      "./src/controllers/test.controller.ts": [
+        "./src/repositories/index.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/security/dist/index.d.ts",
@@ -8745,6 +8780,9 @@
       "./src/services/file-upload.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts"
       ],
+      "./src/services/firebase.service.ts": [
+        "./node_modules/firebase-admin/lib/messaging.d.ts"
+      ],
       "./src/services/index.ts": [
         "./src/services/date-utils.ts",
         "./src/services/email.service.ts",
@@ -8753,6 +8791,7 @@
         "./src/services/jwt.service.ts",
         "./src/services/passport.service.ts",
         "./src/services/password-hasher.service.ts",
+        "./src/services/schedule.service.ts",
         "./src/services/user.service.ts"
       ],
       "./src/services/jwt.service.ts": [
@@ -8766,6 +8805,12 @@
         "./node_modules/@types/passport/index.d.ts",
         "./src/models/index.ts",
         "./src/repositories/index.ts"
+      ],
+      "./src/services/schedule.service.ts": [
+        "./src/models/index.ts",
+        "./src/repositories/booking.repository.ts",
+        "./src/repositories/index.ts",
+        "./src/repositories/transaction.repository.ts"
       ],
       "./src/services/user.service.ts": [
         "./node_modules/@loopback/security/dist/index.d.ts"
@@ -9277,6 +9322,7 @@
       "./src/controllers/co-working.controller.ts",
       "./src/controllers/index.ts",
       "./src/controllers/room.controller.ts",
+      "./src/controllers/test.controller.ts",
       "./src/controllers/user-controller.controller.ts",
       "./src/cronjob/cron-blacklist.ts",
       "./src/cronjob/index.ts",
@@ -9315,6 +9361,7 @@
       "./src/services/jwt.service.ts",
       "./src/services/passport.service.ts",
       "./src/services/password-hasher.service.ts",
+      "./src/services/schedule.service.ts",
       "./src/services/user.service.ts"
     ]
   },

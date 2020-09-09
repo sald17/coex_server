@@ -5,4 +5,5 @@ tslib_1.__exportStar(require("./booking.controller"), exports);
 tslib_1.__exportStar(require("./co-working.controller"), exports);
 tslib_1.__exportStar(require("./room.controller"), exports);
 tslib_1.__exportStar(require("./user-controller.controller"), exports);
+tslib_1.__exportStar(require("./test.controller"), exports);
 //# sourceMappingURL=index.js.map

@@ -7,6 +7,8 @@ export namespace BookingConstant {
     export const FINISH = 'FINISH';
     // Canceled: User không đến hoặc thực hiện cancel
     export const CANCELED = 'CANCELED';
+    // Fail: User check in nhung khong check out
+    export const FAIL = 'FAIL';
 }
 
 export namespace TransactionConstant {
@@ -27,6 +29,13 @@ export namespace PointConstant {
     export const ON_GOING = 'ON_GOING';
     export const SUCCESS = 'SUCCESS';
     export const CANCELED = 'CANCELED';
+}
+
+export namespace ScheduleConstant {
+    export const CHECK_IN_NOTIFICATION = 'CHECK_IN_NOTIFICATION';
+    export const CHECK_OUT_NOTIFICATION = 'CHECK_OUT_NOTIFICATION';
+    export const VERIFY_CHECK_IN = 'VERIFY_CHECK_IN';
+    export const VERIFY_CHECK_OUT = 'VERIFY_CHECK_OUT';
 }
 
 export const CoinServer = 'http://dev.coinserver.unox.site';

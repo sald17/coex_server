@@ -13,7 +13,6 @@ import {
 } from '../config/key';
 import {BlacklistRepository, UserRepository} from '../repositories';
 import {EmailService} from '../services/email.service';
-import {Firebase} from '../services/firebase.service';
 import {JwtService} from '../services/jwt.service';
 import {PasswordHasherService} from '../services/password-hasher.service';
 import {mapProfile} from '../services/user.service';
@@ -301,14 +300,5 @@ export class UserControllerController {
         delete user.emailVerified;
         delete user.role;
         return user;
-    }
-
-    @get('/test')
-    async test() {
-        const res = Firebase.sendNotification(
-            'eAAxLn8aTTamArvO9phO-C:91bGnbY9zLMqHFhmfuVLJ_eJRDyB6B_HV2HVoW7_4TJig28jl8m66Yi1Ybk3HOdzIr0Y3-YkOVw32POlzyccYIz96wt_wcydZUTvbemf38xrdDU2DAYZ82YUBICaZzs5wJzYzEvGG',
-            {title: 'Test', body: 'Hello'},
-        );
-        return res;
     }
 }

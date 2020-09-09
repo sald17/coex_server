@@ -1,16 +1,22 @@
 import {RestApplication} from '@loopback/rest';
 import Agenda from 'agenda';
 import * as path from 'path';
+import {UserRepository} from './repositories';
+import {BookingRepository} from './repositories/booking.repository';
+import {TransactionRepository} from './repositories/transaction.repository';
 import {ApplicationConfig, ExpressServer} from './server';
-
+import {ScheduleService} from './services/schedule.service';
 export * from './application';
 export * from './server';
+
 const db = require('../src/datasources/mongodb-config.json');
+
 const ngrok = require('ngrok');
+
 const mongoDbURL = `mongodb://${db.user + (db.user != '' ? ':' : '')}${
     db.password + (db.user != '' ? '@' : '')
 }${db.host}:${db.port}/${db.database}`;
-console.log(__dirname);
+
 export async function setUpServerConfig(
     oauth2Providers: any,
 ): Promise<ApplicationConfig> {
@@ -54,28 +60,29 @@ export async function startApplication(
 
     //Set up agenda
     console.log(mongoDbURL);
-    const agenda = new Agenda({
+    ScheduleService.agenda = new Agenda({
         db: {
             address: mongoDbURL,
             options: {useNewUrlParser: true, useUnifiedTopology: true},
         },
     });
-    await agenda.define('send email report', async job => {
-        console.log('Agenda here');
-        console.log(job.attrs);
-    });
-
-    await agenda.on('ready', async () => {
-        await agenda.schedule(
-            new Date(new Date().getTime() + 1000 * 5),
-            'send email report',
-            {
-                objJob: 123,
-            },
+    await ScheduleService.agenda.on('ready', async () => {
+        let schedule = new ScheduleService(
+            server.loopbackApp.getSync<UserRepository>(
+                'repositories.UserRepository',
+            ),
+            server.loopbackApp.getSync<BookingRepository>(
+                'repositories.BookingRepository',
+            ),
+            server.loopbackApp.getSync<TransactionRepository>(
+                'repositories.TransactionRepository',
+            ),
         );
+        schedule.define();
+        ScheduleService.agenda.schedule('in 5 seconds', 'test', {});
+        ScheduleService.agenda.start();
+        console.log('Start agenda.');
     });
-
-    await agenda.start();
 
     console.log('Server started');
     // const url = await ngrok.connect(3000);

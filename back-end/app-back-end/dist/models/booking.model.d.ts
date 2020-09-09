@@ -1,7 +1,7 @@
 import { Entity } from '@loopback/repository';
 import { Transaction } from './transaction.model';
 export declare class Booking extends Entity {
-    id?: string;
+    id: string;
     description?: string;
     startTime: Date;
     endTime: Date;

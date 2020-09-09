@@ -3,6 +3,7 @@ export declare namespace BookingConstant {
     const ON_GOING = "ON_GOING";
     const FINISH = "FINISH";
     const CANCELED = "CANCELED";
+    const FAIL = "FAIL";
 }
 export declare namespace TransactionConstant {
     const PENDING = "PENDING";
@@ -20,6 +21,12 @@ export declare namespace PointConstant {
     const ON_GOING = "ON_GOING";
     const SUCCESS = "SUCCESS";
     const CANCELED = "CANCELED";
+}
+export declare namespace ScheduleConstant {
+    const CHECK_IN_NOTIFICATION = "CHECK_IN_NOTIFICATION";
+    const CHECK_OUT_NOTIFICATION = "CHECK_OUT_NOTIFICATION";
+    const VERIFY_CHECK_IN = "VERIFY_CHECK_IN";
+    const VERIFY_CHECK_OUT = "VERIFY_CHECK_OUT";
 }
 export declare const CoinServer = "http://dev.coinserver.unox.site";
 export declare const filterTimeBooking: (infoStartTime: Date, infoEndTime: Date) => {

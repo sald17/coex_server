@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.filterTimeBooking = exports.CoinServer = exports.PointConstant = exports.TransactionConstant = exports.BookingConstant = void 0;
+exports.filterTimeBooking = exports.CoinServer = exports.ScheduleConstant = exports.PointConstant = exports.TransactionConstant = exports.BookingConstant = void 0;
 var BookingConstant;
 (function (BookingConstant) {
     // Waitting for check in
@@ -11,6 +11,8 @@ var BookingConstant;
     BookingConstant.FINISH = 'FINISH';
     // Canceled: User không đến hoặc thực hiện cancel
     BookingConstant.CANCELED = 'CANCELED';
+    // Fail: User check in nhung khong check out
+    BookingConstant.FAIL = 'FAIL';
 })(BookingConstant = exports.BookingConstant || (exports.BookingConstant = {}));
 var TransactionConstant;
 (function (TransactionConstant) {
@@ -32,6 +34,13 @@ var PointConstant;
     PointConstant.SUCCESS = 'SUCCESS';
     PointConstant.CANCELED = 'CANCELED';
 })(PointConstant = exports.PointConstant || (exports.PointConstant = {}));
+var ScheduleConstant;
+(function (ScheduleConstant) {
+    ScheduleConstant.CHECK_IN_NOTIFICATION = 'CHECK_IN_NOTIFICATION';
+    ScheduleConstant.CHECK_OUT_NOTIFICATION = 'CHECK_OUT_NOTIFICATION';
+    ScheduleConstant.VERIFY_CHECK_IN = 'VERIFY_CHECK_IN';
+    ScheduleConstant.VERIFY_CHECK_OUT = 'VERIFY_CHECK_OUT';
+})(ScheduleConstant = exports.ScheduleConstant || (exports.ScheduleConstant = {}));
 exports.CoinServer = 'http://dev.coinserver.unox.site';
 exports.filterTimeBooking = (infoStartTime, infoEndTime) => ({
     or: [

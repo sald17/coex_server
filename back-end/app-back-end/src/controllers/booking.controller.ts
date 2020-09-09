@@ -26,6 +26,11 @@ import {
     TransactionRepository,
     UserRepository,
 } from '../repositories';
+import {Firebase} from '../services';
+import {ScheduleService} from '../services/schedule.service';
+
+// Check in cho phep tre 10 phut
+// Check out cho phep tre 5 phut
 
 @authenticate('jwt')
 export class BookingController {
@@ -104,7 +109,12 @@ export class BookingController {
         const room: any = await this.roomRepository.findById(
             bookingInfo.roomId,
             {
-                include: [{relation: 'coWorking'}],
+                include: [
+                    {
+                        relation: 'coWorking',
+                        scope: {include: [{relation: 'user'}]},
+                    },
+                ],
             },
         );
         if (!this.user[securityId].localeCompare(room.coWorking.userId)) {
@@ -141,6 +151,32 @@ export class BookingController {
          * Send Noti here
          */
 
+        const host = room.coWorking.user;
+
+        // Thong bao truoc gio check in 15 phut cho client va host
+        ScheduleService.notifyCheckIn(
+            newTransaction.bookingRefernce,
+            newBooking.startTime,
+            user,
+            host,
+        );
+
+        ScheduleService.notifyCheckOut(
+            newTransaction.bookingRefernce,
+            newBooking.startTime,
+            user,
+            host,
+        );
+
+        // Notify host
+        Firebase.notifyHostNewBooking(
+            room.coWorking.user.firebaseToken,
+            room.name,
+            newTransaction.bookingRefernce,
+        );
+
+        // Cancel booking if user not check in late 10 mins
+        ScheduleService.verifyCheckIn(newBooking.id, newBooking.startTime);
         return newBooking;
     }
 

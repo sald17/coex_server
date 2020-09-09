@@ -51,8 +51,4 @@ export declare class UserControllerController {
         message: string;
     }>;
     getMe(): Promise<import("../models").User & import("../models").UserRelations>;
-    test(): Promise<string | {
-        error: boolean;
-        message: any;
-    }>;
 }

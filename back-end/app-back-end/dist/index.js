@@ -5,12 +5,12 @@ const tslib_1 = require("tslib");
 const agenda_1 = tslib_1.__importDefault(require("agenda"));
 const path = tslib_1.__importStar(require("path"));
 const server_1 = require("./server");
+const schedule_service_1 = require("./services/schedule.service");
 tslib_1.__exportStar(require("./application"), exports);
 tslib_1.__exportStar(require("./server"), exports);
 const db = require('../src/datasources/mongodb-config.json');
 const ngrok = require('ngrok');
 const mongoDbURL = `mongodb://${db.user + (db.user != '' ? ':' : '')}${db.password + (db.user != '' ? '@' : '')}${db.host}:${db.port}/${db.database}`;
-console.log(__dirname);
 async function setUpServerConfig(oauth2Providers) {
     var _a;
     const config = {
@@ -45,22 +45,19 @@ async function startApplication(oauth2Providers, dbBackupFile) {
     await server.start();
     //Set up agenda
     console.log(mongoDbURL);
-    const agenda = new agenda_1.default({
+    schedule_service_1.ScheduleService.agenda = new agenda_1.default({
         db: {
             address: mongoDbURL,
             options: { useNewUrlParser: true, useUnifiedTopology: true },
         },
     });
-    await agenda.define('send email report', { priority: 'high', concurrency: 2 }, async (job) => {
-        console.log('Agenda here');
-        console.log(job.attrs);
+    await schedule_service_1.ScheduleService.agenda.on('ready', async () => {
+        let schedule = new schedule_service_1.ScheduleService(server.loopbackApp.getSync('repositories.UserRepository'), server.loopbackApp.getSync('repositories.BookingRepository'), server.loopbackApp.getSync('repositories.TransactionRepository'));
+        schedule.define();
+        schedule_service_1.ScheduleService.agenda.schedule('in 5 seconds', 'test', {});
+        schedule_service_1.ScheduleService.agenda.start();
+        console.log('Start agenda.');
     });
-    await agenda.on('ready', async () => {
-        await agenda.schedule(new Date(new Date().getTime() + 1000 * 5), 'send email report', {
-            objJob: 123,
-        });
-    });
-    await agenda.start();
     console.log('Server started');
     // const url = await ngrok.connect(3000);
     // await ngrok.authtoken('1W9VTjQHduDqZV8y7gRI0tk3UBS_3ScbmHjugJNE3pF9S6eCN');
