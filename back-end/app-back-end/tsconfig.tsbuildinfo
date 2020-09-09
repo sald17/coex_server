@@ -1967,12 +1967,12 @@
         "affectsGlobalScope": false
       },
       "./src/datasources/mongo-connector.datasource.ts": {
-        "version": "5cb55f65399ee80246a097526efafad8326a8193f07ab567f0e3ab43d75f8bd1",
+        "version": "2345f5123f6d6075bd47f7badb3f1cee705f025bbb52946377abb435a2fb011a",
         "signature": "526f611a6a83932638b1291d30a0ab8148f893b89f96a041fdd7ddaf97d7cb32",
         "affectsGlobalScope": false
       },
       "./src/datasources/redis-connector.datasource.ts": {
-        "version": "83d54837424ba202d348f74b48b901287904debccbdf715e16120a938d70f040",
+        "version": "fdc91560c73d553ad044b3a64d1d704b550ef0aa0163352c83bceb07b543e7ef",
         "signature": "6e24e432e271f098ec7dc13d89d31d1957b1631e9434e4376515c626582c7b1d",
         "affectsGlobalScope": false
       },
@@ -2137,12 +2137,12 @@
         "affectsGlobalScope": false
       },
       "./src/server.ts": {
-        "version": "4ee39cefaa5355e32ed9a099f4b1224456f969f94eaac66eb785bdd8c272adf5",
-        "signature": "7dfd5c08da3584832c98131aa722a84f07c3ee54f99e30bc9e6e0afd88c809cb",
+        "version": "2118f842878e1b94927110c5433db84f5a26a9991416ef116daa593f217f413e",
+        "signature": "c1122b58455de5c0ad68947bae521abcb3ebcc27c9b6f07a9d5c03eda18e98c1",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
-        "version": "0028da792de913839613602ce503a61f282e046ba47c68e05b8dc3af0a1e9670",
+        "version": "ed4487b028a3b11b226ece396b76390664b8752d548a7fd2da90a05c873ca96f",
         "signature": "b2c816c6f7f61a8352093c774342b11720df0ece5c8456c5c33b0abf62e1367e",
         "affectsGlobalScope": false
       },
@@ -2387,13 +2387,18 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "5b7ee8f8a30288a3a7309dacb21de96b30dc0fb6a4a2a2bd3ea748e03e48aee0",
+        "version": "a97cfca798a0433c42c5e7bb97abf911184cf6c714b8623a16b21cde0c98776b",
         "signature": "8ea77d4c2f7d1ce2ca68c185b7edb811620a2996d73ab146346382ebddef4d7b",
         "affectsGlobalScope": false
       },
       "./src/controllers/index.ts": {
         "version": "268454b1bfe3b7efd7c9e014e0d4865e56c5e68125d268dcc85b2c55c17a26d6",
         "signature": "268454b1bfe3b7efd7c9e014e0d4865e56c5e68125d268dcc85b2c55c17a26d6",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/caseless/index.d.ts": {
+        "version": "5343f3c160282dfbaab9af350119a0c3b59b7076ef0117bb5995a66e240dab28",
+        "signature": "5343f3c160282dfbaab9af350119a0c3b59b7076ef0117bb5995a66e240dab28",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/color-name/index.d.ts": {
@@ -2454,6 +2459,21 @@
       "./node_modules/@types/passport-local/index.d.ts": {
         "version": "e50f9ae34bb92232533e3a32848970dd04f874a8f64d3ae48980e062b6489f26",
         "signature": "e50f9ae34bb92232533e3a32848970dd04f874a8f64d3ae48980e062b6489f26",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/request/node_modules/form-data/index.d.ts": {
+        "version": "e91ad231af87f864b3f07cd0e39b1cf6c133988156f087c1c3ccb0a5491c9115",
+        "signature": "e91ad231af87f864b3f07cd0e39b1cf6c133988156f087c1c3ccb0a5491c9115",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/tough-cookie/index.d.ts": {
+        "version": "a6c4cc913246a4f40423d0c6e618239072d7662bd54f6d8b8be59aec55d59873",
+        "signature": "a6c4cc913246a4f40423d0c6e618239072d7662bd54f6d8b8be59aec55d59873",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/request/index.d.ts": {
+        "version": "d3c7c28e24c242c1054c6865bb6704914dfdb212063701c6fb02a8a477d00098",
+        "signature": "d3c7c28e24c242c1054c6865bb6704914dfdb212063701c6fb02a8a477d00098",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/type-is/index.d.ts": {
@@ -4336,6 +4356,24 @@
         "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.1/http.d.ts"
       ],
+      "./node_modules/@types/request/index.d.ts": [
+        "./node_modules/@types/caseless/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/fs.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/net.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/@types/node/ts3.1/tls.d.ts",
+        "./node_modules/@types/node/ts3.1/url.d.ts",
+        "./node_modules/@types/request/node_modules/form-data/index.d.ts",
+        "./node_modules/@types/tough-cookie/index.d.ts"
+      ],
+      "./node_modules/@types/request/node_modules/form-data/index.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts"
+      ],
       "./node_modules/@types/serve-static/index.d.ts": [
         "./node_modules/@types/express-serve-static-core/index.d.ts",
         "./node_modules/@types/mime/index.d.ts"
@@ -4786,8 +4824,7 @@
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@types/express/index.d.ts",
         "./node_modules/@types/node/ts3.1/events.d.ts",
-        "./node_modules/@types/node/ts3.1/fs.d.ts",
-        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
         "./node_modules/@types/node/ts3.1/net.d.ts",
         "./node_modules/@types/node/ts3.1/path.d.ts",
         "./src/application.ts"
@@ -7391,6 +7428,24 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
+      "./node_modules/@types/request/index.d.ts": [
+        "./node_modules/@types/caseless/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/fs.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/net.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts",
+        "./node_modules/@types/node/ts3.1/tls.d.ts",
+        "./node_modules/@types/node/ts3.1/url.d.ts",
+        "./node_modules/@types/request/node_modules/form-data/index.d.ts",
+        "./node_modules/@types/tough-cookie/index.d.ts"
+      ],
+      "./node_modules/@types/request/node_modules/form-data/index.d.ts": [
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
+        "./node_modules/@types/node/ts3.1/stream.d.ts"
+      ],
       "./node_modules/@types/serve-static/index.d.ts": [
         "./node_modules/@types/express-serve-static-core/index.d.ts",
         "./node_modules/@types/mime/index.d.ts",
@@ -7996,7 +8051,7 @@
       "./src/server.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@types/express/index.d.ts",
-        "./node_modules/@types/node/ts3.1/https.d.ts",
+        "./node_modules/@types/node/ts3.1/http.d.ts",
         "./src/application.ts"
       ],
       "./src/services/file-upload.ts": [
@@ -8289,6 +8344,7 @@
       "./node_modules/@loopback/testlab/should-as-function.d.ts",
       "./node_modules/@types/bcryptjs/index.d.ts",
       "./node_modules/@types/body-parser/index.d.ts",
+      "./node_modules/@types/caseless/index.d.ts",
       "./node_modules/@types/color-name/index.d.ts",
       "./node_modules/@types/connect/index.d.ts",
       "./node_modules/@types/cookiejar/index.d.ts",
@@ -8385,12 +8441,15 @@
       "./node_modules/@types/passport/index.d.ts",
       "./node_modules/@types/qs/index.d.ts",
       "./node_modules/@types/range-parser/index.d.ts",
+      "./node_modules/@types/request/index.d.ts",
+      "./node_modules/@types/request/node_modules/form-data/index.d.ts",
       "./node_modules/@types/serve-static/index.d.ts",
       "./node_modules/@types/shot/index.d.ts",
       "./node_modules/@types/sinon/index.d.ts",
       "./node_modules/@types/sinonjs__fake-timers/index.d.ts",
       "./node_modules/@types/superagent/index.d.ts",
       "./node_modules/@types/supertest/index.d.ts",
+      "./node_modules/@types/tough-cookie/index.d.ts",
       "./node_modules/@types/type-is/index.d.ts",
       "./node_modules/@types/uuid/index.d.ts",
       "./node_modules/ajv/lib/ajv.d.ts",

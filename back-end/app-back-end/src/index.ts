@@ -3,7 +3,7 @@ import * as path from 'path';
 import {ApplicationConfig, ExpressServer} from './server';
 export * from './application';
 export * from './server';
-
+const ngrok = require('ngrok');
 export async function setUpServerConfig(
     oauth2Providers: any,
 ): Promise<ApplicationConfig> {
@@ -44,6 +44,11 @@ export async function startApplication(
     await setupApplication(server.loopbackApp, dbBackupFile);
     await server.boot();
     await server.start();
+
+    const url = await ngrok.connect(3000);
+    await ngrok.authtoken('1W9VTjQHduDqZV8y7gRI0tk3UBS_3ScbmHjugJNE3pF9S6eCN');
+    console.log(`Server is running at ${url}`);
+
     return server;
 }
 
@@ -59,7 +64,6 @@ export async function main() {
         oauth2Providers,
         process.env.DB_BKP_FILE_PATH, // eg: export DB_BKP_FILE_PATH=../data/db.json
     );
-    console.log(`Server is running at ${server.url}`);
     return server;
 }
 

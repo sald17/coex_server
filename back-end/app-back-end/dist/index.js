@@ -6,6 +6,7 @@ const path = tslib_1.__importStar(require("path"));
 const server_1 = require("./server");
 tslib_1.__exportStar(require("./application"), exports);
 tslib_1.__exportStar(require("./server"), exports);
+const ngrok = require('ngrok');
 async function setUpServerConfig(oauth2Providers) {
     var _a;
     const config = {
@@ -38,6 +39,9 @@ async function startApplication(oauth2Providers, dbBackupFile) {
     await setupApplication(server.loopbackApp, dbBackupFile);
     await server.boot();
     await server.start();
+    const url = await ngrok.connect(3000);
+    await ngrok.authtoken('1W9VTjQHduDqZV8y7gRI0tk3UBS_3ScbmHjugJNE3pF9S6eCN');
+    console.log(`Server is running at ${url}`);
     return server;
 }
 exports.startApplication = startApplication;
@@ -50,7 +54,6 @@ async function main() {
         oauth2Providers = require('@loopback/mock-oauth2-provider');
     }
     const server = await startApplication(oauth2Providers, process.env.DB_BKP_FILE_PATH);
-    console.log(`Server is running at ${server.url}`);
     return server;
 }
 exports.main = main;
