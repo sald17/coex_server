@@ -78,7 +78,6 @@ export async function startApplication(
                 'repositories.TransactionRepository',
             ),
         );
-        schedule.define();
         ScheduleService.agenda.schedule('in 5 seconds', 'test', {});
         ScheduleService.agenda.start();
         console.log('Start agenda.');

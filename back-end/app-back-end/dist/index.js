@@ -53,7 +53,6 @@ async function startApplication(oauth2Providers, dbBackupFile) {
     });
     await schedule_service_1.ScheduleService.agenda.on('ready', async () => {
         let schedule = new schedule_service_1.ScheduleService(server.loopbackApp.getSync('repositories.UserRepository'), server.loopbackApp.getSync('repositories.BookingRepository'), server.loopbackApp.getSync('repositories.TransactionRepository'));
-        schedule.define();
         schedule_service_1.ScheduleService.agenda.schedule('in 5 seconds', 'test', {});
         schedule_service_1.ScheduleService.agenda.start();
         console.log('Start agenda.');

@@ -65,13 +65,13 @@ export class User extends Entity {
     avatar?: string;
 
     @property({
-        type: 'string',
+        type: 'number',
         default: 0,
     })
     point?: number;
 
     @property({
-        type: 'string',
+        type: 'number',
         default: 0,
     })
     coin?: number;

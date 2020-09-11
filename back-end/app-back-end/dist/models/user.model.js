@@ -82,14 +82,14 @@ tslib_1.__decorate([
 ], User.prototype, "avatar", void 0);
 tslib_1.__decorate([
     repository_1.property({
-        type: 'string',
+        type: 'number',
         default: 0,
     }),
     tslib_1.__metadata("design:type", Number)
 ], User.prototype, "point", void 0);
 tslib_1.__decorate([
     repository_1.property({
-        type: 'string',
+        type: 'number',
         default: 0,
     }),
     tslib_1.__metadata("design:type", Number)

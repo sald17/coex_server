@@ -6,14 +6,27 @@ const tslib_1 = require("tslib");
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const repositories_1 = require("../repositories");
-const schedule_service_1 = require("../services/schedule.service");
 // import {inject} from '@loopback/core';
 let TestController = class TestController {
     constructor(bookingRepository) {
         this.bookingRepository = bookingRepository;
     }
     async test() {
-        schedule_service_1.ScheduleService.verifyCheckIn('5f59050d393bb3e7a95760e0', new Date());
+        // ScheduleService.agenda.define('test1', async (job: any) => {
+        //     console.log('Test1');
+        // });
+        // ScheduleService.agenda.schedule(
+        //     new Date().getTime() + 10 * 1000,
+        //     'test1',
+        // );
+        // ScheduleService.agenda.define('test2', async (job: any) => {
+        //     ScheduleService.agenda.cancel({name: 'test1'});
+        //     console.log('Test2');
+        // });
+        // ScheduleService.agenda.schedule(
+        //     new Date().getTime() + 5 * 1000,
+        //     'test2',
+        // );
     }
 };
 tslib_1.__decorate([

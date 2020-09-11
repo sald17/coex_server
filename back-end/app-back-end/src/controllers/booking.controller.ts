@@ -26,8 +26,7 @@ import {
     TransactionRepository,
     UserRepository,
 } from '../repositories';
-import {Firebase} from '../services';
-import {ScheduleService} from '../services/schedule.service';
+import {NotificationService} from '../services';
 
 // Check in cho phep tre 10 phut
 // Check out cho phep tre 5 phut
@@ -153,36 +152,20 @@ export class BookingController {
 
         const host = room.coWorking.user;
 
-        // Thong bao truoc gio check in 15 phut cho client va host
-        ScheduleService.notifyCheckIn(
-            newTransaction.bookingRefernce,
-            newBooking.startTime,
+        NotificationService.notifyAfterCreate(
+            newTransaction,
+            newBooking,
+            room,
             user,
             host,
+            this.bookingRepository,
         );
-
-        ScheduleService.notifyCheckOut(
-            newTransaction.bookingRefernce,
-            newBooking.startTime,
-            user,
-            host,
-        );
-
-        // Notify host
-        Firebase.notifyHostNewBooking(
-            room.coWorking.user.firebaseToken,
-            room.name,
-            newTransaction.bookingRefernce,
-        );
-
-        // Cancel booking if user not check in late 10 mins
-        ScheduleService.verifyCheckIn(newBooking.id, newBooking.startTime);
         return newBooking;
     }
 
     // Get booking history
     @authorize({
-        allowedRoles: ['client'],
+        allowedRoles: ['client', 'host'],
         voters: [basicAuthorization],
     })
     @get('/bookings/history', {
@@ -201,6 +184,10 @@ export class BookingController {
     }
 
     // Get booking, add query params date=YYYY-MM-DD to find booking by date
+    @authorize({
+        allowedRoles: ['client', 'host'],
+        voters: [basicAuthorization],
+    })
     @get('/bookings', {
         responses: {
             '200': {
@@ -225,6 +212,10 @@ export class BookingController {
         return this.bookingRepository.find();
     }
 
+    @authorize({
+        allowedRoles: ['client', 'host'],
+        voters: [basicAuthorization],
+    })
     @get('/bookings/{id}', {
         responses: {
             '200': {
@@ -263,9 +254,19 @@ export class BookingController {
         @requestBody()
         updatedBooking: any,
     ): Promise<void> {
-        const booking: any = await this.bookingRepository.findById(id, {
+        let booking: any = await this.bookingRepository.findById(id, {
             include: [
-                {relation: 'room', scope: {include: [{relation: 'coWorking'}]}},
+                {
+                    relation: 'room',
+                    scope: {
+                        include: [
+                            {
+                                relation: 'coWorking',
+                                scope: {include: [{relation: 'user'}]},
+                            },
+                        ],
+                    },
+                },
                 {relation: 'transaction'},
             ],
         });
@@ -274,36 +275,68 @@ export class BookingController {
         }
 
         if (
-            booking.status === BookingConstant.FINISH ||
-            booking.status === BookingConstant.CANCELED ||
+            booking.status !== BookingConstant.PENDING ||
             booking.transaction.payment ||
             booking.transaction.checkIn ||
             booking.transaction.checkOut
         ) {
             throw new HttpErrors.BadRequest('Cannot update this booking');
         }
-        const room = await this.roomRepository.findById(booking.roomId);
+        const room = await this.roomRepository.findById(booking.roomId, {
+            include: [
+                {relation: 'coWorking', scope: {include: [{relation: 'user'}]}},
+            ],
+        });
         let validated = await this.bookingRepository.validateBooking(
             updatedBooking,
             room,
         );
 
-        const timestamp = Date();
-        await this.transactionRepository.updateById(booking.transaction.id, {
-            modifiedAt: timestamp,
-            price: this.bookingRepository.getBookingPrice(updatedBooking, room),
-        });
+        const timestamp = new Date();
+        const transaction = await this.transactionRepository.findById(
+            booking.transaction.id,
+        );
+        transaction.modifiedAt = timestamp;
+        transaction.price = this.bookingRepository.getBookingPrice(
+            updatedBooking,
+            room,
+        );
+
+        await this.transactionRepository.update(transaction);
 
         validated.modifiedAt = timestamp;
-        let r = await this.bookingRepository.updateById(id, validated);
+        booking = Object.assign(booking, validated, {modifiedAt: timestamp});
+
+        const user = await this.userRepository.findById(this.user[securityId]);
+        const host = await this.userRepository.findById(
+            booking.room.coWorking.userId,
+        );
+
+        delete booking.room;
+        delete booking.transaction;
+
+        let r = await this.bookingRepository.update(booking);
 
         /**
          * Add noti here
          */
+
+        NotificationService.notifyAfterUpdate(
+            transaction,
+            booking,
+            room,
+            user,
+            host,
+            this.bookingRepository,
+        );
         return r;
     }
 
     //Cancel booking
+    @authorize({
+        allowedRoles: ['client'],
+        voters: [basicAuthorization],
+    })
     @patch('/bookings/cancel/{id}')
     async cancelBooking(@param.path.string('id') id: string) {
         const booking: any = await this.bookingRepository.findById(id, {
@@ -312,13 +345,13 @@ export class BookingController {
                 {relation: 'transaction'},
             ],
         });
+
+        // Kiểm tra người cancel có phải user hay không.
         if (this.user[securityId].localeCompare(booking.userId)) {
             throw new HttpErrors.Unauthorized();
         }
         if (
-            booking.status === BookingConstant.FINISH ||
-            booking.status === BookingConstant.CANCELED ||
-            booking.status === BookingConstant.ON_GOING ||
+            booking.status !== BookingConstant.PENDING ||
             booking.transaction.payment ||
             booking.transaction.checkIn ||
             booking.transaction.checkOut
@@ -332,12 +365,24 @@ export class BookingController {
         }
         booking.status = BookingConstant.CANCELED;
         booking.modifiedAt = new Date();
+
+        const transaction = new Transaction(booking.transaction);
+        const host = await this.userRepository.findById(
+            booking.room.coWorking.userId,
+        );
         delete booking.room;
         delete booking.transaction;
         await this.bookingRepository.update(booking);
+
+        NotificationService.notifyAfterCancel(transaction, host);
     }
 
     //Check in
+
+    @authorize({
+        allowedRoles: ['host'],
+        voters: [basicAuthorization],
+    })
     @patch('/bookings/checkin/{id}')
     async checkIn(@param.path.string('id') id: string) {
         const booking: any = await this.bookingRepository.findById(id, {
@@ -346,6 +391,8 @@ export class BookingController {
                 {relation: 'transaction'},
             ],
         });
+
+        // Kiểm tra người checkin có phải host của coWorking hay không.
         if (
             this.user[securityId].localeCompare(booking.room.coWorking.userId)
         ) {
@@ -368,6 +415,7 @@ export class BookingController {
         }
 
         const timestamp = new Date();
+        const bookingRef = booking.transaction.bookingRefernce;
         await this.transactionRepository.updateById(booking.transaction.id, {
             checkInTime: timestamp,
             checkIn: true,
@@ -379,10 +427,19 @@ export class BookingController {
         delete booking.transaction;
 
         await this.bookingRepository.update(booking);
+
+        const host = await this.userRepository.findById(this.user[securityId]);
+        const client = await this.userRepository.findById(booking.userId);
+        const room = await this.roomRepository.findById(booking.roomId);
+        NotificationService.notifyAfterCheckin(client, host, room, bookingRef);
     }
 
     //Checkout
 
+    @authorize({
+        allowedRoles: ['host'],
+        voters: [basicAuthorization],
+    })
     @patch('/bookings/checkout/{id}')
     async checkOut(@param.path.string('id') id: string) {
         const booking: any = await this.bookingRepository.findById(id, {
@@ -391,6 +448,8 @@ export class BookingController {
                 {relation: 'transaction'},
             ],
         });
+
+        // Kiểm tra người checkout có phải host của coWorking hay không.
         if (
             this.user[securityId].localeCompare(booking.room.coWorking.userId)
         ) {
@@ -419,8 +478,10 @@ export class BookingController {
         const earnPoint = Math.floor(
             booking.transaction.price / PointConstant.CashToPoint,
         );
+
         const timestamp = new Date();
         const transactionId = booking.transaction.id;
+        const bookingRef = booking.transaction.bookingRefernce;
         // UPdate booking and transaction
         await this.transactionRepository.updateById(booking.transaction.id, {
             checkOutTime: timestamp,
@@ -438,7 +499,8 @@ export class BookingController {
 
         // Update user point
 
-        const user: any = await this.userRepository.findById(
+        const user: any = await this.userRepository.findById(booking.userId);
+        const host: any = await this.userRepository.findById(
             this.user[securityId],
         );
         user.point += earnPoint;
@@ -452,5 +514,12 @@ export class BookingController {
             transactionId: transactionId,
             userId: this.user[securityId],
         });
+
+        NotificationService.notifyAfterCheckout(
+            user,
+            host,
+            earnPoint,
+            bookingRef,
+        );
     }
 }

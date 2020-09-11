@@ -8,9 +8,9 @@ export declare class ScheduleService {
     private transactionRepository;
     static agenda: any;
     constructor(userRepository: UserRepository, bookingRepository: BookingRepository, transactionRepository: TransactionRepository);
-    define(): Promise<void>;
+    static cancelSchedule(name: string): Promise<void>;
     static notifyCheckIn(bookingRef: string, startTime: Date, user: User, host: User, before?: number): Promise<void>;
     static notifyCheckOut(bookingRef: string, endTime: Date, user: User, host: User, before?: number): Promise<void>;
-    static verifyCheckIn(id: string, startTime: Date): Promise<void>;
-    static verifyCheckOut(id: string, endTime: Date): Promise<void>;
+    static verifyCheckIn: (id: string, startTime: Date, bookingRef: string, bookingRepository: BookingRepository) => Promise<void>;
+    static verifyCheckOut(id: string, endTime: Date, bookingRef: string, bookingRepository: BookingRepository): Promise<void>;
 }

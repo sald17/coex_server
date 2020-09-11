@@ -3,7 +3,6 @@
 import {repository} from '@loopback/repository';
 import {get} from '@loopback/rest';
 import {BookingRepository} from '../repositories';
-import {ScheduleService} from '../services/schedule.service';
 
 // import {inject} from '@loopback/core';
 
@@ -15,6 +14,20 @@ export class TestController {
 
     @get('/test')
     async test() {
-        ScheduleService.verifyCheckIn('5f59050d393bb3e7a95760e0', new Date());
+        // ScheduleService.agenda.define('test1', async (job: any) => {
+        //     console.log('Test1');
+        // });
+        // ScheduleService.agenda.schedule(
+        //     new Date().getTime() + 10 * 1000,
+        //     'test1',
+        // );
+        // ScheduleService.agenda.define('test2', async (job: any) => {
+        //     ScheduleService.agenda.cancel({name: 'test1'});
+        //     console.log('Test2');
+        // });
+        // ScheduleService.agenda.schedule(
+        //     new Date().getTime() + 5 * 1000,
+        //     'test2',
+        // );
     }
 }

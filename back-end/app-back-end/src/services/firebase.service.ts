@@ -72,6 +72,7 @@ export class Firebase {
         await this.sendNotification(tokens, noti);
     }
 
+    // Notify host new booking
     static async notifyHostNewBooking(
         tokens: string[],
         name: string,
@@ -84,6 +85,17 @@ export class Firebase {
         await this.sendNotification(tokens, noti);
     }
 
+    //Notify host booking update
+    static async notifyHostUpdatedBooking(
+        tokens: string[],
+        bookingRef: string,
+    ) {
+        const noti = {
+            title: 'Update Booking Alert',
+            body: `Booking #${bookingRef} has been updated`,
+        };
+        await this.sendNotification(tokens, noti);
+    }
     // Verify Check in Check out
     static async notifyClientCheckInOverTime(
         tokens: string[],
@@ -91,7 +103,7 @@ export class Firebase {
     ) {
         const noti = {
             title: 'Booking Overdue',
-            body: `Your booking #${bookingRef} is canceled due to overtime.`,
+            body: `Your booking #${bookingRef} is canceled due to not check in.`,
         };
         await this.sendNotification(tokens, noti);
     }
@@ -102,7 +114,7 @@ export class Firebase {
     ) {
         const noti = {
             title: 'Booking Overdue',
-            body: `Booking #${bookingRef} is canceled due to overtime.`,
+            body: `Booking #${bookingRef} is canceled due to not check in..`,
         };
         await this.sendNotification(tokens, noti);
     }
@@ -113,7 +125,7 @@ export class Firebase {
     ) {
         const noti = {
             title: 'Booking Overdue',
-            body: `Your booking #${bookingRef} is maarked as fail due to not check out.`,
+            body: `Your booking #${bookingRef} is marked as fail due to not check out.`,
         };
         await this.sendNotification(tokens, noti);
     }
@@ -127,5 +139,70 @@ export class Firebase {
             body: `Booking #${bookingRef} is failed due to user not check out.`,
         };
         await this.sendNotification(tokens, noti);
+    }
+
+    // Notify booking cancel
+    static async notifyCancelBooking(tokens: string[], bookingRef: string) {
+        const noti = {
+            title: 'Booking Canceled',
+            body: `Booking #${bookingRef} has been canceled`,
+        };
+
+        this.sendNotification(tokens, noti);
+    }
+
+    // Notify check in
+    static async notifyClientCheckIn(
+        tokens: string[],
+        roomName: any,
+        bookingRef: string,
+    ) {
+        const noti = {
+            title: `Check in booking #${bookingRef}`,
+            body: `Checked in at room ${roomName} successfully.`,
+        };
+
+        this.sendNotification(tokens, noti);
+    }
+    static async notifyHostCheckIn(
+        tokens: string[],
+        clientName: any,
+        roomName: any,
+        bookingRef: string,
+    ) {
+        const noti = {
+            title: `Check in booking #${bookingRef}`,
+            body: `${clientName} just checked in room ${roomName}`,
+        };
+
+        this.sendNotification(tokens, noti);
+    }
+
+    // Notify earn point for user after checkout
+    static async notifyPoint(
+        tokens: string[],
+        point: number,
+        bookingRef: string,
+    ) {
+        const noti = {
+            title: `Check out #${bookingRef} successfully`,
+            body: `Thank you for choosing our service. You've earned ${point} points`,
+        };
+
+        this.sendNotification(tokens, noti);
+    }
+
+    // Notify host check out successfully
+    static async notifyHostCheckOut(
+        tokens: string[],
+        userName: any,
+        bookingRef: string,
+    ) {
+        const noti = {
+            title: `Booking #${bookingRef} check out.`,
+            body: `${userName} checked out successfully.`,
+        };
+
+        this.sendNotification(tokens, noti);
     }
 }
