@@ -4,6 +4,7 @@ exports.User = void 0;
 const tslib_1 = require("tslib");
 const repository_1 = require("@loopback/repository");
 const booking_model_1 = require("./booking.model");
+const card_model_1 = require("./card.model");
 const co_working_model_1 = require("./co-working.model");
 let User = class User extends repository_1.Entity {
     constructor(data) {
@@ -64,14 +65,14 @@ tslib_1.__decorate([
         type: 'date',
         default: Date(),
     }),
-    tslib_1.__metadata("design:type", String)
+    tslib_1.__metadata("design:type", Date)
 ], User.prototype, "createdAt", void 0);
 tslib_1.__decorate([
     repository_1.property({
         type: 'date',
         default: Date(),
     }),
-    tslib_1.__metadata("design:type", String)
+    tslib_1.__metadata("design:type", Date)
 ], User.prototype, "modifiedAt", void 0);
 tslib_1.__decorate([
     repository_1.property({
@@ -132,6 +133,10 @@ tslib_1.__decorate([
     repository_1.hasMany(() => booking_model_1.Booking),
     tslib_1.__metadata("design:type", Array)
 ], User.prototype, "bookings", void 0);
+tslib_1.__decorate([
+    repository_1.hasMany(() => card_model_1.Card),
+    tslib_1.__metadata("design:type", Array)
+], User.prototype, "cards", void 0);
 User = tslib_1.__decorate([
     repository_1.model(),
     tslib_1.__metadata("design:paramtypes", [Object])

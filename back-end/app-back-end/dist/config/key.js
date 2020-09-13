@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AUTHORIZATION_SERVICE = exports.RESOURCE_ID = exports.STORAGE_DIRECTORY = exports.FILE_UPLOAD_SERVICE = exports.EmailServiceBindings = exports.UserServiceBindings = exports.PassportAuthenticationServiceBindings = exports.PasswordHasherBindings = exports.JwtServiceBindings = exports.JwtServiceConstants = void 0;
+exports.AUTHORIZATION_SERVICE = exports.RESOURCE_ID = exports.STORAGE_DIRECTORY = exports.COIN_SERVICE = exports.FILE_UPLOAD_SERVICE = exports.EmailServiceBindings = exports.UserServiceBindings = exports.PassportAuthenticationServiceBindings = exports.PasswordHasherBindings = exports.JwtServiceBindings = exports.JwtServiceConstants = void 0;
 const core_1 = require("@loopback/core");
 var JwtServiceConstants;
 (function (JwtServiceConstants) {
@@ -35,6 +35,7 @@ var EmailServiceBindings;
  * Binding key for the file upload service
  */
 exports.FILE_UPLOAD_SERVICE = core_1.BindingKey.create('services.FileUpload');
+exports.COIN_SERVICE = core_1.BindingKey.create('services.coin');
 /**
  * Binding key for the storage directory
  */

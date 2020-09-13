@@ -9,4 +9,6 @@ tslib_1.__exportStar(require("./room.repository"), exports);
 tslib_1.__exportStar(require("./service.repository"), exports);
 tslib_1.__exportStar(require("./transaction.repository"), exports);
 tslib_1.__exportStar(require("./user.repository"), exports);
+tslib_1.__exportStar(require("./card.repository"), exports);
+tslib_1.__exportStar(require("./exchange-coin.repository"), exports);
 //# sourceMappingURL=index.js.map

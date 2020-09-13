@@ -7,3 +7,5 @@ export * from './service.model';
 export * from './token.model';
 export * from './transaction.model';
 export * from './user.model';
+export * from './card.model';
+export * from './exchange-coin.model';

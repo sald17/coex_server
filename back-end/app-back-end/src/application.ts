@@ -18,6 +18,7 @@ import {AuthorizationProvider} from './access-control/interceptor/authorization'
 import {UserAccountInterceptor} from './access-control/interceptor/user-account-interceptor';
 import {JWTStrategy} from './access-control/strategies/jwt';
 import {
+    COIN_SERVICE,
     EmailServiceBindings,
     JwtServiceBindings,
     JwtServiceConstants,
@@ -26,7 +27,7 @@ import {
 } from './config/key';
 import {BlacklistCron} from './cronjob';
 import {MySequence} from './sequence';
-import {PassportService} from './services';
+import {CoinService, PassportService} from './services';
 import {EmailService} from './services/email.service';
 import {JwtService} from './services/jwt.service';
 import {PasswordHasherService} from './services/password-hasher.service';
@@ -112,6 +113,9 @@ export class AppApplication extends BootMixin(
         this.bind(UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(
             PassportService,
         );
+
+        // Bind coin service
+        this.bind(COIN_SERVICE).toClass(CoinService);
     }
 
     setUpAuthorization() {

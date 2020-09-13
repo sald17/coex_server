@@ -5,6 +5,7 @@ import { RequestHandler } from 'express-serve-static-core';
 import { Profile as PassportProfile } from 'passport';
 import { AuthorizationProvider } from '../access-control/interceptor/authorization';
 import { User } from '../models';
+import { CoinService } from '../services';
 import { EmailService } from '../services/email.service';
 import { PasswordHasher } from '../services/password-hasher.service';
 export declare namespace JwtServiceConstants {
@@ -34,6 +35,7 @@ export declare namespace EmailServiceBindings {
  * Binding key for the file upload service
  */
 export declare const FILE_UPLOAD_SERVICE: BindingKey<RequestHandler<import("express-serve-static-core").ParamsDictionary, any, any, import("qs").ParsedQs>>;
+export declare const COIN_SERVICE: BindingKey<CoinService>;
 /**
  * Binding key for the storage directory
  */

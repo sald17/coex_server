@@ -1,13 +1,14 @@
 import {
     TokenService,
     UserIdentityService,
-    UserService
+    UserService,
 } from '@loopback/authentication';
 import {BindingKey} from '@loopback/core';
 import {RequestHandler} from 'express-serve-static-core';
 import {Profile as PassportProfile} from 'passport';
 import {AuthorizationProvider} from '../access-control/interceptor/authorization';
 import {User} from '../models';
+import {CoinService} from '../services';
 import {EmailService} from '../services/email.service';
 import {PasswordHasher} from '../services/password-hasher.service';
 
@@ -60,9 +61,13 @@ export const FILE_UPLOAD_SERVICE = BindingKey.create<RequestHandler>(
     'services.FileUpload',
 );
 
+export const COIN_SERVICE = BindingKey.create<CoinService>('services.coin');
+
 /**
  * Binding key for the storage directory
  */
 export const STORAGE_DIRECTORY = BindingKey.create<string>('storage.directory');
 export const RESOURCE_ID = BindingKey.create<string>('resourceId');
-export const AUTHORIZATION_SERVICE = BindingKey.create<AuthorizationProvider>('authorizationProviders.my-provider');
+export const AUTHORIZATION_SERVICE = BindingKey.create<AuthorizationProvider>(
+    'authorizationProviders.my-provider',
+);

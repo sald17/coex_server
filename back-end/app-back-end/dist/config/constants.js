@@ -41,6 +41,10 @@ var ScheduleConstant;
     ScheduleConstant.VERIFY_CHECK_IN = 'VERIFY_CHECK_IN';
     ScheduleConstant.VERIFY_CHECK_OUT = 'VERIFY_CHECK_OUT';
 })(ScheduleConstant = exports.ScheduleConstant || (exports.ScheduleConstant = {}));
+/**
+ *      /addCoin: convert point to coin
+ *      /withdrawEth: withDraw coin from wallet
+ */
 exports.CoinServer = 'http://dev.coinserver.unox.site';
 exports.filterTimeBooking = (infoStartTime, infoEndTime) => ({
     or: [

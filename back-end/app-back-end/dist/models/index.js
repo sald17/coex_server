@@ -10,4 +10,6 @@ tslib_1.__exportStar(require("./service.model"), exports);
 tslib_1.__exportStar(require("./token.model"), exports);
 tslib_1.__exportStar(require("./transaction.model"), exports);
 tslib_1.__exportStar(require("./user.model"), exports);
+tslib_1.__exportStar(require("./card.model"), exports);
+tslib_1.__exportStar(require("./exchange-coin.model"), exports);
 //# sourceMappingURL=index.js.map

@@ -28,6 +28,10 @@ export declare namespace ScheduleConstant {
     const VERIFY_CHECK_IN = "VERIFY_CHECK_IN";
     const VERIFY_CHECK_OUT = "VERIFY_CHECK_OUT";
 }
+/**
+ *      /addCoin: convert point to coin
+ *      /withdrawEth: withDraw coin from wallet
+ */
 export declare const CoinServer = "http://dev.coinserver.unox.site";
 export declare const filterTimeBooking: (infoStartTime: Date, infoEndTime: Date) => {
     or: ({

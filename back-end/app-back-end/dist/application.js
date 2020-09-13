@@ -74,6 +74,8 @@ class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repos
         this.add(core_1.createBindingFromClass(jwt_1.JWTStrategy));
         //Bind passport service
         this.bind(key_1.UserServiceBindings.PASSPORT_USER_IDENTITY_SERVICE).toClass(services_1.PassportService);
+        // Bind coin service
+        this.bind(key_1.COIN_SERVICE).toClass(services_1.CoinService);
     }
     setUpAuthorization() {
         const option = {

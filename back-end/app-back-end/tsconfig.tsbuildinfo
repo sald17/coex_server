@@ -222,8 +222,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@types/node/ts3.1/globals.d.ts": {
-        "version": "f323beec07a17e0082bfeed95ad57d66c9a65fc799c98511993cb2112a9e1c77",
-        "signature": "f323beec07a17e0082bfeed95ad57d66c9a65fc799c98511993cb2112a9e1c77",
+        "version": "918c70ad3be2cf2c03c506a804188c5aef03593137f8fc08da1e021648c2ecee",
+        "signature": "918c70ad3be2cf2c03c506a804188c5aef03593137f8fc08da1e021648c2ecee",
         "affectsGlobalScope": true
       },
       "./node_modules/@types/node/ts3.1/async_hooks.d.ts": {
@@ -257,8 +257,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@types/node/ts3.1/crypto.d.ts": {
-        "version": "d70cf14b7dd281408be0a7a239ae92b5e26178ac269da5ed39daf86564d5af4b",
-        "signature": "d70cf14b7dd281408be0a7a239ae92b5e26178ac269da5ed39daf86564d5af4b",
+        "version": "ec0f794b64a4f5f5f364fe6e55b61fc13c827db39d97f5366890570eb9f4c238",
+        "signature": "ec0f794b64a4f5f5f364fe6e55b61fc13c827db39d97f5366890570eb9f4c238",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/node/ts3.1/dgram.d.ts": {
@@ -327,8 +327,8 @@
         "affectsGlobalScope": false
       },
       "./node_modules/@types/node/ts3.1/perf_hooks.d.ts": {
-        "version": "981192e57b0e159c977f1d8e8b8576e9d6b4e013b902e9c0d4b178cb47e2dc86",
-        "signature": "981192e57b0e159c977f1d8e8b8576e9d6b4e013b902e9c0d4b178cb47e2dc86",
+        "version": "d0ff63b28f247b66de68a1239f1aaadc8cb5462ccdf85ec321c457832124ccc7",
+        "signature": "d0ff63b28f247b66de68a1239f1aaadc8cb5462ccdf85ec321c457832124ccc7",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/node/ts3.1/process.d.ts": {
@@ -2067,13 +2067,23 @@
         "affectsGlobalScope": false
       },
       "./src/config/constants.ts": {
-        "version": "8ac853e3aac45401ce336435ffe9d1bb356b5ed3f4702d373277edcb241f87c9",
-        "signature": "7fca753dbf76ee8e130056a8789d0378de5e7474807f0b3c3dafdbd4d42a349a",
+        "version": "306a3c8117a826950078336d0fd733ba41f6d41393acc5e631f0757fe39671ca",
+        "signature": "7b9f97552200fed00dc75245218bc413c1f4448eb758fa8c7631b9b57e613a08",
+        "affectsGlobalScope": false
+      },
+      "./src/models/exchange-coin.model.ts": {
+        "version": "fa6905be590f217a849077930bb788a0cb772ab0b0107fe278a3b394d17df5a8",
+        "signature": "c1dcdcf3298c7a80a34deae3fe21cd02471babc8cc96e3089cec15a528099621",
+        "affectsGlobalScope": false
+      },
+      "./src/models/card.model.ts": {
+        "version": "d7ccc39e23ca8204d98afd8f811d035d7addebab39742465fa298ac4dd18056f",
+        "signature": "70bc2c779517120a559c3ac1d62f2810c3405422659a47b0367d261578d77d18",
         "affectsGlobalScope": false
       },
       "./src/models/user.model.ts": {
-        "version": "7db986bb65c2bb32a1e3e0bd63b965e60090d131fa60109d3dd8a2f70acaa354",
-        "signature": "3fe5638c500b961d4073fb010e2b4c91a527f390c423317b002d4961516cadb6",
+        "version": "67103689a874fcfc3c392413f3a1f32fdb73881bae474fd0c35953c65be7d06e",
+        "signature": "63fec3c77a9a96943aadedefb26ce93f3836aabbe88d582238f46606f745b65b",
         "affectsGlobalScope": false
       },
       "./src/models/co-working.model.ts": {
@@ -2107,8 +2117,13 @@
         "affectsGlobalScope": false
       },
       "./src/models/index.ts": {
-        "version": "571a43b5332bf18a8afc6a181ca6bc9f99e878f54ab7f2d0f92e88d7951f5fb6",
-        "signature": "571a43b5332bf18a8afc6a181ca6bc9f99e878f54ab7f2d0f92e88d7951f5fb6",
+        "version": "4343037955b8ca9efc7f9a63d0aa967ea8972f57ac36667c72dc6cd9d26879fe",
+        "signature": "4343037955b8ca9efc7f9a63d0aa967ea8972f57ac36667c72dc6cd9d26879fe",
+        "affectsGlobalScope": false
+      },
+      "./src/services/date-utils.ts": {
+        "version": "d3a0eb5a103292924e8a11dac94de59566bacd0fc3c199adf726d8d149ef71ff",
+        "signature": "57d51477e7cc6e9b77397f2d9619b8ae0421a5746e39d4b435793fc707f349d5",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/nodemailer/lib/dkim/index.d.ts": {
@@ -2186,19 +2201,24 @@
         "signature": "9dadb9dbe568bb539be95ea6c34009d9243f93dbe95306e61231c436c8bf967e",
         "affectsGlobalScope": false
       },
-      "./node_modules/@types/bcryptjs/index.d.ts": {
-        "version": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
-        "signature": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
+      "./node_modules/@types/multer/index.d.ts": {
+        "version": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
+        "signature": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
+        "affectsGlobalScope": true
+      },
+      "./node_modules/@types/uuid/index.d.ts": {
+        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
+        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       },
-      "./src/services/password-hasher.service.ts": {
-        "version": "10c97fbb9d8db1d775f8af4d06338d37d034e9aa84f96467d2c3290d5d710bc4",
-        "signature": "201736bc3daa08c9b56b3d8854c55948e820518a1d3a75d6fb41594ce244bc82",
+      "./src/services/file-upload.ts": {
+        "version": "a7c071318db2828c3a0401974b7f01a8e84b233adeb0ad5b85493eb235d1584d",
+        "signature": "cc9fd7806c879d4b928f7bcf589190cdf1bff863e611419ecab7a6436833f019",
         "affectsGlobalScope": false
       },
-      "./src/config/key.ts": {
-        "version": "06e4cd390504688ea1df825f5ebd6b02962bf21ed445ba33fadaee487988e37c",
-        "signature": "021f50318061b89ba8a98f1704cf7014840824f736f2d97011a43442ffe9e7c9",
+      "./src/services/firebase.service.ts": {
+        "version": "88ae6364febf7cf8e0363d5ce52356b657f6d596b1edff50cb9a5c2da6180026",
+        "signature": "da08972067ad45417630c6b8ae1bf1ddda8015ca2f140cfa8c84e88800cb8f84",
         "affectsGlobalScope": false
       },
       "./src/datasources/mongo-connector.datasource.ts": {
@@ -2221,34 +2241,24 @@
         "signature": "5579ef3039a0ff55ce073778739a4e66f6e8d03e73377bb1eaf9458852bbc356",
         "affectsGlobalScope": false
       },
-      "./src/services/date-utils.ts": {
-        "version": "d3a0eb5a103292924e8a11dac94de59566bacd0fc3c199adf726d8d149ef71ff",
-        "signature": "57d51477e7cc6e9b77397f2d9619b8ae0421a5746e39d4b435793fc707f349d5",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/multer/index.d.ts": {
-        "version": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
-        "signature": "773d135a3bc375aa4e0c984e1b1167536fa0360749ef8c230433a56d64bc434a",
-        "affectsGlobalScope": true
-      },
-      "./node_modules/@types/uuid/index.d.ts": {
-        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
-        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
-        "affectsGlobalScope": false
-      },
-      "./src/services/file-upload.ts": {
-        "version": "a7c071318db2828c3a0401974b7f01a8e84b233adeb0ad5b85493eb235d1584d",
-        "signature": "cc9fd7806c879d4b928f7bcf589190cdf1bff863e611419ecab7a6436833f019",
-        "affectsGlobalScope": false
-      },
       "./src/repositories/service.repository.ts": {
         "version": "0013967ab849c495debd2acca4b6e06c376b0cbc7f1eae84227c8b1db27ca916",
         "signature": "c1debed936f6b67caa0cd06639c3382d00757479930bc0e87e2fc95358800237",
         "affectsGlobalScope": false
       },
+      "./src/repositories/exchange-coin.repository.ts": {
+        "version": "c210d6553dbce3de2d1584b4b8192b5f9f9f2d62ebe1193946ef7395e6ddec9d",
+        "signature": "76679666433071f82b8e50bc99207443bf4bab27d9a9bf10577275284bcb94ee",
+        "affectsGlobalScope": false
+      },
+      "./src/repositories/card.repository.ts": {
+        "version": "a17614aff7886ef19d9bd69c868232b33c8c03de8bdff03debcec6174b55b5b4",
+        "signature": "4af0fb641dc3471d0e26ef6d04ca4736a7036bc0b5eac558ef66cb149798d1ae",
+        "affectsGlobalScope": false
+      },
       "./src/repositories/user.repository.ts": {
-        "version": "4dd4928b271cde433d170ff043d05429b7d8a0440e0897c70fbbcfa5ec60b696",
-        "signature": "926e8dd0d2131eb61af56337c2aab304a9027dcabe2094ec12c657794b4cac25",
+        "version": "a6f3d2edb7cddf34cb134a59386e60bba065fc31290b7419973d933a293b9dbe",
+        "signature": "003cc9b30f6b5e1a62f30747e91e4af2143cbd4ceaaff1369f3dcef0f73446d1",
         "affectsGlobalScope": false
       },
       "./src/repositories/co-working.repository.ts": {
@@ -2277,13 +2287,13 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/index.ts": {
-        "version": "1a5fe36f05608f8eb07debdd311fa909dc5c60927d72623ba005342aa8f0ea13",
-        "signature": "1a5fe36f05608f8eb07debdd311fa909dc5c60927d72623ba005342aa8f0ea13",
+        "version": "5d7f8fa588b42f612232b2b86d00dc690524c0ad39df6b8faa680717a9f25815",
+        "signature": "5d7f8fa588b42f612232b2b86d00dc690524c0ad39df6b8faa680717a9f25815",
         "affectsGlobalScope": false
       },
-      "./src/services/firebase.service.ts": {
-        "version": "88ae6364febf7cf8e0363d5ce52356b657f6d596b1edff50cb9a5c2da6180026",
-        "signature": "da08972067ad45417630c6b8ae1bf1ddda8015ca2f140cfa8c84e88800cb8f84",
+      "./src/services/jwt.service.ts": {
+        "version": "d1ee534f5d55bafe4da635ba3f5e0de651d05d16e157303489a73fd9fe88e295",
+        "signature": "9bcfd00985fe7a610037aadf62c0f8fd9648d9abc67df1f833df9c0ab0f5ea7f",
         "affectsGlobalScope": false
       },
       "./src/services/notification.service.ts": {
@@ -2296,6 +2306,16 @@
         "signature": "78377c437ed017ed6254e5490d5e55d75ba1c71dd449f435f5eac885ebda63a8",
         "affectsGlobalScope": false
       },
+      "./node_modules/@types/bcryptjs/index.d.ts": {
+        "version": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
+        "signature": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
+        "affectsGlobalScope": false
+      },
+      "./src/services/password-hasher.service.ts": {
+        "version": "10c97fbb9d8db1d775f8af4d06338d37d034e9aa84f96467d2c3290d5d710bc4",
+        "signature": "201736bc3daa08c9b56b3d8854c55948e820518a1d3a75d6fb41594ce244bc82",
+        "affectsGlobalScope": false
+      },
       "./src/services/schedule.service.ts": {
         "version": "f92f97ee2ba86fd902aef476151a25120a0e7447cf287508602f3282965b5c5e",
         "signature": "e8ea641d34ba5fef4f1e27ed2c8a2f1d4b50a4541f462d6672dd537221be1818",
@@ -2306,14 +2326,24 @@
         "signature": "6eb0817e7b27e8d2f31245d6fe310d622c44a1b4dbaa59571026b9d9653b60ce",
         "affectsGlobalScope": false
       },
-      "./src/services/index.ts": {
-        "version": "dd80e47bcfbf8972874ee3492257cda9828ae6b4db3e13097e1c054492ed485c",
-        "signature": "dd80e47bcfbf8972874ee3492257cda9828ae6b4db3e13097e1c054492ed485c",
+      "./node_modules/axios/index.d.ts": {
+        "version": "c50b2f015a8bddda1689f8228703f177614f9e10348f4a845104f04351264507",
+        "signature": "c50b2f015a8bddda1689f8228703f177614f9e10348f4a845104f04351264507",
         "affectsGlobalScope": false
       },
-      "./src/services/jwt.service.ts": {
-        "version": "d1ee534f5d55bafe4da635ba3f5e0de651d05d16e157303489a73fd9fe88e295",
-        "signature": "9bcfd00985fe7a610037aadf62c0f8fd9648d9abc67df1f833df9c0ab0f5ea7f",
+      "./src/services/coin.service.ts": {
+        "version": "47160877780b88f11efc8385b63edbb17a678ab4801c393f35c4f794da9af561",
+        "signature": "03732d8a6037a65888606a1026e410336723d4ce0b20769b650edb7ffe73d073",
+        "affectsGlobalScope": false
+      },
+      "./src/services/index.ts": {
+        "version": "c1e9cbafb0782a50c43e19e985837925905e8a3ed6d0071cd7500a782b4d45b2",
+        "signature": "c1e9cbafb0782a50c43e19e985837925905e8a3ed6d0071cd7500a782b4d45b2",
+        "affectsGlobalScope": false
+      },
+      "./src/config/key.ts": {
+        "version": "fb2787af0e41102956fb535c4031c0cd7473bea0a69e364edb1212a6760c28d5",
+        "signature": "5f784575126abe93cc05d7f6ef8c2d7cff33570dcce86751bc25b878d031ab9b",
         "affectsGlobalScope": false
       },
       "./src/access-control/strategies/jwt.ts": {
@@ -2382,7 +2412,7 @@
         "affectsGlobalScope": false
       },
       "./src/application.ts": {
-        "version": "ee242170832eae29612e534f3f7da3f78bbacba7d1db8f502542380027cd614e",
+        "version": "22b3246904669b43d782a2bb0130bbd0050fd2e773c90b130bf536706fbf6394",
         "signature": "4fe970c3ae62e9316da6cc0d43584721ca119adac881e68c937d2a8b80a700fa",
         "affectsGlobalScope": false
       },
@@ -2621,9 +2651,34 @@
         "signature": "3db33d8ad7791e1d083ca7f007acd347abd7bf1ea854ca62004afadc21907992",
         "affectsGlobalScope": false
       },
+      "./src/controllers/card-exchange-coin.controller.ts": {
+        "version": "787b9408f0a3b7e6f5dfebdd67b3457c96b9863bd60dd371e560b9e3f7cc3a67",
+        "signature": "5f1d0c0920593d38a481530373467a52ed1ac1f0dd6bb853efa23d15edfcab4e",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/card.controller.ts": {
+        "version": "82260865712b6ee41ef6fe276eb1a97369860c115fa0ed564e2c94abebfbccaa",
+        "signature": "3b1b09f53620b1425884c8f7899d73faad6cb147e35237ba0d2ec6f4254e097d",
+        "affectsGlobalScope": false
+      },
       "./src/controllers/co-working.controller.ts": {
         "version": "5fd97e5e4bc7e7485c0097bca487ae69d93e09aeb1718ac960d7d27181e7ec76",
         "signature": "ca17b91b5a6ff27884618e9766e11198626b7b6b5ef59524eb4499f1758990a7",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/exchange-coin-card.controller.ts": {
+        "version": "8e4e706e87486dfe4109d69e90262e6e0bab2d7e068033aec86626ce3659df87",
+        "signature": "71f8a2da3f69646a2690d69447af0e23318cea3dcbbb13e60f08df8592632a66",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/exchange-coin-user.controller.ts": {
+        "version": "9f7515f382a9e018252224e920facfd335d0bd84484198349e621c6c2fbd1a66",
+        "signature": "44efa5dd468f820b3a67f27d85a86d9cd40e90eacabdf20e5104abd576b65ace",
+        "affectsGlobalScope": false
+      },
+      "./src/controllers/point.controller.ts": {
+        "version": "3ae113e5688573d5cbb7c93786ea60196fc14531e6f46df33ed33ec5e20a61ba",
+        "signature": "ccde7b44ee75ecc22cdab442e84343a80895cfd93cfa0819de6aa28a179dd76c",
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
@@ -2631,19 +2686,19 @@
         "signature": "bc92adc3102ce311f4d7d02a065993c67aeafd2a716474d19fb685cb188f2e23",
         "affectsGlobalScope": false
       },
-      "./src/controllers/user-controller.controller.ts": {
-        "version": "3eeb132d68609596f273d36d3a3a1ad348445e1a91bd28f18a91db3e7e4d8ae6",
-        "signature": "ebd33838755070e71745ff998950a156dddb9bb4c09a689aca39c7dbaaacfb78",
-        "affectsGlobalScope": false
-      },
       "./src/controllers/test.controller.ts": {
         "version": "c5b79e23b1908272a9836f60a969d6161c1a93f7872a26e8b1853d195bf1845f",
         "signature": "8742ed7e50c6e5a89cd44c43383a72eed0380770f7fabc323a7131f193fd44af",
         "affectsGlobalScope": false
       },
+      "./src/controllers/user-controller.controller.ts": {
+        "version": "3eeb132d68609596f273d36d3a3a1ad348445e1a91bd28f18a91db3e7e4d8ae6",
+        "signature": "ebd33838755070e71745ff998950a156dddb9bb4c09a689aca39c7dbaaacfb78",
+        "affectsGlobalScope": false
+      },
       "./src/controllers/index.ts": {
-        "version": "bd64c1beb55f96c4b9bdaaf32bd9c6a1b46d244678c936bb94e693fba78aa6a2",
-        "signature": "bd64c1beb55f96c4b9bdaaf32bd9c6a1b46d244678c936bb94e693fba78aa6a2",
+        "version": "b6def33de25e6721157481db51987ae68b330e1583e7e5df559d58c297608d5c",
+        "signature": "b6def33de25e6721157481db51987ae68b330e1583e7e5df559d58c297608d5c",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/caseless/index.d.ts": {
@@ -5062,6 +5117,7 @@
         "./src/access-control/interceptor/authorization.ts",
         "./src/models/index.ts",
         "./src/services/email.service.ts",
+        "./src/services/index.ts",
         "./src/services/password-hasher.service.ts"
       ],
       "./src/controllers/booking.controller.ts": [
@@ -5077,6 +5133,23 @@
         "./src/repositories/index.ts",
         "./src/services/index.ts"
       ],
+      "./src/controllers/card-exchange-coin.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/card.controller.ts": [
+        "./node_modules/@loopback/authentication/dist/index.d.ts",
+        "./node_modules/@loopback/authorization/dist/index.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/access-control/authenticator/basic-authentication.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/controllers/co-working.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
         "./node_modules/@loopback/authorization/dist/index.d.ts",
@@ -5089,12 +5162,41 @@
         "./src/repositories/index.ts",
         "./src/services/file-upload.ts"
       ],
+      "./src/controllers/exchange-coin-card.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/exchange-coin-user.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/controllers/index.ts": [
         "./src/controllers/booking.controller.ts",
+        "./src/controllers/card-exchange-coin.controller.ts",
+        "./src/controllers/card.controller.ts",
         "./src/controllers/co-working.controller.ts",
+        "./src/controllers/exchange-coin-card.controller.ts",
+        "./src/controllers/exchange-coin-user.controller.ts",
+        "./src/controllers/point.controller.ts",
         "./src/controllers/room.controller.ts",
         "./src/controllers/test.controller.ts",
         "./src/controllers/user-controller.controller.ts"
+      ],
+      "./src/controllers/point.controller.ts": [
+        "./node_modules/@loopback/authentication/dist/index.d.ts",
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./node_modules/axios/index.d.ts",
+        "./src/config/constants.ts",
+        "./src/config/key.ts",
+        "./src/repositories/index.ts",
+        "./src/services/index.ts"
       ],
       "./src/controllers/room.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",
@@ -5173,9 +5275,19 @@
         "./src/models/transaction.model.ts",
         "./src/models/user.model.ts"
       ],
+      "./src/models/card.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/exchange-coin.model.ts",
+        "./src/models/user.model.ts"
+      ],
       "./src/models/co-working.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/room.model.ts",
+        "./src/models/user.model.ts"
+      ],
+      "./src/models/exchange-coin.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/card.model.ts",
         "./src/models/user.model.ts"
       ],
       "./src/models/exchange-point.model.ts": [
@@ -5186,7 +5298,9 @@
       "./src/models/index.ts": [
         "./src/models/blacklist.model.ts",
         "./src/models/booking.model.ts",
+        "./src/models/card.model.ts",
         "./src/models/co-working.model.ts",
+        "./src/models/exchange-coin.model.ts",
         "./src/models/exchange-point.model.ts",
         "./src/models/room.model.ts",
         "./src/models/service.model.ts",
@@ -5214,6 +5328,7 @@
       "./src/models/user.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/booking.model.ts",
+        "./src/models/card.model.ts",
         "./src/models/co-working.model.ts"
       ],
       "./src/openapi-spec.ts": [
@@ -5240,12 +5355,28 @@
         "./src/repositories/user.repository.ts",
         "./src/services/date-utils.ts"
       ],
+      "./src/repositories/card.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/exchange-coin.repository.ts",
+        "./src/repositories/user.repository.ts"
+      ],
       "./src/repositories/co-working.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts",
         "./src/repositories/room.repository.ts",
+        "./src/repositories/user.repository.ts"
+      ],
+      "./src/repositories/exchange-coin.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/card.repository.ts",
         "./src/repositories/user.repository.ts"
       ],
       "./src/repositories/exchange-point.repository.ts": [
@@ -5259,7 +5390,9 @@
       "./src/repositories/index.ts": [
         "./src/repositories/blacklist.repository.ts",
         "./src/repositories/booking.repository.ts",
+        "./src/repositories/card.repository.ts",
         "./src/repositories/co-working.repository.ts",
+        "./src/repositories/exchange-coin.repository.ts",
         "./src/repositories/exchange-point.repository.ts",
         "./src/repositories/room.repository.ts",
         "./src/repositories/service.repository.ts",
@@ -5296,6 +5429,7 @@
         "./src/datasources/index.ts",
         "./src/models/index.ts",
         "./src/repositories/booking.repository.ts",
+        "./src/repositories/card.repository.ts",
         "./src/repositories/co-working.repository.ts"
       ],
       "./src/sequence.ts": [
@@ -5311,6 +5445,13 @@
         "./node_modules/@types/node/ts3.1/net.d.ts",
         "./node_modules/@types/node/ts3.1/path.d.ts",
         "./src/application.ts"
+      ],
+      "./src/services/coin.service.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./node_modules/axios/index.d.ts",
+        "./src/config/constants.ts",
+        "./src/repositories/index.ts"
       ],
       "./src/services/date-utils.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts"
@@ -5330,6 +5471,7 @@
         "./node_modules/firebase-admin/lib/index.d.ts"
       ],
       "./src/services/index.ts": [
+        "./src/services/coin.service.ts",
         "./src/services/date-utils.ts",
         "./src/services/email.service.ts",
         "./src/services/file-upload.ts",
@@ -8595,9 +8737,21 @@
         "./src/access-control/interceptor/authorization.ts",
         "./src/models/index.ts",
         "./src/services/email.service.ts",
+        "./src/services/index.ts",
         "./src/services/password-hasher.service.ts"
       ],
       "./src/controllers/booking.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/card-exchange-coin.controller.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/card.controller.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
         "./src/models/index.ts",
@@ -8610,12 +8764,31 @@
         "./src/models/index.ts",
         "./src/repositories/index.ts"
       ],
+      "./src/controllers/exchange-coin-card.controller.ts": [
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
+      "./src/controllers/exchange-coin-user.controller.ts": [
+        "./src/models/index.ts",
+        "./src/repositories/index.ts"
+      ],
       "./src/controllers/index.ts": [
         "./src/controllers/booking.controller.ts",
+        "./src/controllers/card-exchange-coin.controller.ts",
+        "./src/controllers/card.controller.ts",
         "./src/controllers/co-working.controller.ts",
+        "./src/controllers/exchange-coin-card.controller.ts",
+        "./src/controllers/exchange-coin-user.controller.ts",
+        "./src/controllers/point.controller.ts",
         "./src/controllers/room.controller.ts",
         "./src/controllers/test.controller.ts",
         "./src/controllers/user-controller.controller.ts"
+      ],
+      "./src/controllers/point.controller.ts": [
+        "./node_modules/@loopback/security/dist/index.d.ts",
+        "./src/models/index.ts",
+        "./src/repositories/index.ts",
+        "./src/services/index.ts"
       ],
       "./src/controllers/room.controller.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
@@ -8668,9 +8841,17 @@
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/transaction.model.ts"
       ],
+      "./src/models/card.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/exchange-coin.model.ts"
+      ],
       "./src/models/co-working.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/room.model.ts"
+      ],
+      "./src/models/exchange-coin.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/card.model.ts"
       ],
       "./src/models/exchange-point.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
@@ -8678,7 +8859,9 @@
       "./src/models/index.ts": [
         "./src/models/blacklist.model.ts",
         "./src/models/booking.model.ts",
+        "./src/models/card.model.ts",
         "./src/models/co-working.model.ts",
+        "./src/models/exchange-coin.model.ts",
         "./src/models/exchange-point.model.ts",
         "./src/models/room.model.ts",
         "./src/models/service.model.ts",
@@ -8703,6 +8886,7 @@
       "./src/models/user.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/models/booking.model.ts",
+        "./src/models/card.model.ts",
         "./src/models/co-working.model.ts"
       ],
       "./src/repositories/blacklist.repository.ts": [
@@ -8720,12 +8904,28 @@
         "./src/repositories/transaction.repository.ts",
         "./src/repositories/user.repository.ts"
       ],
+      "./src/repositories/card.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/exchange-coin.repository.ts",
+        "./src/repositories/user.repository.ts"
+      ],
       "./src/repositories/co-working.repository.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./src/datasources/index.ts",
         "./src/models/index.ts",
         "./src/repositories/room.repository.ts",
+        "./src/repositories/user.repository.ts"
+      ],
+      "./src/repositories/exchange-coin.repository.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/datasources/index.ts",
+        "./src/models/index.ts",
+        "./src/repositories/card.repository.ts",
         "./src/repositories/user.repository.ts"
       ],
       "./src/repositories/exchange-point.repository.ts": [
@@ -8739,7 +8939,9 @@
       "./src/repositories/index.ts": [
         "./src/repositories/blacklist.repository.ts",
         "./src/repositories/booking.repository.ts",
+        "./src/repositories/card.repository.ts",
         "./src/repositories/co-working.repository.ts",
+        "./src/repositories/exchange-coin.repository.ts",
         "./src/repositories/exchange-point.repository.ts",
         "./src/repositories/room.repository.ts",
         "./src/repositories/service.repository.ts",
@@ -8775,6 +8977,7 @@
         "./src/datasources/index.ts",
         "./src/models/index.ts",
         "./src/repositories/booking.repository.ts",
+        "./src/repositories/card.repository.ts",
         "./src/repositories/co-working.repository.ts"
       ],
       "./src/sequence.ts": [
@@ -8787,6 +8990,9 @@
         "./node_modules/@types/node/ts3.1/http.d.ts",
         "./src/application.ts"
       ],
+      "./src/services/coin.service.ts": [
+        "./src/repositories/index.ts"
+      ],
       "./src/services/file-upload.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts"
       ],
@@ -8794,6 +9000,7 @@
         "./node_modules/firebase-admin/lib/messaging.d.ts"
       ],
       "./src/services/index.ts": [
+        "./src/services/coin.service.ts",
         "./src/services/date-utils.ts",
         "./src/services/email.service.ts",
         "./src/services/file-upload.ts",
@@ -9226,6 +9433,7 @@
       "./node_modules/@types/uuid/index.d.ts",
       "./node_modules/abort-controller/dist/abort-controller.d.ts",
       "./node_modules/ajv/lib/ajv.d.ts",
+      "./node_modules/axios/index.d.ts",
       "./node_modules/event-target-shim/index.d.ts",
       "./node_modules/firebase-admin/lib/auth.d.ts",
       "./node_modules/firebase-admin/lib/database.d.ts",
@@ -9334,8 +9542,13 @@
       "./src/config/constants.ts",
       "./src/config/key.ts",
       "./src/controllers/booking.controller.ts",
+      "./src/controllers/card-exchange-coin.controller.ts",
+      "./src/controllers/card.controller.ts",
       "./src/controllers/co-working.controller.ts",
+      "./src/controllers/exchange-coin-card.controller.ts",
+      "./src/controllers/exchange-coin-user.controller.ts",
       "./src/controllers/index.ts",
+      "./src/controllers/point.controller.ts",
       "./src/controllers/room.controller.ts",
       "./src/controllers/test.controller.ts",
       "./src/controllers/user-controller.controller.ts",
@@ -9348,7 +9561,9 @@
       "./src/migrate.ts",
       "./src/models/blacklist.model.ts",
       "./src/models/booking.model.ts",
+      "./src/models/card.model.ts",
       "./src/models/co-working.model.ts",
+      "./src/models/exchange-coin.model.ts",
       "./src/models/exchange-point.model.ts",
       "./src/models/index.ts",
       "./src/models/room.model.ts",
@@ -9359,7 +9574,9 @@
       "./src/openapi-spec.ts",
       "./src/repositories/blacklist.repository.ts",
       "./src/repositories/booking.repository.ts",
+      "./src/repositories/card.repository.ts",
       "./src/repositories/co-working.repository.ts",
+      "./src/repositories/exchange-coin.repository.ts",
       "./src/repositories/exchange-point.repository.ts",
       "./src/repositories/index.ts",
       "./src/repositories/room.repository.ts",
@@ -9368,6 +9585,7 @@
       "./src/repositories/user.repository.ts",
       "./src/sequence.ts",
       "./src/server.ts",
+      "./src/services/coin.service.ts",
       "./src/services/date-utils.ts",
       "./src/services/email.service.ts",
       "./src/services/file-upload.ts",

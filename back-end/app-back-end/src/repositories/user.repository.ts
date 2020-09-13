@@ -6,9 +6,10 @@ import {
     repository,
 } from '@loopback/repository';
 import {MongoConnectorDataSource} from '../datasources';
-import {Booking, CoWorking, User, UserRelations} from '../models';
+import {Booking, CoWorking, User, UserRelations, Card} from '../models';
 import {BookingRepository} from './booking.repository';
 import {CoWorkingRepository} from './co-working.repository';
+import {CardRepository} from './card.repository';
 
 export class UserRepository extends DefaultCrudRepository<
     User,
@@ -25,15 +26,19 @@ export class UserRepository extends DefaultCrudRepository<
         typeof User.prototype.id
     >;
 
+  public readonly cards: HasManyRepositoryFactory<Card, typeof User.prototype.id>;
+
     constructor(
         @inject('datasources.MongoConnector')
         dataSource: MongoConnectorDataSource,
         @repository.getter('CoWorkingRepository')
         protected coWorkingRepositoryGetter: Getter<CoWorkingRepository>,
         @repository.getter('BookingRepository')
-        protected bookingRepositoryGetter: Getter<BookingRepository>,
+        protected bookingRepositoryGetter: Getter<BookingRepository>, @repository.getter('CardRepository') protected cardRepositoryGetter: Getter<CardRepository>,
     ) {
         super(User, dataSource);
+      this.cards = this.createHasManyRepositoryFactoryFor('cards', cardRepositoryGetter,);
+      this.registerInclusionResolver('cards', this.cards.inclusionResolver);
         this.bookings = this.createHasManyRepositoryFactoryFor(
             'bookings',
             bookingRepositoryGetter,

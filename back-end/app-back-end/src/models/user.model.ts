@@ -1,5 +1,6 @@
 import {Entity, hasMany, hasOne, model, property} from '@loopback/repository';
 import {Booking} from './booking.model';
+import {Card} from './card.model';
 import {CoWorking} from './co-working.model';
 
 @model()
@@ -50,13 +51,13 @@ export class User extends Entity {
         type: 'date',
         default: Date(),
     })
-    createdAt?: string;
+    createdAt?: Date;
 
     @property({
         type: 'date',
         default: Date(),
     })
-    modifiedAt?: string;
+    modifiedAt?: Date;
 
     @property({
         type: 'string',
@@ -68,13 +69,13 @@ export class User extends Entity {
         type: 'number',
         default: 0,
     })
-    point?: number;
+    point: number;
 
     @property({
         type: 'number',
         default: 0,
     })
-    coin?: number;
+    coin: number;
 
     @property({
         type: 'string',
@@ -107,6 +108,9 @@ export class User extends Entity {
 
     @hasMany(() => Booking)
     bookings: Booking[];
+
+    @hasMany(() => Card)
+    cards: Card[];
 
     constructor(data?: Partial<User>) {
         super(data);
