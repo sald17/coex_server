@@ -1,1 +1,1 @@
-export declare function stringToDate(input: string): Date;
+export declare function stringToDate(input: string, validate?: boolean): Date;

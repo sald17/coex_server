@@ -14,7 +14,6 @@ export declare class BookingController {
         price: number;
     }>;
     create(bookingInfo: any): Promise<Booking>;
-    getHistory(): Promise<(Booking & import("../models").BookingRelations)[]>;
     find(date: string): Promise<Booking[]>;
     findById(id: string, filter?: FilterExcludingWhere<Booking>): Promise<Booking>;
     updateById(id: string, updatedBooking: any): Promise<void>;

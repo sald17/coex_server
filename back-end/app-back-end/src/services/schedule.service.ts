@@ -116,7 +116,7 @@ export class ScheduleService {
     }
 
     static verifyCheckIn = async (
-        id: string,
+        id: any,
         startTime: Date,
         bookingRef: string,
         bookingRepository: BookingRepository,
@@ -204,7 +204,7 @@ export class ScheduleService {
     };
 
     static async verifyCheckOut(
-        id: string,
+        id: any,
         endTime: Date,
         bookingRef: string,
         bookingRepository: BookingRepository,

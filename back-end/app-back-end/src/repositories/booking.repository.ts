@@ -123,29 +123,50 @@ export class BookingRepository extends DefaultCrudRepository<
      * Find booking by date
      */
 
-    async findBookingByDate(date: string) {
+    async findBookingByDate(date: string, user: string) {
         date = date.concat('-0-0');
-        const startDate = stringToDate(date);
-        const endDate = new Date(startDate.getTime() + 3600 * 24);
+        const startDate = stringToDate(date, false);
+        const endDate = new Date(startDate.getTime() + 1000 * 3600 * 24);
+        return this.find(
+            {
+                where: {
+                    userId: user,
+                    or: [
+                        {
+                            and: [
+                                {
+                                    startTime: {
+                                        gte: startDate,
+                                    },
+                                },
 
-        return this.find({
-            where: {
-                or: [
-                    {
-                        startTime: {
-                            gte: startDate,
-                            lt: endDate,
+                                {
+                                    startTime: {
+                                        lt: endDate,
+                                    },
+                                },
+                            ],
                         },
-                    },
-                    {
-                        endTime: {
-                            gte: startDate,
-                            lt: endDate,
+                        {
+                            and: [
+                                {
+                                    endTime: {
+                                        gte: startDate,
+                                    },
+                                },
+
+                                {
+                                    endTime: {
+                                        lt: endDate,
+                                    },
+                                },
+                            ],
                         },
-                    },
-                ],
+                    ],
+                },
             },
-        });
+            {include: [{relation: 'transaction'}]},
+        );
     }
 
     /**

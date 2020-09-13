@@ -2222,8 +2222,8 @@
         "affectsGlobalScope": false
       },
       "./src/services/date-utils.ts": {
-        "version": "203b40370f4a4953f1d8f73479a5208742da583bc739283ee07f4b99df76a0eb",
-        "signature": "e09893039a41b173f40e44e4755fdedf7a69e6a2f0f3f997948e6c6a4c81a7a6",
+        "version": "d3a0eb5a103292924e8a11dac94de59566bacd0fc3c199adf726d8d149ef71ff",
+        "signature": "57d51477e7cc6e9b77397f2d9619b8ae0421a5746e39d4b435793fc707f349d5",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/multer/index.d.ts": {
@@ -2267,8 +2267,8 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/booking.repository.ts": {
-        "version": "573dc157b5df5865123e4df0fbad31018710c46a99f0048f3fa5620083c65d03",
-        "signature": "bfd2fc747e8890fe8e6187d7af669638f1166b85f642feffef2a8417137c4991",
+        "version": "88f64084a40b3c584def1e6e70cb9a2b615eab1fd21eaf8b1306b3d5055dfbcb",
+        "signature": "bf9c74b2387c82e683c3e9464c8fc819a4defd72e0bc3111dfdc5af2164294f2",
         "affectsGlobalScope": false
       },
       "./src/repositories/exchange-point.repository.ts": {
@@ -2286,9 +2286,19 @@
         "signature": "da08972067ad45417630c6b8ae1bf1ddda8015ca2f140cfa8c84e88800cb8f84",
         "affectsGlobalScope": false
       },
+      "./src/services/notification.service.ts": {
+        "version": "94b1a305e4b1baac3c401281603e2bc934c643a18f8bb58d59a3b6f5bd30960b",
+        "signature": "0b8e47b1a08a86a886467b4c2bc7e1c4295102c29c0a1664d60c20be4c9b4779",
+        "affectsGlobalScope": false
+      },
       "./src/services/passport.service.ts": {
         "version": "5442ff51cef294f28d3ff498388a4bba75b0ad3e4750c026a8d998525b8eb91e",
         "signature": "78377c437ed017ed6254e5490d5e55d75ba1c71dd449f435f5eac885ebda63a8",
+        "affectsGlobalScope": false
+      },
+      "./src/services/schedule.service.ts": {
+        "version": "f92f97ee2ba86fd902aef476151a25120a0e7447cf287508602f3282965b5c5e",
+        "signature": "e8ea641d34ba5fef4f1e27ed2c8a2f1d4b50a4541f462d6672dd537221be1818",
         "affectsGlobalScope": false
       },
       "./src/services/user.service.ts": {
@@ -2296,19 +2306,9 @@
         "signature": "6eb0817e7b27e8d2f31245d6fe310d622c44a1b4dbaa59571026b9d9653b60ce",
         "affectsGlobalScope": false
       },
-      "./src/services/schedule.service.ts": {
-        "version": "bd35e59bf33f3c53ffbfb9959aae0ccc9cc90c272c15f2d4be8334f1fecc67d7",
-        "signature": "d6ada33c37fe6555803c1ea2dfbbf722a80ad32549b724782db606e5be91b3b5",
-        "affectsGlobalScope": false
-      },
-      "./src/services/notification.service.ts": {
-        "version": "94b1a305e4b1baac3c401281603e2bc934c643a18f8bb58d59a3b6f5bd30960b",
-        "signature": "0b8e47b1a08a86a886467b4c2bc7e1c4295102c29c0a1664d60c20be4c9b4779",
-        "affectsGlobalScope": false
-      },
       "./src/services/index.ts": {
-        "version": "75b0d632b7ad4a6f38d3e095289f897923c52bafda4b56064b7bb27119ef280b",
-        "signature": "75b0d632b7ad4a6f38d3e095289f897923c52bafda4b56064b7bb27119ef280b",
+        "version": "dd80e47bcfbf8972874ee3492257cda9828ae6b4db3e13097e1c054492ed485c",
+        "signature": "dd80e47bcfbf8972874ee3492257cda9828ae6b4db3e13097e1c054492ed485c",
         "affectsGlobalScope": false
       },
       "./src/services/jwt.service.ts": {
@@ -2617,8 +2617,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/booking.controller.ts": {
-        "version": "96059f2809ebd769c8ca3e76ede4761e7aa9e600c246413e649fde97018c198a",
-        "signature": "361c0945d008dc776e4243d178e7b25042bb678dd181569922fa3b46b44e18cb",
+        "version": "0f08ad90b8db920ef46c6ee4252b8f57aa0b1a6b50625be05cdd88fca34c9e87",
+        "signature": "3db33d8ad7791e1d083ca7f007acd347abd7bf1ea854ca62004afadc21907992",
         "affectsGlobalScope": false
       },
       "./src/controllers/co-working.controller.ts": {

@@ -1,11 +1,7 @@
 import {authenticate} from '@loopback/authentication';
 import {authorize} from '@loopback/authorization';
 import {inject} from '@loopback/core';
-import {
-    CountSchema,
-    FilterExcludingWhere,
-    repository,
-} from '@loopback/repository';
+import {FilterExcludingWhere, repository} from '@loopback/repository';
 import {
     get,
     getModelSchemaRef,
@@ -163,26 +159,6 @@ export class BookingController {
         return newBooking;
     }
 
-    // Get booking history
-    @authorize({
-        allowedRoles: ['client', 'host'],
-        voters: [basicAuthorization],
-    })
-    @get('/bookings/history', {
-        responses: {
-            '200': {
-                description: 'Booking model count',
-                content: {'application/json': {schema: CountSchema}},
-            },
-        },
-    })
-    async getHistory() {
-        return this.bookingRepository.find({
-            where: {userId: this.user[securityId]},
-            include: [{relation: 'transaction'}],
-        });
-    }
-
     // Get booking, add query params date=YYYY-MM-DD to find booking by date
     @authorize({
         allowedRoles: ['client', 'host'],
@@ -207,9 +183,16 @@ export class BookingController {
     })
     async find(@param.query.string('date') date: string): Promise<Booking[]> {
         if (date) {
-            return this.bookingRepository.findBookingByDate(date);
+            console.log('object');
+            return this.bookingRepository.findBookingByDate(
+                date,
+                this.user[securityId],
+            );
         }
-        return this.bookingRepository.find();
+        return this.bookingRepository.find({
+            where: {userId: this.user[securityId]},
+            include: [{relation: 'transaction'}],
+        });
     }
 
     @authorize({

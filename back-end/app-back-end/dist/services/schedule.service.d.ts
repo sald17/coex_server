@@ -11,6 +11,6 @@ export declare class ScheduleService {
     static cancelSchedule(name: string): Promise<void>;
     static notifyCheckIn(bookingRef: string, startTime: Date, user: User, host: User, before?: number): Promise<void>;
     static notifyCheckOut(bookingRef: string, endTime: Date, user: User, host: User, before?: number): Promise<void>;
-    static verifyCheckIn: (id: string, startTime: Date, bookingRef: string, bookingRepository: BookingRepository) => Promise<void>;
-    static verifyCheckOut(id: string, endTime: Date, bookingRef: string, bookingRepository: BookingRepository): Promise<void>;
+    static verifyCheckIn: (id: any, startTime: Date, bookingRef: string, bookingRepository: BookingRepository) => Promise<void>;
+    static verifyCheckOut(id: any, endTime: Date, bookingRef: string, bookingRepository: BookingRepository): Promise<void>;
 }

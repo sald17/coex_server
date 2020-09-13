@@ -70,28 +70,45 @@ let BookingRepository = class BookingRepository extends repository_1.DefaultCrud
     /**
      * Find booking by date
      */
-    async findBookingByDate(date) {
+    async findBookingByDate(date, user) {
         date = date.concat('-0-0');
-        const startDate = date_utils_1.stringToDate(date);
-        const endDate = new Date(startDate.getTime() + 3600 * 24);
+        const startDate = date_utils_1.stringToDate(date, false);
+        const endDate = new Date(startDate.getTime() + 1000 * 3600 * 24);
         return this.find({
             where: {
+                userId: user,
                 or: [
                     {
-                        startTime: {
-                            gte: startDate,
-                            lt: endDate,
-                        },
+                        and: [
+                            {
+                                startTime: {
+                                    gte: startDate,
+                                },
+                            },
+                            {
+                                startTime: {
+                                    lt: endDate,
+                                },
+                            },
+                        ],
                     },
                     {
-                        endTime: {
-                            gte: startDate,
-                            lt: endDate,
-                        },
+                        and: [
+                            {
+                                endTime: {
+                                    gte: startDate,
+                                },
+                            },
+                            {
+                                endTime: {
+                                    lt: endDate,
+                                },
+                            },
+                        ],
                     },
                 ],
             },
-        });
+        }, { include: [{ relation: 'transaction' }] });
     }
     /**
      * Get price of booking

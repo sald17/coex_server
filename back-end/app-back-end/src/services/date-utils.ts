@@ -38,13 +38,13 @@ const convertToUTC = (date: Date) => {
 };
 
 // Convert string format of YYYY-MM-DD-hh-mm to Date
-export function stringToDate(input: string) {
+export function stringToDate(input: string, validate = true) {
     let parts = input.split('-').map(item => Number(item));
     if (!validateDate(parts)) {
         throw new HttpErrors.BadRequest('Invalid timestamp');
     }
     const date = new Date(parts[0], parts[1] - 1, parts[2], parts[3], parts[4]);
-    if (date.getTime() < Date.now()) {
+    if (date.getTime() < Date.now() && validate) {
         throw new HttpErrors.BadRequest('Invalid timestamp');
     }
     return date;

@@ -75,19 +75,16 @@ let BookingController = class BookingController {
         services_1.NotificationService.notifyAfterCreate(newTransaction, newBooking, room, user, host, this.bookingRepository);
         return newBooking;
     }
-    // Get booking history
-    async getHistory() {
+    // Get booking, add query params date=YYYY-MM-DD to find booking by date
+    async find(date) {
+        if (date) {
+            console.log('object');
+            return this.bookingRepository.findBookingByDate(date, this.user[security_1.securityId]);
+        }
         return this.bookingRepository.find({
             where: { userId: this.user[security_1.securityId] },
             include: [{ relation: 'transaction' }],
         });
-    }
-    // Get booking, add query params date=YYYY-MM-DD to find booking by date
-    async find(date) {
-        if (date) {
-            return this.bookingRepository.findBookingByDate(date);
-        }
-        return this.bookingRepository.find();
     }
     async findById(id, filter) {
         return this.bookingRepository.findById(id, filter);
@@ -302,23 +299,6 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], BookingController.prototype, "create", null);
-tslib_1.__decorate([
-    authorization_1.authorize({
-        allowedRoles: ['client', 'host'],
-        voters: [basic_authentication_1.basicAuthorization],
-    }),
-    rest_1.get('/bookings/history', {
-        responses: {
-            '200': {
-                description: 'Booking model count',
-                content: { 'application/json': { schema: repository_1.CountSchema } },
-            },
-        },
-    }),
-    tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", []),
-    tslib_1.__metadata("design:returntype", Promise)
-], BookingController.prototype, "getHistory", null);
 tslib_1.__decorate([
     authorization_1.authorize({
         allowedRoles: ['client', 'host'],
