@@ -8,3 +8,4 @@ export * from './transaction.repository';
 export * from './user.repository';
 export * from './card.repository';
 export * from './exchange-coin.repository';
+export * from './review.repository';

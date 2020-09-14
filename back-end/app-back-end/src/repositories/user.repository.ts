@@ -6,10 +6,11 @@ import {
     repository,
 } from '@loopback/repository';
 import {MongoConnectorDataSource} from '../datasources';
-import {Booking, CoWorking, User, UserRelations, Card} from '../models';
+import {Booking, Card, CoWorking, Review, User, UserRelations} from '../models';
 import {BookingRepository} from './booking.repository';
-import {CoWorkingRepository} from './co-working.repository';
 import {CardRepository} from './card.repository';
+import {CoWorkingRepository} from './co-working.repository';
+import {ReviewRepository} from './review.repository';
 
 export class UserRepository extends DefaultCrudRepository<
     User,
@@ -26,7 +27,15 @@ export class UserRepository extends DefaultCrudRepository<
         typeof User.prototype.id
     >;
 
-  public readonly cards: HasManyRepositoryFactory<Card, typeof User.prototype.id>;
+    public readonly cards: HasManyRepositoryFactory<
+        Card,
+        typeof User.prototype.id
+    >;
+
+    public readonly reviews: HasManyRepositoryFactory<
+        Review,
+        typeof User.prototype.id
+    >;
 
     constructor(
         @inject('datasources.MongoConnector')
@@ -34,11 +43,26 @@ export class UserRepository extends DefaultCrudRepository<
         @repository.getter('CoWorkingRepository')
         protected coWorkingRepositoryGetter: Getter<CoWorkingRepository>,
         @repository.getter('BookingRepository')
-        protected bookingRepositoryGetter: Getter<BookingRepository>, @repository.getter('CardRepository') protected cardRepositoryGetter: Getter<CardRepository>,
+        protected bookingRepositoryGetter: Getter<BookingRepository>,
+        @repository.getter('CardRepository')
+        protected cardRepositoryGetter: Getter<CardRepository>,
+        @repository.getter('ReviewRepository')
+        protected reviewRepositoryGetter: Getter<ReviewRepository>,
     ) {
         super(User, dataSource);
-      this.cards = this.createHasManyRepositoryFactoryFor('cards', cardRepositoryGetter,);
-      this.registerInclusionResolver('cards', this.cards.inclusionResolver);
+        this.reviews = this.createHasManyRepositoryFactoryFor(
+            'reviews',
+            reviewRepositoryGetter,
+        );
+        this.registerInclusionResolver(
+            'reviews',
+            this.reviews.inclusionResolver,
+        );
+        this.cards = this.createHasManyRepositoryFactoryFor(
+            'cards',
+            cardRepositoryGetter,
+        );
+        this.registerInclusionResolver('cards', this.cards.inclusionResolver);
         this.bookings = this.createHasManyRepositoryFactoryFor(
             'bookings',
             bookingRepositoryGetter,

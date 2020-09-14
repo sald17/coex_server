@@ -108,7 +108,6 @@ export class UserControllerController {
         @requestBody()
         credential: any,
     ) {
-        console.log(credential);
         //Check firebase token
         if (!credential.firebaseToken) {
             throw new HttpErrors.Unauthorized('Missing credentials');

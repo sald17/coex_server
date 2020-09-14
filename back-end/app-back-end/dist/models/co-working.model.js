@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoWorking = void 0;
 const tslib_1 = require("tslib");
 const repository_1 = require("@loopback/repository");
+const review_model_1 = require("./review.model");
 const room_model_1 = require("./room.model");
 const user_model_1 = require("./user.model");
 let CoWorking = class CoWorking extends repository_1.Entity {
@@ -59,6 +60,20 @@ tslib_1.__decorate([
 ], CoWorking.prototype, "location", void 0);
 tslib_1.__decorate([
     repository_1.property({
+        type: 'array',
+        itemType: 'number',
+        default: [0, 0, 0, 0, 0],
+    }),
+    tslib_1.__metadata("design:type", Array)
+], CoWorking.prototype, "starRating", void 0);
+tslib_1.__decorate([
+    repository_1.property({
+        type: 'number',
+    }),
+    tslib_1.__metadata("design:type", Number)
+], CoWorking.prototype, "totalRating", void 0);
+tslib_1.__decorate([
+    repository_1.property({
         type: 'date',
         default: Date(),
     }),
@@ -79,6 +94,10 @@ tslib_1.__decorate([
     repository_1.hasMany(() => room_model_1.Room),
     tslib_1.__metadata("design:type", Array)
 ], CoWorking.prototype, "rooms", void 0);
+tslib_1.__decorate([
+    repository_1.hasMany(() => review_model_1.Review),
+    tslib_1.__metadata("design:type", Array)
+], CoWorking.prototype, "reviews", void 0);
 CoWorking = tslib_1.__decorate([
     repository_1.model(),
     tslib_1.__metadata("design:paramtypes", [Object])

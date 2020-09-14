@@ -2,6 +2,7 @@ import { Entity } from '@loopback/repository';
 import { Booking } from './booking.model';
 import { Card } from './card.model';
 import { CoWorking } from './co-working.model';
+import { Review } from './review.model';
 export declare class User extends Entity {
     id?: string;
     fullname?: string;
@@ -22,6 +23,7 @@ export declare class User extends Entity {
     coWorking: CoWorking;
     bookings: Booking[];
     cards: Card[];
+    reviews: Review[];
     constructor(data?: Partial<User>);
 }
 export interface UserRelations {

@@ -65,7 +65,6 @@ let UserControllerController = class UserControllerController {
      *
      */
     async login(role, credential) {
-        console.log(credential);
         //Check firebase token
         if (!credential.firebaseToken) {
             throw new rest_1.HttpErrors.Unauthorized('Missing credentials');

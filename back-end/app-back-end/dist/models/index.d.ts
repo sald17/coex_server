@@ -9,3 +9,4 @@ export * from './transaction.model';
 export * from './user.model';
 export * from './card.model';
 export * from './exchange-coin.model';
+export * from './review.model';

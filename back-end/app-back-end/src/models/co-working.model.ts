@@ -5,6 +5,7 @@ import {
     model,
     property,
 } from '@loopback/repository';
+import {Review} from './review.model';
 import {Room} from './room.model';
 import {User} from './user.model';
 
@@ -51,6 +52,18 @@ export class CoWorking extends Entity {
     location?: number[];
 
     @property({
+        type: 'array',
+        itemType: 'number',
+        default: [0, 0, 0, 0, 0],
+    })
+    starRating: number[];
+
+    @property({
+        type: 'number',
+    })
+    totalRating: number;
+
+    @property({
         type: 'date',
         default: Date(),
     })
@@ -67,6 +80,9 @@ export class CoWorking extends Entity {
 
     @hasMany(() => Room)
     rooms: Room[];
+
+    @hasMany(() => Review)
+    reviews: Review[];
 
     constructor(data?: Partial<CoWorking>) {
         super(data);
