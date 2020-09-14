@@ -2047,7 +2047,7 @@
         "affectsGlobalScope": false
       },
       "./src/access-control/interceptor/user-account-interceptor.ts": {
-        "version": "ad4e9df71a0a24df6d98c5336107d8d5d08581257078ac1b3ea1a1a95a74f9cd",
+        "version": "45aa06d92d0ac898790500606d46bb457e1b37a0f0a3861240b22da0545bab20",
         "signature": "92d59dcc170f6de16112436daaae0843e7010fe26a972dde338cd9e7240207f4",
         "affectsGlobalScope": false
       },

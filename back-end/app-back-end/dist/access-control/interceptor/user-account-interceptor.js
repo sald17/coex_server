@@ -14,8 +14,8 @@ let UserAccountInterceptor = UserAccountInterceptor_1 = class UserAccountInterce
         switch (invocationCtx.methodName) {
             case 'signup': //Check if password and email are valid
                 const { password, email } = invocationCtx.args[0];
-                if (!UserAccountInterceptor_1.passwordPattern.test(password)) {
-                    throw new rest_1.HttpErrors.BadRequest(`Password must have the length of 8-30 and have at least one uppercase, one lowercase and one digit`);
+                if (password.length < 8 || password.length > 30) {
+                    throw new rest_1.HttpErrors.BadRequest(`Password must have the length of 8-30.`);
                 }
                 else if (!UserAccountInterceptor_1.emailPattern.test(email)) {
                     throw new rest_1.HttpErrors.BadRequest(`Please register with a valid email.`);

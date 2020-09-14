@@ -25,9 +25,9 @@ export class UserAccountInterceptor implements Provider<Interceptor> {
         switch (invocationCtx.methodName) {
             case 'signup': //Check if password and email are valid
                 const {password, email} = invocationCtx.args[0];
-                if (!UserAccountInterceptor.passwordPattern.test(password)) {
+                if (password.length < 8 || password.length > 30) {
                     throw new HttpErrors.BadRequest(
-                        `Password must have the length of 8-30 and have at least one uppercase, one lowercase and one digit`,
+                        `Password must have the length of 8-30.`,
                     );
                 } else if (!UserAccountInterceptor.emailPattern.test(email)) {
                     throw new HttpErrors.BadRequest(
