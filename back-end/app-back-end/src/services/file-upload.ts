@@ -11,7 +11,7 @@ import {v4 as uuidv4} from 'uuid';
 /**
  * A provider to return an `Express` request handler from `multer` middleware
  */
-const storagePath = path.join(__dirname, '../../storage');
+const storagePath = path.join(__dirname, '../../storage/data');
 const allowedImageType = ['jpg', 'jpeg', 'png', 'tiff'];
 
 export async function parseRequest(request: Request, response: Response) {
