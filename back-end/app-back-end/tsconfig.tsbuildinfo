@@ -2072,8 +2072,8 @@
         "affectsGlobalScope": false
       },
       "./src/models/exchange-coin.model.ts": {
-        "version": "fa6905be590f217a849077930bb788a0cb772ab0b0107fe278a3b394d17df5a8",
-        "signature": "c1dcdcf3298c7a80a34deae3fe21cd02471babc8cc96e3089cec15a528099621",
+        "version": "f21d9fe48f02f2d5577927e1d52c8ff99e80663e8aedb5c1020c6b86b2ea107e",
+        "signature": "d1b01ff46fa4eea5cfe0821ffaad04b1fd246c0be1ae542eb5291e9bf0a95cdd",
         "affectsGlobalScope": false
       },
       "./src/models/card.model.ts": {
@@ -2217,7 +2217,7 @@
         "affectsGlobalScope": false
       },
       "./src/services/file-upload.ts": {
-        "version": "a7c071318db2828c3a0401974b7f01a8e84b233adeb0ad5b85493eb235d1584d",
+        "version": "23dba32d3ad4e8fc1daec614374321de47cabf990c5bdadbb972df593975e378",
         "signature": "cc9fd7806c879d4b928f7bcf589190cdf1bff863e611419ecab7a6436833f019",
         "affectsGlobalScope": false
       },
@@ -2287,7 +2287,7 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/booking.repository.ts": {
-        "version": "88f64084a40b3c584def1e6e70cb9a2b615eab1fd21eaf8b1306b3d5055dfbcb",
+        "version": "057c0a2656146446ecab05937e73bd51554400d5214e06445327339b12d6ca06",
         "signature": "bf9c74b2387c82e683c3e9464c8fc819a4defd72e0bc3111dfdc5af2164294f2",
         "affectsGlobalScope": false
       },
@@ -2342,7 +2342,7 @@
         "affectsGlobalScope": false
       },
       "./src/services/coin.service.ts": {
-        "version": "47160877780b88f11efc8385b63edbb17a678ab4801c393f35c4f794da9af561",
+        "version": "2b3057f3947c170f4277fc95b861d76fb1f617e6d64ddd18f8b9015f027ad850",
         "signature": "03732d8a6037a65888606a1026e410336723d4ce0b20769b650edb7ffe73d073",
         "affectsGlobalScope": false
       },
@@ -2657,7 +2657,7 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/booking.controller.ts": {
-        "version": "0f08ad90b8db920ef46c6ee4252b8f57aa0b1a6b50625be05cdd88fca34c9e87",
+        "version": "d4b5a0d39d02071a8a206fbf6233a3440ede3d204278d6299b33a73b4938942a",
         "signature": "3db33d8ad7791e1d083ca7f007acd347abd7bf1ea854ca62004afadc21907992",
         "affectsGlobalScope": false
       },
@@ -2687,7 +2687,7 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/point.controller.ts": {
-        "version": "3ae113e5688573d5cbb7c93786ea60196fc14531e6f46df33ed33ec5e20a61ba",
+        "version": "c13b9c844eec1677b44d6397c0d8c42a977f2cba95bbdccc8ef7f0dba189fbad",
         "signature": "ccde7b44ee75ecc22cdab442e84343a80895cfd93cfa0819de6aa28a179dd76c",
         "affectsGlobalScope": false
       },
@@ -2702,12 +2702,12 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {
-        "version": "c5b79e23b1908272a9836f60a969d6161c1a93f7872a26e8b1853d195bf1845f",
-        "signature": "8742ed7e50c6e5a89cd44c43383a72eed0380770f7fabc323a7131f193fd44af",
+        "version": "dad8a409adda5f3214931f9b78330e8500c89a6c42f4dcb1e259563506c47716",
+        "signature": "5f33ec6dfc9c8decd354570e153aaae4eccaad1ee0be628b75749787d3b61e9f",
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
-        "version": "2990201471f8833c4b21742eea8993fe9d75d41f1d3401db0f8d2e2710d69b12",
+        "version": "f21784ba8b367189a8ab06d48da959f0aba45d012b2df0493faa405f87cdebd0",
         "signature": "ebd33838755070e71745ff998950a156dddb9bb4c09a689aca39c7dbaaacfb78",
         "affectsGlobalScope": false
       },
@@ -5238,7 +5238,8 @@
       "./src/controllers/test.controller.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
-        "./src/repositories/index.ts"
+        "./src/repositories/index.ts",
+        "./src/services/index.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [
         "./node_modules/@loopback/authentication/dist/index.d.ts",

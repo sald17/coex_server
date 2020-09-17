@@ -4,39 +4,45 @@ import {User} from './user.model';
 
 @model({settings: {strict: false}})
 export class ExchangeCoin extends Entity {
-  @property({
-    type: 'string',
-    id: true,
-    generated: true,
-  })
-  id?: string;
+    @property({
+        type: 'string',
+        id: true,
+        generated: true,
+    })
+    id?: string;
 
-  @property({
-    type: 'number',
-    required: true,
-  })
-  coin: number;
+    @property({
+        type: 'number',
+        required: true,
+    })
+    coin: number;
 
-  @property({
-    type: 'date',
-    required: true,
-  })
-  createdAt: Date;
+    @property({
+        type: 'string',
+        required: true,
+    })
+    hash: string;
 
-  @belongsTo(() => Card)
-  cardId: string;
+    @property({
+        type: 'date',
+        required: true,
+    })
+    createdAt: Date;
 
-  @belongsTo(() => User)
-  userId: string;
-  // Define well-known properties here
+    @belongsTo(() => Card)
+    cardId: string;
 
-  // Indexer property to allow additional data
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [prop: string]: any;
+    @belongsTo(() => User)
+    userId: string;
+    // Define well-known properties here
 
-  constructor(data?: Partial<ExchangeCoin>) {
-    super(data);
-  }
+    // Indexer property to allow additional data
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [prop: string]: any;
+
+    constructor(data?: Partial<ExchangeCoin>) {
+        super(data);
+    }
 }
 
 export interface ExchangeCoinRelations {

@@ -3,6 +3,7 @@ import { CardWithRelations } from './card.model';
 export declare class ExchangeCoin extends Entity {
     id?: string;
     coin: number;
+    hash: string;
     createdAt: Date;
     cardId: string;
     userId: string;

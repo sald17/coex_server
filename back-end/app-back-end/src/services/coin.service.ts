@@ -19,10 +19,7 @@ export class CoinService {
     }
 
     async withdraw(coin: number, email: string, address: string) {
-        const bodyData = new URLSearchParams();
-        bodyData.append('email', email);
-        bodyData.append('coin', `${coin}`);
-        bodyData.append('address', address);
+        const bodyData = {email, coin, address};
 
         const result = (await Axios.post(`${CoinServer}/withdrawEth`, bodyData))
             .data;

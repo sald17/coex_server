@@ -40,7 +40,7 @@ async function saveFiles(files) {
         if (!allowedImageType.includes(ext)) {
             return { error: true, message: 'Invalid image' };
         }
-        let newName = `${uuid_1.v4()}.${ext}`;
+        let newName = `/${uuid_1.v4()}.${ext}`;
         listFileName.push(newName);
         let filePath = path.join(storagePath, newName);
         fs.writeFileSync(filePath, f.buffer);

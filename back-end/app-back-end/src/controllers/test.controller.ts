@@ -2,7 +2,8 @@
 
 import {repository} from '@loopback/repository';
 import {get} from '@loopback/rest';
-import {BookingRepository} from '../repositories';
+import {BookingRepository, UserRepository} from '../repositories';
+import {Firebase} from '../services';
 
 // import {inject} from '@loopback/core';
 
@@ -10,24 +11,23 @@ export class TestController {
     constructor(
         @repository(BookingRepository)
         private bookingRepository: BookingRepository,
+        @repository(UserRepository)
+        private userRepository: UserRepository,
     ) {}
 
-    @get('/test')
+    @get('/test/message')
     async test() {
-        // ScheduleService.agenda.define('test1', async (job: any) => {
-        //     console.log('Test1');
-        // });
-        // ScheduleService.agenda.schedule(
-        //     new Date().getTime() + 10 * 1000,
-        //     'test1',
-        // );
-        // ScheduleService.agenda.define('test2', async (job: any) => {
-        //     ScheduleService.agenda.cancel({name: 'test1'});
-        //     console.log('Test2');
-        // });
-        // ScheduleService.agenda.schedule(
-        //     new Date().getTime() + 5 * 1000,
-        //     'test2',
-        // );
+        return 'Jebaited';
+    }
+
+    @get('/test/noti')
+    async testNoti() {
+        const user: any = await this.userRepository.findOne({
+            where: {email: 'png9981@gmail.com'},
+        });
+        Firebase.sendNotification(user.firebaseToken, {
+            title: 'Test',
+            body: 'Hello',
+        });
     }
 }

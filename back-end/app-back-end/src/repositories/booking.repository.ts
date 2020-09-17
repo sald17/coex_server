@@ -127,46 +127,49 @@ export class BookingRepository extends DefaultCrudRepository<
         date = date.concat('-0-0');
         const startDate = stringToDate(date, false);
         const endDate = new Date(startDate.getTime() + 1000 * 3600 * 24);
-        return this.find(
-            {
-                where: {
-                    userId: user,
-                    or: [
-                        {
-                            and: [
-                                {
-                                    startTime: {
-                                        gte: startDate,
-                                    },
+        return this.find({
+            where: {
+                userId: user,
+                or: [
+                    {
+                        and: [
+                            {
+                                startTime: {
+                                    gte: startDate,
                                 },
+                            },
 
-                                {
-                                    startTime: {
-                                        lt: endDate,
-                                    },
+                            {
+                                startTime: {
+                                    lt: endDate,
                                 },
-                            ],
-                        },
-                        {
-                            and: [
-                                {
-                                    endTime: {
-                                        gte: startDate,
-                                    },
+                            },
+                        ],
+                    },
+                    {
+                        and: [
+                            {
+                                endTime: {
+                                    gte: startDate,
                                 },
+                            },
 
-                                {
-                                    endTime: {
-                                        lt: endDate,
-                                    },
+                            {
+                                endTime: {
+                                    lt: endDate,
                                 },
-                            ],
-                        },
-                    ],
-                },
+                            },
+                        ],
+                    },
+                ],
             },
-            {include: [{relation: 'transaction'}]},
-        );
+            include: [
+                {
+                    relation: 'transaction',
+                },
+                {relation: 'room', scope: {include: [{relation: 'coWorking'}]}},
+            ],
+        });
     }
 
     /**

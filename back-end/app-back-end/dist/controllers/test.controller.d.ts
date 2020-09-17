@@ -1,6 +1,8 @@
-import { BookingRepository } from '../repositories';
+import { BookingRepository, UserRepository } from '../repositories';
 export declare class TestController {
     private bookingRepository;
-    constructor(bookingRepository: BookingRepository);
-    test(): Promise<void>;
+    private userRepository;
+    constructor(bookingRepository: BookingRepository, userRepository: UserRepository);
+    test(): Promise<string>;
+    testNoti(): Promise<void>;
 }

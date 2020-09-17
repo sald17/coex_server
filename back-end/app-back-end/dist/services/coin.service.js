@@ -19,10 +19,7 @@ let CoinService = class CoinService {
         return { ...result, earnCoin: coin };
     }
     async withdraw(coin, email, address) {
-        const bodyData = new URLSearchParams();
-        bodyData.append('email', email);
-        bodyData.append('coin', `${coin}`);
-        bodyData.append('address', address);
+        const bodyData = { email, coin, address };
         const result = (await axios_1.default.post(`${constants_1.CoinServer}/withdrawEth`, bodyData))
             .data;
         return { ...result };

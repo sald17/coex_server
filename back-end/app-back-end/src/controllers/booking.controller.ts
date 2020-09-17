@@ -182,6 +182,7 @@ export class BookingController {
         },
     })
     async find(@param.query.string('date') date: string): Promise<Booking[]> {
+        console.log('======');
         if (date) {
             console.log('object');
             return this.bookingRepository.findBookingByDate(
@@ -191,7 +192,10 @@ export class BookingController {
         }
         return this.bookingRepository.find({
             where: {userId: this.user[securityId]},
-            include: [{relation: 'transaction'}],
+            include: [
+                {relation: 'transaction'},
+                {relation: 'room', scope: {include: [{relation: 'coWorking'}]}},
+            ],
         });
     }
 

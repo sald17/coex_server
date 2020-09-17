@@ -108,7 +108,13 @@ let BookingRepository = class BookingRepository extends repository_1.DefaultCrud
                     },
                 ],
             },
-        }, { include: [{ relation: 'transaction' }] });
+            include: [
+                {
+                    relation: 'transaction',
+                },
+                { relation: 'room', scope: { include: [{ relation: 'coWorking' }] } },
+            ],
+        });
     }
     /**
      * Get price of booking

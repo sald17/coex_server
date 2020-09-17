@@ -62,21 +62,6 @@ let PointController = class PointController {
         if (user.coin < body.coin) {
             throw new rest_1.HttpErrors.BadRequest('Not enough point');
         }
-        const response = await this.coinService.withdraw(body.coin, user.email, body.address);
-        console.log(response);
-        // if (
-        //     response.createdAt === undefined ||
-        //     response.updatedAt === undefined ||
-        //     response.coin === undefined ||
-        //     response.status === 'fail'
-        // ) {
-        //     throw new HttpErrors.BadRequest(response.message);
-        // }
-        const timestamp = new Date();
-        user.modifiedAt = timestamp;
-        // user.coin = response.coin;
-        user.coin -= body.coin;
-        this.userRepository.update(user);
         const card = await this.cardRepository.findOne({
             where: {
                 userId: this.user[security_1.securityId],
@@ -86,9 +71,20 @@ let PointController = class PointController {
         if (!card) {
             throw new rest_1.HttpErrors.BadRequest(`Invalid address`);
         }
-        this.cardRepository
-            .exchangeCoins(card === null || card === void 0 ? void 0 : card.id)
-            .create({ coin: -body.coin, createdAt: timestamp });
+        const response = await this.coinService.withdraw(body.coin, user.email, body.address);
+        console.log(response);
+        if (response.status === 'fail') {
+            throw new rest_1.HttpErrors.BadRequest(response.message);
+        }
+        const timestamp = new Date();
+        user.modifiedAt = timestamp;
+        user.coin -= body.coin;
+        this.userRepository.update(user);
+        this.cardRepository.exchangeCoins(card === null || card === void 0 ? void 0 : card.id).create({
+            coin: -body.coin,
+            createdAt: timestamp,
+            hash: response['transaction_hash'],
+        });
         return {
             coin: user.coin,
         };

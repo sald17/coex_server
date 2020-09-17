@@ -27,6 +27,13 @@ tslib_1.__decorate([
 ], ExchangeCoin.prototype, "coin", void 0);
 tslib_1.__decorate([
     repository_1.property({
+        type: 'string',
+        required: true,
+    }),
+    tslib_1.__metadata("design:type", String)
+], ExchangeCoin.prototype, "hash", void 0);
+tslib_1.__decorate([
+    repository_1.property({
         type: 'date',
         required: true,
     }),

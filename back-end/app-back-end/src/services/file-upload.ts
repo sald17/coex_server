@@ -40,7 +40,7 @@ export async function saveFiles(files: any[]) {
             return {error: true, message: 'Invalid image'};
         }
 
-        let newName = `${uuidv4()}.${ext}`;
+        let newName = `/${uuidv4()}.${ext}`;
         listFileName.push(newName);
         let filePath = path.join(storagePath, newName);
         fs.writeFileSync(filePath, f.buffer);

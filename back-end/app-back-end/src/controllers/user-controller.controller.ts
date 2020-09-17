@@ -109,15 +109,22 @@ export class UserControllerController {
         credential: any,
     ) {
         //Check firebase token
-        if (!credential.firebaseToken) {
+        if (
+            !credential.firebaseToken ||
+            !credential.email ||
+            !credential.password
+        ) {
             throw new HttpErrors.Unauthorized('Missing credentials');
         }
         // Check user & password
+        console.log(credential);
         const user = await this.userRepository.findOne({
             where: {
                 email: credential.email,
             },
         });
+        console.log('login');
+        console.log(user?.fullname);
         if (!user) {
             throw new HttpErrors.Unauthorized('Incorrect email or password');
         }
@@ -153,7 +160,9 @@ export class UserControllerController {
             Date.now() + 3600 * 24 * 365,
         );
         user.token.push(token);
-        user.firebaseToken.push(credential.firebaseToken);
+        if (user.firebaseToken.indexOf(credential.firebaseToken) === -1) {
+            user.firebaseToken.push(credential.firebaseToken);
+        }
         await this.userRepository.update(user);
         return {token};
     }
@@ -290,6 +299,7 @@ export class UserControllerController {
     @authenticate('jwt')
     @get('/user/me')
     async getMe() {
+        console.log('object');
         const user = await this.userRepository.findById(this.user.profile.id);
         delete user.password;
         delete user.token;

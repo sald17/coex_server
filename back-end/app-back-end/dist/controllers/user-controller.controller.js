@@ -66,15 +66,20 @@ let UserControllerController = class UserControllerController {
      */
     async login(role, credential) {
         //Check firebase token
-        if (!credential.firebaseToken) {
+        if (!credential.firebaseToken ||
+            !credential.email ||
+            !credential.password) {
             throw new rest_1.HttpErrors.Unauthorized('Missing credentials');
         }
         // Check user & password
+        console.log(credential);
         const user = await this.userRepository.findOne({
             where: {
                 email: credential.email,
             },
         });
+        console.log('login');
+        console.log(user === null || user === void 0 ? void 0 : user.fullname);
         if (!user) {
             throw new rest_1.HttpErrors.Unauthorized('Incorrect email or password');
         }
@@ -102,7 +107,9 @@ let UserControllerController = class UserControllerController {
         };
         let token = await this.jwtService.generateToken(profile, Date.now() + 3600 * 24 * 365);
         user.token.push(token);
-        user.firebaseToken.push(credential.firebaseToken);
+        if (user.firebaseToken.indexOf(credential.firebaseToken) === -1) {
+            user.firebaseToken.push(credential.firebaseToken);
+        }
         await this.userRepository.update(user);
         return { token };
     }
@@ -199,6 +206,7 @@ let UserControllerController = class UserControllerController {
         return { message: 'Reset password successfully.' };
     }
     async getMe() {
+        console.log('object');
         const user = await this.userRepository.findById(this.user.profile.id);
         delete user.password;
         delete user.token;
