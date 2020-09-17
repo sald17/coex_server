@@ -32,11 +32,8 @@ export async function parseRequest(request: Request, response: Response) {
 }
 
 export const checkExistStorage = () => {
-    console.log('====');
     if (fs.existsSync(storagePath)) {
-        console.log('object');
     } else {
-        console.log('00');
         fs.mkdirSync(storagePath);
     }
 };
