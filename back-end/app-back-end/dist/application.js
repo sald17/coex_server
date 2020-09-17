@@ -26,6 +26,7 @@ const firebaseCredential = require('../src/config/firebase.json');
 class AppApplication extends boot_1.BootMixin(service_proxy_1.ServiceMixin(repository_1.RepositoryMixin(rest_1.RestApplication))) {
     constructor(options = {}) {
         super(options);
+        services_1.checkExistStorage();
         this.setUpBindings();
         admin.initializeApp({
             credential: admin.credential.cert(firebaseCredential),

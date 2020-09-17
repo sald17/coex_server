@@ -4,7 +4,7 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteFiles = exports.saveFiles = exports.parseRequest = void 0;
+exports.deleteFiles = exports.saveFiles = exports.checkExistStorage = exports.parseRequest = void 0;
 const tslib_1 = require("tslib");
 const fs = tslib_1.__importStar(require("fs"));
 const multer_1 = tslib_1.__importDefault(require("multer"));
@@ -13,7 +13,7 @@ const uuid_1 = require("uuid");
 /**
  * A provider to return an `Express` request handler from `multer` middleware
  */
-const storagePath = path.join(__dirname, '../../storage');
+const storagePath = path.join(__dirname, '../../storage/data');
 const allowedImageType = ['jpg', 'jpeg', 'png', 'tiff'];
 async function parseRequest(request, response) {
     const storage = multer_1.default.memoryStorage();
@@ -33,6 +33,16 @@ async function parseRequest(request, response) {
     return requestBody;
 }
 exports.parseRequest = parseRequest;
+exports.checkExistStorage = () => {
+    console.log('====');
+    if (fs.existsSync(storagePath)) {
+        console.log('object');
+    }
+    else {
+        console.log('00');
+        fs.mkdirSync(storagePath);
+    }
+};
 async function saveFiles(files) {
     let listFileName = [];
     for (let f of files) {

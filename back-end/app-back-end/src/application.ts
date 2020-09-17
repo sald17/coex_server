@@ -27,7 +27,7 @@ import {
 } from './config/key';
 import {BlacklistCron} from './cronjob';
 import {MySequence} from './sequence';
-import {CoinService, PassportService} from './services';
+import {checkExistStorage, CoinService, PassportService} from './services';
 import {EmailService} from './services/email.service';
 import {JwtService} from './services/jwt.service';
 import {PasswordHasherService} from './services/password-hasher.service';
@@ -40,7 +40,7 @@ export class AppApplication extends BootMixin(
 ) {
     constructor(options: ApplicationConfig = {}) {
         super(options);
-
+        checkExistStorage();
         this.setUpBindings();
 
         admin.initializeApp({

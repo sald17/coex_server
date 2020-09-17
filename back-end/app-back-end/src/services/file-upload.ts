@@ -31,6 +31,16 @@ export async function parseRequest(request: Request, response: Response) {
     return requestBody;
 }
 
+export const checkExistStorage = () => {
+    console.log('====');
+    if (fs.existsSync(storagePath)) {
+        console.log('object');
+    } else {
+        console.log('00');
+        fs.mkdirSync(storagePath);
+    }
+};
+
 export async function saveFiles(files: any[]) {
     let listFileName = [];
     for (let f of files) {
