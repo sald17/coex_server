@@ -34,13 +34,13 @@ app.use((req, res, next) => {
 });
 
 app.get(
-    '/.well-known/pki-validation/69725D79D7108C553BDE778A7439E8A5.txt',
+    '/.well-known/pki-validation/326D58BD5C4E0D820AED4AE48D7870E9.txt',
     (req, res, next) => {
         console.log('object');
         res.sendFile(
             path.join(
                 __dirname,
-                '../storage/default/69725D79D7108C553BDE778A7439E8A5.txt',
+                './views/326D58BD5C4E0D820AED4AE48D7870E9.txt',
             ),
         );
     },
