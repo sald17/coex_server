@@ -42,7 +42,7 @@ export async function saveFiles(files: any[]) {
     let listFileName = [];
     for (let f of files) {
         const ext = f.originalname.substring(f.originalname.indexOf('.') + 1);
-
+        console.log(f);
         if (!allowedImageType.includes(ext)) {
             return {error: true, message: 'Invalid image'};
         }

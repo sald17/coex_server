@@ -85,17 +85,19 @@ export class CoWorkingController {
         @inject(RestBindings.Http.RESPONSE)
         response: Response,
     ) {
+        console.log(request.body);
         const coCreated = await this.coWorkingRepository.findOne({
             where: {
                 userId: id,
             },
         });
-        if (coCreated) {
-            throw new HttpErrors.BadRequest(
-                'User already register to a CoWorking',
-            );
-        }
+        // if (coCreated) {
+        //     throw new HttpErrors.BadRequest(
+        //         'User already register to a CoWorking',
+        //     );
+        // }
         const req: any = await parseRequest(request, response);
+        console.log(req);
         const uploadFile: any = await saveFiles(req.files);
         if (uploadFile.error) {
             throw new HttpErrors.BadRequest(uploadFile.message);

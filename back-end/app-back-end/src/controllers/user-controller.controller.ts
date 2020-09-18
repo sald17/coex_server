@@ -108,6 +108,7 @@ export class UserControllerController {
         @requestBody()
         credential: any,
     ) {
+        console.log('object');
         //Check firebase token
         if (
             !credential.firebaseToken ||

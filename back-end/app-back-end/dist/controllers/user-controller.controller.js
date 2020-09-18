@@ -65,6 +65,7 @@ let UserControllerController = class UserControllerController {
      *
      */
     async login(role, credential) {
+        console.log('object');
         //Check firebase token
         if (!credential.firebaseToken ||
             !credential.email ||

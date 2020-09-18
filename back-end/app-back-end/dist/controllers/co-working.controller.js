@@ -25,15 +25,19 @@ let CoWorkingController = class CoWorkingController {
      * id in URL is userID
      */
     async create(id, request, response) {
+        console.log(request.body);
         const coCreated = await this.coWorkingRepository.findOne({
             where: {
                 userId: id,
             },
         });
-        if (coCreated) {
-            throw new rest_1.HttpErrors.BadRequest('User already register to a CoWorking');
-        }
+        // if (coCreated) {
+        //     throw new HttpErrors.BadRequest(
+        //         'User already register to a CoWorking',
+        //     );
+        // }
         const req = await file_upload_1.parseRequest(request, response);
+        console.log(req);
         const uploadFile = await file_upload_1.saveFiles(req.files);
         if (uploadFile.error) {
             throw new rest_1.HttpErrors.BadRequest(uploadFile.message);

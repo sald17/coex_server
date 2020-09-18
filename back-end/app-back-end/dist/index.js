@@ -44,7 +44,6 @@ async function startApplication(oauth2Providers, dbBackupFile) {
     await server.boot();
     await server.start();
     //Set up agenda
-    console.log(mongoDbURL);
     schedule_service_1.ScheduleService.agenda = new agenda_1.default({
         db: {
             address: mongoDbURL,

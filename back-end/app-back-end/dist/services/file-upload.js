@@ -34,12 +34,9 @@ async function parseRequest(request, response) {
 }
 exports.parseRequest = parseRequest;
 exports.checkExistStorage = () => {
-    console.log('====');
     if (fs.existsSync(storagePath)) {
-        console.log('object');
     }
     else {
-        console.log('00');
         fs.mkdirSync(storagePath);
     }
 };
@@ -47,6 +44,7 @@ async function saveFiles(files) {
     let listFileName = [];
     for (let f of files) {
         const ext = f.originalname.substring(f.originalname.indexOf('.') + 1);
+        console.log(f);
         if (!allowedImageType.includes(ext)) {
             return { error: true, message: 'Invalid image' };
         }

@@ -59,7 +59,6 @@ export async function startApplication(
     await server.start();
 
     //Set up agenda
-    console.log(mongoDbURL);
     ScheduleService.agenda = new Agenda({
         db: {
             address: mongoDbURL,

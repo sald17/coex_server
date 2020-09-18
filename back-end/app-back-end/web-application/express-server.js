@@ -33,6 +33,19 @@ app.use((req, res, next) => {
     }
 });
 
+app.get(
+    '/.well-known/pki-validation/69725D79D7108C553BDE778A7439E8A5.txt',
+    (req, res, next) => {
+        console.log('object');
+        res.sendFile(
+            path.join(
+                __dirname,
+                '../storage/default/69725D79D7108C553BDE778A7439E8A5.txt',
+            ),
+        );
+    },
+);
+
 function requireLogin(req, res, next) {
     if (req.user) {
         next();
