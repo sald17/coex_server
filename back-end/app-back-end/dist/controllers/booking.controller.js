@@ -77,13 +77,20 @@ let BookingController = class BookingController {
     }
     // Get booking, add query params date=YYYY-MM-DD to find booking by date
     async find(date) {
+        let userId = '';
+        let whereCond = {};
+        if (this.user.profile.role.includes('client')) {
+            userId = this.user[security_1.securityId];
+            whereCond.userId = userId;
+        }
         console.log('======');
+        console.log(this.user);
         if (date) {
-            console.log('object');
-            return this.bookingRepository.findBookingByDate(date, this.user[security_1.securityId]);
+            console.log(userId);
+            return this.bookingRepository.findBookingByDate(date, userId);
         }
         return this.bookingRepository.find({
-            where: { userId: this.user[security_1.securityId] },
+            where: whereCond,
             include: [
                 { relation: 'transaction' },
                 { relation: 'room', scope: { include: [{ relation: 'coWorking' }] } },

@@ -74,40 +74,43 @@ let BookingRepository = class BookingRepository extends repository_1.DefaultCrud
         date = date.concat('-0-0');
         const startDate = date_utils_1.stringToDate(date, false);
         const endDate = new Date(startDate.getTime() + 1000 * 3600 * 24);
+        const whereCond = {
+            or: [
+                {
+                    and: [
+                        {
+                            startTime: {
+                                gte: startDate,
+                            },
+                        },
+                        {
+                            startTime: {
+                                lt: endDate,
+                            },
+                        },
+                    ],
+                },
+                {
+                    and: [
+                        {
+                            endTime: {
+                                gte: startDate,
+                            },
+                        },
+                        {
+                            endTime: {
+                                lt: endDate,
+                            },
+                        },
+                    ],
+                },
+            ],
+        };
+        if (user) {
+            whereCond.userId = user;
+        }
         return this.find({
-            where: {
-                userId: user,
-                or: [
-                    {
-                        and: [
-                            {
-                                startTime: {
-                                    gte: startDate,
-                                },
-                            },
-                            {
-                                startTime: {
-                                    lt: endDate,
-                                },
-                            },
-                        ],
-                    },
-                    {
-                        and: [
-                            {
-                                endTime: {
-                                    gte: startDate,
-                                },
-                            },
-                            {
-                                endTime: {
-                                    lt: endDate,
-                                },
-                            },
-                        ],
-                    },
-                ],
-            },
+            where: whereCond,
             include: [
                 {
                     relation: 'transaction',
