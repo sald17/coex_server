@@ -1,4 +1,3 @@
-import { FilterExcludingWhere } from '@loopback/repository';
 import { UserProfile } from '@loopback/security';
 import { Booking } from '../models';
 import { BookingRepository, ExchangePointRepository, RoomRepository, TransactionRepository, UserRepository } from '../repositories';
@@ -15,7 +14,7 @@ export declare class BookingController {
     }>;
     create(bookingInfo: any): Promise<Booking>;
     find(date: string): Promise<Booking[]>;
-    findById(id: string, filter?: FilterExcludingWhere<Booking>): Promise<Booking>;
+    findById(id: string): Promise<Booking>;
     updateById(id: string, updatedBooking: any): Promise<void>;
     cancelBooking(id: string): Promise<void>;
     checkIn(id: string): Promise<void>;

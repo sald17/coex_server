@@ -83,8 +83,6 @@ let BookingController = class BookingController {
             userId = this.user[security_1.securityId];
             whereCond.userId = userId;
         }
-        console.log('======');
-        console.log(this.user);
         if (date) {
             console.log(userId);
             return this.bookingRepository.findBookingByDate(date, userId);
@@ -97,8 +95,29 @@ let BookingController = class BookingController {
             ],
         });
     }
-    async findById(id, filter) {
-        return this.bookingRepository.findById(id, filter);
+    async findById(id) {
+        return this.bookingRepository.findById(id, {
+            include: [
+                {
+                    relation: 'room',
+                    scope: {
+                        include: [{ relation: 'coWorking' }],
+                    },
+                },
+                {
+                    relation: 'user',
+                    scope: {
+                        fields: {
+                            password: false,
+                            firebaseToken: false,
+                            token: false,
+                            emailVerified: false,
+                        },
+                    },
+                },
+                { relation: 'transaction' },
+            ],
+        });
     }
     async updateById(id, updatedBooking) {
         let booking = await this.bookingRepository.findById(id, {
@@ -357,9 +376,8 @@ tslib_1.__decorate([
         },
     }),
     tslib_1.__param(0, rest_1.param.path.string('id')),
-    tslib_1.__param(1, rest_1.param.filter(models_1.Booking, { exclude: 'where' })),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:paramtypes", [String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], BookingController.prototype, "findById", null);
 tslib_1.__decorate([

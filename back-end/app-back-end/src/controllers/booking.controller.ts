@@ -1,7 +1,7 @@
 import {authenticate} from '@loopback/authentication';
 import {authorize} from '@loopback/authorization';
 import {inject} from '@loopback/core';
-import {FilterExcludingWhere, repository} from '@loopback/repository';
+import {repository} from '@loopback/repository';
 import {
     get,
     getModelSchemaRef,
@@ -219,12 +219,29 @@ export class BookingController {
             },
         },
     })
-    async findById(
-        @param.path.string('id') id: string,
-        @param.filter(Booking, {exclude: 'where'})
-        filter?: FilterExcludingWhere<Booking>,
-    ): Promise<Booking> {
-        return this.bookingRepository.findById(id, filter);
+    async findById(@param.path.string('id') id: string): Promise<Booking> {
+        return this.bookingRepository.findById(id, {
+            include: [
+                {
+                    relation: 'room',
+                    scope: {
+                        include: [{relation: 'coWorking'}],
+                    },
+                },
+                {
+                    relation: 'user',
+                    scope: {
+                        fields: {
+                            password: false,
+                            firebaseToken: false,
+                            token: false,
+                            emailVerified: false,
+                        },
+                    },
+                },
+                {relation: 'transaction'},
+            ],
+        });
     }
 
     @authorize({

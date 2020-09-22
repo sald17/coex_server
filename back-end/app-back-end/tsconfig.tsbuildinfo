@@ -2657,8 +2657,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/booking.controller.ts": {
-        "version": "0cf92333e4a4b0f381164cf030f1cf23d91336a39cec9e60787fce1bb40dc886",
-        "signature": "3db33d8ad7791e1d083ca7f007acd347abd7bf1ea854ca62004afadc21907992",
+        "version": "a0f904fd079d6104693d2d1f976c1e525ee5280adcaa17b0448eea39396e573c",
+        "signature": "744166d202988339153cd1e83787870375d6412695efc1157cee9e2b0ada36c9",
         "affectsGlobalScope": false
       },
       "./src/controllers/card-exchange-coin.controller.ts": {
@@ -8785,7 +8785,6 @@
         "./src/services/password-hasher.service.ts"
       ],
       "./src/controllers/booking.controller.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/security/dist/index.d.ts",
         "./src/models/index.ts",
         "./src/repositories/index.ts"
