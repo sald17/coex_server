@@ -24,7 +24,7 @@ export declare class BookingRepository extends DefaultCrudRepository<Booking, ty
     /**
      * Find booking by date
      */
-    findBookingByDate(date: string, user: string): Promise<(Booking & BookingRelations)[]>;
+    findBookingByDate(date: string, { user, room }: any): Promise<(Booking & BookingRelations)[]>;
     /**
      * Get price of booking
      */

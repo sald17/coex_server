@@ -13,7 +13,7 @@ export declare class BookingController {
         price: number;
     }>;
     create(bookingInfo: any): Promise<Booking>;
-    find(date: string): Promise<Booking[]>;
+    find(date: string, roomId: string): Promise<Booking[]>;
     findById(id: string): Promise<Booking>;
     updateById(id: string, updatedBooking: any): Promise<void>;
     cancelBooking(id: string): Promise<void>;

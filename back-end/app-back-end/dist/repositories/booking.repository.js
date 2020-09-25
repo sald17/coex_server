@@ -70,7 +70,7 @@ let BookingRepository = class BookingRepository extends repository_1.DefaultCrud
     /**
      * Find booking by date
      */
-    async findBookingByDate(date, user) {
+    async findBookingByDate(date, { user, room }) {
         date = date.concat('-0-0');
         const startDate = date_utils_1.stringToDate(date, false);
         const endDate = new Date(startDate.getTime() + 1000 * 3600 * 24);
@@ -109,13 +109,24 @@ let BookingRepository = class BookingRepository extends repository_1.DefaultCrud
         if (user) {
             whereCond.userId = user;
         }
+        else if (room) {
+            whereCond.roomId = room;
+        }
         return this.find({
             where: whereCond,
             include: [
                 {
                     relation: 'transaction',
                 },
-                { relation: 'room', scope: { include: [{ relation: 'coWorking' }] } },
+                {
+                    relation: 'room',
+                    scope: {
+                        include: [
+                            { relation: 'coWorking' },
+                            { relation: 'service' },
+                        ],
+                    },
+                },
             ],
         });
     }

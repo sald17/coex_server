@@ -2287,8 +2287,8 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/booking.repository.ts": {
-        "version": "3055d577697f5b7b6a3d50af4ee6f960ad1cd3059ba02f18bd10de9bfa3903ab",
-        "signature": "bf9c74b2387c82e683c3e9464c8fc819a4defd72e0bc3111dfdc5af2164294f2",
+        "version": "d756271c02fc7d5a8526e76e63072ed134805f7a1dbe7eec75b66c4c9e671286",
+        "signature": "941c9c1453d18895b8916f107de8fac1ccef2f36b3a7d90482c471b7c117dd0f",
         "affectsGlobalScope": false
       },
       "./src/repositories/exchange-point.repository.ts": {
@@ -2657,8 +2657,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/booking.controller.ts": {
-        "version": "a0f904fd079d6104693d2d1f976c1e525ee5280adcaa17b0448eea39396e573c",
-        "signature": "744166d202988339153cd1e83787870375d6412695efc1157cee9e2b0ada36c9",
+        "version": "aa9d71db8ebc707bafe2e19e0d41ed995a338b24c9a55327273158b27416508c",
+        "signature": "4e8147110fa84b2b2408d8107174f66d767b98d94f873ac57d2fb67f1872293f",
         "affectsGlobalScope": false
       },
       "./src/controllers/card-exchange-coin.controller.ts": {

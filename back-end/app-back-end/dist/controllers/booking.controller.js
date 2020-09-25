@@ -76,22 +76,35 @@ let BookingController = class BookingController {
         return newBooking;
     }
     // Get booking, add query params date=YYYY-MM-DD to find booking by date
-    async find(date) {
+    async find(date, roomId) {
         let userId = '';
         let whereCond = {};
         if (this.user.profile.role.includes('client')) {
             userId = this.user[security_1.securityId];
             whereCond.userId = userId;
         }
+        if (roomId) {
+            whereCond.roomId = roomId;
+        }
         if (date) {
-            console.log(userId);
-            return this.bookingRepository.findBookingByDate(date, userId);
+            return this.bookingRepository.findBookingByDate(date, {
+                user: userId,
+                room: roomId,
+            });
         }
         return this.bookingRepository.find({
             where: whereCond,
             include: [
                 { relation: 'transaction' },
-                { relation: 'room', scope: { include: [{ relation: 'coWorking' }] } },
+                {
+                    relation: 'room',
+                    scope: {
+                        include: [
+                            { relation: 'coWorking' },
+                            { relation: 'service' },
+                        ],
+                    },
+                },
             ],
         });
     }
@@ -352,8 +365,9 @@ tslib_1.__decorate([
         },
     }),
     tslib_1.__param(0, rest_1.param.query.string('date')),
+    tslib_1.__param(1, rest_1.param.query.string('room')),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String]),
+    tslib_1.__metadata("design:paramtypes", [String, String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], BookingController.prototype, "find", null);
 tslib_1.__decorate([

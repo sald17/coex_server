@@ -181,22 +181,38 @@ export class BookingController {
             },
         },
     })
-    async find(@param.query.string('date') date: string): Promise<Booking[]> {
+    async find(
+        @param.query.string('date') date: string,
+        @param.query.string('room') roomId: string,
+    ): Promise<Booking[]> {
         let userId = '';
         let whereCond: any = {};
         if (this.user.profile.role.includes('client')) {
             userId = this.user[securityId];
             whereCond.userId = userId;
         }
+        if (roomId) {
+            whereCond.roomId = roomId;
+        }
         if (date) {
-            console.log(userId);
-            return this.bookingRepository.findBookingByDate(date, userId);
+            return this.bookingRepository.findBookingByDate(date, {
+                user: userId,
+                room: roomId,
+            });
         }
         return this.bookingRepository.find({
             where: whereCond,
             include: [
                 {relation: 'transaction'},
-                {relation: 'room', scope: {include: [{relation: 'coWorking'}]}},
+                {
+                    relation: 'room',
+                    scope: {
+                        include: [
+                            {relation: 'coWorking'},
+                            {relation: 'service'},
+                        ],
+                    },
+                },
             ],
         });
     }
