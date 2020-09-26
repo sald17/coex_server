@@ -1,5 +1,5 @@
 /// <reference types="express" />
-import { Count, FilterExcludingWhere, Where } from '@loopback/repository';
+import { Count, Where } from '@loopback/repository';
 import { Request, Response } from '@loopback/rest';
 import { UserProfile } from '@loopback/security';
 import { CoWorking, Room } from '../models';
@@ -28,7 +28,7 @@ export declare class RoomController {
      * Find room by id
      *
      */
-    findById(id: string, filter?: FilterExcludingWhere<Room>): Promise<Room>;
+    findById(id: string): Promise<Room>;
     /**
      * Update room by id
      */

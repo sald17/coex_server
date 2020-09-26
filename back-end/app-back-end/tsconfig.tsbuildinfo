@@ -2287,7 +2287,7 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/booking.repository.ts": {
-        "version": "d756271c02fc7d5a8526e76e63072ed134805f7a1dbe7eec75b66c4c9e671286",
+        "version": "f5977ae55da60269bdb69a6238720a918c9fdbafbb977d64ed9a644c637cf305",
         "signature": "941c9c1453d18895b8916f107de8fac1ccef2f36b3a7d90482c471b7c117dd0f",
         "affectsGlobalScope": false
       },
@@ -2657,7 +2657,7 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/booking.controller.ts": {
-        "version": "aa9d71db8ebc707bafe2e19e0d41ed995a338b24c9a55327273158b27416508c",
+        "version": "243c6514e3677b34751a819d1cbf0a1a170e05ab31249dd0712cae1907843b13",
         "signature": "4e8147110fa84b2b2408d8107174f66d767b98d94f873ac57d2fb67f1872293f",
         "affectsGlobalScope": false
       },
@@ -2697,8 +2697,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
-        "version": "92c7355f286d5aff9ff079f532eb0f0fe7c1e77cf136d1bc0281c9e12a78654f",
-        "signature": "bc92adc3102ce311f4d7d02a065993c67aeafd2a716474d19fb685cb188f2e23",
+        "version": "79f2f1e2c438b7713a7fee6fc6242bfd234719623628d15546833659a3017f96",
+        "signature": "73f5031dcb39382faa20fd435acdcdd9a723e75d12c8bb43df192cda374b2b09",
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {

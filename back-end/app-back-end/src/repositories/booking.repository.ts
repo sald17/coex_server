@@ -181,6 +181,17 @@ export class BookingRepository extends DefaultCrudRepository<
                         ],
                     },
                 },
+                {
+                    relation: 'user',
+                    scope: {
+                        fields: {
+                            id: true,
+                            fullname: true,
+                            email: true,
+                            phoneNumber: true,
+                        },
+                    },
+                },
             ],
         });
     }

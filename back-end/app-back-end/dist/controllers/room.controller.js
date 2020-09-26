@@ -65,8 +65,10 @@ let RoomController = class RoomController {
      * Find room by id
      *
      */
-    async findById(id, filter) {
-        return this.roomRepository.findById(id, filter);
+    async findById(id) {
+        return this.roomRepository.findById(id, {
+            include: [{ relation: 'service' }],
+        });
     }
     /**
      * Update room by id
@@ -226,9 +228,8 @@ tslib_1.__decorate([
         },
     }),
     tslib_1.__param(0, rest_1.param.path.string('id')),
-    tslib_1.__param(1, rest_1.param.filter(models_1.Room, { exclude: 'where' })),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [String, Object]),
+    tslib_1.__metadata("design:paramtypes", [String]),
     tslib_1.__metadata("design:returntype", Promise)
 ], RoomController.prototype, "findById", null);
 tslib_1.__decorate([

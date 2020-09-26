@@ -1,13 +1,7 @@
 import {authenticate} from '@loopback/authentication';
 import {authorize} from '@loopback/authorization';
 import {inject} from '@loopback/core';
-import {
-    Count,
-    CountSchema,
-    FilterExcludingWhere,
-    repository,
-    Where,
-} from '@loopback/repository';
+import {Count, CountSchema, repository, Where} from '@loopback/repository';
 import {
     del,
     get,
@@ -177,12 +171,10 @@ export class RoomController {
             },
         },
     })
-    async findById(
-        @param.path.string('id') id: string,
-        @param.filter(Room, {exclude: 'where'})
-        filter?: FilterExcludingWhere<Room>,
-    ): Promise<Room> {
-        return this.roomRepository.findById(id, filter);
+    async findById(@param.path.string('id') id: string): Promise<Room> {
+        return this.roomRepository.findById(id, {
+            include: [{relation: 'service'}],
+        });
     }
 
     /**

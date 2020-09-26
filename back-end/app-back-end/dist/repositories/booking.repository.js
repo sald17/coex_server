@@ -127,6 +127,17 @@ let BookingRepository = class BookingRepository extends repository_1.DefaultCrud
                         ],
                     },
                 },
+                {
+                    relation: 'user',
+                    scope: {
+                        fields: {
+                            id: true,
+                            fullname: true,
+                            email: true,
+                            phoneNumber: true,
+                        },
+                    },
+                },
             ],
         });
     }

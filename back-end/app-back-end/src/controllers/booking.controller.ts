@@ -213,6 +213,17 @@ export class BookingController {
                         ],
                     },
                 },
+                {
+                    relation: 'user',
+                    scope: {
+                        fields: {
+                            id: true,
+                            fullname: true,
+                            email: true,
+                            phoneNumber: true,
+                        },
+                    },
+                },
             ],
         });
     }
