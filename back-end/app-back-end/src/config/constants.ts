@@ -1,3 +1,4 @@
+export const BASE_URL = `https://coex.ddns.net`;
 export namespace BookingConstant {
     // Waitting for check in
     export const PENDING = 'PENDING';
