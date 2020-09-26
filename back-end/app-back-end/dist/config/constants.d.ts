@@ -1,3 +1,4 @@
+export declare const BASE_URL = "https://coex.ddns.net";
 export declare namespace BookingConstant {
     const PENDING = "PENDING";
     const ON_GOING = "ON_GOING";

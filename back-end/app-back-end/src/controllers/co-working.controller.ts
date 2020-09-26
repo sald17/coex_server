@@ -85,7 +85,6 @@ export class CoWorkingController {
         @inject(RestBindings.Http.RESPONSE)
         response: Response,
     ) {
-        console.log(request.body);
         const coCreated = await this.coWorkingRepository.findOne({
             where: {
                 userId: id,
@@ -271,13 +270,12 @@ export class CoWorkingController {
         @param.path.string('id') id: string,
         @inject(SecurityBindings.USER) user: UserProfile,
     ): Promise<void> {
-        const coWorking = await this.coWorkingRepository.findById(id, {
+        const coWorking: any = await this.coWorkingRepository.findById(id, {
             include: [{relation: 'rooms'}],
         });
         if (user[securityId].localeCompare(coWorking.userId)) {
             throw new HttpErrors.Unauthorized();
         }
-        console.log(coWorking);
         if (coWorking.rooms) {
             for (let r of coWorking.rooms) {
                 const room = await this.roomRepository.deleteRoom(r.id);

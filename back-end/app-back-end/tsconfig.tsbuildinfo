@@ -2067,8 +2067,8 @@
         "affectsGlobalScope": false
       },
       "./src/config/constants.ts": {
-        "version": "306a3c8117a826950078336d0fd733ba41f6d41393acc5e631f0757fe39671ca",
-        "signature": "7b9f97552200fed00dc75245218bc413c1f4448eb758fa8c7631b9b57e613a08",
+        "version": "557d117de0a6ffb9a986b8fc79a5f8db245d68dd56ed6f9c3647890e05fce5df",
+        "signature": "02740682cb74811d8ca05d8652d5371369431b86fdcf54da21fd9f350285e5c9",
         "affectsGlobalScope": false
       },
       "./src/models/exchange-coin.model.ts": {
@@ -2202,7 +2202,7 @@
         "affectsGlobalScope": false
       },
       "./src/services/email.service.ts": {
-        "version": "b0b7ad3fc476f6b5a1fa465eb68cb094685be6906fe4ab573414f8420030f1a4",
+        "version": "854bbead418085463a892484e4f50ea54ddc2f7fa76d9b647f2e441c8dc077cc",
         "signature": "9dadb9dbe568bb539be95ea6c34009d9243f93dbe95306e61231c436c8bf967e",
         "affectsGlobalScope": false
       },
@@ -2217,7 +2217,7 @@
         "affectsGlobalScope": false
       },
       "./src/services/file-upload.ts": {
-        "version": "6dabc99875bd622cfb49752a11d9c8ee151df870f8c1122f565296fd3f836fcf",
+        "version": "539120b2eb24549c4f7cbb40ebe4cd5b208d56937cd0369d86cab14f9a48dae7",
         "signature": "62cbe0442c5fa43c2353c6f2f8b2c318e458eba7d83d991101e89dc155288034",
         "affectsGlobalScope": false
       },
@@ -2672,7 +2672,7 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/co-working.controller.ts": {
-        "version": "be9b662b76785d89792a96bc2c814b82d2f15cee41ae3f5843d1442576ef7b01",
+        "version": "d88a2dd376fbe403d197f9c8359d6cd974ce76b2c8a7f7fa27c2f148ed8d1faf",
         "signature": "ca17b91b5a6ff27884618e9766e11198626b7b6b5ef59524eb4499f1758990a7",
         "affectsGlobalScope": false
       },
@@ -2702,8 +2702,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {
-        "version": "dad8a409adda5f3214931f9b78330e8500c89a6c42f4dcb1e259563506c47716",
-        "signature": "5f33ec6dfc9c8decd354570e153aaae4eccaad1ee0be628b75749787d3b61e9f",
+        "version": "94056f477f72e332170027aba0247498986c016a9d32839cd3251d477ad142e7",
+        "signature": "4b15fb586a9f2290dc327a87bb6645a9f09874c67b7d9e61dff8f1b5a5d80871",
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
@@ -5236,6 +5236,7 @@
         "./src/services/file-upload.ts"
       ],
       "./src/controllers/test.controller.ts": [
+        "./node_modules/@loopback/core/dist/index.d.ts",
         "./node_modules/@loopback/repository/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
         "./src/repositories/index.ts",
@@ -5502,7 +5503,8 @@
       ],
       "./src/services/email.service.ts": [
         "./node_modules/@loopback/core/dist/index.d.ts",
-        "./node_modules/@types/nodemailer/index.d.ts"
+        "./node_modules/@types/nodemailer/index.d.ts",
+        "./src/config/constants.ts"
       ],
       "./src/services/file-upload.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts",
@@ -8848,6 +8850,7 @@
         "./src/repositories/service.repository.ts"
       ],
       "./src/controllers/test.controller.ts": [
+        "./node_modules/@loopback/rest/dist/index.d.ts",
         "./src/repositories/index.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [

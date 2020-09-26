@@ -4,6 +4,7 @@ exports.EmailService = void 0;
 const tslib_1 = require("tslib");
 const core_1 = require("@loopback/core");
 const nodemailer_1 = tslib_1.__importDefault(require("nodemailer"));
+const constants_1 = require("../config/constants");
 const MY_EMAIL = 'saldyy92@gmail.com';
 let EmailService = class EmailService {
     constructor() {
@@ -23,7 +24,7 @@ let EmailService = class EmailService {
                 subject: 'Verification Email.',
                 html: `
                     <h1>Xác thực email.</h1>
-                    <p>Click vào <a href="http://localhost:3000/api/user/verification/${token}">đây</a> để  xác thực email của bạn.</p>
+                    <p>Click vào <a href="${constants_1.BASE_URL}/api/user/verification/${token}">đây</a> để  xác thực email của bạn.</p>
                 `,
             };
             const result = await this.transporter.sendMail(mailContent);

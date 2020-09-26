@@ -13,7 +13,7 @@ const uuid_1 = require("uuid");
 /**
  * A provider to return an `Express` request handler from `multer` middleware
  */
-const storagePath = path.join(__dirname, '../../storage/data');
+const storagePath = path.join(__dirname, '../../storage');
 const allowedImageType = ['jpg', 'jpeg', 'png', 'tiff'];
 async function parseRequest(request, response) {
     const storage = multer_1.default.memoryStorage();
@@ -44,11 +44,10 @@ async function saveFiles(files) {
     let listFileName = [];
     for (let f of files) {
         const ext = f.originalname.substring(f.originalname.indexOf('.') + 1);
-        console.log(f);
         if (!allowedImageType.includes(ext)) {
             return { error: true, message: 'Invalid image' };
         }
-        let newName = `/${uuid_1.v4()}.${ext}`;
+        let newName = `/data/${uuid_1.v4()}.${ext}`;
         listFileName.push(newName);
         let filePath = path.join(storagePath, newName);
         fs.writeFileSync(filePath, f.buffer);

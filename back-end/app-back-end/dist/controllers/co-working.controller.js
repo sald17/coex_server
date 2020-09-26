@@ -25,7 +25,6 @@ let CoWorkingController = class CoWorkingController {
      * id in URL is userID
      */
     async create(id, request, response) {
-        console.log(request.body);
         const coCreated = await this.coWorkingRepository.findOne({
             where: {
                 userId: id,
@@ -102,7 +101,6 @@ let CoWorkingController = class CoWorkingController {
         if (user[security_1.securityId].localeCompare(coWorking.userId)) {
             throw new rest_1.HttpErrors.Unauthorized();
         }
-        console.log(coWorking);
         if (coWorking.rooms) {
             for (let r of coWorking.rooms) {
                 const room = await this.roomRepository.deleteRoom(r.id);

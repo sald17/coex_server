@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.filterTimeBooking = exports.CoinServer = exports.ScheduleConstant = exports.PointConstant = exports.TransactionConstant = exports.BookingConstant = void 0;
+exports.filterTimeBooking = exports.CoinServer = exports.ScheduleConstant = exports.PointConstant = exports.TransactionConstant = exports.BookingConstant = exports.BASE_URL = void 0;
+exports.BASE_URL = `https://coex.ddns.net`;
 var BookingConstant;
 (function (BookingConstant) {
     // Waitting for check in

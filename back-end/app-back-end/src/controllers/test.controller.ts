@@ -1,9 +1,16 @@
+import {inject} from '@loopback/core';
 // Uncomment these imports to begin using these cool features!
-
 import {repository} from '@loopback/repository';
-import {get} from '@loopback/rest';
+import {
+    get,
+    post,
+    Request,
+    requestBody,
+    Response,
+    RestBindings,
+} from '@loopback/rest';
 import {BookingRepository, UserRepository} from '../repositories';
-import {Firebase} from '../services';
+import {Firebase, parseRequest, saveFiles} from '../services';
 
 // import {inject} from '@loopback/core';
 
@@ -29,5 +36,34 @@ export class TestController {
             title: 'Test',
             body: 'Hello',
         });
+    }
+
+    @post('/test/upload')
+    async create(
+        @requestBody({
+            description: 'Create coworking',
+            required: true,
+            content: {
+                'multipart/form-data': {
+                    'x-parser': 'stream',
+                    schema: {
+                        type: 'object',
+                        properties: {
+                            coworking: {
+                                type: 'string',
+                            },
+                        },
+                    },
+                },
+            },
+        })
+        request: Request,
+        @inject(RestBindings.Http.RESPONSE)
+        response: Response,
+    ) {
+        const req: any = await parseRequest(request, response);
+        console.log(req);
+        const uploadFile: any = await saveFiles(req.files);
+        return uploadFile;
     }
 }
