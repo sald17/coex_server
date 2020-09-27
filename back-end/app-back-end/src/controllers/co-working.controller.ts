@@ -96,7 +96,6 @@ export class CoWorkingController {
         //     );
         // }
         const req: any = await parseRequest(request, response);
-        console.log(req);
         const uploadFile: any = await saveFiles(req.files);
         if (uploadFile.error) {
             throw new HttpErrors.BadRequest(uploadFile.message);
@@ -355,6 +354,9 @@ export class CoWorkingController {
             include: [
                 {
                     relation: 'rooms',
+                    scope: {
+                        include: [{relation: 'service'}],
+                    },
                 },
             ],
         };

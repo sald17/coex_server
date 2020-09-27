@@ -36,7 +36,6 @@ let CoWorkingController = class CoWorkingController {
         //     );
         // }
         const req = await file_upload_1.parseRequest(request, response);
-        console.log(req);
         const uploadFile = await file_upload_1.saveFiles(req.files);
         if (uploadFile.error) {
             throw new rest_1.HttpErrors.BadRequest(uploadFile.message);
@@ -146,6 +145,9 @@ let CoWorkingController = class CoWorkingController {
             include: [
                 {
                     relation: 'rooms',
+                    scope: {
+                        include: [{ relation: 'service' }],
+                    },
                 },
             ],
         };
