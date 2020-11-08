@@ -147,6 +147,26 @@ let BookingRepository = class BookingRepository extends repository_1.DefaultCrud
     getBookingPrice(bookingInfo, room) {
         return bookingInfo.numPerson * bookingInfo.duration * room.price;
     }
+    async checkUserRentCw(userId, cwId) {
+        const isValid = await this.findOne({
+            where: { userId, status: constants_1.BookingConstant.FINISH },
+            include: [
+                {
+                    relation: 'room',
+                    scope: {
+                        where: {
+                            coWorkingId: cwId,
+                        },
+                    },
+                },
+            ],
+        });
+        // console.log(isValid);
+        if (isValid.room == null || !isValid.room) {
+            return false;
+        }
+        return true;
+    }
 };
 BookingRepository = tslib_1.__decorate([
     tslib_1.__param(0, core_1.inject('datasources.MongoConnector')),

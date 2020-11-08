@@ -29,4 +29,5 @@ export declare class BookingRepository extends DefaultCrudRepository<Booking, ty
      * Get price of booking
      */
     getBookingPrice(bookingInfo: any, room: Room): number;
+    checkUserRentCw(userId: string, cwId: string): Promise<boolean>;
 }

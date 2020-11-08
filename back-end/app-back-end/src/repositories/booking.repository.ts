@@ -202,4 +202,25 @@ export class BookingRepository extends DefaultCrudRepository<
     getBookingPrice(bookingInfo: any, room: Room) {
         return bookingInfo.numPerson * bookingInfo.duration * room.price;
     }
+
+    async checkUserRentCw(userId: string, cwId: string) {
+        const isValid: any = await this.findOne({
+            where: {userId, status: BookingConstant.FINISH},
+            include: [
+                {
+                    relation: 'room',
+                    scope: {
+                        where: {
+                            coWorkingId: cwId,
+                        },
+                    },
+                },
+            ],
+        });
+        // console.log(isValid);
+        if (isValid.room == null || !isValid.room) {
+            return false;
+        }
+        return true;
+    }
 }

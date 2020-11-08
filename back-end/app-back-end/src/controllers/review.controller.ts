@@ -14,6 +14,7 @@ import {
 } from '@loopback/rest';
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {
+    BookingRepository,
     CoWorkingRepository,
     ReviewRepository,
     UserRepository,
@@ -27,6 +28,8 @@ export class ReviewController {
         private coWorkingRepository: CoWorkingRepository,
         @repository(ReviewRepository)
         private reviewRepository: ReviewRepository,
+        @repository(BookingRepository)
+        private bookingRepository: BookingRepository,
         @inject(SecurityBindings.USER, {optional: true})
         private user: UserProfile,
     ) {}
@@ -47,6 +50,15 @@ export class ReviewController {
             this.user[securityId],
             cwId,
         );
+        const isUsed = await this.bookingRepository.checkUserRentCw(
+            this.user[securityId],
+            cwId,
+        );
+        if (!isUsed) {
+            throw new HttpErrors.BadRequest(
+                'You need to used the service to review.',
+            );
+        }
         if (isReview) {
             throw new HttpErrors.BadRequest('Already review');
         }
@@ -60,7 +72,7 @@ export class ReviewController {
         cw.totalRating = this.calculateRating(cw.starRating);
         const timestamp = new Date();
 
-        const newReview = await this.reviewRepository.create({
+        const newReview: any = await this.reviewRepository.create({
             star: body.star,
             content: body.content,
             userId: this.user[securityId],
@@ -74,6 +86,15 @@ export class ReviewController {
             );
         }
         await this.coWorkingRepository.update(cw);
+        const user = await this.userRepository.findById(this.user[securityId], {
+            fields: {
+                id: true,
+                fullname: true,
+                email: true,
+                avatar: true,
+            },
+        });
+        newReview.user = user;
         return newReview;
     }
 

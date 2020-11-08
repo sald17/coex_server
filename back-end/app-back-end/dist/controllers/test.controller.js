@@ -17,14 +17,18 @@ let TestController = class TestController {
     async test() {
         return 'Jebaited';
     }
+    async check(userId, cwId) {
+        return await this.bookingRepository.checkUserRentCw(userId, cwId);
+    }
     async testNoti() {
-        const user = await this.userRepository.findOne({
-            where: { email: 'png9981@gmail.com' },
+        const user = await this.userRepository.findById('5f51f6fa7fb4e46e69d60009', {
+            fields: {
+                id: true,
+                fullname: true,
+                avatar: true,
+            },
         });
-        services_1.Firebase.sendNotification(user.firebaseToken, {
-            title: 'Test',
-            body: 'Hello',
-        });
+        return user;
     }
     async create(request, response) {
         const req = await services_1.parseRequest(request, response);
@@ -39,6 +43,14 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", Promise)
 ], TestController.prototype, "test", null);
+tslib_1.__decorate([
+    rest_1.get('/test/check/{userId}/{cwId}'),
+    tslib_1.__param(0, rest_1.param.path.string('userId')),
+    tslib_1.__param(1, rest_1.param.path.string('cwId')),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, String]),
+    tslib_1.__metadata("design:returntype", Promise)
+], TestController.prototype, "check", null);
 tslib_1.__decorate([
     rest_1.get('/test/noti'),
     tslib_1.__metadata("design:type", Function),

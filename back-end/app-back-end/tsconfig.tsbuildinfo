@@ -2287,8 +2287,8 @@
         "affectsGlobalScope": false
       },
       "./src/repositories/booking.repository.ts": {
-        "version": "f5977ae55da60269bdb69a6238720a918c9fdbafbb977d64ed9a644c637cf305",
-        "signature": "941c9c1453d18895b8916f107de8fac1ccef2f36b3a7d90482c471b7c117dd0f",
+        "version": "ad9df900869ab4395cbfa93766e4ad868992bbd0cd87a0cc02d6c7cdb1717e9e",
+        "signature": "23e9977b669d93e2268140befb8a439dbb09ab258263c61d39e1568d5273efb5",
         "affectsGlobalScope": false
       },
       "./src/repositories/exchange-point.repository.ts": {
@@ -2692,8 +2692,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/review.controller.ts": {
-        "version": "0e25c7d1c4f08382f9954561e05d6cacfff607edd9203ebe42bb207c77e34192",
-        "signature": "84d2782a2e1edd956ea8119f0c33f3f6812fa7caa38e5707d7a8fbf4f69a6c3b",
+        "version": "c8657ff219da31a2cb3fcef71724ff957bb9ab71d21b417177442d5ebb0e3090",
+        "signature": "bb21bc684144cc4a7e70b17f6d0314eb55c2bd9cd87ca9322e8a731f0007f7a1",
         "affectsGlobalScope": false
       },
       "./src/controllers/room.controller.ts": {
@@ -2702,8 +2702,8 @@
         "affectsGlobalScope": false
       },
       "./src/controllers/test.controller.ts": {
-        "version": "94056f477f72e332170027aba0247498986c016a9d32839cd3251d477ad142e7",
-        "signature": "4b15fb586a9f2290dc327a87bb6645a9f09874c67b7d9e61dff8f1b5a5d80871",
+        "version": "f8b341681c869818d031487cc9788f07e7b78bf93c005a2f59aabbc2e7844232",
+        "signature": "d68867ec8829b1366713274972f1b5a70699e1194431c998820d78f9a36449a7",
         "affectsGlobalScope": false
       },
       "./src/controllers/user-controller.controller.ts": {
@@ -8851,6 +8851,7 @@
       ],
       "./src/controllers/test.controller.ts": [
         "./node_modules/@loopback/rest/dist/index.d.ts",
+        "./src/models/index.ts",
         "./src/repositories/index.ts"
       ],
       "./src/controllers/user-controller.controller.ts": [

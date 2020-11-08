@@ -10,10 +10,11 @@ const rest_1 = require("@loopback/rest");
 const security_1 = require("@loopback/security");
 const repositories_1 = require("../repositories");
 let ReviewController = class ReviewController {
-    constructor(userRepository, coWorkingRepository, reviewRepository, user) {
+    constructor(userRepository, coWorkingRepository, reviewRepository, bookingRepository, user) {
         this.userRepository = userRepository;
         this.coWorkingRepository = coWorkingRepository;
         this.reviewRepository = reviewRepository;
+        this.bookingRepository = bookingRepository;
         this.user = user;
     }
     // Create review
@@ -24,6 +25,10 @@ let ReviewController = class ReviewController {
         }
         const cw = await this.coWorkingRepository.findById(cwId);
         const isReview = await this.reviewRepository.isUserReviewed(this.user[security_1.securityId], cwId);
+        const isUsed = await this.bookingRepository.checkUserRentCw(this.user[security_1.securityId], cwId);
+        if (!isUsed) {
+            throw new rest_1.HttpErrors.BadRequest('You need to used the service to review.');
+        }
         if (isReview) {
             throw new rest_1.HttpErrors.BadRequest('Already review');
         }
@@ -45,6 +50,15 @@ let ReviewController = class ReviewController {
             throw new rest_1.HttpErrors.RequestTimeout(`Cannot create new review. Try again.`);
         }
         await this.coWorkingRepository.update(cw);
+        const user = await this.userRepository.findById(this.user[security_1.securityId], {
+            fields: {
+                id: true,
+                fullname: true,
+                email: true,
+                avatar: true,
+            },
+        });
+        newReview.user = user;
         return newReview;
     }
     // Gett review of CW by cwId
@@ -161,10 +175,12 @@ ReviewController = tslib_1.__decorate([
     tslib_1.__param(0, repository_1.repository(repositories_1.UserRepository)),
     tslib_1.__param(1, repository_1.repository(repositories_1.CoWorkingRepository)),
     tslib_1.__param(2, repository_1.repository(repositories_1.ReviewRepository)),
-    tslib_1.__param(3, core_1.inject(security_1.SecurityBindings.USER, { optional: true })),
+    tslib_1.__param(3, repository_1.repository(repositories_1.BookingRepository)),
+    tslib_1.__param(4, core_1.inject(security_1.SecurityBindings.USER, { optional: true })),
     tslib_1.__metadata("design:paramtypes", [repositories_1.UserRepository,
         repositories_1.CoWorkingRepository,
-        repositories_1.ReviewRepository, Object])
+        repositories_1.ReviewRepository,
+        repositories_1.BookingRepository, Object])
 ], ReviewController);
 exports.ReviewController = ReviewController;
 //# sourceMappingURL=review.controller.js.map

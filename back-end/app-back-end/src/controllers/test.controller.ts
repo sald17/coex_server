@@ -3,6 +3,7 @@ import {inject} from '@loopback/core';
 import {repository} from '@loopback/repository';
 import {
     get,
+    param,
     post,
     Request,
     requestBody,
@@ -10,7 +11,7 @@ import {
     RestBindings,
 } from '@loopback/rest';
 import {BookingRepository, UserRepository} from '../repositories';
-import {Firebase, parseRequest, saveFiles} from '../services';
+import {parseRequest, saveFiles} from '../services';
 
 // import {inject} from '@loopback/core';
 
@@ -27,15 +28,27 @@ export class TestController {
         return 'Jebaited';
     }
 
+    @get('/test/check/{userId}/{cwId}')
+    async check(
+        @param.path.string('userId') userId: string,
+        @param.path.string('cwId') cwId: string,
+    ) {
+        return await this.bookingRepository.checkUserRentCw(userId, cwId);
+    }
+
     @get('/test/noti')
     async testNoti() {
-        const user: any = await this.userRepository.findOne({
-            where: {email: 'png9981@gmail.com'},
-        });
-        Firebase.sendNotification(user.firebaseToken, {
-            title: 'Test',
-            body: 'Hello',
-        });
+        const user = await this.userRepository.findById(
+            '5f51f6fa7fb4e46e69d60009',
+            {
+                fields: {
+                    id: true,
+                    fullname: true,
+                    avatar: true,
+                },
+            },
+        );
+        return user;
     }
 
     @post('/test/upload')
